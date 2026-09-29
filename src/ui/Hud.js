@@ -126,7 +126,10 @@ export class Hud {
   setActivityHud(info) {
     if (!info) { this.actHud.classList.add('hidden'); return; }
     this.actHud.classList.remove('hidden');
-    $('.act-title', this.actHud).textContent = info.title;
+    const title = $('.act-title', this.actHud);
+    title.textContent = info.title;
+    title.style.setProperty('--swatch', info.swatch || 'transparent');
+    title.classList.toggle('swatch', !!info.swatch);
     $('.act-timer', this.actHud).textContent = info.timer != null ? `⏱ ${arabicDigits(Math.max(0, Math.ceil(info.timer)))}` : '';
     const prog = $('.act-progress', this.actHud);
     prog.classList.toggle('hidden', info.progress == null);
@@ -155,6 +158,14 @@ export class Hud {
     if (type === 'race') {
       el.innerHTML = `<h3>🏁 ${T.race}</h3><div class="demo-race">${T.raceDemo.map((w, i) => `<div class="step" style="--i:${i}"><span>${['🕳️', '🦘', '🪜', '🛝'][i]}</span><small>${w}</small></div>`).join('<b class="arrow">←</b>')}
         <div class="step goal" style="--i:4"><span>🟡</span><small>${T.raceGoal}</small></div></div>`;
+    } else if (type === 'colors') {
+      el.innerHTML = `<h3>🎨 ${T.colors}</h3><div class="demo-colors">${BALL_COLORS.map((c, i) => `<span class="tile" style="--c:${c.color};--i:${i}">${c.symbol}</span>`).join('')}</div><p>${T.colorsDemo}</p>`;
+    } else if (type === 'ball') {
+      el.innerHTML = `<h3>⚽ ${T.ball}</h3><div class="demo-race"><div class="step" style="--i:0"><span>🧍🧍</span><small>ادفعوا</small></div><b class="arrow">←</b><div class="step" style="--i:1"><span>🚧</span><small>بوابات</small></div><b class="arrow">←</b><div class="step" style="--i:2"><span>🥅</span><small>هدف</small></div></div><p>${T.ballDemo}</p>`;
+    } else if (type === 'builders') {
+      el.innerHTML = `<h3>🧱 ${T.builders}</h3><div class="demo-race"><div class="step" style="--i:0"><span>🟦🟨</span><small>أعمدة</small></div><b class="arrow">←</b><div class="step" style="--i:1"><span>🤝</span><small>لوح لشخصين</small></div><b class="arrow">←</b><div class="step" style="--i:2"><span>⭐</span><small>نجمة</small></div></div><p>${T.buildersDemo}</p>`;
+    } else if (type === 'hide') {
+      el.innerHTML = `<h3>🙈 ${T.hide}</h3><div class="demo-race"><div class="step" style="--i:0"><span>🙈</span><small>يعدّ</small></div><b class="arrow">←</b><div class="step" style="--i:1"><span>🏃</span><small>اختبئوا</small></div><b class="arrow">←</b><div class="step" style="--i:2"><span>🔍</span><small>يبحث</small></div></div><p>${T.hideDemo}</p>`;
     } else if (type === 'rescue') {
       el.innerHTML = `<h3>🧺 ${T.rescue}</h3><div class="demo-rescue">${BALL_COLORS.map((c, i) => `<div class="pair" style="--c:${c.color};--i:${i}"><span class="ball">${c.symbol}</span><b class="arrow">←</b><span class="basket">${c.symbol}</span></div>`).join('')}</div>
         <p>${T.rescueDemo}</p><p class="hint">🤝 ${T.passTo}…</p>`;

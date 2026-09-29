@@ -6,6 +6,7 @@ import { MAX_PLAYERS, RECONNECT_GRACE_MS, S2C, makeToken } from './protocol.js';
 import {
   SWINGS, SLIDE, BASKETS, BALL_COLORS, BALL_SPOTS, BALL_PIT, RACE, raceStartSlot, spawnPoint, celebrationSlot
 } from './playground.js';
+import { GAMES, ACTIVITY_TYPES, FAMILY_QUEUE } from './games/index.js';
 
 export const PHASE_MS = { intro: 4500, countdown: 3000, results: 7500, celebrate: 11000 };
 export const RESCUE_TIME = 100;
@@ -39,6 +40,7 @@ export class Room {
     this.round = null;
     this.lastResults = null;
     this.activitySeq = 0;
+    this.seekerTurn = 0;
     this.dirty = true;
     this.createdAt = now();
     this.spawnToys();
@@ -95,6 +97,8 @@ export class Room {
   }
 
   releaseAll(p) {
+    const a = this.activity;
+    if (a && GAMES[a.type]?.released) GAMES[a.type].released(this, a, p);
     if (p.equipment) this.releaseEquipment(p, p.equipment);
     if (p.carrying) {
       const ball = this.ball(p.carrying);
@@ -104,7 +108,7 @@ export class Room {
   }
 
   freshStats() {
-    return { racePlace: 0, raceTime: 0, delivered: 0, passes: 0, picked: 0, swings: 0, slides: 0, emotes: 0 };
+    return { racePlace: 0, raceTime: 0, delivered: 0, passes: 0, picked: 0, swings: 0, slides: 0, emotes: 0, colorPoints: 0, found: 0, hidden: 0, pushes: 0, placed: 0 };
   }
 
   get isEmpty() {
@@ -127,6 +131,7 @@ export class Room {
       case 'emote': return this.emote(p, msg.e);
       case 'start': return this.start(p, msg.activity);
       case 'race': return this.raceReport(p, msg);
+      case 'game': return this.gameMessage(p, msg);
       case 'settings': return this.settings(p, msg);
       case 'ping': return this.send(id, { type: S2C.PONG, t: msg.t, now: this.now() });
     }
@@ -152,6 +157,9 @@ export class Room {
     const [x, y, z] = msg.p;
     // Clients own their movement; reject only impossible values.
     if (Math.abs(x) > 40 || Math.abs(z) > 40 || y < -5 || y > 20) return;
+    const t = this.now(), dt = (t - (p.stateAt || 0)) / 1000;
+    if (dt > 0.03 && dt < 1) { p.vx = (x - p.x) / dt; p.vz = (z - p.z) / dt; } else if (dt >= 1) { p.vx = p.vz = 0; }
+    p.stateAt = t;
     p.x = x; p.y = y; p.z = z;
     if (Number.isFinite(msg.r)) p.yaw = msg.r;
     if (Number.isInteger(msg.a) && msg.a >= 0 && msg.a < 32) p.anim = msg.a;
@@ -309,15 +317,31 @@ export class Room {
     if (!a) return false;
     if (a.phase === 'intro' || a.phase === 'countdown') return a.participants.includes(p.id);
     if (a.type === 'celebrate') return true;
-    return false;
+    return !!GAMES[a.type]?.locked?.(this, a, p);
+  }
+
+  gameMessage(p, msg) {
+    const a = this.activity, game = a && GAMES[a.type];
+    if (!game?.handle || !a.participants.includes(p.id)) return;
+    game.handle(this, p, msg, a);
+  }
+
+  // Plugins end their round through here.
+  finishGame(results) {
+    const a = this.activity;
+    if (!a || a.phase === 'results') return;
+    a.data.results = { ...results, badges: this.badges([a.type]) };
+    this.lastResults = { type: a.type, ...a.data.results };
+    this.setPhase('results', PHASE_MS.results);
   }
 
   start(p, type) {
     if (this.activity || !p.character) return;
-    if (!['race', 'rescue', 'family'].includes(type)) return;
+    if (type !== 'family' && !ACTIVITY_TYPES.includes(type)) return;
+    if (GAMES[type] && this.activePlayers.length < GAMES[type].minPlayers) return this.error(p, 'need-2');
     if (type === 'family') {
       if (p.id !== this.hostId) return this.error(p, 'host-only');
-      this.round = { queue: ['race', 'rescue'], index: 0, stats: {} };
+      this.round = { queue: [...FAMILY_QUEUE], index: 0, stats: {} };
       for (const q of this.players.values()) q.stats = this.freshStats();
       this.mode = 'family';
       return this.beginActivity(this.round.queue[0]);
@@ -335,9 +359,14 @@ export class Room {
       participants.forEach((id, i) => { teleport[id] = raceStartSlot(i); });
       this.spawnToys();
     }
-    const data = type === 'race'
+    let data = type === 'race'
       ? { progress: Object.fromEntries(participants.map(id => [id, 0])), finished: [] }
       : { target: rescueTarget(participants.length), delivered: 0, byPlayer: {} };
+    if (GAMES[type]) {
+      const setup = GAMES[type].begin(this, participants);
+      data = setup.data;
+      Object.assign(teleport, setup.teleport);
+    }
     if (type === 'rescue') {
       participants.forEach((id, i) => { teleport[id] = spawnPoint(i); });
       this.spawnRescueBalls(data.target + 5);
@@ -430,6 +459,16 @@ export class Room {
       const helper = best('passes');
       if (helper) list.push({ id: helper.id, badge: 'helper' });
     }
+    const statBadge = (kind, stat, badge) => {
+      if (!kinds.includes(kind)) return;
+      const top = best(stat);
+      if (top) list.push({ id: top.id, badge });
+    };
+    statBadge('colors', 'colorPoints', 'quick');
+    statBadge('hide', 'found', 'seeker');
+    if (kinds.includes('hide')) for (const p of players) if (p.stats.hidden > 0) list.push({ id: p.id, badge: 'hider' });
+    statBadge('ball', 'pushes', 'pusher');
+    statBadge('builders', 'placed', 'builder');
     if (kinds.includes('fun')) {
       const fun = players.filter(p => p.stats.swings + p.stats.slides + p.stats.emotes > 0)
         .sort((a, b) => (b.stats.swings + b.stats.slides + b.stats.emotes) - (a.stats.swings + a.stats.slides + a.stats.emotes))[0];
@@ -457,7 +496,7 @@ export class Room {
     const teleport = {};
     participants.forEach((id, i) => { teleport[id] = celebrationSlot(i, participants.length); });
     for (const [id, t] of Object.entries(teleport)) Object.assign(this.players.get(Number(id)), t);
-    const badges = this.badges(['race', 'rescue', 'fun']);
+    const badges = this.badges([...FAMILY_QUEUE, 'fun']);
     this.activity = {
       type: 'celebrate', phase: 'results', phaseStart: now, phaseEnd: now + PHASE_MS.celebrate, participants, teleport,
       data: { results: { badges, stats: Object.fromEntries(participants.map(id => [id, this.players.get(id).stats])) } },
@@ -479,13 +518,17 @@ export class Room {
       this.equipment[SLIDE.id] = null;
       this.dirty = true;
     }
-    const a = this.activity;
-    if (a && now >= a.phaseEnd) {
+    const a = this.activity, game = a && GAMES[a.type];
+    const dt = Math.min(0.25, (now - (this.lastTick || now)) / 1000) || 0.1;
+    this.lastTick = now;
+    if (game && a.phase === 'play' && game.tick) game.tick(this, a, now, dt);
+    if (this.activity === a && a && a.phase !== 'results' && now >= a.phaseEnd) {
+      const playMs = game ? game.playMs(this, a) : (a.type === 'race' ? RACE.timeLimit : RESCUE_TIME) * 1000;
       if (a.phase === 'intro') this.setPhase('countdown', PHASE_MS.countdown);
-      else if (a.phase === 'countdown') this.setPhase('play', (a.type === 'race' ? RACE.timeLimit : RESCUE_TIME) * 1000);
-      else if (a.phase === 'play') a.type === 'race' ? this.finishRace() : this.finishRescue(false);
-      else if (a.phase === 'results') this.endActivity();
-    }
+      else if (a.phase === 'countdown') game?.prePhase ? this.setPhase(game.prePhase.name, game.prePhase.ms) : this.setPhase('play', playMs);
+      else if (game?.prePhase && a.phase === game.prePhase.name) this.setPhase('play', playMs);
+      else if (a.phase === 'play') game ? game.timeUp(this, a) : a.type === 'race' ? this.finishRace() : this.finishRescue(false);
+    } else if (a && a.phase === 'results' && now >= a.phaseEnd) this.endActivity();
     this.flush();
   }
 
@@ -497,6 +540,8 @@ export class Room {
       for (const p of connected) this.send(p.id, world);
     }
     const snap = { type: S2C.SNAP, t: this.now(), p: this.activePlayers.map(p => [p.id, round2(p.x), round2(p.y), round2(p.z), round2(p.yaw), p.anim]) };
+    const a = this.activity;
+    if (a && GAMES[a.type]?.snap && a.phase === 'play') snap.g = GAMES[a.type].snap(a);
     for (const p of connected) this.send(p.id, snap);
   }
 

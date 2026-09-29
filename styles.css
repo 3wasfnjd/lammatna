@@ -159,3 +159,10 @@ input { font-family: inherit; user-select: text; -webkit-user-select: text; }
   .countdown { font-size: 90px; }
   .select-screen h2 { font-size: 22px; }
 }
+
+/* ---------- newer minigames ---------- */
+.act-title.swatch::before { content: ""; display: inline-block; width: 18px; height: 18px; border-radius: 6px; background: var(--swatch); margin-inline-end: 6px; vertical-align: -3px; box-shadow: 0 0 0 2px #fff, 0 0 10px var(--swatch); }
+.blind { position: absolute; inset: 0; background: radial-gradient(circle, #3A2E4A 0, #1d1626 100%); color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; font-size: 26px; font-weight: 800; text-align: center; pointer-events: none; z-index: 5; }
+.blind b { font-size: 110px; color: #F7BE2F; line-height: 1; }
+.demo-colors { display: flex; justify-content: center; gap: 8px; }
+.demo-colors .tile { width: 52px; height: 52px; border-radius: 12px; background: var(--c); color: #fff; font-size: 26px; display: grid; place-items: center; animation: stepin .4s calc(var(--i) * .25s) both, hop 1.2s calc(var(--i) * .25s) infinite; box-shadow: 0 4px 0 rgba(0,0,0,.15); }

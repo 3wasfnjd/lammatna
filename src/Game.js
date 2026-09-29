@@ -12,6 +12,8 @@ import { T, arabicDigits } from './ui/strings.js';
 import { resultsHtml } from './games/results.js';
 import { CHARACTERS, CHARACTER_IDS, MOVEMENT, ANIM_CODE, EMOTES } from '../shared/characters.js';
 import { createBody, stepBody } from '../shared/physics.js';
+import { solidsFor } from '../shared/games/solids.js';
+import { MiniGames } from './games/MiniGames.js';
 import {
   SWINGS, SLIDE, slidePoint, swingAngle, SWING_FRAME, BASKETS, PADS, RACE, BALL_PIT, DECK_Y, STAGE,
   inBallPit, inFoamPit, raceStartSlot, BALL_COLORS, spawnPoint
@@ -76,6 +78,7 @@ export class Game {
     this.lastActivityKey = '';
     this.stepTimer = 0;
 
+    this.minigames = new MiniGames(this);
     this.characters = CHARACTERS; // exposed for testing model swaps from the console
     this.showPreview(true);
     window.addEventListener('resize', () => { this.engine.resize(); this.rig.resize(canvas); });
@@ -136,9 +139,11 @@ export class Game {
     this.balls.sync(w.balls);
     this.hud.setRoster(w.players, this.me);
     this.syncActivity(prev);
+    this.minigames.sync(w.activity);
   }
 
   onSnap(msg) {
+    this.minigames.onSnap(msg);
     for (const [id, x, y, z, yaw, anim] of msg.p) {
       if (id === this.me) continue;
       this.avatars.get(id)?.pushSnapshot(msg.t, x, y, z, yaw, anim);
@@ -148,6 +153,7 @@ export class Game {
   onEvent(e) {
     const av = this.avatars.get(e.id);
     const near = av ? this.volumeAt(av.position) : 1;
+    this.minigames.onEvent(e);
     switch (e.kind) {
       case 'emote':
         if (e.id !== this.me && av) { av.emote = { name: e.e, until: this.time + EMOTE_TIME }; this.hud.bubble(e.id, EMOTES.find(x => x.id === e.e)?.icon); this.audio.play(e.e, { volume: near }); }
@@ -250,7 +256,7 @@ export class Game {
   isLocked() {
     const a = this.world?.activity;
     if (!a) return false;
-    if (a.type === 'celebrate') return true;
+    if (a.type === 'celebrate' || this.minigames.locked(a)) return true;
     return (a.phase === 'intro' || a.phase === 'countdown') && a.participants.includes(this.me);
   }
 
@@ -303,7 +309,8 @@ export class Game {
     const wx = f.z * mv.x + f.x * mv.y, wz = -f.x * mv.x + f.z * mv.y;
     if (locked) jump = false;
     const wasGrounded = this.body.grounded;
-    stepBody(this.body, { x: locked ? 0 : wx, z: locked ? 0 : wz, jump }, dt);
+    stepBody(this.body, { x: locked ? 0 : wx, z: locked ? 0 : wz, jump }, dt, solidsFor(this.world?.activity, this.serverNow()));
+    this.minigames.collide(this.body);
     if (jump && wasGrounded && !this.body.grounded) this.audio.play('jump');
     if (this.body.landed > 0.3) { this.audio.play('land', { volume: this.body.landed }); this.landTime = this.time; }
     const speed = Math.hypot(this.body.vx, this.body.vz);
@@ -315,7 +322,7 @@ export class Game {
     // Safety: never lose the player outside the hall.
     if (this.body.y < -3) this.teleport({ x: 0, y: 0, z: -3 });
 
-    const carrying = this.carrying();
+    const carrying = this.carrying() || this.minigames.holding();
     let anim;
     if (!this.body.grounded) anim = this.body.vy > 0 ? 'jump' : 'fall';
     else if (this.time - (this.landTime || -9) < 0.2) anim = 'land';
@@ -327,7 +334,7 @@ export class Game {
     av.setAnim(anim);
     av.speed = speed;
     av.yaw = this.yaw;
-    const sink = inBallPit(this.body.x, this.body.z) && this.body.y < 0.2 ? -0.28 : 0;
+    const sink = (inBallPit(this.body.x, this.body.z) && this.body.y < 0.2 ? -0.28 : 0) + this.minigames.sinkFor(this.me);
     av.root.position.set(this.body.x, this.body.y + sink, this.body.z);
     if (this.body.grounded && speed > 0.5) {
       this.stepTimer -= dt * (speed / 2.6);
@@ -416,6 +423,9 @@ export class Game {
     if (eq) return null;
     const a = this.world.activity;
     if (this.isLocked()) return null;
+    const special = this.minigames.action();
+    if (special) return special;
+    if (a?.type === 'builders' && a.data.pieces.some(p => p.holders.includes(this.me))) return null;
     const d = (x, z) => Math.hypot(b.x - x, b.z - z);
     const carrying = this.carrying();
     if (carrying) {
@@ -504,10 +514,13 @@ export class Game {
       this.pendingCp = -1;
     }
     if (a.phase === 'intro') this.hud.showDemo(a.type);
-    if (a.phase === 'play') { this.hud.showCountdown(T.go); this.audio.play('go'); setTimeout(() => this.hud.showCountdown(null), 900); }
+    if (a.phase === 'play' || a.phase === 'hide') {
+      const text = a.type === 'hide' ? (a.phase === 'hide' ? (a.data.seeker === this.me ? '🙈' : T.hideNow) : T.seekNow) : T.go;
+      this.hud.showCountdown(text); this.audio.play('go'); setTimeout(() => this.hud.showCountdown(null), 900);
+    }
     if (a.phase === 'results') {
       this.hud.showResults(resultsHtml(a, this.world.players, this.me), a.type === 'celebrate');
-      const success = a.type !== 'rescue' || a.data.results?.success;
+      const success = a.data.results?.success !== false;
       this.audio.play(a.type === 'celebrate' ? 'celebrate' : success ? 'complete' : 'wrong');
       const where = a.type === 'celebrate' ? new Vector3(0, 0.5, 0) : new Vector3(this.body.x, this.body.y + 0.5, this.body.z);
       if (success) this.effects.confetti(where, { count: a.type === 'celebrate' ? 420 : 220, duration: a.type === 'celebrate' ? 3 : 1.2, spread: 4 });
@@ -528,6 +541,8 @@ export class Game {
       this.hud.setActivityHud({ title: T[a.type], timer: null });
       return;
     }
+    const custom = a.phase !== 'results' && this.minigames.type && this.minigames.hud(a, left);
+    if (custom) { this.hud.setActivityHud(custom); return; }
     if (a.phase === 'play') {
       if (a.type === 'race') {
         const next = a.data.progress[this.me] ?? 0, total = RACE.checkpoints.length + 1;
@@ -557,6 +572,7 @@ export class Game {
     this.updateLocal(dt);
     this.updateRemotes(dt);
     this.updateSwings();
+    this.minigames.update(dt, this.time);
     this.balls.update(dt, this.time, id => {
       const av = this.avatars.get(id);
       return av && av.visible ? av.carryAnchor.getAbsolutePosition() : null;
@@ -603,6 +619,7 @@ export class Game {
         if (av.emote && this.time < av.emote.until && av.speed < 0.3) av.setAnim(av.emote.name);
         const p = av.root.position;
         if (inBallPit(p.x, p.z) && p.y < 0.2) p.y -= 0.28;
+        p.y += this.minigames.sinkFor(id);
         if (av.speed > 0.6 && av.anim !== 'jump' && av.anim !== 'fall') this.audio.play('step', { id, volume: this.volumeAt(p) * 0.5 });
       }
       av.update(dt, { swing: av.swingValue || 0 });
@@ -627,6 +644,7 @@ export class Game {
     for (const [id, av] of this.avatars) {
       const def = av.def;
       const label = this.hud.label(id, id === this.me ? '' : def.name, def.badgeColor);
+      if (this.minigames.hideLabel(id)) { label.style.display = 'none'; continue; }
       const head = av.root.position.add(new Vector3(0, def.look.height + 0.45, 0));
       const inView = Vector3.TransformCoordinates(head, view);
       if (!av.visible || inView.z <= 0.2) { label.style.display = 'none'; continue; }

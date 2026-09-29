@@ -236,3 +236,166 @@ test('GLB inspection tool reads size, clips and suggests a mapping', async () =>
   assert.deepEqual(info.animations, ['Idle', 'Walk']);
   assert.deepEqual(suggestMapping(['Armature|Idle_Loop', 'Run_Fast', 'Wave_Hello', 'Victory']), { idle: 'Armature|Idle_Loop', run: 'Run_Fast', wave: 'Wave_Hello', celebrate: 'Victory' });
 });
+
+// ---- newer minigames -------------------------------------------------------------
+import { tileIndexAt, tileCenter, GIANT, BLUEPRINT, gateBox, GIANT_GATES } from '../shared/games/layout.js';
+import { activitySolids } from '../shared/games/solids.js';
+import { COLORS_ROUNDS } from '../shared/games/colors.js';
+import { FAMILY_QUEUE } from '../shared/games/index.js';
+
+function toPlay(room, advance) {
+  advance(PHASE_MS.intro + 10); advance(PHASE_MS.countdown + 10);
+}
+
+test('colour floor: standing on the called colour scores, wrong tiles do not, all rounds then results', () => {
+  const { room, advance, now } = makeRoom();
+  const a = joinAs(room, 'najd'), b = joinAs(room, 'papa');
+  room.handle(a.id, { type: 'start', activity: 'colors' });
+  toPlay(room, advance);
+  let guard = 0;
+  while (room.activity.phase === 'play' && guard++ < 200) {
+    const d = room.activity.data;
+    if (d.stage === 'show') {
+      const good = d.tiles.findIndex(t => t === d.target), bad = d.tiles.findIndex(t => t !== d.target);
+      const g = tileCenter(good), w = tileCenter(bad);
+      at(room, a, g.x, 0, g.z); at(room, b, w.x, 0, w.z);
+      advance(d.stageEnd - now() + 1);
+    } else advance(300);
+  }
+  assert.equal(room.activity.phase, 'results');
+  const ranking = room.activity.data.results.ranking;
+  assert.equal(ranking[0].id, a.id);
+  assert.equal(ranking[0].score, COLORS_ROUNDS);
+  assert.equal(ranking[1].score, 0);
+  assert.ok(room.activity.data.results.badges.some(x => x.id === a.id && x.badge === 'quick'));
+  assert.equal(tileIndexAt(tileCenter(5).x, tileCenter(5).z), 5);
+});
+
+test('hide and seek: needs two players, seeker is blind while hiding, finds by proximity, rotates', () => {
+  const { room, advance, inbox } = makeRoom();
+  const a = joinAs(room, 'papa');
+  room.handle(a.id, { type: 'start', activity: 'hide' });
+  assert.equal(room.activity, null);
+  assert.ok(inbox.get(a.id).some(m => m.code === 'need-2'));
+  const b = joinAs(room, 'joud'), c = joinAs(room, 'nasser');
+  room.handle(a.id, { type: 'start', activity: 'hide' });
+  const seeker = room.players.get(room.activity.data.seeker);
+  advance(PHASE_MS.intro + 10); advance(PHASE_MS.countdown + 10);
+  assert.equal(room.activity.phase, 'hide');
+  assert.equal(room.inLockedPhase(seeker), true);
+  const hiders = [a, b, c].filter(p => p !== seeker);
+  assert.equal(room.inLockedPhase(hiders[0]), false);
+  advance(20000);
+  assert.equal(room.activity.phase, 'play');
+  at(room, hiders[0], 10, 0, 10); at(room, seeker, 0, 0, 0);
+  room.handle(seeker.id, { type: 'game', op: 'find', id: hiders[0].id });
+  assert.equal(room.activity.data.found.length, 0, 'too far away');
+  at(room, seeker, 9, 0, 10);
+  room.handle(seeker.id, { type: 'game', op: 'find', id: hiders[0].id });
+  assert.deepEqual(room.activity.data.found, [hiders[0].id]);
+  assert.equal(room.inLockedPhase(hiders[0]), true, 'found players spectate');
+  room.handle(hiders[1].id, { type: 'game', op: 'find', id: seeker.id });
+  assert.equal(room.activity.data.found.length, 1, 'only the seeker can find');
+  advance(80000);
+  assert.equal(room.activity.phase, 'results');
+  assert.deepEqual(room.activity.data.results.survivors, [hiders[1].id]);
+  assert.ok(room.activity.data.results.badges.some(x => x.id === hiders[1].id && x.badge === 'hider'));
+  advance(PHASE_MS.results + 10);
+  room.handle(a.id, { type: 'start', activity: 'hide' });
+  assert.notEqual(room.activity.data.seeker, seeker.id, 'the seeker role rotates');
+});
+
+test('giant ball: players push it along the course into the goal; leaving the course resets it', () => {
+  const { room, advance } = makeRoom();
+  const a = joinAs(room, 'mama'), b = joinAs(room, 'nasser');
+  room.handle(a.id, { type: 'start', activity: 'ball' });
+  toPlay(room, advance);
+  const d = room.activity.data;
+  // Throw it off the course: it comes back to the last checkpoint.
+  Object.assign(d, { x: 15, z: 15, vx: 0, vz: 0 });
+  advance(100);
+  assert.deepEqual([d.x, d.z], GIANT.path[0]);
+  assert.equal(d.resets, 1);
+  room.dirty = false; Object.assign(d, { x: GIANT.path[1][0], z: GIANT.path[1][1] }); advance(100);
+  assert.equal(d.cp, 1);
+  assert.equal(room.world().activity.data.cp, 1, 'progress reaches clients');
+  Object.assign(d, { x: GIANT.path[0][0], z: GIANT.path[0][1], vx: 0, vz: 0 });
+  // Walk behind the ball along the path, pushing it.
+  let guard = 0;
+  while (room.activity.phase === 'play' && guard++ < 1500) {
+    const target = d.cp + 1 < GIANT.path.length ? GIANT.path[d.cp + 1] : [GIANT.goal.x, GIANT.goal.z + 1];
+    const dx = target[0] - d.x, dz = target[1] - d.z, l = Math.hypot(dx, dz) || 1;
+    for (const [p, side] of [[a, -0.3], [b, 0.3]]) {
+      const px = d.x - dx / l * 1.5 - dz / l * side, pz = d.z - dz / l * 1.5 + dx / l * side;
+      room.handle(p.id, { type: 'state', p: [px, 0, pz], r: 0, a: 0 });
+    }
+    advance(100);
+    for (const [p, side] of [[a, -0.3], [b, 0.3]]) {
+      const px = d.x - dx / l * 1.35 - dz / l * side, pz = d.z - dz / l * 1.35 + dx / l * side;
+      room.handle(p.id, { type: 'state', p: [px, 0, pz], r: 0, a: 0 });
+    }
+    advance(100);
+  }
+  assert.equal(room.activity.phase, 'results');
+  assert.equal(room.activity.data.results.success, true, `ball stuck at ${d.x.toFixed(1)},${d.z.toFixed(1)} cp ${d.cp}`);
+  assert.ok(room.activity.data.results.badges.some(x => x.badge === 'pusher'));
+});
+
+test('moving gates are colliders that move with time', () => {
+  const act = { type: 'ball', phase: 'play', phaseStart: 0 };
+  const g0 = activitySolids(act, 0).find(s => s.kind === 'gate'), g1 = activitySolids(act, 3000).find(s => s.kind === 'gate');
+  assert.notDeepEqual(g0.min, g1.min);
+  assert.deepEqual(gateBox(GIANT_GATES[0], 0).min, g0.min);
+});
+
+test('family builders: the plank needs two carriers, layers go bottom-up, placed pieces become solid', () => {
+  const { room, advance, inbox } = makeRoom();
+  const a = joinAs(room, 'papa'), b = joinAs(room, 'joud');
+  room.handle(a.id, { type: 'start', activity: 'builders' });
+  toPlay(room, advance);
+  const d = room.activity.data;
+  const piece = kind => d.pieces.find(x => x.kind === kind && !x.placed);
+  const carry = (p, pc) => { at(room, p, pc.x, 0, pc.z); room.handle(p.id, { type: 'game', op: 'lift', id: pc.id }); };
+  const place = (p, slotId) => { const s = BLUEPRINT.find(x => x.id === slotId); at(room, p, s.x, 0, s.z); advance(100); room.handle(p.id, { type: 'game', op: 'place', slot: slotId }); };
+  // Plank first is refused: its supports are missing.
+  const plank = piece('plank');
+  carry(a, plank); carry(b, plank);
+  assert.equal(plank.holders.length, 2);
+  const s2 = BLUEPRINT.find(x => x.id === 's2');
+  at(room, a, s2.x, 0, s2.z); at(room, b, s2.x, 0, s2.z); advance(100);
+  room.handle(a.id, { type: 'game', op: 'place', slot: 's2' });
+  assert.equal(plank.placed, null);
+  assert.ok(inbox.get(a.id).some(m => m.code === 'not-yet'));
+  room.handle(a.id, { type: 'game', op: 'drop' }); room.handle(b.id, { type: 'game', op: 'drop' });
+  // Pillars.
+  carry(a, d.pieces.find(x => x.target === 's0')); place(a, 's0');
+  carry(b, d.pieces.find(x => x.target === 's1')); place(b, 's1');
+  assert.equal(activitySolids(room.activity, room.now()).length, 2);
+  // Plank with only one carrier cannot be placed.
+  carry(a, plank);
+  place(a, 's2');
+  assert.equal(plank.placed, null);
+  assert.ok(inbox.get(a.id).some(m => m.code === 'need-help'));
+  carry(b, plank);
+  at(room, b, s2.x, 0, s2.z); place(a, 's2');
+  assert.equal(plank.placed, 's2');
+  carry(a, d.pieces.find(x => x.target === 's3')); place(a, 's3');
+  carry(b, d.pieces.find(x => x.target === 's4')); place(b, 's4');
+  carry(a, d.pieces.find(x => x.target === 's5')); place(a, 's5');
+  assert.equal(room.activity.phase, 'results');
+  assert.equal(room.activity.data.results.success, true);
+  assert.ok(room.activity.data.results.badges.some(x => x.badge === 'builder'));
+});
+
+test('solo players carry the plank alone, and the family round includes the new games', () => {
+  const { room, advance } = makeRoom();
+  const a = joinAs(room, 'nasser');
+  room.handle(a.id, { type: 'start', activity: 'builders' });
+  toPlay(room, advance);
+  assert.equal(room.activity.data.needTwo, false);
+  advance(PHASE_MS.results + 130000);
+  advance(PHASE_MS.results + 10);
+  room.handle(a.id, { type: 'start', activity: 'family' });
+  assert.deepEqual(room.round.queue, FAMILY_QUEUE);
+  assert.ok(FAMILY_QUEUE.includes('colors') && FAMILY_QUEUE.includes('ball') && FAMILY_QUEUE.includes('builders'));
+});

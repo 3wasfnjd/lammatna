@@ -184,7 +184,11 @@ export const BALL_SPOTS = [
 // ---- Activity start pads in the plaza ------------------------------------------
 export const PADS = [
   { id: 'race', name: 'سباق الملعب', icon: '🏁', color: PALETTE.coral, x: -3.6, z: -4.2 },
-  { id: 'rescue', name: 'إنقاذ الكرات', icon: '🧺', color: PALETTE.yellow, x: 3.6, z: -4.2 }
+  { id: 'rescue', name: 'إنقاذ الكرات', icon: '🧺', color: PALETTE.yellow, x: 3.6, z: -4.2 },
+  { id: 'colors', name: 'الأرضية الملوّنة', icon: '🎨', color: PALETTE.pink, x: 3.2, z: 7.4 },
+  { id: 'ball', name: 'الكرة العملاقة', icon: '⚽', color: PALETTE.turquoise, x: -6.6, z: -5.0 },
+  { id: 'builders', name: 'البنّاؤون', icon: '🧱', color: PALETTE.coral, x: -2.2, z: 15.9 },
+  { id: 'hide', name: 'الغميضة', icon: '🙈', color: PALETTE.mint, x: -17.4, z: 1.2 }
 ];
 
 // ---- Playground Race ------------------------------------------------------------
