@@ -1,0 +1,22 @@
+{
+  "name": "lammatna",
+  "version": "0.1.0",
+  "private": true,
+  "description": "لمّتنا — صالة المرح · Lammatna — Family Playhouse (Babylon.js)",
+  "type": "module",
+  "scripts": {
+    "build": "node tools/build.mjs",
+    "server": "node server/server.mjs",
+    "start": "node server/server.mjs",
+    "test": "node tools/build.mjs --check && node --test tests/*.test.js"
+  },
+  "engines": { "node": ">=18" },
+  "dependencies": {
+    "@babylonjs/core": "9.28.0",
+    "@babylonjs/loaders": "9.28.0",
+    "ws": "8.22.0"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2"
+  }
+}
