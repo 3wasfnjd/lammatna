@@ -1,7 +1,7 @@
 // Authoritative room: membership, unique characters, shared equipment, balls,
 // minigame phases, timers, scores and badges. Runs unchanged in the Node server
 // and in the browser (solo play), driven by `handle()` and `tick()`.
-import { CHARACTER_IDS, MOVEMENT, isCharacterId, ANIM_CODE } from './characters.js';
+import { CHARACTER_IDS, MOVEMENT, isCharacterId, ANIM_CODE, SIZES } from './characters.js';
 import { MAX_PLAYERS, RECONNECT_GRACE_MS, S2C, makeToken } from './protocol.js';
 import {
   SWINGS, SLIDE, BASKETS, BALL_COLORS, BALL_SPOTS, BALL_PIT, RACE, raceStartSlot, spawnPoint, celebrationSlot
@@ -33,6 +33,7 @@ export class Room {
     this.hostId = null;
     this.mode = 'free';
     this.assist = false;
+    this.size = 'normal';
     this.equipment = Object.fromEntries([...SWINGS.map(s => s.id), SLIDE.id].map(id => [id, null]));
     this.balls = [];
     this.ballSeq = 1;
@@ -300,6 +301,7 @@ export class Room {
   settings(p, msg) {
     if (p.id !== this.hostId) return;
     if (typeof msg.assist === 'boolean') this.assist = msg.assist;
+    if (typeof msg.size === 'string' && msg.size in SIZES) this.size = msg.size;
     this.dirty = true;
   }
 
@@ -547,7 +549,7 @@ export class Room {
 
   world() {
     return {
-      type: S2C.WORLD, t: this.now(), code: this.code, host: this.hostId, mode: this.mode, assist: this.assist,
+      type: S2C.WORLD, t: this.now(), code: this.code, host: this.hostId, mode: this.mode, assist: this.assist, size: this.size,
       players: [...this.players.values()].map(p => ({ id: p.id, character: p.character, connected: p.connected, carrying: p.carrying, equipment: p.equipment })),
       equipment: this.equipment,
       balls: this.balls.map(b => ({ id: b.id, color: b.color, x: round2(b.x), y: b.y, z: round2(b.z), holder: b.holder, done: b.done })),

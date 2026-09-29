@@ -4,7 +4,10 @@ import { Audio } from './audio/Audio.js';
 import { LocalTransport, SocketTransport, resolveServerUrl } from './net/Transport.js';
 import { T } from './ui/strings.js';
 
+import { BLOCKY } from './style.js';
+
 const params = new URLSearchParams(location.search);
+document.body.classList.toggle('blocky', BLOCKY);
 const canvas = document.getElementById('game');
 const ui = document.getElementById('ui');
 
@@ -64,7 +67,9 @@ function openMenu() {
   game.hud.showMenu({
     isHost: w?.host === game.me, online: game.transport?.kind === 'online', assist: w?.assist, muted: audio.muted, busy: !!w?.activity,
     onFamily: () => game.send({ type: 'start', activity: 'family' }),
+    size: w?.size,
     onAssist: on => game.send({ type: 'settings', assist: on }),
+    onSize: size => game.send({ type: 'settings', size }),
     onMute: m => audio.setMuted(m),
     onLeave: () => { game.transport?.close(); location.href = location.pathname; }
   });

@@ -10,7 +10,7 @@ import { Controls } from './input/Controls.js';
 import { Hud } from './ui/Hud.js';
 import { T, arabicDigits } from './ui/strings.js';
 import { resultsHtml } from './games/results.js';
-import { CHARACTERS, CHARACTER_IDS, MOVEMENT, ANIM_CODE, EMOTES } from '../shared/characters.js';
+import { CHARACTERS, CHARACTER_IDS, MOVEMENT, ANIM_CODE, EMOTES, SIZES } from '../shared/characters.js';
 import { createBody, stepBody } from '../shared/physics.js';
 import { solidsFor } from '../shared/games/solids.js';
 import { MiniGames } from './games/MiniGames.js';
@@ -136,6 +136,8 @@ export class Game {
     for (const [id, av] of this.avatars) {
       if (!w.players.some(p => p.id === id && p.character)) { av.dispose(); this.avatars.delete(id); this.hud.removeLabel(id); }
     }
+    const scale = SIZES[w.size] || 1;
+    for (const av of this.avatars.values()) av.setScale(scale);
     this.balls.sync(w.balls);
     this.hud.setRoster(w.players, this.me);
     this.syncActivity(prev);
@@ -282,7 +284,7 @@ export class Game {
       const side = s.x < SWING_FRAME.x ? -1 : 1;
       this.rig.setFocus({ position: new Vector3(s.x + side * 4.2, 3.1, s.z - 5.2), target: new Vector3(s.x, 1.5, s.z + ang * 1.2) });
       this.ride = eq;
-      this.rig.follow(dt, av.root.position, null, false, av.def.look.height);
+      this.rig.follow(dt, av.root.position, null, false, av.height);
       if (jump || this.controls.moveVector().y < -0.8) this.leaveSwing(s);
       return;
     }
@@ -295,7 +297,7 @@ export class Game {
       if (!this.ride || this.ride.id !== SLIDE.id) this.audio.play('slide');
       this.ride = eq;
       this.rig.setFocus({ position: new Vector3(p.x + 5, p.y + 2.4, p.z - 1.5), target: new Vector3(p.x, p.y + 0.8, p.z - 1) });
-      this.rig.follow(dt, av.root.position, null, false, av.def.look.height);
+      this.rig.follow(dt, av.root.position, null, false, av.height);
       if (t >= 1) this.finishSlide();
       return;
     }
@@ -343,7 +345,7 @@ export class Game {
     if (sink && speed > 1 && this.time - (this.lastSplash || 0) > 0.5) {
       this.lastSplash = this.time; this.effects.splash(new Vector3(this.body.x, 0.3, this.body.z));
     }
-    this.rig.follow(dt, av.root.position, speed > 0.5 ? this.yaw : null, speed > 0.5 && mv.y > -0.3, av.def.look.height);
+    this.rig.follow(dt, av.root.position, speed > 0.5 ? this.yaw : null, speed > 0.5 && mv.y > -0.3, av.height);
     this.raceLogic();
   }
 
@@ -645,7 +647,7 @@ export class Game {
       const def = av.def;
       const label = this.hud.label(id, id === this.me ? '' : def.name, def.badgeColor);
       if (this.minigames.hideLabel(id)) { label.style.display = 'none'; continue; }
-      const head = av.root.position.add(new Vector3(0, def.look.height + 0.45, 0));
+      const head = av.root.position.add(new Vector3(0, av.height + 0.3 + av.scale * 0.15, 0));
       const inView = Vector3.TransformCoordinates(head, view);
       if (!av.visible || inView.z <= 0.2) { label.style.display = 'none'; continue; }
       const ndc = Vector3.TransformCoordinates(head, vp);

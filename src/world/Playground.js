@@ -5,6 +5,7 @@ import {
   CreateSphere, CreateCylinder, CreateGround, CreatePlane, CreateTorus, CreateDisc, CreateTube, CreateBox, CreateCapsule
 } from '../babylon.js';
 import { Kit, hex, roundRect } from './Kit.js';
+import { BLOCKY } from '../style.js';
 import {
   HALL, PALETTE, AREAS, SOLIDS, STAGE, TOWERS, DECK_Y, STAIRS, SLIDE, slidePoint, BALL_PIT, TUNNEL, FOAM_PIT,
   SWING_FRAME, SWINGS, IGLOO, TENT, COLOR_FLOOR, BASKETS, BALL_COLORS, PADS, RACE, BENCHES, BEACH_BALLS, POTS
@@ -59,6 +60,14 @@ export class Playground {
     for (let i = 0; i * tile < res; i++) for (let j = 0; j * tile < H; j++) {
       ctx.fillStyle = (i + j) % 2 ? '#FFF1DB' : '#F8E2C2';
       ctx.fillRect(i * tile + 2, j * tile + 2, tile - 4, tile - 4);
+    }
+    if (BLOCKY) {
+      // Studded baseplate look.
+      const step = 0.5 * px, r = step * 0.28;
+      for (let x = step / 2; x < res; x += step) for (let y = step / 2; y < H; y += step) {
+        ctx.fillStyle = 'rgba(120,80,40,0.10)'; ctx.beginPath(); ctx.arc(x + 1.5, y + 1.5, r, 0, Math.PI * 2); ctx.fill();
+        ctx.fillStyle = 'rgba(255,255,255,0.35)'; ctx.beginPath(); ctx.arc(x - 0.5, y - 0.5, r * 0.8, 0, Math.PI * 2); ctx.fill();
+      }
     }
     // Area pools of colour children can recognise from far away.
     for (const a of AREAS) {

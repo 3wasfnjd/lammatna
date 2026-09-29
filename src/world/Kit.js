@@ -1,4 +1,5 @@
 // Reusable building blocks: shared toon-ish materials, rounded boxes and labels.
+import { BLOCKY } from '../style.js';
 import { StandardMaterial, Color3, Mesh, VertexData, DynamicTexture, CreatePlane } from '../babylon.js';
 
 export function hex(c) { return Color3.FromHexString(c); }
@@ -12,6 +13,7 @@ export class Kit {
 
   // Soft, slightly glossy "padded foam / plastic" material, shared per colour.
   mat(color, { gloss = 0.18, emissive = 0.12, alpha = 1, name } = {}) {
+    if (BLOCKY) gloss = Math.max(gloss, 0.32); // smooth plastic
     const key = `${color}|${gloss}|${emissive}|${alpha}|${name || ''}`;
     let m = this.materials.get(key);
     if (!m) {
@@ -30,6 +32,8 @@ export class Kit {
 
   // Rounded box with shared geometry per size. Corners use a few arc steps.
   roundedBox(name, w, h, d, r, material, { segments = 3 } = {}) {
+    // The blocky style keeps only a small bevel: crisp toy-brick edges.
+    if (BLOCKY) r = Math.min(r, 0.05);
     r = Math.min(r, w / 2 - 0.001, h / 2 - 0.001, d / 2 - 0.001);
     const key = `${w.toFixed(3)}|${h.toFixed(3)}|${d.toFixed(3)}|${r.toFixed(3)}|${segments}`;
     let source = this.geometry.get(key);

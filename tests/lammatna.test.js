@@ -399,3 +399,14 @@ test('solo players carry the plank alone, and the family round includes the new 
   assert.deepEqual(room.round.queue, FAMILY_QUEUE);
   assert.ok(FAMILY_QUEUE.includes('colors') && FAMILY_QUEUE.includes('ball') && FAMILY_QUEUE.includes('builders'));
 });
+
+test('character size is a host setting that only accepts known sizes', () => {
+  const { room } = makeRoom();
+  const host = joinAs(room, 'papa'), guest = joinAs(room, 'najd');
+  room.handle(guest.id, { type: 'settings', size: 'tiny' });
+  assert.equal(room.world().size, 'normal');
+  room.handle(host.id, { type: 'settings', size: 'ant-giant' });
+  assert.equal(room.world().size, 'normal');
+  room.handle(host.id, { type: 'settings', size: 'dwarf' });
+  assert.equal(room.world().size, 'dwarf');
+});

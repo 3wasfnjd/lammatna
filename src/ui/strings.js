@@ -8,6 +8,7 @@ export const T = {
   connecting: 'جارٍ الاتصال…', connectFailed: 'تعذّر الاتصال بخادم الغرف',
   chooseCharacter: 'اختر شخصيتك', taken: 'مع لاعب آخر', you: 'أنت',
   room: 'غرفة', invite: 'دعوة', copied: 'تم نسخ رابط الدعوة', shareText: 'تعالوا نلعب معًا في لمّتنا!',
+  size: 'حجم الشخصيات', sizes: { normal: 'عادي', dwarf: 'أقزام', tiny: 'صغار جدًا (مثل النمل)' },
   menu: 'القائمة', familyRound: 'جولة عائلية', freePlay: 'لعب حر', assist: 'مساعدة الصغار', sound: 'الصوت', leave: 'خروج',
   hostOnly: 'صاحب الغرفة فقط يبدأ الجولة العائلية',
   ride: 'اركب', getOff: 'انزل', slide: 'انزلق', pickUp: 'التقط', put: 'ضع', drop: 'أنزل', passTo: 'مرّر إلى', start: 'ابدأ',

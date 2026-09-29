@@ -4,6 +4,8 @@
 import { TransformNode } from '../babylon.js';
 import { CHARACTERS, characterModel, ANIMATION_STATES } from '../../shared/characters.js';
 import { PlaceholderVisual } from './PlaceholderVisual.js';
+import { BlockyVisual } from './BlockyVisual.js';
+import { BLOCKY } from '../style.js';
 import { createGlbVisual } from './GlbVisual.js';
 
 export class Avatar {
@@ -24,7 +26,8 @@ export class Avatar {
     this.emote = null;
     this.ride = null;
     this.visible = true;
-    this.setVisual(new PlaceholderVisual(scene, kit, this.def));
+    this.scale = 1;
+    this.setVisual(new (BLOCKY ? BlockyVisual : PlaceholderVisual)(scene, kit, this.def));
     const model = characterModel(characterId);
     if (model.type === 'glb') {
       createGlbVisual(scene, this.def, model)
@@ -40,9 +43,19 @@ export class Avatar {
     }
     this.visual = visual;
     visual.root.parent = this.root;
+    visual.root.scaling.setAll(this.scale);
     this.shadows?.addCaster(visual);
     this.onVisualChanged?.(visual);
   }
+
+  // Room-wide character size (dwarf / tiny modes): visual only, gameplay is unchanged.
+  setScale(s) {
+    if (s === this.scale) return;
+    this.scale = s;
+    this.visual.root.scaling.setAll(s);
+  }
+
+  get height() { return this.def.look.height * this.scale; }
 
   get carryAnchor() { return this.visual.carryAnchor; }
   get position() { return this.root.position; }
