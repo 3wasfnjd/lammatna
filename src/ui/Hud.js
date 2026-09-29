@@ -21,8 +21,8 @@ export class Hud {
       <div class="countdown hidden"></div>
       <div class="toast hidden"></div>
       <div class="panel demo hidden"></div>
-      <div class="panel results hidden"></div>
-      <div class="panel menu hidden"></div>
+      <div class="panel results scrollable hidden"></div>
+      <div class="panel menu scrollable hidden"></div>
       <div class="fade"></div>`);
     this.topbar = $('.topbar', root);
     this.actHud = $('.activity-hud', root);
@@ -105,12 +105,13 @@ export class Hud {
     }).join('');
   }
 
-  showMenu({ isHost, online, assist, muted, busy, onFamily, onAssist, onMute, onLeave }) {
+  showMenu({ isHost, online, assist, muted, busy, size = 'normal', onFamily, onAssist, onMute, onSize, onLeave }) {
     const el = this.menuEl;
     el.innerHTML = `<button class="close">✕</button><h3>${T.menu}</h3>
       <button class="big-btn family" ${isHost && !busy ? '' : 'disabled'}>🎉 ${T.familyRound}</button>
       ${isHost ? '' : `<p class="note">${T.hostOnly}</p>`}
       <label class="toggle"><input type="checkbox" class="assist" ${assist ? 'checked' : ''} ${isHost ? '' : 'disabled'}> ${T.assist}</label>
+      <div class="toggle size-row"><span>${T.size}</span><div class="seg">${Object.entries(T.sizes).map(([k, v]) => `<button data-size="${k}" class="${k === size ? 'on' : ''}" ${isHost ? '' : 'disabled'}>${v}</button>`).join('')}</div></div>
       <label class="toggle"><input type="checkbox" class="mute" ${muted ? '' : 'checked'}> ${T.sound}</label>
       <button class="big-btn ghost leave">${T.leave}</button>`;
     el.classList.remove('hidden');
@@ -119,6 +120,7 @@ export class Hud {
     $('.family', el).onclick = () => { close(); onFamily(); };
     $('.assist', el).onchange = e => onAssist(e.target.checked);
     $('.mute', el).onchange = e => onMute(!e.target.checked);
+    for (const b of el.querySelectorAll('[data-size]')) b.onclick = () => { onSize(b.dataset.size); for (const x of el.querySelectorAll('[data-size]')) x.classList.toggle('on', x === b); };
     $('.leave', el).onclick = () => { close(); onLeave(); };
   }
 

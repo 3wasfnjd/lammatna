@@ -39,8 +39,9 @@ export class CameraRig {
       this.yaw += d * Math.min(1, dt * 0.9) * (Math.abs(d) < 2.4 ? 1 : 0);
     }
     // Smaller characters get a closer, lower camera so they stay the star.
-    const dist = this.baseDistance * (0.62 + height * 0.2);
-    const head = new Vector3(target.x, target.y + 0.55 + height * 0.5, target.z);
+    // Tiny characters get a low, close camera so the playground towers over them.
+    const dist = this.baseDistance * (0.28 + height * 0.43);
+    const head = new Vector3(target.x, target.y + 0.18 + height * 0.8, target.z);
     // Try the chosen angle first, then flatter ones (under the tower deck, by walls).
     let best = null;
     for (const pitch of [this.pitch, this.pitch * 0.5, 0.06]) {
@@ -51,7 +52,7 @@ export class CameraRig {
     }
     const d = Math.max(0.45, Math.min(dist, best.free));
     let want = head.add(best.dir.scale(d));
-    want.y = Math.max(0.35, Math.min(7.0, want.y));
+    want.y = Math.max(Math.min(0.35, head.y * 0.6), Math.min(7.0, want.y));
     let look = head.clone();
 
     if (this.focus) this.focusBlend = Math.min(1, this.focusBlend + dt * 1.6);

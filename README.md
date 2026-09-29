@@ -39,6 +39,21 @@ A mobile-browser family game built with Babylon.js. Five family members play tog
 - **Sound**: cheerful synthesised music and sound effects made with the Web Audio API, so there are no audio files. Sound starts on the first tap, and the music ducks under important cues.
 - **Help for young players** (host setting): larger reach for picking up, placing and riding.
 
+## Blocky style and character size (2026-09-29)
+
+| Blocky family | Dwarf size | Tiny size |
+| --- | --- | --- |
+| ![](docs/blocky-family.jpg) | ![](docs/size-dwarf.jpg) | ![](docs/size-tiny.jpg) |
+
+- **Blocky style (default)**: original toy-brick look inspired by block-building games.
+  - Characters are built from boxes: box head with a printed-style face, box torso, arms and legs. Hair, headscarf, cap, ponytail, buns, beard and glasses are blocks too. The model is `src/characters/BlockyVisual.js`.
+  - It reuses the same rig and procedural animation, so every action works as before.
+  - The world uses crisp bevelled edges, glossy plastic materials and a studded floor.
+  - `?style=soft` switches back to the rounded cartoon look. The choice is remembered on the device.
+- **Character size** (room owner, in the menu): عادي (normal), أقزام (dwarf, 0.55×) or صغار جدًا (tiny, 0.32×).
+  - Only the look and the camera change: the camera sits lower and closer, so the playground towers over the family.
+  - Collision, speed, jump and reach stay the same, so every course and minigame still works at every size. Tiny characters still climb the stairs.
+
 ## The four new games (2026-09-29)
 
 | Colour Floor | Giant Ball | Family Builders | Hide-and-Seek |

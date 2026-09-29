@@ -23,6 +23,10 @@ export const ANIMATION_STATES = ['idle', 'walk', 'run', 'jump', 'fall', 'land', 
   'carry', 'carryWalk', 'wave', 'laugh', 'clap', 'celebrate'];
 export const ANIM_CODE = Object.fromEntries(ANIMATION_STATES.map((name, i) => [name, i]));
 
+// Room-wide character size. Only the look and camera change: collision, speed,
+// jump and reach stay identical so every course and minigame still works.
+export const SIZES = { normal: 1, dwarf: 0.55, tiny: 0.32 };
+
 export const EMOTES = [
   { id: 'wave', label: 'تلويح', icon: '👋' },
   { id: 'laugh', label: 'ضحك', icon: '😄' },
