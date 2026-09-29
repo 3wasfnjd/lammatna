@@ -33,6 +33,25 @@ export function resultsHtml(a, players, me) {
     return `<h3>🧺 ${T.rescue}</h3><div class="stars">${stars}</div>
       <p class="cheer">${r.success ? T.success : T.almost} — ${arabicDigits(r.delivered)} / ${arabicDigits(r.target)}</p><ol class="rank plain">${rows}</ol>`;
   }
+  const row = (id, right) => {
+    const c = who(players, id); if (!c) return '';
+    return `<li class="${id === me ? 'me' : ''}" style="--c:${c.badgeColor}"><b>${c.name}</b><span>${right}</span><div>${badgeList(badges, players, id)}</div></li>`;
+  };
+  const starLine = () => '⭐'.repeat(r.stars || 0) + '☆'.repeat(3 - (r.stars || 0));
+  if (a.type === 'colors') {
+    const rows = (r.ranking || []).map((x, i) => row(x.id, `${medal[i + 1] || ''} ⭐ ${arabicDigits(x.score)} / ${arabicDigits(r.rounds)}`)).join('');
+    return `<h3>🎨 ${T.colors}</h3><p class="cheer">${T.everyone}</p><ol class="rank">${rows}</ol>`;
+  }
+  if (a.type === 'hide') {
+    const rows = a.participants.map(id => row(id, id === r.seeker ? `🔍 ${arabicDigits((r.found || []).length)}` : (r.survivors || []).includes(id) ? '🫥 ✓' : '👀')).join('');
+    return `<h3>🙈 ${T.hide}</h3><p class="cheer">${T.everyone}</p><ol class="rank plain">${rows}</ol>`;
+  }
+  if (a.type === 'ball' || a.type === 'builders') {
+    const title = a.type === 'ball' ? `⚽ ${T.ball}` : `🧱 ${T.builders}`;
+    const detail = r.success ? `${T.success} — ${arabicDigits(r.seconds)} ${T.seconds}` : `${T.almost}${r.placed != null ? ` — ${arabicDigits(r.placed)} / ${arabicDigits(r.total)}` : ''}`;
+    const rows = a.participants.map(id => row(id, a.type === 'builders' ? `🧱 ${arabicDigits(r.placedBy?.[id] || 0)}` : '')).join('');
+    return `<h3>${title}</h3><div class="stars">${starLine()}</div><p class="cheer">${detail}</p><ol class="rank plain">${rows}</ol>`;
+  }
   // Family celebration: everyone who played, with every badge they earned.
   const rows = a.participants.map(id => {
     const c = who(players, id); if (!c) return '';

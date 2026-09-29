@@ -39,6 +39,36 @@ A mobile-browser family game built with Babylon.js. Five family members play tog
 - **Sound**: cheerful synthesised music and sound effects made with the Web Audio API, so there are no audio files. Sound starts on the first tap, and the music ducks under important cues.
 - **Help for young players** (host setting): larger reach for picking up, placing and riding.
 
+## The four new games (2026-09-29)
+
+| Colour Floor | Giant Ball | Family Builders | Hide-and-Seek |
+| --- | --- | --- | --- |
+| ![](docs/color-floor.jpg) | ![](docs/giant-ball.jpg) | ![](docs/builders.jpg) | ![](docs/hide-seek.jpg) |
+
+Each game starts from its own pad next to its area, and runs as a room plugin in `shared/games/` (the server decides everything). The on-device side is in `src/games/MiniGames.js`.
+
+- **الأرضية الملوّنة (Colour Floor)**: 8 rounds. The floor lights up, and a target colour and symbol are called with a short melody for each colour. Everyone runs to a matching tile before the countdown ends.
+  - The countdown gets shorter each round (4.2 s → 1.8 s), and there are fewer safe tiles.
+  - Wrong tiles drop into the cushions with the player standing on them, then come back up. Nobody is knocked out.
+  - One point per correct round. Ranking plus the ⚡ «أسرع قدمين» badge.
+- **الكرة العملاقة (Giant Ball)**: the family pushes a 2 m beach ball along a winding course into a goal on the illuminated floor.
+  - The ball is simulated on the server. Walking into it pushes harder than standing still, and the pushes of several players add up.
+  - Along the way there are two soft barriers, the benches and decor, and two slowly moving gates (colliders driven by time).
+  - If the ball leaves the course, it returns to the last checkpoint.
+  - 120 s, with stars for speed and the 💪 «أقوى دفعة» badge.
+- **البنّاؤون (Family Builders)**: build «برج النجمة» (the star tower) on a glowing blueprint. Two pillars, then a long plank, then two cubes, then a star.
+  - The plank needs two carriers when two or more people play. It stays put until the second person lifts it, and it follows the midpoint between them.
+  - Pieces snap into place only when the layer below is finished.
+  - Placed pieces become solid, so you can climb the tower.
+  - Stars for speed and the 🧱 «المهندس الماهر» badge.
+- **الغميضة (Hide-and-Seek)**: needs at least two players.
+  - The seeker rotates each round and counts for 18 s behind a full-screen overlay while the others hide: the igloo, the tent, under the tower, behind blocks.
+  - While seeking, name labels of hidden players disappear for the seeker. «وجدتك يا …» appears when the seeker gets close.
+  - Found players move to the stage and watch.
+  - 🔍 «المحقق الذكي» badge for the seeker, 🫥 «ملك الاختباء» for anyone never found.
+
+**Family round** now plays race → Colour Floor → Ball Rescue → Giant Ball → Builders → celebration. Hide-and-Seek is started separately from its pad.
+
 ## Architecture: replaceable models
 
 ```
@@ -119,5 +149,5 @@ On GitHub Pages (https://3wasfnjd.github.io/lammatna/) there is no room server, 
 ## Next steps
 
 - The final character GLBs, when you provide them.
-- The remaining minigames: Colour Floor, Family Builders, Giant Ball Challenge and Hide-and-Seek. Their areas already exist in the playground.
+- More blueprints for Builders (castle, robot) and more rounds or modes for the other games.
 - Testing on real iPhone and Android devices, including multiplayer sessions, loading, touch and frame pacing. So far only headless Chromium has been tested.

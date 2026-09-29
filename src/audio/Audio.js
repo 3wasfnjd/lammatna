@@ -99,6 +99,12 @@ export class Audio {
       case 'wave': this.tone(midi(79), { dur: 0.15, type: 'sine', gain: 0.12, slide: 1.2 }); this.tone(midi(83), { at: 0.12, dur: 0.18, type: 'sine', gain: 0.12 }); break;
       case 'laugh': [0, 0.12, 0.24, 0.36].forEach((a, i) => this.tone(midi(81 - i * 2), { at: a, dur: 0.1, type: 'triangle', gain: 0.12, slide: 0.9 })); break;
       case 'clap': [0, 0.18, 0.36].forEach(a => this.noise({ at: a, dur: 0.06, gain: 0.25, freq: 1800, q: 1.5 })); break;
+      case 'colorCue': { // each colour has its own little melody, heard over the music
+        this.duck(0.3, 0.8);
+        const tunes = [[72, 76], [67, 74], [76, 79, 84], [69, 65]];
+        (tunes[opts.color] || tunes[0]).forEach((n, i) => this.tone(midi(n), { at: i * 0.13, dur: 0.22, type: 'square', gain: 0.1 }));
+        break;
+      }
       case 'tap': this.tone(660, { dur: 0.06, type: 'triangle', gain: 0.12 }); break;
       case 'join': this.tone(midi(76), { dur: 0.12, type: 'triangle', gain: 0.15 }); this.tone(midi(83), { at: 0.1, dur: 0.18, type: 'triangle', gain: 0.15 }); break;
     }

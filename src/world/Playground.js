@@ -435,7 +435,6 @@ export class Playground {
       m.specularColor = new Color3(0.2, 0.2, 0.2);
       tile.material = m;
       tile.position.set(f.x + (c - (f.cols - 1) / 2) * f.tile, 0.04, f.z + (r - (f.rows - 1) / 2) * f.tile);
-      tile.freezeWorldMatrix();
       this.tiles.push({ mesh: tile, mat: m, phase: (r * 3 + c * 5) % 4, colors: colors.map(hex) });
     }
     const border = k.roundedBox('floorborder', f.cols * f.tile + 0.4, 0.06, f.rows * f.tile + 0.4, 0.03, k.mat(PALETTE.navy));
@@ -578,8 +577,24 @@ export class Playground {
     for (const s of this.signs) s.setEnabled(Math.hypot(s.position.x - c.x, s.position.z - c.z) > 4.2);
   }
 
+  // During Colour Floor the minigame drives the tiles: { colors: [0..3 | -1], lowered: [bool], dim }.
   update(time) {
-    for (const t of this.tiles) {
+    const st = this.tileState;
+    const dt = Math.min(0.1, Math.max(0, time - (this.lastTime ?? time)));
+    this.lastTime = time;
+    const ease = 1 - Math.exp(-dt * 10);
+    for (const [n, t] of this.tiles.entries()) {
+      if (st) {
+        const ci = st.colors[n];
+        const c = ci >= 0 ? t.colors[ci] : this.offColor || (this.offColor = hex('#6B6478'));
+        const glow = ci >= 0 ? (st.lowered[n] ? 0.15 : 0.6 + 0.3 * Math.sin(time * 8)) : 0.05;
+        t.mat.diffuseColor = c;
+        t.mat.emissiveColor = c.scale(glow);
+        const y = st.lowered[n] ? -0.55 : 0.04;
+        t.mesh.position.y += (y - t.mesh.position.y) * ease;
+        continue;
+      }
+      if (t.mesh.position.y !== 0.04) t.mesh.position.y += (0.04 - t.mesh.position.y) * ease;
       const i = Math.floor(time / 1.2 + t.phase) % 4, glow = 0.55 + 0.25 * Math.sin(time * 3 + t.phase);
       t.mat.diffuseColor = t.colors[i];
       t.mat.emissiveColor = t.colors[i].scale(glow);
