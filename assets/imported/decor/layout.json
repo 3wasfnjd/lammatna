@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "purpose": "Visual decor replacement plan for Lammatna. No gameplay/physics changes.",
+  "sourceHead": "7a16357e18a556920d48e444bfa299c75ca324eb",
+  "notes": [
+    "Coordinates match the current procedural decor locations.",
+    "No collider, gameplay, minigame, movement, or physics definitions are changed by this file.",
+    "Models are already present under assets/imported/furniture/kenney-furniture-kit/."
+  ],
+  "placements": [
+    {
+      "id": "parent-bench-left",
+      "replaces": "procedural bench at BENCHES[0]",
+      "model": "assets/imported/furniture/kenney-furniture-kit/benchCushion.glb",
+      "position": [
+        -7.5,
+        0,
+        -1
+      ],
+      "rotationY": 1.5707963267948966,
+      "scale": 1
+    },
+    {
+      "id": "parent-bench-right",
+      "replaces": "procedural bench at BENCHES[1]",
+      "model": "assets/imported/furniture/kenney-furniture-kit/benchCushion.glb",
+      "position": [
+        7.5,
+        0,
+        -1
+      ],
+      "rotationY": -1.5707963267948966,
+      "scale": 1
+    },
+    {
+      "id": "plant-sw",
+      "replaces": "procedural pot/crown",
+      "model": "assets/imported/furniture/kenney-furniture-kit/pottedPlant.glb",
+      "position": [
+        -22.31,
+        0,
+        -16.49
+      ],
+      "rotationY": 0.35,
+      "scale": 1
+    },
+    {
+      "id": "plant-se",
+      "replaces": "procedural pot/crown",
+      "model": "assets/imported/furniture/kenney-furniture-kit/pottedPlant.glb",
+      "position": [
+        22.31,
+        0,
+        -16.49
+      ],
+      "rotationY": -0.45,
+      "scale": 1
+    },
+    {
+      "id": "plant-ne",
+      "replaces": "procedural pot/crown",
+      "model": "assets/imported/furniture/kenney-furniture-kit/pottedPlant.glb",
+      "position": [
+        22.31,
+        0,
+        16.49
+      ],
+      "rotationY": 0.8,
+      "scale": 1
+    },
+    {
+      "id": "plant-nw",
+      "replaces": "procedural pot/crown",
+      "model": "assets/imported/furniture/kenney-furniture-kit/pottedPlant.glb",
+      "position": [
+        -22.31,
+        0,
+        16.49
+      ],
+      "rotationY": -0.7,
+      "scale": 1
+    },
+    {
+      "id": "plant-north-east-mid",
+      "replaces": "procedural pot/crown",
+      "model": "assets/imported/furniture/kenney-furniture-kit/plantSmall2.glb",
+      "position": [
+        8.73,
+        0,
+        16.49
+      ],
+      "rotationY": 0.2,
+      "scale": 1
+    },
+    {
+      "id": "plant-north-west-mid",
+      "replaces": "procedural pot/crown",
+      "model": "assets/imported/furniture/kenney-furniture-kit/plantSmall3.glb",
+      "position": [
+        -11.64,
+        0,
+        16.49
+      ],
+      "rotationY": -0.25,
+      "scale": 1
+    },
+    {
+      "id": "cushion-west-south",
+      "replaces": "procedural cushion",
+      "model": "assets/imported/furniture/kenney-furniture-kit/pillowBlue.glb",
+      "position": [
+        -22.5,
+        0.18,
+        -3
+      ],
+      "rotationY": 0.25,
+      "scale": 1.15
+    },
+    {
+      "id": "cushion-west-north",
+      "replaces": "procedural cushion",
+      "model": "assets/imported/furniture/kenney-furniture-kit/pillow.glb",
+      "position": [
+        -22.6,
+        0.18,
+        8
+      ],
+      "rotationY": -0.35,
+      "scale": 1.15
+    },
+    {
+      "id": "cushion-east-mid",
+      "replaces": "procedural cushion",
+      "model": "assets/imported/furniture/kenney-furniture-kit/pillowLong.glb",
+      "position": [
+        22.6,
+        0.18,
+        3.5
+      ],
+      "rotationY": 0.5,
+      "scale": 1.05
+    },
+    {
+      "id": "cushion-south-left",
+      "replaces": "procedural cushion",
+      "model": "assets/imported/furniture/kenney-furniture-kit/pillowBlueLong.glb",
+      "position": [
+        -1,
+        0.18,
+        -17.2
+      ],
+      "rotationY": 0.1,
+      "scale": 1.05
+    },
+    {
+      "id": "cushion-south-right",
+      "replaces": "procedural cushion",
+      "model": "assets/imported/furniture/kenney-furniture-kit/pillow.glb",
+      "position": [
+        4,
+        0.18,
+        -17.2
+      ],
+      "rotationY": -0.2,
+      "scale": 1.1
+    }
+  ]
+}
