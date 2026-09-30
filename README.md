@@ -10,7 +10,7 @@ A mobile-browser family game built with Babylon.js. Five family members play tog
 
 ## What is in this first playable version
 
-- **Five simplified characters**: بابا، ماما، ناصر، جود، نجد. Each is told apart by height, silhouette, clothing colours and face details: Papa has a beard and glasses, Mama a headscarf, Nasser a cap, Joud a ponytail and Najd hair buns. All share one movement profile (`MOVEMENT` in `shared/characters.js`), so speed, jump height, reach and collision size are identical for everyone, whatever their visual height.
+- **Five simplified characters**: عبودي، مامي، ناصر، جود، نجد. Each is told apart by height, silhouette, clothing colours and face details: Papa has a beard and glasses, Mama a headscarf, Nasser a cap, Joud a ponytail and Najd hair buns. All share one movement profile (`MOVEMENT` in `shared/characters.js`), so speed, jump height, reach and collision size are identical for everyone, whatever their visual height.
 - **Procedural animation** for idle, walk, run, jump, fall, land, sitting/swinging, sliding, carrying, waving, laughing, clapping and celebrating. Characters also blink and change expression.
 - **One connected playground**:
   - a central plaza with a celebration stage;
@@ -52,8 +52,8 @@ Each model is customised in code, without editing the GLB files (`shared/charact
   - An `exclude` box keeps features that share the colour, for example the eyes.
 - **Accessories on bones**: blocky boxes or small GLBs attached to the head bone, so they follow every animation. The glasses come from the pack itself. Head coordinates: origin at the neck, +y up, +z forward, head ≈ 0.30 wide.
 - **The family**:
-  - بابا: male-b with a darkened beard and hair, a turquoise shirt and glasses.
-  - ماما: female-d with a coral outfit and a purple blocky headscarf.
+  - عبودي: male-b with a darkened beard and hair, a turquoise shirt and glasses.
+  - مامي: female-d with a coral outfit and a purple blocky headscarf.
   - ناصر: male-f with a yellow shirt and a turquoise cap.
   - جود: female-c in purple with dark brown hair.
   - نجد: female-b in pink with brown hair.
