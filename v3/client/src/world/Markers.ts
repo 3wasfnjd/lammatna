@@ -79,6 +79,20 @@ export class Markers {
         a.rotation.set(Math.PI / 2, Math.atan2(x1 - x0, z1 - z0), 0);
         this.arrows.push(a);
       }
+      // Little footprints between the arrows.
+      const foot = new StandardMaterial('guide-foot', this.scene);
+      foot.emissiveColor = new Color3(1, 0.62, 0.11); foot.disableLighting = true; foot.alpha = 0.7;
+      for (let i = 0; i < pts.length - 1; i++) {
+        const [x0, z0] = pts[i], [x1, z1] = pts[i + 1], yaw = Math.atan2(x1 - x0, z1 - z0);
+        for (const t of [0.2, 0.8]) {
+          const side = t < 0.5 ? 1 : -1;
+          const f = CreatePlane('guide-foot', { width: 0.18, height: 0.3 }, this.scene);
+          f.material = foot; f.isPickable = false;
+          f.position.set(x0 + (x1 - x0) * t + Math.cos(yaw) * 0.15 * side, 0.035, z0 + (z1 - z0) * t - Math.sin(yaw) * 0.15 * side);
+          f.rotation.set(Math.PI / 2, yaw, 0);
+          this.arrows.push(f);
+        }
+      }
     }
     for (const a of this.arrows) a.setEnabled(on);
   }

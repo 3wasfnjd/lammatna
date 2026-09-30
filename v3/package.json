@@ -6,7 +6,7 @@
   "description": "لمّتنا ٣ — صالة المرح · Lammatna 3 (Babylon.js + Rapier + Cloudflare Durable Objects)",
   "scripts": {
     "dev": "node tools/rapier-split.mjs && vite",
-    "build": "node tools/rapier-split.mjs && tsc -p . && vite build",
+    "build": "node tools/rapier-split.mjs && tsc -p . && node -e \"require('fs').rmSync('build',{recursive:true,force:true})\" && vite build",
     "models": "node tools/build-models.mjs && node tools/inspect-models.mjs > /dev/null && node tools/model-table.mjs",
     "layout": "node tools/make-layout.mjs && node tools/build-models.mjs",
     "test:unit": "node --import tsx --test --test-concurrency=1 tests/*.test.ts",

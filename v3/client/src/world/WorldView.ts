@@ -2,7 +2,7 @@
 // then the garden), merges static geometry per area+material, instances
 // repeated props, and drives moving parts from the mirror physics.
 import {
-  Mesh, InstancedMesh, TransformNode, Vector3, Quaternion, Matrix, Color3, Color4, CreateTorus, CreateCylinder,
+  Mesh, InstancedMesh, TransformNode, Vector3, Quaternion, Matrix, Color3, Color4, CreateTorus, CreateCylinder, CreateSphere,
   StandardMaterial, type Scene, type AbstractMesh
 } from '../babylon';
 import type { Assets } from './assets';
@@ -118,7 +118,29 @@ export class WorldView {
   placeShape(it: RenderItem) {
     const prop = this.def.props.find(p => p.id === it.id);
     if (it.shape === 'ball' && prop) { this.addBall(prop); return; }
+    if (it.shape === 'pit') this.fillPit(it);
     this.addBuilt(buildShape(this.scene, this.a, it));
+  }
+
+  // Decorative balls filling a ball pit (one thin-instanced draw call).
+  fillPit(it: RenderItem) {
+    const s = it.size || [6, 0.5, 6];
+    const src = CreateSphere('pit-balls', { diameter: 0.3, segments: 6 }, this.scene);
+    const mat = new StandardMaterial('pit-balls', this.scene); mat.specularColor = new Color3(0.3, 0.3, 0.3);
+    src.material = mat;
+    const n = 260, mats = new Float32Array(n * 16), cols = new Float32Array(n * 4);
+    const palette = [[1, 0.35, 0.37], [0.1, 0.51, 0.77], [1, 0.79, 0.23], [0.54, 0.79, 0.15], [0.9, 0.45, 0.85]];
+    let seed = 7; const r = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+    const c = Math.cos(it.xf.rot), sn = Math.sin(it.xf.rot);
+    for (let i = 0; i < n; i++) {
+      const x = (r() - 0.5) * (s[0] - 0.6), z = (r() - 0.5) * (s[2] - 0.6), y = 0.16 + r() * 0.28;
+      Matrix.Translation(it.xf.pos[0] + x * c + z * sn, y, it.xf.pos[2] - x * sn + z * c).copyToArray(mats, i * 16);
+      cols.set([...palette[i % 5], 1], i * 4);
+    }
+    src.thinInstanceSetBuffer('matrix', mats, 16);
+    src.thinInstanceSetBuffer('color', cols, 4);
+    src.isPickable = false;
+    src.addLODLevel(60, null);
   }
 
   addBall(p: PropDef) {

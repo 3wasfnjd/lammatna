@@ -84,8 +84,10 @@ export class Game {
     this.sim = new Sim(worldDef(), 'mirror');
     this.world = new WorldView(this.scene, this.assets, this.sim.def, { sim: this.sim, propViews: () => new Map() } as any);
     this.markers = new Markers(this.scene, this.sim.def.layout);
-    this.markers.update(0, 0, -14, [], [], '');
-    this.cam.yaw = 0; this.cam.update(0.1, this.sim, 0, 0, -18, [0, 0], null);
+    // Behind the menus: a calm overview of the hall towards the garden gate.
+    this.markers.update(0, 1000, 1000, [], [], '');
+    this.cam.yaw = 0; this.cam.pitch = 0.55; this.cam.dist = 30; this.cam.cur = 30;
+    this.cam.update(0.1, this.sim, 0, 0, 0, [0, 0], null);
     await this.world.loadStage('hall', f => this.onProgress(f));
   }
   onProgress: (f: number) => void = () => { };
@@ -105,7 +107,7 @@ export class Game {
     try { this.guided = localStorage.getItem('lm3-guided') === '1'; } catch { this.guided = false; }
     this.markers.showGuide(!this.guided);
     const me = net.me;
-    if (me) this.cam.yaw = me.yaw;
+    if (me) { this.cam.yaw = me.yaw; this.cam.pitch = 0.38; this.cam.dist = 6.5; this.cam.cur = 6.5; this.cam.target.setAll(0); }
     // Stage two: the garden streams in while you play.
     this.gardenLoading = this.world.loadStage('garden', () => { });
     this.exposeDebug();
