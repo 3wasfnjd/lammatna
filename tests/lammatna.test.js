@@ -410,3 +410,35 @@ test('character size is a host setting that only accepts known sizes', () => {
   room.handle(host.id, { type: 'settings', size: 'dwarf' });
   assert.equal(room.world().size, 'dwarf');
 });
+
+test('room host (Cloudflare Durable Object adapter): create claims a free code, join by code, busy codes refused', async () => {
+  const { RoomHost } = await import('../server/RoomHost.js');
+  const host = new RoomHost({ random: mulberry(5) });
+  const socket = () => { const s = { out: [], closed: false, send: raw => s.out.push(JSON.parse(raw)), close: () => { s.closed = true; } }; return s; };
+  assert.equal(host.accept('4321', true), 'ok');
+  const a = socket(); host.open(a);
+  host.message(a, JSON.stringify({ type: 'join', create: true }));
+  const welcome = a.out.find(m => m.type === 'welcome');
+  assert.equal(welcome.code, '4321');
+  host.message(a, JSON.stringify({ type: 'pick', character: 'mama' }));
+  // A second "create" on the same code is refused while the family is in it.
+  assert.equal(host.accept('4321', true), 'busy');
+  // Joining by code works and sees the room.
+  assert.equal(host.accept('4321', false), 'ok');
+  const b = socket(); host.open(b);
+  host.message(b, JSON.stringify({ type: 'join', code: 'ignored', token: null }));
+  assert.equal(b.out.find(m => m.type === 'welcome').code, '4321');
+  host.tick();
+  assert.ok(b.out.some(m => m.type === 'world' && m.players.some(p => p.character === 'mama')));
+  // Reconnect with the token keeps the same player.
+  host.close(a);
+  const a2 = socket(); host.accept('4321', false); host.open(a2);
+  host.message(a2, JSON.stringify({ type: 'join', token: welcome.token }));
+  assert.equal(a2.out.find(m => m.type === 'welcome').you, welcome.you);
+  // Unknown code: no room.
+  const other = new RoomHost();
+  other.accept('9999', false);
+  const c = socket(); other.open(c);
+  other.message(c, JSON.stringify({ type: 'join', code: '9999' }));
+  assert.equal(c.out[0].code, 'no-room');
+});

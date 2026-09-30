@@ -5,3 +5,4 @@
 - Local multiplayer: `npm start` (game + WebSocket rooms on port 8787).
 - Character models are configured in `shared/characters.js`; inspect new GLBs with `node tools/inspect-glb.mjs`.
 - Replies to the owner are in Arabic.
+- Production rooms: Cloudflare Worker `lammatna` (`wrangler.toml`, `server/worker.js`, Durable Object per room code). Clients connect to `/ws?create=1` or `/ws?code=1234`. Local Worker test: `npx wrangler@4 dev`.

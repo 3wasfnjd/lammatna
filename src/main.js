@@ -38,6 +38,7 @@ game.onWelcome = msg => {
   menu?.close(); menu = null;
   const online = game.transport.kind === 'online';
   if (online) {
+    game.transport.url = roomUrl({ code: msg.code });
     const url = new URL(location.href); url.searchParams.set('room', msg.code);
     history.replaceState(null, '', url);
   }
@@ -75,9 +76,12 @@ function openMenu() {
   });
 }
 
+// Rooms are addressed in the URL too, so hosts can route each room to its own instance.
+const roomUrl = msg => `${serverUrl}?${msg.create ? 'create=1' : `code=${encodeURIComponent(msg.code)}`}`;
+
 async function goOnline(joinMsg) {
   menu?.setStatus(T.connecting);
-  const transport = new SocketTransport(serverUrl);
+  const transport = new SocketTransport(roomUrl(joinMsg));
   try {
     await transport.connect();
   } catch {
@@ -101,16 +105,26 @@ function goSolo() {
   transport.send({ type: 'join', create: true });
 }
 
+// Is the room server reachable? Without it the lobby offers play on this device.
+function checkServer() {
+  if (!serverUrl) return Promise.resolve(false);
+  const health = serverUrl.replace(/^ws/, 'http').replace(/\/ws$/, '/health');
+  const ctrl = new AbortController(), timer = setTimeout(() => ctrl.abort(), 4000);
+  return fetch(health, { signal: ctrl.signal, cache: 'no-store' }).then(r => r.ok).catch(() => false).finally(() => clearTimeout(timer));
+}
+const serverCheck = checkServer();
+
 game.hud.showTitle({
-  onStart: () => {
+  onStart: async () => {
     audio.unlock();
+    const serverAvailable = await serverCheck;
     menu = game.hud.showLobbyMenu({
-      serverAvailable: !!serverUrl, presetCode,
+      serverAvailable, presetCode,
       onCreate: () => goOnline({ type: 'join', create: true }),
       onJoin: code => goOnline({ type: 'join', code, token: savedToken(code) }),
       onSolo: () => { menu.close(); menu = null; goSolo(); }
     });
-    if (presetCode && serverUrl) goOnline({ type: 'join', code: presetCode, token: savedToken(presetCode) });
+    if (presetCode && serverAvailable) goOnline({ type: 'join', code: presetCode, token: savedToken(presetCode) });
   }
 });
 game.onTaken = () => {};

@@ -78,6 +78,8 @@ export function resolveServerUrl() {
   let saved = null;
   try { saved = localStorage.getItem('lammatna.server'); } catch { /* storage blocked */ }
   if (saved) return normalise(saved);
+  // Served by the Worker or the Node server itself: use the same origin.
+  if (location.hostname.endsWith('workers.dev') || location.hostname === 'localhost' || location.hostname === '127.0.0.1') return `${location.protocol === 'https:' ? 'wss' : 'ws'}://${location.host}/ws`;
   const configured = globalThis.LAMMATNA_SERVER;
   if (configured) return normalise(configured);
   if (location.hostname.endsWith('github.io') || location.protocol === 'file:') return null;

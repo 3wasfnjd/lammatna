@@ -131,6 +131,28 @@ The visual model is separate from movement, collision, interaction, camera behav
 - Clients send their own position about 12 times a second. Action messages carry the position, so the server always checks them against a fresh location. Remote players are drawn about 140 ms in the past for smooth movement.
 - **Disconnections**: shared equipment and carried balls are freed straight away. The character stays reserved for 30 s, and the same device rejoins as the same player with a token kept in session storage. That means no duplicate characters and no seat left permanently occupied.
 
+### Cloudflare (production rooms)
+
+The rooms run on Cloudflare Workers, like the Boom multiplayer server. `server/worker.js` serves the game and gives each room code its own Durable Object (`LammatnaRoom`). That object runs the same shared room logic, through `server/RoomHost.js`.
+
+Connect the repository once in the Cloudflare dashboard: **Workers & Pages → Create → Import a repository → `3wasfnjd/lammatna`**.
+
+| Setting | Value |
+| --- | --- |
+| Worker name | `lammatna` |
+| Production branch | `main` |
+| Root directory | `/` |
+| Build command | `npm run package:site` |
+| Deploy command | `npx wrangler@4 deploy` |
+
+- The result is `https://lammatna.3wasf-njd1.workers.dev`. `index.html` already points GitHub Pages at this address through `window.LAMMATNA_SERVER`. If you pick another Worker name, update that line.
+- The Worker address also serves the game itself, and there it uses its own origin.
+- If the Worker is not deployed yet, the lobby checks `/health` and offers solo play only.
+- Tested:
+  - `wrangler deploy --dry-run` passes;
+  - `wrangler dev` (local workerd) passed the full two-browser room test: create a room, join by code, unique characters, swing occupancy, release on disconnect, and a Ball Rescue delivery.
+- A room lives in memory while players are connected. If Cloudflare restarts that room's Durable Object, players are disconnected and need to create a new room.
+
 ### Running
 
 ```bash

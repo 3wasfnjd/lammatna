@@ -8,9 +8,13 @@
     "build": "node tools/build.mjs",
     "server": "node server/server.mjs",
     "start": "node server/server.mjs",
-    "test": "node tools/build.mjs --check && node --test tests/*.test.js"
+    "test": "node tools/build.mjs --check && node --test tests/*.test.js",
+    "package:site": "node tools/package-site.mjs",
+    "deploy:server": "npx --yes wrangler@4 deploy"
   },
-  "engines": { "node": ">=18" },
+  "engines": {
+    "node": ">=18"
+  },
   "dependencies": {
     "@babylonjs/core": "9.28.0",
     "@babylonjs/loaders": "9.28.0",

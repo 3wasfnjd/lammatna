@@ -11,9 +11,9 @@ export class RoomManager {
     this.links = new Map(); // `${code}:${playerId}` -> connection
   }
 
-  createRoom() {
-    let code;
-    do code = makeRoomCode(this.random); while (this.rooms.has(code));
+  createRoom(fixedCode) {
+    let code = fixedCode;
+    if (!code) do code = makeRoomCode(this.random); while (this.rooms.has(code));
     const room = new Room(code, {
       now: this.now, random: this.random,
       send: (playerId, msg) => this.links.get(`${code}:${playerId}`)?.send(msg)
