@@ -39,6 +39,15 @@ A mobile-browser family game built with Babylon.js. Five family members play tog
 - **Sound**: cheerful synthesised music and sound effects made with the Web Audio API, so there are no audio files. Sound starts on the first tap, and the music ducks under important cues.
 - **Help for young players** (host setting): larger reach for picking up, placing and riding.
 
+## Style polish (2026-09-30)
+
+![](docs/style-polish.jpg)
+
+- The hall has colourful bunting overhead, floating light motes and an open sky dome with drifting clouds. The sky shows when the camera looks up over the walls.
+- A selective glow (high quality only) lights the gold stars, the illuminated floor, the pad rings, the route arrows and the stage bulbs.
+- **Gold stars** (25) are hidden around the playground in free play: on the tower, the platforms, blocks and corners. Walk into one to collect it, with a sparkle, a chime and a counter in the top bar. Stars come back after 90 s. Collecting is per device, and they hide during minigames.
+- Dust puffs appear when landing and running, and a sparkle trail follows you down the slide.
+
 ## Blocky style and character size (2026-09-29)
 
 | Blocky family | Dwarf size | Tiny size |

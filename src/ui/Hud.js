@@ -14,6 +14,7 @@ export class Hud {
       <div class="labels"></div>
       <div class="topbar hidden">
         <button class="chip room-chip"><span class="room-code"></span><span class="invite">🔗 ${T.invite}</span></button>
+        <span class="chip stars-chip hidden">⭐ <b></b></span>
         <div class="roster"></div>
         <button class="chip menu-btn" aria-label="${T.menu}">☰</button>
       </div>
@@ -96,6 +97,13 @@ export class Hud {
     $('.invite', this.topbar).classList.toggle('hidden', !online);
     $('.room-chip', this.topbar).onclick = online ? onInvite : null;
     $('.menu-btn', this.topbar).onclick = onMenu;
+  }
+
+  setStars(n, total) {
+    const chip = $('.stars-chip', this.topbar);
+    chip.classList.remove('hidden');
+    $('b', chip).textContent = `${arabicDigits(n)}/${arabicDigits(total)}`;
+    chip.classList.remove('bump'); void chip.offsetWidth; chip.classList.add('bump');
   }
 
   setRoster(players, me) {

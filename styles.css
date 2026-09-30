@@ -183,3 +183,7 @@ body.blocky .face .hair { border-radius: 8px 8px 2px 2px; }
 body.blocky .face .hair.scarf { border-radius: 10px; }
 body.blocky .face .hair.buns::before, body.blocky .face .hair.buns::after { border-radius: 4px; }
 body.blocky .face .mouth { border-radius: 0 0 4px 4px; }
+
+.stars-chip { background: linear-gradient(180deg, #FFE27A, #FFC928); color: #6B4A00; }
+.stars-chip.bump { animation: bump .45s ease-out; }
+@keyframes bump { 30% { transform: scale(1.25); } }

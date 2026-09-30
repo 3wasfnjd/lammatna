@@ -105,6 +105,7 @@ export class Audio {
         (tunes[opts.color] || tunes[0]).forEach((n, i) => this.tone(midi(n), { at: i * 0.13, dur: 0.22, type: 'square', gain: 0.1 }));
         break;
       }
+      case 'star': this.duck(0.5, 0.5); [88, 91, 96].forEach((n, i) => this.tone(midi(n), { at: i * 0.06, dur: 0.18, type: 'sine', gain: 0.16 })); this.tone(midi(100), { at: 0.18, dur: 0.35, type: 'triangle', gain: 0.08 }); break;
       case 'tap': this.tone(660, { dur: 0.06, type: 'triangle', gain: 0.12 }); break;
       case 'join': this.tone(midi(76), { dur: 0.12, type: 'triangle', gain: 0.15 }); this.tone(midi(83), { at: 0.1, dur: 0.18, type: 'triangle', gain: 0.15 }); break;
     }

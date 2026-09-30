@@ -60,6 +60,38 @@ export class Effects {
     }
   }
 
+  // Little dust puff at the feet (landing, running).
+  puff(position, { count = 10, size = 0.22 } = {}) {
+    const ps = new ParticleSystem('puff', count, this.scene);
+    ps.particleTexture = this.dot;
+    ps.emitter = position.clone();
+    ps.minEmitBox = new Vector3(-0.15, 0, -0.15); ps.maxEmitBox = new Vector3(0.15, 0.05, 0.15);
+    ps.color1 = new Color4(1, 0.97, 0.9, 0.7); ps.color2 = new Color4(0.95, 0.88, 0.78, 0.6); ps.colorDead = new Color4(1, 1, 1, 0);
+    ps.minSize = size * 0.6; ps.maxSize = size; ps.minLifeTime = 0.3; ps.maxLifeTime = 0.6;
+    ps.manualEmitCount = count; ps.emitRate = count * 20;
+    ps.direction1 = new Vector3(-1, 0.3, -1); ps.direction2 = new Vector3(1, 0.8, 1);
+    ps.minEmitPower = 0.5; ps.maxEmitPower = 1.2; ps.gravity = new Vector3(0, 0.5, 0);
+    ps.blendMode = ParticleSystem.BLENDMODE_STANDARD;
+    ps.targetStopDuration = 0.2; ps.disposeOnStop = true;
+    ps.start();
+  }
+
+  // Golden sparkle burst (stars, slide trail).
+  sparkle(position, { count = 24, spread = 0.3, colors = ['#FFE27A', '#FFFFFF'] } = {}) {
+    const ps = new ParticleSystem('sparkle', count, this.scene);
+    ps.particleTexture = this.dot;
+    ps.emitter = position.clone();
+    ps.minEmitBox = new Vector3(-spread, -spread, -spread); ps.maxEmitBox = new Vector3(spread, spread, spread);
+    ps.color1 = Color4.FromHexString(colors[0] + 'FF'); ps.color2 = Color4.FromHexString(colors[1] + 'FF'); ps.colorDead = new Color4(1, 0.9, 0.5, 0);
+    ps.minSize = 0.06; ps.maxSize = 0.16; ps.minLifeTime = 0.35; ps.maxLifeTime = 0.8;
+    ps.manualEmitCount = count; ps.emitRate = count * 10;
+    ps.direction1 = new Vector3(-2, 1, -2); ps.direction2 = new Vector3(2, 3.5, 2);
+    ps.gravity = new Vector3(0, -4, 0);
+    ps.blendMode = ParticleSystem.BLENDMODE_ADD;
+    ps.targetStopDuration = 0.25; ps.disposeOnStop = true;
+    ps.start();
+  }
+
   splash(position) {
     const ps = new ParticleSystem('splash', 30, this.scene);
     ps.particleTexture = this.dot;
