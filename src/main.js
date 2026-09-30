@@ -4,7 +4,12 @@ import { Audio } from './audio/Audio.js';
 import { LocalTransport, SocketTransport, resolveServerUrl } from './net/Transport.js';
 import { T } from './ui/strings.js';
 
-import { BLOCKY } from './style.js';
+import { BLOCKY, CHARACTER_SET } from './style.js';
+import { applyCharacterSet } from '../shared/characterSets.js';
+import { CHARACTERS } from '../shared/characters.js';
+
+// Must run before the game creates any avatar.
+applyCharacterSet(CHARACTERS, CHARACTER_SET);
 
 const params = new URLSearchParams(location.search);
 document.body.classList.toggle('blocky', BLOCKY);

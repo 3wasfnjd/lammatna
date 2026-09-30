@@ -39,6 +39,27 @@ A mobile-browser family game built with Babylon.js. Five family members play tog
 - **Sound**: cheerful synthesised music and sound effects made with the Web Audio API, so there are no audio files. Sound starts on the first tap, and the music ducks under important cues.
 - **Help for young players** (host setting): larger reach for picking up, placing and riding.
 
+## Kenney Mini Characters, customised (2026-09-30)
+
+![](docs/kenney-family.jpg)
+
+Open the game with `?chars=kenney` to play with the family built from [Kenney Mini Characters](https://kenney.nl) (CC0, `assets/characters/kenney/LICENSE-Kenney.txt`). The choice is remembered; `?chars=default` switches back to the blocky placeholders.
+
+Each model is customised in code, without editing the GLB files (`shared/characterSets.js`, `src/characters/glbCustomize.js`):
+
+- **Part-specific recolouring**: every Kenney model samples one small palette texture. A rule like `{ part: 'head', from: '#CF7A55', to: '#2B211C' }` moves only that part's UVs to a new colour slot, in a per-character copy of the palette.
+  - This changes one feature, such as hair, beard or shirt, without affecting the rest.
+  - An `exclude` box keeps features that share the colour, for example the eyes.
+- **Accessories on bones**: blocky boxes or small GLBs attached to the head bone, so they follow every animation. The glasses come from the pack itself. Head coordinates: origin at the neck, +y up, +z forward, head ≈ 0.30 wide.
+- **The family**:
+  - بابا: male-b with a darkened beard and hair, a turquoise shirt and glasses.
+  - ماما: female-d with a coral outfit and a purple blocky headscarf.
+  - ناصر: male-f with a yellow shirt and a turquoise cap.
+  - جود: female-c in purple with dark brown hair.
+  - نجد: female-b in pink with brown hair.
+- The models' own clips map to our states: idle, walk, sprint, jump, fall, sit (also used for the swing and the slide), holding-both (carrying), interact-right (wave) and emote-yes (celebrate). Speed, collision, reach and multiplayer roles are unchanged.
+- The pack has 12 characters. Only the 5 used here are kept (1.3 MB with the palette and glasses). The pack's female-a model has built-in crutches and is not used.
+
 ## Aboden arcade (2026-09-30)
 
 | رماية عبودين | رماية السلة | حرب الألوان |

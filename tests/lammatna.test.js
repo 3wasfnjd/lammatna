@@ -534,3 +534,23 @@ test('colour war: two teams, paint hits freeze the target and score, solo gets r
   room.handle(a.id, { type: 'start', activity: 'paint' });
   assert.equal(room.activity.data.bots.length, 3);
 });
+
+test('kenney character set: every family member has an existing model, clips and valid customisations', async () => {
+  const { CHARACTER_SETS, applyCharacterSet } = await import('../shared/characterSets.js');
+  const { existsSync, readFileSync } = await import('node:fs');
+  const { parseGlb, summarise } = await import('../tools/inspect-glb.mjs');
+  const set = CHARACTER_SETS.kenney;
+  assert.deepEqual(Object.keys(set).sort(), [...CHARACTER_IDS].sort());
+  for (const [id, model] of Object.entries(set)) {
+    const file = new URL(`../${model.url}`, import.meta.url);
+    assert.ok(existsSync(file), `${id}: ${model.url}`);
+    const info = summarise(parseGlb(readFileSync(file)));
+    for (const clip of new Set(Object.values(model.animations))) assert.ok(info.animations.includes(clip), `${id} has clip ${clip}`);
+    for (const r of model.recolor || []) assert.match(r.to, /^#[0-9A-F]{6}$/i);
+    for (const a of model.accessories || []) if (a.kind === 'glb') assert.ok(existsSync(new URL(`../${a.url}`, import.meta.url)));
+  }
+  const copy = structuredClone(Object.fromEntries(CHARACTER_IDS.map(id => [id, { model: { type: 'placeholder' } }])));
+  assert.equal(applyCharacterSet(copy, 'kenney'), true);
+  assert.equal(copy.najd.model.type, 'glb');
+  assert.equal(applyCharacterSet(copy, 'nope'), false);
+});
