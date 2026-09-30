@@ -39,6 +39,26 @@ A mobile-browser family game built with Babylon.js. Five family members play tog
 - **Sound**: cheerful synthesised music and sound effects made with the Web Audio API, so there are no audio files. Sound starts on the first tap, and the music ducks under important cues.
 - **Help for young players** (host setting): larger reach for picking up, placing and riding.
 
+## Version 2: a much bigger hall and an outdoor garden (2026-09-30)
+
+| | | |
+|---|---|---|
+| ![](docs/v2-plaza.jpg) | ![](docs/v2-adventure.jpg) | ![](docs/v2-lounge.jpg) |
+| ![](docs/v2-trampoline.jpg) | ![](docs/v2-garden.jpg) | |
+
+- The hall grew from a small room to **80 × 60 m** (`HALL` in `shared/playground.js`). A wide opening in the north wall leads to a **28 m outdoor garden** with grass and a path.
+- Every play area keeps its own shape and is moved as a whole with a zone offset (`ZONES`). The areas are: adventure tower, obstacle course, swings, blocks, colour floor, hide-and-seek, tent, hoops, Aboden booth. Minigame layouts (`shared/games/layout.js`, `shared/games/arcade.js`) move with them.
+- New areas built from the uploaded model library (`assets/imported`, placements in `assets/imported/decor/layout.json` v4):
+  - **Trampoline park**: the trampoline starter scene. Trampoline beds really bounce you (`BOUNCE_PADS` in `shared/physics.js`).
+  - **Arcade lounge**: dance machines, air hockey, claw machines, prizes.
+  - **Family café**: tables, chairs, counter, coffee machine.
+  - **Outdoor garden**: the city-park starter scene plus Tiny Treats swings, slide, sandbox, seesaw, merry-go-round and trees.
+- `src/world/DecorModels.js`:
+  - Placements can ask for colliders: `collide: 'box' | 'trunk' | 'children'`.
+  - Big starter scenes are merged per material (`merge: true`) so they stay cheap to draw.
+- The race route is longer and crosses the whole hall; its time limit is now 150 s. Stars, bunting, windows and clouds are spread over the new space.
+- Earlier decor placements are kept with the same models, sizes and rotations, only moved to the new layout.
+
 ## Kenney Mini Characters, customised (2026-09-30)
 
 ![](docs/kenney-family.jpg)

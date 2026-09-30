@@ -4,7 +4,7 @@ import { Room, PHASE_MS, rescueTarget, rescueStars } from '../shared/Room.js';
 import { RoomManager } from '../shared/RoomManager.js';
 import { createBody, stepBody, raycastSolids } from '../shared/physics.js';
 import { CHARACTERS, CHARACTER_IDS, MOVEMENT, characterModel } from '../shared/characters.js';
-import { SWINGS, SLIDE, BASKETS, RACE, DECK_Y, STAIRS, BALL_PIT, slidePoint } from '../shared/playground.js';
+import { SWINGS, SLIDE, BASKETS, RACE, DECK_Y, STAIRS, BALL_PIT, slidePoint, HALL } from '../shared/playground.js';
 import { RECONNECT_GRACE_MS } from '../shared/protocol.js';
 
 function makeRoom() {
@@ -202,24 +202,25 @@ test('room manager: codes, joining, invalid rooms', () => {
 });
 
 test('physics: walls stop the player, stairs lead up to the deck, jumping clears a low barrier', () => {
-  const body = createBody(0, 0, 17);
+  const body = createBody(25, 0, HALL.maxZ - 2);
   for (let i = 0; i < 120; i++) stepBody(body, { x: 0, z: 1 }, 1 / 60);
-  assert.ok(body.z <= 18 - MOVEMENT.radius + 0.01);
+  assert.ok(body.z <= HALL.maxZ - MOVEMENT.radius + 0.01, `stopped by the north wall, z=${body.z}`);
   const climber = createBody(STAIRS.minX - 1, 0, (STAIRS.minZ + STAIRS.maxZ) / 2);
   for (let i = 0; i < 200; i++) stepBody(climber, { x: 1, z: 0 }, 1 / 60);
   assert.ok(Math.abs(climber.y - DECK_Y) < 0.05, `reached deck height, got ${climber.y}`);
-  const jumper = createBody(-11, 0, -9);
+  const jumper = createBody(-25, 0, -17); // just east of the course barriers
   let jumped = false;
   for (let i = 0; i < 90; i++) {
     stepBody(jumper, { x: -1, z: 0 }, 1 / 60 );
-    if (!jumped && jumper.x < -11.3) { stepBody(jumper, { x: -1, z: 0, jump: true }, 1 / 60); jumped = true; }
+    if (!jumped && jumper.x < -25.3) { stepBody(jumper, { x: -1, z: 0, jump: true }, 1 / 60); jumped = true; }
   }
-  assert.ok(jumper.x < -13, `cleared the barrier, x=${jumper.x}`);
+  assert.ok(jumper.x < -27, `cleared the barrier, x=${jumper.x}`);
 });
 
 test('camera ray hits the hall walls', () => {
-  assert.ok(raycastSolids(0, 1.5, 0, 0, 0, 1, 50) < 18.5);
-  assert.equal(raycastSolids(0, 1.5, 0, 0, 0, 1, 5), 5);
+  assert.ok(raycastSolids(25, 1.5, HALL.maxZ - 5, 0, 0, 1, 50) < 5.5);
+  assert.ok(raycastSolids(0, 1.5, HALL.maxZ - 5, 0, 0, 1, 20) > 15, 'the north opening leads outside');
+  assert.equal(raycastSolids(25, 1.5, HALL.maxZ - 5, 0, 0, 1, 3), 3);
 });
 
 test('slide path starts on the deck and ends in the ball pit', () => {

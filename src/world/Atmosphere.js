@@ -34,7 +34,7 @@ export class Atmosphere {
     tex.update();
     const m = new StandardMaterial('sky', this.scene);
     m.emissiveTexture = tex; m.disableLighting = true; m.backFaceCulling = false; m.fogEnabled = false;
-    const dome = CreateSphere('sky', { diameter: 220, segments: 16, sideOrientation: Mesh.BACKSIDE }, this.scene);
+    const dome = CreateSphere('sky', { diameter: 300, segments: 16, sideOrientation: Mesh.BACKSIDE }, this.scene);
     dome.material = m; dome.isPickable = false; dome.infiniteDistance = true;
     dome.applyFog = false;
     this.scene.clearColor = Color4.FromHexString('#7CC6F5FF');
@@ -52,7 +52,7 @@ export class Atmosphere {
         s.position.set(j * 3 - puffs * 1.5, rand() * 1.5, rand() * 2);
         s.scaling.y = 0.6;
       }
-      const a = rand() * Math.PI * 2, r = 45 + rand() * 30;
+      const a = rand() * Math.PI * 2, r = 70 + rand() * 30;
       cloud.position.set(Math.cos(a) * r, 18 + rand() * 14, Math.sin(a) * r);
       cloud.rotation.y = -a;
       this.clouds.push({ node: cloud, a, r, speed: 0.004 + rand() * 0.006 });
@@ -62,14 +62,15 @@ export class Atmosphere {
   // Strings of triangle flags across the hall, made from one thin-instanced mesh.
   buildBunting() {
     const colors = [PALETTE.coral, PALETTE.yellow, PALETTE.turquoise, PALETTE.purple, PALETTE.pink];
-    const lines = [[[-22, 7.3, -16], [22, 7.3, 16]], [[-22, 7.3, 16], [22, 7.3, -16]], [[-22, 7.2, 0], [22, 7.2, 0]], [[0, 7.2, -17], [0, 7.2, 17]]];
+    const x0 = HALL.minX + 2, x1 = HALL.maxX - 2, z0 = HALL.minZ + 2, z1 = HALL.maxZ - 2, y = HALL.height - 0.4;
+    const lines = [[[x0, y, z0], [x1, y, z1]], [[x0, y, z1], [x1, y, z0]], [[x0, y - 0.1, 0], [x1, y - 0.1, 0]], [[0, y - 0.1, z0], [0, y - 0.1, z1]], [[x0, y - 0.2, z0 / 2], [x1, y - 0.2, z0 / 2]], [[x0, y - 0.2, z1 / 2], [x1, y - 0.2, z1 / 2]]];
     const per = colors.map(() => []);
     let n = 0;
     for (const [a, b] of lines) {
       const len = Math.hypot(b[0] - a[0], b[2] - a[2]), count = Math.floor(len / 1.1);
       const yaw = Math.atan2(b[0] - a[0], b[2] - a[2]);
       for (let i = 1; i < count; i++) {
-        const t = i / count, sag = Math.sin(t * Math.PI) * 0.7;
+        const t = i / count, sag = Math.sin(t * Math.PI) * 1.2;
         per[n++ % colors.length].push([a[0] + (b[0] - a[0]) * t, a[1] - sag, a[2] + (b[2] - a[2]) * t, yaw]);
       }
     }

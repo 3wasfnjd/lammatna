@@ -3,6 +3,9 @@
 import { MOVEMENT } from './characters.js';
 import { SOLIDS, DISCS, inBallPit, BALL_PIT } from './playground.js';
 
+// Trampolines: standing on one launches you up again (filled by the decor loader on the client).
+export const BOUNCE_PADS = [];
+
 export function createBody(x = 0, y = 0, z = 0) {
   return { x, y, z, vx: 0, vz: 0, vy: 0, grounded: true, landed: 0, airTime: 0 };
 }
@@ -84,6 +87,11 @@ export function stepBody(body, input, dt, solids = SOLIDS) {
   if (body.y <= floor + 0.001 && body.vy <= 0) {
     if (!body.grounded) body.landed = Math.min(1, body.airTime / 0.6 + 0.2);
     body.y = floor; body.vy = 0; body.grounded = true; body.airTime = 0;
+    for (const pad of BOUNCE_PADS) {
+      if (body.x > pad.min[0] && body.x < pad.max[0] && body.z > pad.min[2] && body.z < pad.max[2] && Math.abs(body.y - pad.max[1]) < 0.2) {
+        body.vy = pad.power; body.grounded = false; body.bounced = (body.bounced || 0) + 1;
+      }
+    }
   } else if (body.grounded && body.y - floor < 0.12 && body.vy <= 0) {
     body.y = floor; body.vy = 0; // walk down small steps smoothly
   } else {
