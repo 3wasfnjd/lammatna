@@ -162,10 +162,6 @@ for (const [x, z] of POTS) box('pot', [x - 0.45, 0, z - 0.45], [x + 0.45, 2.2, z
 // approximate the visible models while keeping the existing movement system lightweight.
 // They are placed away from core minigame pads and route checkpoints.
 export const IMPORTED_DECOR_SOLIDS = [
-  // Parent coffee tables.
-  { kind: 'decor', min: [-5.88, 0, -1.40], max: [-4.62, 0.55, -0.60] },
-  { kind: 'decor', min: [4.62, 0, -1.40], max: [5.88, 0.55, -0.60] },
-
   // Monkey bars: collide with the four vertical posts but keep the centre walkable.
   { kind: 'decor', min: [-14.63, 0, -16.53], max: [-14.37, 2.9, -16.27] },
   { kind: 'decor', min: [-12.63, 0, -16.53], max: [-12.37, 2.9, -16.27] },
