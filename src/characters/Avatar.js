@@ -30,7 +30,7 @@ export class Avatar {
     this.setVisual(new (BLOCKY ? BlockyVisual : PlaceholderVisual)(scene, kit, this.def));
     const model = characterModel(characterId);
     if (model.type === 'glb') {
-      createGlbVisual(scene, this.def, model)
+      createGlbVisual(scene, this.def, model, kit)
         .then(v => { if (!this.disposed) this.setVisual(v); })
         .catch(err => console.warn(`[lammatna] ${characterId}: keeping placeholder, GLB failed`, err));
     }

@@ -2,6 +2,7 @@
 // same interface as PlaceholderVisual so controllers, cameras and multiplayer
 // never know which one they are driving.
 import { TransformNode, Vector3 } from '../babylon.js';
+import { customizeGlb } from './glbCustomize.js';
 
 // Missing clips fall back to the nearest sensible one.
 const FALLBACK = {
@@ -15,10 +16,13 @@ function loadGltfSupport() {
   return loaderPromise;
 }
 
-export async function createGlbVisual(scene, def, model) {
+export async function createGlbVisual(scene, def, model, kit) {
   const { LoadAssetContainerAsync } = await loadGltfSupport();
   const container = await LoadAssetContainerAsync(model.url, scene);
-  return new GlbVisual(scene, def, model, container);
+  const visual = new GlbVisual(scene, def, model, container);
+  // Optional recolouring and accessories from the character config.
+  await customizeGlb(visual, model, scene, kit, url => LoadAssetContainerAsync(url, scene));
+  return visual;
 }
 
 export class GlbVisual {
