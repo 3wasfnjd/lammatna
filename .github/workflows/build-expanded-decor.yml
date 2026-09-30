@@ -30,3 +30,5 @@ jobs:
           git rm -f .github/workflows/build-expanded-decor.yml
           git commit -m "build: publish expanded decor"
           git push
+
+# retry after collider fix
