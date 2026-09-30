@@ -284,7 +284,7 @@ export class Playground {
     arch.material = k.mat(PALETTE.coral, { gloss: 0.4, name: 'arch' });
     this.archMaterial = arch.material;
     this.add(arch);
-    const bulbs = k.mat('#FFF4C2', { emissive: 0.9 });
+    const bulbs = k.mat('#FFF4C2', { emissive: 0.9, name: 'bulbs' });
     for (let i = 1; i < 12; i++) {
       const a = Math.PI * i / 12, b = CreateSphere('bulb', { diameter: 0.22, segments: 6 }, this.scene);
       b.position.set(Math.cos(a) * 2.8, Math.sin(a) * 2.8, 2.05); b.material = bulbs; this.add(b);

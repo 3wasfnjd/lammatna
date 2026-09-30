@@ -4,6 +4,8 @@ import { Engine, Scene, Vector3, Color3, Color4, HemisphericLight, DirectionalLi
 import { Playground } from './world/Playground.js';
 import { Balls } from './world/Balls.js';
 import { Effects, Shadows } from './world/Effects.js';
+import { Atmosphere } from './world/Atmosphere.js';
+import { Collectibles } from './world/Collectibles.js';
 import { Avatar } from './characters/Avatar.js';
 import { CameraRig } from './camera/CameraRig.js';
 import { Controls } from './input/Controls.js';
@@ -31,7 +33,6 @@ export class Game {
     this.baseScaling = 1 / Math.min(window.devicePixelRatio || 1, quality === 'low' ? 1.5 : 2);
     this.engine.setHardwareScalingLevel(this.baseScaling);
     const scene = this.scene = new Scene(this.engine);
-    scene.clearColor = Color4.FromHexString('#FFE7C7FF');
     scene.ambientColor = new Color3(0.3, 0.25, 0.2);
     scene.skipPointerMovePicking = true;
     scene.autoClear = true;
@@ -52,6 +53,21 @@ export class Game {
     this.kit = this.playground.kit;
     this.balls = new Balls(scene, this.kit, this.shadows);
     this.effects = new Effects(scene);
+    this.atmosphere = new Atmosphere(scene, this.kit, { quality });
+    const glow = m => this.atmosphere.addGlow(m);
+    for (const t of this.playground.tiles) glow(t.mesh);
+    for (const p of this.playground.pads.values()) glow(p.ring);
+    for (const m of this.playground.routeMarkers) glow(m);
+    for (const m of this.playground.merged) if (m.material?.name === 'bulbs') glow(m);
+    this.collectibles = new Collectibles(scene, this.kit, {
+      glow,
+      onCollect: (pos, n, total) => {
+        this.audio.play('star');
+        this.effects.sparkle(pos, { count: 30 });
+        this.hud.setStars(n, total);
+        if (n === total) { this.hud.toast(`🌟 ${total}/${total}!`, 2500); this.effects.confetti(pos, { count: 160, duration: 0.6, spread: 2 }); this.audio.play('complete'); }
+      }
+    });
     this.rig = new CameraRig(scene, canvas);
     this.hud = new Hud(uiRoot);
     this.controls = new Controls(uiRoot, {
@@ -295,6 +311,7 @@ export class Game {
       this.yaw = Math.atan2(q.x - p.x, q.z - p.z) || Math.PI; av.yaw = this.yaw;
       av.setAnim('slide');
       if (!this.ride || this.ride.id !== SLIDE.id) this.audio.play('slide');
+      if (this.time - (this.lastTrail || 0) > 0.12) { this.lastTrail = this.time; this.effects.sparkle(new Vector3(p.x, p.y + 0.3, p.z), { count: 8, spread: 0.2, colors: ['#8CE8FF', '#FFFFFF'] }); }
       this.ride = eq;
       this.rig.setFocus({ position: new Vector3(p.x + 5, p.y + 2.4, p.z - 1.5), target: new Vector3(p.x, p.y + 0.8, p.z - 1) });
       this.rig.follow(dt, av.root.position, null, false, av.height);
@@ -314,7 +331,10 @@ export class Game {
     stepBody(this.body, { x: locked ? 0 : wx, z: locked ? 0 : wz, jump }, dt, solidsFor(this.world?.activity, this.serverNow()));
     this.minigames.collide(this.body);
     if (jump && wasGrounded && !this.body.grounded) this.audio.play('jump');
-    if (this.body.landed > 0.3) { this.audio.play('land', { volume: this.body.landed }); this.landTime = this.time; }
+    if (this.body.landed > 0.3) {
+      this.audio.play('land', { volume: this.body.landed }); this.landTime = this.time;
+      this.effects.puff(new Vector3(this.body.x, this.body.y + 0.05, this.body.z), { count: Math.round(6 + this.body.landed * 10) });
+    }
     const speed = Math.hypot(this.body.vx, this.body.vz);
     if (speed > 0.4) {
       const target = Math.atan2(this.body.vx, this.body.vz);
@@ -340,7 +360,10 @@ export class Game {
     av.root.position.set(this.body.x, this.body.y + sink, this.body.z);
     if (this.body.grounded && speed > 0.5) {
       this.stepTimer -= dt * (speed / 2.6);
-      if (this.stepTimer <= 0) { this.stepTimer = 0.36; this.audio.play('step', { volume: 0.8 }); }
+      if (this.stepTimer <= 0) {
+        this.stepTimer = 0.36; this.audio.play('step', { volume: 0.8 });
+        if (speed > 4 && this.quality !== 'low') this.effects.puff(new Vector3(this.body.x, this.body.y + 0.05, this.body.z), { count: 4, size: 0.16 });
+      }
     }
     if (sink && speed > 1 && this.time - (this.lastSplash || 0) > 0.5) {
       this.lastSplash = this.time; this.effects.splash(new Vector3(this.body.x, 0.3, this.body.z));
@@ -575,6 +598,8 @@ export class Game {
     this.updateRemotes(dt);
     this.updateSwings();
     this.minigames.update(dt, this.time);
+    this.atmosphere.update(dt);
+    if (this.local) this.collectibles.update(dt, this.time, this.body, !this.world?.activity);
     this.balls.update(dt, this.time, id => {
       const av = this.avatars.get(id);
       return av && av.visible ? av.carryAnchor.getAbsolutePosition() : null;
