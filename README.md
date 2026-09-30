@@ -39,6 +39,33 @@ A mobile-browser family game built with Babylon.js. Five family members play tog
 - **Sound**: cheerful synthesised music and sound effects made with the Web Audio API, so there are no audio files. Sound starts on the first tap, and the music ducks under important cues.
 - **Help for young players** (host setting): larger reach for picking up, placing and riding.
 
+## Aboden arcade (2026-09-30)
+
+| رماية عبودين | رماية السلة | حرب الألوان |
+| --- | --- | --- |
+| ![](docs/aboden-gallery.jpg) | ![](docs/aboden-hoops.jpg) | ![](docs/aboden-paint.jpg) |
+
+Three AR-Aboden experiments, rebuilt as in-hall multiplayer games. They no longer use the camera, and their props are procedural blocky models instead of the heavy GLBs. Rules are room plugins (`shared/games/hoops.js`, `gallery.js`, `paint.js`), the on-device side is in `src/games/Arcade.js`, and each game starts from its own pad.
+
+- **🦆 رماية عبودين** (shooting gallery), a carnival booth against the north wall.
+  - Up to five lanes at the counter. Each player drags to aim in a first-person view and presses إطلاق (fire).
+  - Targets and points:
+    - cans: 10;
+    - moving ducks: 25;
+    - bullseye boards: 15 for the ring, 35 for the bull.
+  - The server checks each shot ray against the targets at the current time, and 120 ms earlier to allow for network delay. Hit targets fold for 2.6 s.
+  - Rounds last 60 s. Badge: 🎯 «عين الصقر».
+- **🏀 رماية السلة** (basketball), two hoops at the south wall with a painted court.
+  - Hold the button and a power meter sweeps back and forth; release inside the green zone. The zone moves with your distance and turns yellow beyond the three-point line.
+  - The server judges each shot as swish, rim-in, rim-out or miss.
+  - Scoring: 2 points, 3 points beyond the line, and +1 for three baskets in a row.
+  - Rounds last 60 s. Badge: 🏀 «نجم السلة».
+- **🎨 حرب الألوان** (colour war): the family splits into two colour teams and throws paint balls.
+  - Aim help picks the nearest opponent in front of you and leads a moving target.
+  - The server simulates the paint balls. A hit freezes the target for 1.6 s, splashes paint on them, and scores for the thrower's team. Splats stay on the floor.
+  - Playing alone, you face three friendly paint robots; uneven teams get a helper robot.
+  - Rounds last 90 s. Badge: 🎨 «فنّان الألوان».
+
 ## Style polish (2026-09-30)
 
 ![](docs/style-polish.jpg)

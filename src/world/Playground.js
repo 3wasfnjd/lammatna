@@ -8,7 +8,7 @@ import { Kit, hex, roundRect } from './Kit.js';
 import { BLOCKY } from '../style.js';
 import {
   HALL, PALETTE, AREAS, SOLIDS, STAGE, TOWERS, DECK_Y, STAIRS, SLIDE, slidePoint, BALL_PIT, TUNNEL, FOAM_PIT,
-  SWING_FRAME, SWINGS, IGLOO, TENT, COLOR_FLOOR, BASKETS, BALL_COLORS, PADS, RACE, BENCHES, BEACH_BALLS, POTS
+  SWING_FRAME, SWINGS, IGLOO, TENT, COLOR_FLOOR, BASKETS, BALL_COLORS, PADS, RACE, BENCHES, BEACH_BALLS, POTS, HOOPS, BOOTH
 } from '../../shared/playground.js';
 
 export class Playground {
@@ -43,6 +43,7 @@ export class Playground {
     this.buildPads();
     this.buildSigns();
     this.buildDecor();
+    this.buildArcade();
     this.buildRouteMarkers();
     this.mergeStatic();
   }
@@ -110,6 +111,14 @@ export class Playground {
     for (let x = FOAM_PIT.minX + 0.5; x < FOAM_PIT.maxX; x += 0.8) for (let z = FOAM_PIT.minZ + 0.5; z < FOAM_PIT.maxZ; z += 0.8) {
       ctx.fillRect(X(x) - 0.3 * px, Z(z) - 0.3 * px, 0.6 * px, 0.6 * px);
     }
+    // Basketball court lines around each hoop.
+    ctx.strokeStyle = 'rgba(255,255,255,0.85)'; ctx.lineWidth = 0.09 * px;
+    for (const h of HOOPS) {
+      ctx.beginPath(); ctx.arc(X(h.x), Z(h.z), 4.6 * px, Math.PI * 0.02, Math.PI * 0.98, true); ctx.stroke();
+      ctx.strokeRect(X(h.x - 1.0), Z(-13.8), 2.0 * px, (-13.8 - (-18)) * px);
+      ctx.beginPath(); ctx.arc(X(h.x), Z(-13.8), 1.0 * px, 0, Math.PI, true); ctx.stroke();
+    }
+    ctx.fillStyle = 'rgba(242,115,95,0.18)'; ctx.fillRect(X(-5.5), Z(-10), 18 * px, 8 * px);
     // Race start line.
     const s = RACE.start;
     for (let i = 0; i < 8; i++) {
@@ -487,13 +496,53 @@ export class Playground {
   buildSigns() {
     for (const a of AREAS) {
       if (a.id === 'plaza') continue;
-      const pos = { swings: [-14, 14.5], tower: [15, 12.4], pit: [9.2, -8.5], course: [-11, -5.2], blocks: [-4.5, 16.6], floor: [3, 15.6], hide: [-19, 4.8] }[a.id];
+      const pos = { swings: [-14, 14.5], tower: [9.4, 11.8], pit: [9.2, -8.5], course: [-11, -5.2], blocks: [-4.5, 16.6], floor: [3, 15.6], hide: [-19, 4.8] }[a.id];
       const pole = CreateCylinder('signpole', { diameter: 0.12, height: 2.6, tessellation: 8 }, this.scene);
       pole.position.set(pos[0], 1.3, pos[1]); pole.material = this.kit.mat('#FFFFFF'); this.add(pole);
       const sign = this.kit.sign(`sign-${a.id}`, { symbol: a.symbol, text: a.name, color: a.color, width: 2.6, height: 0.85 });
       sign.position.set(pos[0], 3, pos[1]); sign.billboardMode = Mesh.BILLBOARDMODE_Y;
       this.signs.push(sign);
     }
+  }
+
+  // Permanent Aboden arcade props: two hoops and the shooting booth.
+  buildArcade() {
+    const k = this.kit, s = this.scene;
+    for (const h of HOOPS) {
+      const pole = k.roundedBox('hooppole', 0.26, 3.6, 0.26, 0.05, k.mat(PALETTE.navy, { gloss: 0.4 }));
+      pole.position.set(h.x, 1.8, -17.78); this.add(pole);
+      const arm = k.roundedBox('hooparm', 0.18, 0.18, 0.5, 0.04, k.mat(PALETTE.navy, { gloss: 0.4 }));
+      arm.position.set(h.x, 3.25, -17.5); this.add(arm);
+      const board = k.roundedBox('backboard', 1.8, 1.1, 0.08, 0.03, k.mat('#FFFFFF', { gloss: 0.6, emissive: 0.25 }));
+      board.position.set(h.x, 3.2, -17.32); this.add(board);
+      const square = k.roundedBox('boardsquare', 0.6, 0.45, 0.02, 0.01, k.mat(PALETTE.coral, { emissive: 0.3 }));
+      square.position.set(h.x, 3.0, -17.27); this.add(square);
+      const rim = CreateTorus('rim', { diameter: 0.5, thickness: 0.045, tessellation: 24 }, s);
+      rim.position.set(h.x, h.rimY, h.z); rim.material = k.mat('#FF6A2B', { gloss: 0.6, emissive: 0.3 }); this.add(rim);
+      const net = CreateCylinder('net', { diameterTop: 0.5, diameterBottom: 0.3, height: 0.42, tessellation: 12, enclose: false, sideOrientation: Mesh.DOUBLESIDE }, s);
+      net.position.set(h.x, h.rimY - 0.21, h.z); net.material = this.netMaterial();
+    }
+    // Shooting booth: striped awning, backdrop, shelf and duck rail.
+    const b = BOOTH, midX = (b.minX + b.maxX) / 2, w = b.maxX - b.minX;
+    const back = k.roundedBox('boothback', w + 0.6, 4.0, 0.2, 0.05, k.mat('#2E3F6E', { emissive: 0.15 }));
+    back.position.set(midX, 2.0, 17.75); this.add(back);
+    const shelf = k.roundedBox('shelf', w - 0.2, 0.12, 0.5, 0.03, k.mat('#8A5A3B', { gloss: 0.3 }));
+    shelf.position.set(midX, 1.09, 16.95); this.add(shelf);
+    const rail = k.roundedBox('duckrail', w, 0.08, 0.12, 0.03, k.mat('#C9CED8', { gloss: 0.6 }));
+    rail.position.set(midX, 1.86, 17.05); this.add(rail);
+    for (const x of [b.minX, b.maxX]) {
+      const post = k.roundedBox('boothpost', 0.24, 3.6, 0.24, 0.05, k.mat(PALETTE.yellow, { gloss: 0.4 }));
+      post.position.set(x, 1.8, b.counterZ + 0.25); this.add(post);
+    }
+    const stripes = 8, sw = (w + 0.4) / stripes;
+    for (let i = 0; i < stripes; i++) {
+      const stripe = k.roundedBox('awning', sw, 0.12, 1.4, 0.03, k.mat(i % 2 ? '#FFFFFF' : PALETTE.coral, { emissive: 0.2 }));
+      stripe.position.set(b.minX - 0.2 + sw * (i + 0.5), 3.55, b.counterZ + 0.3); stripe.rotation.x = -0.25; this.add(stripe);
+    }
+    const sign = this.kit.sign('booth-sign', { symbol: '🦆', text: 'رماية عبودين', color: PALETTE.yellow, width: 3.2, height: 0.8, textColor: '#3A2E4A' });
+    sign.position.set(midX, 4.25, b.counterZ + 0.2);
+    const hoopSign = this.kit.sign('hoop-sign', { symbol: '🏀', text: 'رماية السلة', color: PALETTE.coral, width: 2.6, height: 0.7 });
+    hoopSign.position.set(3.5, 4.3, -17.6);
   }
 
   buildDecor() {

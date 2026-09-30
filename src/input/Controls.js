@@ -3,13 +3,14 @@
 import { EMOTES } from '../../shared/characters.js';
 
 export class Controls {
-  constructor(root, { onInteract, onEmote, onJump } = {}) {
+  constructor(root, { onInteract, onInteractEnd, onEmote, onJump } = {}) {
     this.root = root;
     this.move = { x: 0, y: 0 };      // joystick: x right, y forward
     this.look = { dx: 0, dy: 0 };    // accumulated camera drag in pixels
     this.jumpQueued = false;
     this.keys = new Set();
     this.onInteract = onInteract || (() => {});
+    this.onInteractEnd = onInteractEnd || (() => {});
     this.onEmote = onEmote || (() => {});
     this.onJump = onJump || (() => {});
     this.pointers = new Map();
@@ -47,6 +48,7 @@ export class Controls {
     };
     press(this.jumpBtn, () => { this.jumpQueued = true; this.onJump(); });
     press(this.interactBtn, () => this.onInteract());
+    for (const ev of ['pointerup', 'pointercancel']) this.interactBtn.addEventListener(ev, () => this.onInteractEnd());
     press(this.emoteBtn, () => this.emoteMenu.classList.toggle('hidden'));
     for (const b of this.emoteMenu.querySelectorAll('button')) {
       press(b, () => { this.emoteMenu.classList.add('hidden'); this.onEmote(b.dataset.emote); });
@@ -102,7 +104,10 @@ export class Controls {
       const n = ['Digit1', 'Digit2', 'Digit3', 'Digit4'].indexOf(e.code);
       if (n >= 0) this.onEmote(EMOTES[n].id);
     });
-    window.addEventListener('keyup', e => this.keys.delete(e.code));
+    window.addEventListener('keyup', e => {
+      this.keys.delete(e.code);
+      if (e.code === 'KeyE' || e.code === 'Enter') this.onInteractEnd();
+    });
     window.addEventListener('blur', () => { this.keys.clear(); this.move.x = this.move.y = 0; });
   }
 

@@ -19,6 +19,10 @@ export const T = {
   },
   lost: 'انقطع الاتصال… نحاول مجددًا', reconnected: 'عاد الاتصال',
   race: 'سباق الملعب', rescue: 'إنقاذ الكرات', celebrate: 'حفلة العائلة',
+  hoops: 'رماية السلة', gallery: 'رماية عبودين', paint: 'حرب الألوان',
+  fire: 'إطلاق', throwPaint: 'ارمِ', shoot: 'اضغط مطوّلًا', release: 'أفلِت!', getCloser: 'اقترب من السلة', painted: 'تلوّنت! ❄️', hit: 'أصبت!',
+  hoopsDemo: 'اضغط مطوّلًا وأفلِت عندما يصل المؤشر للمنطقة الخضراء', galleryDemo: 'اسحب للتصويب ثم اضغط إطلاق — البطّ المتحرك بنقاط أكثر', paintDemo: 'فريقان: ارمِ الألوان على الفريق الآخر، ومن يُصاب يتجمّد لحظة',
+  winnerTeam: 'فاز', draw: 'تعادل!',
   colors: 'الأرضية الملوّنة', ball: 'الكرة العملاقة', builders: 'البنّاؤون', hide: 'الغميضة',
   colorsDemo: 'قف على البلاطة بنفس اللون والرمز قبل انتهاء العدّ', colorsGoal: 'اذهب إلى', round: 'الجولة',
   ballDemo: 'ادفعوا الكرة معًا عبر البوابات المتحركة حتى الهدف', ballGoal: 'إلى الهدف', ballReset: 'رجعت الكرة لآخر نقطة',
@@ -42,7 +46,10 @@ export const T = {
     seeker: { icon: '🔍', name: 'المحقق الذكي' },
     hider: { icon: '🫥', name: 'ملك الاختباء' },
     pusher: { icon: '💪', name: 'أقوى دفعة' },
-    builder: { icon: '🧱', name: 'المهندس الماهر' }
+    builder: { icon: '🧱', name: 'المهندس الماهر' },
+    hooper: { icon: '🏀', name: 'نجم السلة' },
+    marksman: { icon: '🎯', name: 'عين الصقر' },
+    painter: { icon: '🎨', name: 'فنّان الألوان' }
   },
   away: 'غير متصل مؤقتًا', joined: 'انضم', backOnline: 'عاد'
 };

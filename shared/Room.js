@@ -109,7 +109,7 @@ export class Room {
   }
 
   freshStats() {
-    return { racePlace: 0, raceTime: 0, delivered: 0, passes: 0, picked: 0, swings: 0, slides: 0, emotes: 0, colorPoints: 0, found: 0, hidden: 0, pushes: 0, placed: 0 };
+    return { racePlace: 0, raceTime: 0, delivered: 0, passes: 0, picked: 0, swings: 0, slides: 0, emotes: 0, colorPoints: 0, found: 0, hidden: 0, pushes: 0, placed: 0, baskets: 0, targets: 0, splats: 0 };
   }
 
   get isEmpty() {
@@ -471,6 +471,9 @@ export class Room {
     if (kinds.includes('hide')) for (const p of players) if (p.stats.hidden > 0) list.push({ id: p.id, badge: 'hider' });
     statBadge('ball', 'pushes', 'pusher');
     statBadge('builders', 'placed', 'builder');
+    statBadge('hoops', 'baskets', 'hooper');
+    statBadge('gallery', 'targets', 'marksman');
+    statBadge('paint', 'splats', 'painter');
     if (kinds.includes('fun')) {
       const fun = players.filter(p => p.stats.swings + p.stats.slides + p.stats.emotes > 0)
         .sort((a, b) => (b.stats.swings + b.stats.slides + b.stats.emotes) - (a.stats.swings + a.stats.slides + a.stats.emotes))[0];

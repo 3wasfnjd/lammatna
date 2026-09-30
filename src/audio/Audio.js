@@ -106,6 +106,11 @@ export class Audio {
         break;
       }
       case 'star': this.duck(0.5, 0.5); [88, 91, 96].forEach((n, i) => this.tone(midi(n), { at: i * 0.06, dur: 0.18, type: 'sine', gain: 0.16 })); this.tone(midi(100), { at: 0.18, dur: 0.35, type: 'triangle', gain: 0.08 }); break;
+      case 'swish': this.duck(0.4, 0.6); this.noise({ dur: 0.35, gain: 0.16, freq: 3500, sweep: 0.5, q: 0.6 }); [76, 81, 88].forEach((n, i) => this.tone(midi(n), { at: 0.1 + i * 0.07, dur: 0.2, type: 'triangle', gain: 0.18 })); break;
+      case 'rim': this.tone(520, { dur: 0.35, type: 'square', gain: 0.06, slide: 0.96 }); this.tone(780, { dur: 0.25, type: 'triangle', gain: 0.06 }); break;
+      case 'shoot': this.noise({ dur: 0.09, gain: 0.22 * v, freq: 1800, q: 0.8, sweep: 0.4 }); this.tone(220, { dur: 0.07, type: 'square', gain: 0.05 * v, slide: 0.5 }); break;
+      case 'ding': this.tone(midi(96), { dur: 0.3, type: 'sine', gain: 0.16 }); this.tone(midi(100), { at: 0.05, dur: 0.35, type: 'sine', gain: 0.1 }); break;
+      case 'splat': this.noise({ dur: 0.22, gain: 0.25, freq: 700, sweep: 0.3, q: 1.2, type: 'lowpass' }); this.tone(180, { dur: 0.12, type: 'sine', gain: 0.12, slide: 0.5 }); break;
       case 'tap': this.tone(660, { dur: 0.06, type: 'triangle', gain: 0.12 }); break;
       case 'join': this.tone(midi(76), { dur: 0.12, type: 'triangle', gain: 0.15 }); this.tone(midi(83), { at: 0.1, dur: 0.18, type: 'triangle', gain: 0.15 }); break;
     }

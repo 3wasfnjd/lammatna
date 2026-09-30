@@ -442,3 +442,95 @@ test('room host (Cloudflare Durable Object adapter): create claims a free code, 
   other.message(c, JSON.stringify({ type: 'join', code: '9999' }));
   assert.equal(c.out[0].code, 'no-room');
 });
+
+// ---- Aboden arcade -----------------------------------------------------------------
+import { HOOPS as HOOP_LIST } from '../shared/playground.js';
+import { idealPower, nearestHoop, GALLERY_TARGETS, targetPos, LANES, PAINT } from '../shared/games/arcade.js';
+
+test('hoops: power in the sweet spot scores, far shots are worth three, streaks add a bonus', () => {
+  const { room, advance } = makeRoom();
+  const a = joinAs(room, 'nasser');
+  room.handle(a.id, { type: 'start', activity: 'hoops' });
+  toPlay(room, advance);
+  const h = HOOP_LIST[0];
+  at(room, a, h.x, 0, h.z + 3);
+  const dist = nearestHoop(a.x, a.z).dist;
+  room.handle(a.id, { type: 'game', op: 'shoot', power: idealPower(dist) });
+  assert.equal(room.activity.data.scores[a.id], 2);
+  room.handle(a.id, { type: 'game', op: 'shoot', power: idealPower(dist) });
+  assert.equal(room.activity.data.shots[a.id], 1, 'cooldown between shots');
+  advance(1000);
+  at(room, a, h.x, 0, h.z + 6);
+  room.handle(a.id, { type: 'game', op: 'shoot', power: idealPower(nearestHoop(a.x, a.z).dist) });
+  assert.equal(room.activity.data.scores[a.id], 5, 'three-pointer');
+  advance(1000);
+  room.handle(a.id, { type: 'game', op: 'shoot', power: idealPower(nearestHoop(a.x, a.z).dist) });
+  assert.equal(room.activity.data.scores[a.id], 9, 'third in a row: 3 + 1 bonus');
+  advance(1000);
+  room.handle(a.id, { type: 'game', op: 'shoot', power: 1 });
+  assert.equal(room.activity.data.scores[a.id], 9, 'a wild shot misses');
+  assert.equal(room.activity.data.streak[a.id], 0);
+  advance(61000);
+  assert.equal(room.activity.phase, 'results');
+  assert.ok(room.activity.data.results.badges.some(x => x.badge === 'hooper'));
+});
+
+test('shooting gallery: rays hit targets, targets fold, players stay at their lane', () => {
+  const { room, advance } = makeRoom();
+  const a = joinAs(room, 'mama'), b = joinAs(room, 'joud');
+  room.handle(a.id, { type: 'start', activity: 'gallery' });
+  toPlay(room, advance);
+  const lane = LANES[0];
+  at(room, a, lane.x, 0, lane.z);
+  const can = GALLERY_TARGETS.find(t => t.kind === 'can');
+  const o = [lane.x, 1.6, lane.z];
+  const aim = c => { const d = [c.x - o[0], c.y - o[1], c.z - o[2]]; return d; };
+  room.handle(a.id, { type: 'game', op: 'fire', o, d: aim(targetPos(can, 0)) });
+  assert.equal(room.activity.data.scores[a.id], 10);
+  advance(400);
+  room.handle(a.id, { type: 'game', op: 'fire', o, d: aim(targetPos(can, 0)) });
+  assert.equal(room.activity.data.scores[a.id], 10, 'a folded can cannot be hit again');
+  // Bullseye on a board.
+  advance(400);
+  const board = GALLERY_TARGETS.find(t => t.kind === 'board');
+  room.handle(a.id, { type: 'game', op: 'fire', o, d: aim(board) });
+  assert.equal(room.activity.data.scores[a.id], 45);
+  // Moving duck: aim where it is now.
+  advance(400);
+  const duck = GALLERY_TARGETS.find(t => t.kind === 'duck');
+  const secs = (room.now() - room.activity.phaseStart) / 1000;
+  room.handle(a.id, { type: 'game', op: 'fire', o, d: aim(targetPos(duck, secs)) });
+  assert.equal(room.activity.data.scores[a.id], 70);
+  // Firing from far away from your own position is rejected.
+  advance(400);
+  room.handle(b.id, { type: 'game', op: 'fire', o: [0, 1.6, 0], d: [0, 0, 1] });
+  assert.equal(room.activity.data.shots[b.id] || 0, 0);
+  advance(61000);
+  assert.equal(room.activity.data.results.ranking[0].id, a.id);
+  assert.ok(room.activity.data.results.badges.some(x => x.id === a.id && x.badge === 'marksman'));
+});
+
+test('colour war: two teams, paint hits freeze the target and score, solo gets robots', () => {
+  const { room, advance } = makeRoom();
+  const a = joinAs(room, 'papa'), b = joinAs(room, 'najd');
+  room.handle(a.id, { type: 'start', activity: 'paint' });
+  toPlay(room, advance);
+  const d = room.activity.data;
+  assert.notEqual(d.teams[a.id], d.teams[b.id]);
+  assert.equal(d.bots.length, 0);
+  at(room, a, 0, 0, 0); at(room, b, 0, 0, 5);
+  room.handle(a.id, { type: 'game', op: 'throw', dx: 0, dz: 1 });
+  for (let i = 0; i < 8; i++) advance(100);
+  assert.equal(d.score[d.teams[a.id]], 1);
+  assert.ok(room.inLockedPhase(b), 'the splatted player is frozen');
+  advance(PAINT.freeze * 1000 + 100);
+  assert.equal(room.inLockedPhase(b), false);
+  assert.ok(d.splats.length >= 1);
+  advance(PAINT.time * 1000);
+  assert.equal(room.activity.phase, 'results');
+  assert.equal(room.activity.data.results.winner, d.teams[a.id]);
+  advance(PHASE_MS.results + 10);
+  room.remove(b.id);
+  room.handle(a.id, { type: 'start', activity: 'paint' });
+  assert.equal(room.activity.data.bots.length, 3);
+});
