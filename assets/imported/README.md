@@ -27,3 +27,26 @@ Tiny Treats Fun Playground is also CC0, but its free itch.io download requires a
 Source: https://tinytreats.itch.io/fun-playground
 
 No gameplay code or existing scene was changed by this import.
+
+## Tiny Treats - Fun Playground
+- Folder: playground/tiny-treats-fun-playground/
+- 47 game-ready glTF models with their BIN buffers and atlas texture.
+- Includes slides, swings, seesaws, monkey bars, merry-go-round, spring horses, stepping stumps, sandboxes and props.
+- Source: https://tinytreats.itch.io/fun-playground
+- Licence: CC0 1.0 Universal.
+- Archive checksum matched the user's inspected upload.
+
+## Kenney Furniture Kit
+- Folder: furniture/kenney-furniture-kit/
+- 140 game-ready GLB models.
+- Source: https://kenney.nl/assets/furniture-kit
+- Licence: CC0 1.0 Universal.
+- Archive checksum matched the user's inspected upload.
+
+## Kenney Mini Arcade
+- Folder: arcade/kenney-mini-arcade/
+- 20 game-ready GLB models plus the shared colormap texture.
+- Includes air hockey, arcade machine, basketball game, claw machine, dance machine, pinball, prize wheel, ticket machine, prizes, walls and two animated characters.
+- Source: https://kenney.nl/assets/mini-arcade
+- Licence: CC0 1.0 Universal.
+- Archive checksum matched the user's inspected upload.
