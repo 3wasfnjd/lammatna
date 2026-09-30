@@ -5,6 +5,7 @@ import {
   CreateSphere, CreateCylinder, CreateGround, CreatePlane, CreateTorus, CreateDisc, CreateTube, CreateBox, CreateCapsule
 } from '../babylon.js';
 import { Kit, hex, roundRect } from './Kit.js';
+import { loadDecorModels } from './DecorModels.js';
 import { BLOCKY } from '../style.js';
 import {
   HALL, PALETTE, AREAS, SOLIDS, STAGE, TOWERS, DECK_Y, STAIRS, SLIDE, slidePoint, BALL_PIT, TUNNEL, FOAM_PIT,
@@ -23,7 +24,11 @@ export class Playground {
     this.tiles = [];
     this.routeMarkers = [];
     this.signs = [];
+    this.decor = [];
     this.build();
+    this.decorReady = loadDecorModels(this.scene)
+      .then(roots => { this.decor = roots; return roots; })
+      .catch(err => { console.warn('[lammatna] imported decor unavailable', err); return []; });
   }
 
   add(mesh) { this.static.push(mesh); return mesh; }
@@ -298,11 +303,8 @@ export class Playground {
       const a = Math.PI * i / 12, b = CreateSphere('bulb', { diameter: 0.22, segments: 6 }, this.scene);
       b.position.set(Math.cos(a) * 2.8, Math.sin(a) * 2.8, 2.05); b.material = bulbs; this.add(b);
     }
-    // Parent benches around the plaza.
-    for (const { x, z, rot: r } of BENCHES) {
-      const seat = k.roundedBox('bench', 2.4, 0.45, 0.8, 0.15, k.mat(PALETTE.purple)); seat.position.set(x, 0.23, z); seat.rotation.y = r; this.add(seat);
-      const back = k.roundedBox('benchback', 2.4, 0.6, 0.25, 0.1, k.mat(PALETTE.pink)); back.position.set(x + (x < 0 ? -0.35 : 0.35), 0.7, z); back.rotation.y = r; this.add(back);
-    }
+    // Parent seating is supplied by imported decor models.
+    // Existing hidden bench colliders remain defined in shared/playground.js.
   }
 
   // ---- swings (animated) -----------------------------------------------------------
@@ -554,16 +556,8 @@ export class Playground {
       const band = CreateTorus('beachband', { diameter: d * 0.99, thickness: d * 0.14, tessellation: 20 }, this.scene);
       band.position.set(x, d / 2, z); band.rotation.z = Math.PI / 2; band.material = k.mat(PALETTE.yellow, { gloss: 0.5 }); this.add(band);
     }
-    for (const [x, z, c] of [[-22.5, -3, PALETTE.yellow], [-22.6, 8, PALETTE.coral], [22.6, 3.5, PALETTE.purple], [-1, -17.2, PALETTE.turquoise], [4, -17.2, PALETTE.coral]]) {
-      const cushion = k.roundedBox('cushion', 1.3, 0.35, 1.3, 0.16, k.mat(c)); cushion.position.set(x, 0.18, z); this.add(cushion);
-    }
-    // Potted round trees.
-    for (const [x, z] of POTS) {
-      const pot = CreateCylinder('pot', { diameterTop: 0.9, diameterBottom: 0.7, height: 0.7, tessellation: 14 }, this.scene);
-      pot.position.set(x, 0.35, z); pot.material = k.mat(PALETTE.coral); this.add(pot);
-      const crown = CreateSphere('crown', { diameter: 1.6, segments: 10 }, this.scene);
-      crown.position.set(x, 1.5, z); crown.material = k.mat('#6CCB8F', { gloss: 0.1 }); this.add(crown);
-    }
+    // Floor cushions and potted plants are supplied by imported decor models.
+    // Their existing hidden collision volumes are intentionally left unchanged.
   }
 
   // Glowing arrows showing the race route; visible during the race.

@@ -158,6 +158,36 @@ for (const [x, z, d] of BEACH_BALLS) box('beachball', [x - d * 0.38, 0, z - d * 
 export const POTS = [[-23, -17], [23, -17], [23, 17], [-23, 17], [9, 17], [-12, 17]].map(([x, z]) => [x * 0.97, z * 0.97]);
 for (const [x, z] of POTS) box('pot', [x - 0.45, 0, z - 0.45], [x + 0.45, 2.2, z + 0.45], { hidden: true });
 
+// Imported decorative furniture / play props. These simple boxes intentionally
+// approximate the visible models while keeping the existing movement system lightweight.
+// They are placed away from core minigame pads and route checkpoints.
+export const IMPORTED_DECOR_SOLIDS = [
+  // Monkey bars: collide with the four vertical posts but keep the centre walkable.
+  { kind: 'decor', min: [-14.63, 0, -16.53], max: [-14.37, 2.9, -16.27] },
+  { kind: 'decor', min: [-12.63, 0, -16.53], max: [-12.37, 2.9, -16.27] },
+  { kind: 'decor', min: [-14.63, 0, -12.53], max: [-14.37, 2.9, -12.27] },
+  { kind: 'decor', min: [-12.63, 0, -12.53], max: [-12.37, 2.9, -12.27] },
+
+  // Seesaw plank/support.
+  { kind: 'decor', min: [-22.35, 0, 6.48], max: [-17.05, 0.72, 7.12] },
+
+  // Spring horses.
+  { kind: 'decor', min: [-21.95, 0, 9.95], max: [-21.05, 1.35, 11.05] },
+  { kind: 'decor', min: [-7.65, 0, 9.75], max: [-6.75, 1.35, 10.85] },
+
+  // Merry-go-round footprint.
+  { kind: 'decor', min: [19.32, 0, 1.32], max: [22.68, 0.62, 4.68] },
+
+  // West-wall arcade cabinets.
+  { kind: 'decor', min: [-23.15, 0, -16.72], max: [-22.15, 1.65, -15.78] },
+  { kind: 'decor', min: [-23.15, 0, -14.68], max: [-22.15, 1.75, -13.72] },
+  { kind: 'decor', min: [-23.25, 0, -11.78], max: [-22.05, 1.80, -10.62] },
+  { kind: 'decor', min: [-23.15, 0, -8.68], max: [-22.15, 1.75, -7.72] },
+  { kind: 'decor', min: [-23.15, 0, -5.68], max: [-22.15, 1.75, -4.72] },
+  { kind: 'decor', min: [-23.10, 0, -2.90], max: [-22.20, 1.45, -2.00] }
+];
+for (const d of IMPORTED_DECOR_SOLIDS) solids.push(d);
+
 // ---- Aboden arcade: basketball hoops and the shooting booth -----------------------
 export const HOOPS = [{ id: 'h0', x: 0, z: -16.75, rimY: 2.75 }, { id: 'h1', x: 7, z: -16.75, rimY: 2.75 }];
 for (const h of HOOPS) box('hoop', [h.x - 0.16, 0, -17.95], [h.x + 0.16, 3.6, -17.6], { hidden: true });

@@ -1,0 +1,751 @@
+{
+  "version": 3,
+  "purpose": "Live visual decor replacements for Lammatna. Gameplay and collider definitions remain separate.",
+  "notes": [
+    "The procedural gameplay floor and painted walls remain because they encode area colours, court lines, race markings, and the Lammatna visual identity.",
+    "Imported rugs, wall paneling, lamps, furniture, arcade props, and playground props add 3D detail without replacing gameplay geometry.",
+    "Large playground models are initially visual-only; interaction/ride logic remains unchanged."
+  ],
+  "placements": [
+    {
+      "id": "parent-bench-left",
+      "replaces": "procedural bench at BENCHES[0]",
+      "model": "assets/imported/furniture/kenney-furniture-kit/loungeSofaLong.glb",
+      "position": [
+        -7.5,
+        0,
+        -1
+      ],
+      "rotation": [
+        0,
+        1.5707963267948966,
+        0
+      ],
+      "targetSize": [
+        2.4,
+        0.95,
+        0.85
+      ]
+    },
+    {
+      "id": "parent-bench-right",
+      "replaces": "procedural bench at BENCHES[1]",
+      "model": "assets/imported/furniture/kenney-furniture-kit/loungeSofaLong.glb",
+      "position": [
+        7.5,
+        0,
+        -1
+      ],
+      "rotation": [
+        0,
+        -1.5707963267948966,
+        0
+      ],
+      "targetSize": [
+        2.4,
+        0.95,
+        0.85
+      ]
+    },
+    {
+      "id": "plant-sw",
+      "replaces": "procedural pot/crown",
+      "model": "assets/imported/furniture/kenney-furniture-kit/pottedPlant.glb",
+      "position": [
+        -22.31,
+        0,
+        -16.49
+      ],
+      "rotation": [
+        0,
+        0.35,
+        0
+      ],
+      "targetSize": [
+        0.9,
+        1.8,
+        0.9
+      ]
+    },
+    {
+      "id": "plant-se",
+      "replaces": "procedural pot/crown",
+      "model": "assets/imported/furniture/kenney-furniture-kit/pottedPlant.glb",
+      "position": [
+        22.31,
+        0,
+        -16.49
+      ],
+      "rotation": [
+        0,
+        -0.45,
+        0
+      ],
+      "targetSize": [
+        0.9,
+        1.8,
+        0.9
+      ]
+    },
+    {
+      "id": "plant-ne",
+      "replaces": "procedural pot/crown",
+      "model": "assets/imported/furniture/kenney-furniture-kit/pottedPlant.glb",
+      "position": [
+        22.31,
+        0,
+        16.49
+      ],
+      "rotation": [
+        0,
+        0.8,
+        0
+      ],
+      "targetSize": [
+        0.9,
+        1.8,
+        0.9
+      ]
+    },
+    {
+      "id": "plant-nw",
+      "replaces": "procedural pot/crown",
+      "model": "assets/imported/furniture/kenney-furniture-kit/pottedPlant.glb",
+      "position": [
+        -22.31,
+        0,
+        16.49
+      ],
+      "rotation": [
+        0,
+        -0.7,
+        0
+      ],
+      "targetSize": [
+        0.9,
+        1.8,
+        0.9
+      ]
+    },
+    {
+      "id": "plant-north-east-mid",
+      "replaces": "procedural pot/crown",
+      "model": "assets/imported/furniture/kenney-furniture-kit/plantSmall2.glb",
+      "position": [
+        8.73,
+        0,
+        16.49
+      ],
+      "rotation": [
+        0,
+        0.2,
+        0
+      ],
+      "targetSize": [
+        0.7,
+        1.05,
+        0.7
+      ]
+    },
+    {
+      "id": "plant-north-west-mid",
+      "replaces": "procedural pot/crown",
+      "model": "assets/imported/furniture/kenney-furniture-kit/plantSmall3.glb",
+      "position": [
+        -11.64,
+        0,
+        16.49
+      ],
+      "rotation": [
+        0,
+        -0.25,
+        0
+      ],
+      "targetSize": [
+        0.7,
+        1.05,
+        0.7
+      ]
+    },
+    {
+      "id": "cushion-west-south",
+      "replaces": "procedural cushion",
+      "model": "assets/imported/furniture/kenney-furniture-kit/pillowBlueLong.glb",
+      "position": [
+        -22.5,
+        0.04,
+        -3
+      ],
+      "rotation": [
+        1.5707963267948966,
+        0.25,
+        0
+      ],
+      "targetSize": [
+        1.15,
+        0.9,
+        0.28
+      ]
+    },
+    {
+      "id": "cushion-west-north",
+      "replaces": "procedural cushion",
+      "model": "assets/imported/furniture/kenney-furniture-kit/pillowLong.glb",
+      "position": [
+        -22.6,
+        0.04,
+        8
+      ],
+      "rotation": [
+        1.5707963267948966,
+        -0.35,
+        0
+      ],
+      "targetSize": [
+        1.15,
+        0.9,
+        0.28
+      ]
+    },
+    {
+      "id": "cushion-east-mid",
+      "replaces": "procedural cushion",
+      "model": "assets/imported/furniture/kenney-furniture-kit/pillowBlueLong.glb",
+      "position": [
+        22.6,
+        0.04,
+        3.5
+      ],
+      "rotation": [
+        1.5707963267948966,
+        0.5,
+        0
+      ],
+      "targetSize": [
+        1.2,
+        0.95,
+        0.28
+      ]
+    },
+    {
+      "id": "cushion-south-left",
+      "replaces": "procedural cushion",
+      "model": "assets/imported/furniture/kenney-furniture-kit/pillowLong.glb",
+      "position": [
+        -1,
+        0.04,
+        -17.2
+      ],
+      "rotation": [
+        1.5707963267948966,
+        0.1,
+        0
+      ],
+      "targetSize": [
+        1.15,
+        0.9,
+        0.28
+      ]
+    },
+    {
+      "id": "cushion-south-right",
+      "replaces": "procedural cushion",
+      "model": "assets/imported/furniture/kenney-furniture-kit/pillowBlue.glb",
+      "position": [
+        4,
+        0.04,
+        -17.2
+      ],
+      "rotation": [
+        1.5707963267948966,
+        -0.2,
+        0
+      ],
+      "targetSize": [
+        1,
+        0.82,
+        0.26
+      ]
+    },
+    {
+      "id": "arcade-ticket-west",
+      "adds": "decorative arcade wall row",
+      "model": "assets/imported/arcade/kenney-mini-arcade/ticket-machine.glb",
+      "position": [
+        -22.65,
+        0,
+        -5.2
+      ],
+      "rotation": [
+        0,
+        1.5707963267948966,
+        0
+      ],
+      "targetSize": [
+        0.8,
+        1.55,
+        0.7
+      ]
+    },
+    {
+      "id": "arcade-machine-west",
+      "adds": "decorative arcade wall row",
+      "model": "assets/imported/arcade/kenney-mini-arcade/arcade-machine.glb",
+      "position": [
+        -22.65,
+        0,
+        -8.2
+      ],
+      "rotation": [
+        0,
+        1.5707963267948966,
+        0
+      ],
+      "targetSize": [
+        0.9,
+        1.65,
+        0.9
+      ]
+    },
+    {
+      "id": "arcade-claw-west",
+      "adds": "decorative arcade wall row",
+      "model": "assets/imported/arcade/kenney-mini-arcade/claw-machine.glb",
+      "position": [
+        -22.65,
+        0,
+        -11.2
+      ],
+      "rotation": [
+        0,
+        1.5707963267948966,
+        0
+      ],
+      "targetSize": [
+        1.15,
+        1.7,
+        1.05
+      ]
+    },
+    {
+      "id": "arcade-vending-west",
+      "adds": "decorative arcade wall row",
+      "model": "assets/imported/arcade/kenney-mini-arcade/vending-machine.glb",
+      "position": [
+        -22.65,
+        0,
+        -14.2
+      ],
+      "rotation": [
+        0,
+        1.5707963267948966,
+        0
+      ],
+      "targetSize": [
+        0.95,
+        1.65,
+        0.75
+      ]
+    },
+    {
+      "id": "rug-parent-left",
+      "adds": "floor decor under parent seating",
+      "model": "assets/imported/furniture/kenney-furniture-kit/rugRectangle.glb",
+      "position": [
+        -7.5,
+        0.015,
+        -1
+      ],
+      "rotation": [
+        0,
+        1.5707963267948966,
+        0
+      ],
+      "targetSize": [
+        3.2,
+        0.05,
+        1.65
+      ]
+    },
+    {
+      "id": "rug-parent-right",
+      "adds": "floor decor under parent seating",
+      "model": "assets/imported/furniture/kenney-furniture-kit/rugRectangle.glb",
+      "position": [
+        7.5,
+        0.015,
+        -1
+      ],
+      "rotation": [
+        0,
+        -1.5707963267948966,
+        0
+      ],
+      "targetSize": [
+        3.2,
+        0.05,
+        1.65
+      ]
+    },
+    {
+      "id": "coffee-table-left",
+      "adds": "parent seating decor",
+      "model": "assets/imported/furniture/kenney-furniture-kit/tableCoffee.glb",
+      "position": [
+        -5.25,
+        0,
+        -1
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "targetSize": [
+        1.25,
+        0.55,
+        0.8
+      ]
+    },
+    {
+      "id": "coffee-table-right",
+      "adds": "parent seating decor",
+      "model": "assets/imported/furniture/kenney-furniture-kit/tableCoffee.glb",
+      "position": [
+        5.25,
+        0,
+        -1
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "targetSize": [
+        1.25,
+        0.55,
+        0.8
+      ]
+    },
+    {
+      "id": "monkey-bars-course",
+      "adds": "obstacle course visual",
+      "model": "assets/imported/playground/tiny-treats-fun-playground/monkeybar_A.gltf",
+      "position": [
+        -13.5,
+        0,
+        -14.4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "targetSize": [
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "id": "seesaw-swings",
+      "adds": "playground visual between hide and swings",
+      "model": "assets/imported/playground/tiny-treats-fun-playground/seesaw_large.gltf",
+      "position": [
+        -19.7,
+        0,
+        6.8
+      ],
+      "rotation": [
+        0,
+        1.5707963267948966,
+        0
+      ],
+      "targetSize": [
+        1.54,
+        0.95,
+        5.4
+      ]
+    },
+    {
+      "id": "spring-horse-west",
+      "adds": "toddler play visual",
+      "model": "assets/imported/playground/tiny-treats-fun-playground/spring_horse_A.gltf",
+      "position": [
+        -21.5,
+        0,
+        10.5
+      ],
+      "rotation": [
+        0,
+        0.2,
+        0
+      ],
+      "targetSize": [
+        1,
+        2.3,
+        2.35
+      ]
+    },
+    {
+      "id": "spring-horse-east",
+      "adds": "toddler play visual",
+      "model": "assets/imported/playground/tiny-treats-fun-playground/spring_horse_B.gltf",
+      "position": [
+        -7.2,
+        0,
+        10.3
+      ],
+      "rotation": [
+        0,
+        -0.35,
+        0
+      ],
+      "targetSize": [
+        1,
+        2.3,
+        2.35
+      ]
+    },
+    {
+      "id": "merry-go-round-east",
+      "adds": "playground visual",
+      "model": "assets/imported/playground/tiny-treats-fun-playground/merry_go_round.gltf",
+      "position": [
+        21,
+        0,
+        3
+      ],
+      "rotation": [
+        0,
+        0.2,
+        0
+      ],
+      "targetSize": [
+        3.4,
+        2.12,
+        3.4
+      ]
+    },
+    {
+      "id": "arcade-pinball-west",
+      "adds": "decorative arcade wall row",
+      "model": "assets/imported/arcade/kenney-mini-arcade/pinball.glb",
+      "position": [
+        -22.65,
+        0,
+        -16.25
+      ],
+      "rotation": [
+        0,
+        1.5707963267948966,
+        0
+      ],
+      "targetSize": [
+        0.9,
+        1.55,
+        0.85
+      ]
+    },
+    {
+      "id": "arcade-prize-wheel-west",
+      "adds": "decorative arcade wall row",
+      "model": "assets/imported/arcade/kenney-mini-arcade/prize-wheel.glb",
+      "position": [
+        -22.65,
+        0,
+        -2.45
+      ],
+      "rotation": [
+        0,
+        1.5707963267948966,
+        0
+      ],
+      "targetSize": [
+        0.9,
+        1.35,
+        0.7
+      ]
+    },
+    {
+      "id": "shooting-booth-register",
+      "adds": "booth counter decor",
+      "model": "assets/imported/arcade/kenney-mini-arcade/cash-register.glb",
+      "position": [
+        12.5,
+        1.02,
+        12.2
+      ],
+      "rotation": [
+        0,
+        3.141592653589793,
+        0
+      ],
+      "targetSize": [
+        0.5,
+        0.4,
+        0.45
+      ]
+    },
+    {
+      "id": "west-panel-a",
+      "adds": "wall accent behind arcade",
+      "model": "assets/imported/furniture/kenney-furniture-kit/paneling.glb",
+      "position": [
+        -23.86,
+        0,
+        -7.4
+      ],
+      "rotation": [
+        0,
+        1.5707963267948966,
+        0
+      ],
+      "targetSize": [
+        4.2,
+        1.45,
+        0.16
+      ]
+    },
+    {
+      "id": "west-panel-b",
+      "adds": "wall accent behind arcade",
+      "model": "assets/imported/furniture/kenney-furniture-kit/paneling.glb",
+      "position": [
+        -23.86,
+        0,
+        -12.2
+      ],
+      "rotation": [
+        0,
+        1.5707963267948966,
+        0
+      ],
+      "targetSize": [
+        4.2,
+        1.45,
+        0.16
+      ]
+    },
+    {
+      "id": "west-wall-lamp-a",
+      "adds": "wall decor",
+      "model": "assets/imported/furniture/kenney-furniture-kit/lampWall.glb",
+      "position": [
+        -23.72,
+        2.7,
+        -5.8
+      ],
+      "rotation": [
+        0,
+        1.5707963267948966,
+        0
+      ],
+      "targetSize": [
+        0.34,
+        0.56,
+        0.25
+      ]
+    },
+    {
+      "id": "west-wall-lamp-b",
+      "adds": "wall decor",
+      "model": "assets/imported/furniture/kenney-furniture-kit/lampWall.glb",
+      "position": [
+        -23.72,
+        2.7,
+        -10.2
+      ],
+      "rotation": [
+        0,
+        1.5707963267948966,
+        0
+      ],
+      "targetSize": [
+        0.34,
+        0.56,
+        0.25
+      ]
+    },
+    {
+      "id": "west-wall-lamp-c",
+      "adds": "wall decor",
+      "model": "assets/imported/furniture/kenney-furniture-kit/lampWall.glb",
+      "position": [
+        -23.72,
+        2.7,
+        -14.5
+      ],
+      "rotation": [
+        0,
+        1.5707963267948966,
+        0
+      ],
+      "targetSize": [
+        0.34,
+        0.56,
+        0.25
+      ]
+    },
+    {
+      "id": "east-wall-lamp-a",
+      "adds": "wall decor",
+      "model": "assets/imported/furniture/kenney-furniture-kit/lampWall.glb",
+      "position": [
+        23.72,
+        2.7,
+        -13.5
+      ],
+      "rotation": [
+        0,
+        -1.5707963267948966,
+        0
+      ],
+      "targetSize": [
+        0.34,
+        0.56,
+        0.25
+      ]
+    },
+    {
+      "id": "east-wall-lamp-b",
+      "adds": "wall decor",
+      "model": "assets/imported/furniture/kenney-furniture-kit/lampWall.glb",
+      "position": [
+        23.72,
+        2.7,
+        -5.5
+      ],
+      "rotation": [
+        0,
+        -1.5707963267948966,
+        0
+      ],
+      "targetSize": [
+        0.34,
+        0.56,
+        0.25
+      ]
+    },
+    {
+      "id": "east-wall-lamp-c",
+      "adds": "wall decor",
+      "model": "assets/imported/furniture/kenney-furniture-kit/lampWall.glb",
+      "position": [
+        23.72,
+        2.7,
+        7.5
+      ],
+      "rotation": [
+        0,
+        -1.5707963267948966,
+        0
+      ],
+      "targetSize": [
+        0.34,
+        0.56,
+        0.25
+      ]
+    }
+  ]
+}
