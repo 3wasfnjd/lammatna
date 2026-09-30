@@ -224,3 +224,16 @@ test('only one minigame runs at a time; players return to idle after the result'
   run(r, 4.5);
   assert.equal(view(r, 'paint').phase, 'idle');
 });
+
+test('a backlog of inputs is trimmed without losing a button press', async () => {
+  const { r } = await room();
+  const id = (r.join(hello(0)) as any).id;
+  run(r, 0.5);
+  const p = r.sim.players.get(id)!;
+  // 20 frames arrive at once; the jump press is early in the batch (it will be trimmed).
+  const f: [number, number, number, number][] = Array.from({ length: 20 }, (_, i) => [i + 1, 0, 0, i >= 2 ? 1 : 0]);
+  r.message(id, { t: 'in', f });
+  let peak = 0;
+  for (let i = 0; i < 60; i++) { r.stepOnce(); peak = Math.max(peak, p.pos[1]); }
+  assert.ok(peak > 0.5, `jumped to ${peak.toFixed(2)} m`);
+});

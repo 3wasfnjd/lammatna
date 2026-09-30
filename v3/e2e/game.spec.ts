@@ -94,3 +94,26 @@ test('two players share a room (create + join by code)', async ({ browser }) => 
   expect(ea).toEqual([]);
   expect(eb).toEqual([]);
 });
+
+test('a minigame starts from the world: step onto the paint arena', async ({ page }) => {
+  const errors = watchConsole(page);
+  await page.goto('?auto=solo&char=nasser&color=%235BBF5A&acc=cap');
+  await page.waitForFunction(() => (window as any).__lm3?.ready && (window as any).__lm3.stage.garden, null, { timeout: 180_000 });
+  const game = () => page.evaluate(() => (window as any).__lm3game.net.games.find((g: any) => g.id === 'paint'));
+  await page.evaluate(() => { const l = (window as any).__lm3; l.teleport(-22, 64, 0); l.view(0, 0.6, 12); });
+  // A countdown appears above the spot (no pop-up windows), then the game runs.
+  await expect.poll(async () => (await game()).phase, { timeout: 10_000 }).toBe('countdown');
+  const countdownShown = await page.evaluate(() => [...(window as any).__lm3game.markers.countdowns.values()].some((c: any) => c.mesh.isEnabled()));
+  expect(countdownShown).toBeTruthy();
+  await page.screenshot({ path: 'docs/game-countdown.png' });
+  await expect.poll(async () => (await game()).phase, { timeout: 10_000 }).toBe('running');
+  await expect(page.locator('.gamebar')).toContainText('🎨');
+  // Throw paint with the interact button.
+  for (let i = 0; i < 3; i++) { await page.locator('.act').click(); await page.waitForTimeout(700); }
+  await expect.poll(async () => { const g = await game(); return Object.values(g.scores as Record<string, number>)[0]; }, { timeout: 10_000 }).toBeGreaterThan(5);
+  await page.screenshot({ path: 'docs/game-paint.png' });
+  await page.evaluate(() => (window as any).__lm3game.net.t.room.games.forceEnd('paint'));
+  await expect.poll(async () => (await game()).phase, { timeout: 10_000 }).toBe('result');
+  await expect(page.locator('.gamebar')).toContainText('🏆');
+  expect(errors).toEqual([]);
+});

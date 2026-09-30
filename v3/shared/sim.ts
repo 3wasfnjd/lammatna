@@ -41,6 +41,8 @@ export interface PlayerSim {
   inWater: string;
   lastBounce: number;
   noGrabUntil?: number;
+  jumpAt?: number;
+  groundAt?: number;
 }
 
 export interface SimEvent { type: string; [k: string]: any }
@@ -242,7 +244,14 @@ export class Sim {
     if (dl > maxDv) { p.vel[0] += dvx / dl * maxDv; p.vel[2] += dvz / dl * maxDv; } else { p.vel[0] = tx; p.vel[2] = tz; }
     if (m > 0.1) p.yaw = turnToward(p.yaw, Math.atan2(mx, mz), 12 * dt);
 
-    if (p.grounded && pressed(BTN.jump)) { p.vel[1] = MOVE.jumpVelocity; p.grounded = false; this.emit({ type: 'jump', p: p.id }); }
+    // Jump buffering and "coyote time": a press just before landing, or just after
+    // stepping off an edge, still jumps.
+    if (pressed(BTN.jump)) p.jumpAt = this.time;
+    if (p.grounded) p.groundAt = this.time;
+    if ((p.jumpAt ?? -9) > this.time - 0.15 && (p.grounded || (p.groundAt ?? -9) > this.time - 0.1) && p.vel[1] <= 0.5) {
+      p.vel[1] = MOVE.jumpVelocity; p.grounded = false; p.jumpAt = -9; p.groundAt = -9;
+      this.emit({ type: 'jump', p: p.id });
+    }
     p.vel[1] -= MOVE.gravity * dt;
     if (p.vel[1] < -30) p.vel[1] = -30;
 

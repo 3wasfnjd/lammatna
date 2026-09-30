@@ -33,31 +33,33 @@ test('phone: joystick, jump and the interact button work by touch', async ({ pag
   const start = (await me(page)).pos;
   await touch(cdp, 'touchStart', j.x, j.y);
   await touch(cdp, 'touchMove', j.x, j.y - 60);
-  await page.waitForTimeout(1500);
+  await expect.poll(async () => { const m = (await me(page)).pos; return Math.hypot(m[0] - start[0], m[2] - start[2]); }, { timeout: 30_000 }).toBeGreaterThan(2);
   await touch(cdp, 'touchEnd', 0, 0);
-  const moved = (await me(page)).pos;
-  expect(Math.hypot(moved[0] - start[0], moved[2] - start[2])).toBeGreaterThan(2);
 
   // Jump button.
   const jb = await center(page, '.jump');
+  // Record the peak height every frame in the page (a jump can fall between two polls).
+  await page.evaluate(() => { const w = window as any; w.__peakY = 0; setInterval(() => { w.__peakY = Math.max(w.__peakY, w.__lm3game.net.me.pos[1]); }, 16); });
   await touch(cdp, 'touchStart', jb.x, jb.y);
-  await expect.poll(async () => (await me(page)).pos[1], { timeout: 5000 }).toBeGreaterThan(0.5);
+  await expect.poll(() => page.evaluate(() => (window as any).__peakY), { timeout: 20_000 }).toBeGreaterThan(0.5);
   await touch(cdp, 'touchEnd', 0, 0);
 
   // Walk up to a swing: the interact button appears with the seat icon; tapping it sits you down.
   const seat = await page.evaluate(() => { const t = (window as any).__lm3game.sim.toyById.get('swing-small'); const s = t.seatPos(0), f = t.fwd(); return [s[0] + f[0] * 0.9, s[2] + f[2] * 0.9]; });
   await page.evaluate(([x, z]) => (window as any).__lm3.teleport(x, z, Math.PI), seat);
-  await expect(page.locator('.act')).not.toHaveClass(/hidden/, { timeout: 10_000 });
+  // Let the player land and settle (slow software rendering can lag a few seconds).
+  await expect.poll(async () => { const m = await me(page); return m.mode === 'walk' && Math.hypot(m.pos[0] - seat[0], m.pos[2] - seat[1]) < 0.6; }, { timeout: 30_000 }).toBeTruthy();
+  await expect(page.locator('.act')).not.toHaveClass(/hidden/, { timeout: 30_000 });
   await expect(page.locator('.act')).toHaveText('🪑');
   await page.screenshot({ path: 'docs/phone-swing.png' });
   const ab = await center(page, '.act');
   await touch(cdp, 'touchStart', ab.x, ab.y);
   await touch(cdp, 'touchEnd', 0, 0);
-  await expect.poll(async () => (await me(page)).mode, { timeout: 10_000 }).toBe('seat');
+  await expect.poll(async () => (await me(page)).mode, { timeout: 30_000 }).toBe('seat');
   // Pump with the joystick: the seat starts to swing.
   await touch(cdp, 'touchStart', j.x, j.y);
   await touch(cdp, 'touchMove', j.x, j.y - 60);
-  await expect.poll(() => page.evaluate(() => Math.abs((window as any).__lm3game.sim.toyById.get('swing-small').state()[0])), { timeout: 15_000 }).toBeGreaterThan(0.2);
+  await expect.poll(() => page.evaluate(() => Math.abs((window as any).__lm3game.sim.toyById.get('swing-small').state()[0])), { timeout: 45_000 }).toBeGreaterThan(0.2);
   await touch(cdp, 'touchEnd', 0, 0);
   await page.screenshot({ path: 'docs/phone-swinging.png' });
 

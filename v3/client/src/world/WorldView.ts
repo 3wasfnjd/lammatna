@@ -320,14 +320,20 @@ export class WorldView {
       const g = (mesh as any).grid as { n: number; cols: Float32Array };
       const grid = toy?.grid || [];
       const c = new Color3();
+      // Paint uses each player's own outfit colour (the same dot the HUD shows).
+      const paint = this.net.games?.find(g => g.id === 'paint');
+      const byIndex: string[] = [];
+      for (const [pid, i] of Object.entries((paint?.x?.color || {}) as Record<string, number>)) byIndex[i] = this.net.players?.find(p => p.id === pid)?.color || PLAYER_COLORS[i % 5];
       for (let k = 0; k < g.n * g.n; k++) {
         const v = grid.length ? grid[k] : -1;
-        if (v >= 0) Color3.FromHexString(id === 'paint-arena' ? PLAYER_COLORS[v % 5] : GRID_COLORS[v % 4]).toLinearSpaceToRef(c), c.toGammaSpaceToRef(c);
+        if (v >= 0) Color3.FromHexString(id === 'paint-arena' ? (byIndex[v] || PLAYER_COLORS[v % 5]) : GRID_COLORS[v % 4]).toLinearSpaceToRef(c), c.toGammaSpaceToRef(c);
         else if (id === 'color-floor') Color3.HSVtoRGBToRef(((k * 37 + time * 40) % 360), 0.55, 1, c);
         else c.set(0.62, 0.8, 0.45);
         g.cols.set([c.r, c.g, c.b, 1], k * 4);
       }
-      mesh.thinInstanceBufferUpdated('color');
+      // Babylon keeps its own copy of the buffer: hand it the new colours when they change.
+      const sig = grid.join(',') + (id === 'color-floor' && !grid.length ? Math.floor(time * 4) : '');
+      if ((mesh as any).gridSig !== sig) { (mesh as any).gridSig = sig; mesh.thinInstanceSetBuffer('color', g.cols, 4); }
     }
   }
 

@@ -123,6 +123,7 @@ export class Markers {
       const label = g.phase === 'countdown' ? String(Math.ceil(g.t)) : g.phase === 'idle' && g.inSpot > 0 && g.inSpot < g.need ? `${g.inSpot}/${g.need}` : '';
       if (label && !cd) {
         const tex = new DynamicTexture('cd', { width: 256, height: 256 }, this.scene, true);
+        tex.hasAlpha = true;
         const mesh = billboard(this.scene, 'countdown', tex, 2.2);
         cd = { mesh, tex, last: '' };
         this.countdowns.set(g.id, cd);

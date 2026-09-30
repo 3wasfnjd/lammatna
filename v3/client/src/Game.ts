@@ -185,7 +185,11 @@ export class Game {
     // The interact button appears only when something nearby can be used.
     let icon: string | null = null, at: [number, number, number] | null = null;
     if (me && !this.busy) {
-      if (me.mode === 'walk' || me.mode === 'air') {
+      // Games that use the button (throw paint, tag hiders) come first.
+      const mine = net.games.find(x => x.phase === 'running' && x.players.includes(net.myId));
+      if (mine?.id === 'paint') icon = '🎨';
+      else if (mine?.id === 'hideSeek' && mine.x?.seeker === net.myId && mine.x?.phase === 'seek') icon = '👉';
+      else if (me.mode === 'walk' || me.mode === 'air') {
         const best = net.sim.interactions(me)[0];
         if (best) { icon = best.icon; at = best.at as any; }
       } else if (me.mode === 'claw') icon = '⬇️';

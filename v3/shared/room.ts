@@ -112,7 +112,14 @@ export class Room {
     const inputs = new Map<string, InputFrame>();
     for (const rp of this.players.values()) {
       // Consume one input frame per step; catch up if the client is far ahead.
-      if (rp.queue.length > 8) rp.queue.splice(0, rp.queue.length - 4);
+      if (rp.queue.length > 8) {
+        // Catch up, but never lose a button press that was in the dropped frames.
+        const dropped = rp.queue.splice(0, rp.queue.length - 4);
+        const pressed = dropped.reduce((b, x) => b | x.b, 0) & (BTN.jump | BTN.interact);
+        rp.queue[0] = { ...rp.queue[0], b: rp.queue[0].b | pressed };
+        const ps = this.sim.players.get(rp.id);
+        if (ps && (pressed & BTN.jump) && !(rp.last.b & BTN.jump)) ps.prevB &= ~BTN.jump;
+      }
       const f = rp.queue.shift();
       if (f) { rp.last = f; inputs.set(rp.id, f); }
       else inputs.set(rp.id, { ...rp.last, b: rp.last.b & ~BTN.interact });
