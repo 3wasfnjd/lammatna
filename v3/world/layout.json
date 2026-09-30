@@ -1,0 +1,3623 @@
+{
+ "version": 3,
+ "spawn": [
+  0,
+  0,
+  -14
+ ],
+ "spawnYaw": 0,
+ "bounds": {
+  "min": [
+   -42,
+   -32
+  ],
+  "max": [
+   42,
+   90
+  ]
+ },
+ "gate": {
+  "x": [
+   -7,
+   7
+  ],
+  "z": 32.5
+ },
+ "walls": [
+  {
+   "from": [
+    -42.5,
+    -32.5
+   ],
+   "to": [
+    42.5,
+    -32.5
+   ],
+   "height": 8,
+   "thickness": 1,
+   "kind": "wall"
+  },
+  {
+   "from": [
+    -42.5,
+    -32.5
+   ],
+   "to": [
+    -42.5,
+    32.5
+   ],
+   "height": 8,
+   "thickness": 1,
+   "kind": "wall"
+  },
+  {
+   "from": [
+    42.5,
+    -32.5
+   ],
+   "to": [
+    42.5,
+    32.5
+   ],
+   "height": 8,
+   "thickness": 1,
+   "kind": "wall"
+  },
+  {
+   "from": [
+    -42.5,
+    32.5
+   ],
+   "to": [
+    -7,
+    32.5
+   ],
+   "height": 8,
+   "thickness": 1,
+   "kind": "wall"
+  },
+  {
+   "from": [
+    7,
+    32.5
+   ],
+   "to": [
+    42.5,
+    32.5
+   ],
+   "height": 8,
+   "thickness": 1,
+   "kind": "wall"
+  },
+  {
+   "from": [
+    -42.5,
+    32.5
+   ],
+   "to": [
+    -42.5,
+    90.5
+   ],
+   "height": 2.4,
+   "thickness": 1,
+   "kind": "hedge"
+  },
+  {
+   "from": [
+    42.5,
+    32.5
+   ],
+   "to": [
+    42.5,
+    90.5
+   ],
+   "height": 2.4,
+   "thickness": 1,
+   "kind": "hedge"
+  },
+  {
+   "from": [
+    -42.5,
+    90.5
+   ],
+   "to": [
+    42.5,
+    90.5
+   ],
+   "height": 2.4,
+   "thickness": 1,
+   "kind": "hedge"
+  }
+ ],
+ "zones": [
+  {
+   "id": "plaza",
+   "icon": "⛲",
+   "color": "#FFD166",
+   "center": [
+    0,
+    -19
+   ],
+   "size": [
+    20,
+    20
+   ],
+   "shape": "circle",
+   "sound": "plaza",
+   "stage": "hall"
+  },
+  {
+   "id": "trampoline",
+   "icon": "🤸",
+   "color": "#4CC9F0",
+   "center": [
+    -27,
+    -17
+   ],
+   "size": [
+    26,
+    26
+   ],
+   "shape": "rect",
+   "sound": "boing",
+   "stage": "hall"
+  },
+  {
+   "id": "adventure",
+   "icon": "🏰",
+   "color": "#F77F00",
+   "center": [
+    -27,
+    15
+   ],
+   "size": [
+    26,
+    30
+   ],
+   "shape": "hex",
+   "sound": "adventure",
+   "stage": "hall"
+  },
+  {
+   "id": "arcade",
+   "icon": "🕹️",
+   "color": "#9D4EDD",
+   "center": [
+    27,
+    15
+   ],
+   "size": [
+    26,
+    30
+   ],
+   "shape": "rect",
+   "sound": "arcade",
+   "stage": "hall"
+  },
+  {
+   "id": "cafe",
+   "icon": "☕",
+   "color": "#06D6A0",
+   "center": [
+    27,
+    -17
+   ],
+   "size": [
+    26,
+    26
+   ],
+   "shape": "rect",
+   "sound": "cafe",
+   "stage": "hall"
+  },
+  {
+   "id": "swings",
+   "icon": "🎠",
+   "color": "#FF70A6",
+   "center": [
+    0,
+    15
+   ],
+   "size": [
+    24,
+    26
+   ],
+   "shape": "circle",
+   "sound": "swings",
+   "stage": "hall"
+  },
+  {
+   "id": "garden",
+   "icon": "🌳",
+   "color": "#90BE6D",
+   "center": [
+    0,
+    61
+   ],
+   "size": [
+    84,
+    58
+   ],
+   "shape": "lawn",
+   "sound": "garden",
+   "stage": "garden"
+  }
+ ],
+ "placements": [
+  {
+   "id": "fountain",
+   "shape": "pool",
+   "zone": "plaza",
+   "pos": [
+    0,
+    0,
+    -27
+   ],
+   "size": [
+    6,
+    0.35,
+    6
+   ],
+   "color": "#48CAE4",
+   "collider": "none",
+   "behaviour": {
+    "type": "water",
+    "circle": true
+   }
+  },
+  {
+   "id": "giant-ball",
+   "shape": "ball",
+   "zone": "plaza",
+   "pos": [
+    0,
+    0,
+    -20
+   ],
+   "size": [
+    2.4,
+    2.4,
+    2.4
+   ],
+   "color": "#FF595E",
+   "collider": "dynamic",
+   "mass": 12,
+   "behaviour": {
+    "tag": "giant",
+    "restitution": 0.55
+   }
+  },
+  {
+   "id": "ball-1",
+   "shape": "ball",
+   "zone": "plaza",
+   "pos": [
+    4.5,
+    0,
+    -15.5
+   ],
+   "size": [
+    0.6,
+    0.6,
+    0.6
+   ],
+   "color": "#FFCA3A",
+   "collider": "dynamic",
+   "mass": 0.8,
+   "behaviour": {
+    "tag": "ball",
+    "restitution": 0.75
+   }
+  },
+  {
+   "id": "ball-2",
+   "shape": "ball",
+   "zone": "plaza",
+   "pos": [
+    -4.5,
+    0,
+    -16.5
+   ],
+   "size": [
+    0.6,
+    0.6,
+    0.6
+   ],
+   "color": "#8AC926",
+   "collider": "dynamic",
+   "mass": 0.8,
+   "behaviour": {
+    "tag": "ball",
+    "restitution": 0.75
+   }
+  },
+  {
+   "id": "ball-3",
+   "shape": "ball",
+   "zone": "plaza",
+   "pos": [
+    4,
+    0,
+    -24
+   ],
+   "size": [
+    0.6,
+    0.6,
+    0.6
+   ],
+   "color": "#1982C4",
+   "collider": "dynamic",
+   "mass": 0.8,
+   "behaviour": {
+    "tag": "ball",
+    "restitution": 0.75
+   }
+  },
+  {
+   "id": "goal-w",
+   "shape": "goal",
+   "zone": "plaza",
+   "pos": [
+    -9.5,
+    0,
+    -20
+   ],
+   "rot": 90,
+   "size": [
+    3.4,
+    2.2,
+    1.2
+   ],
+   "collider": "none",
+   "behaviour": {
+    "type": "area",
+    "posts": [
+     [
+      -1.75,
+      0,
+      -0.1,
+      -1.55,
+      2.2,
+      0.1
+     ],
+     [
+      1.55,
+      0,
+      -0.1,
+      1.75,
+      2.2,
+      0.1
+     ]
+    ]
+   }
+  },
+  {
+   "id": "goal-e",
+   "shape": "goal",
+   "zone": "plaza",
+   "pos": [
+    9.5,
+    0,
+    -20
+   ],
+   "rot": -90,
+   "size": [
+    3.4,
+    2.2,
+    1.2
+   ],
+   "collider": "none",
+   "behaviour": {
+    "type": "area",
+    "posts": [
+     [
+      -1.75,
+      0,
+      -0.1,
+      -1.55,
+      2.2,
+      0.1
+     ],
+     [
+      1.55,
+      0,
+      -0.1,
+      1.75,
+      2.2,
+      0.1
+     ]
+    ]
+   }
+  },
+  {
+   "id": "step-low",
+   "shape": "block",
+   "zone": "trampoline",
+   "pos": [
+    -17.9,
+    0,
+    -19.3
+   ],
+   "size": [
+    0.7,
+    0.4,
+    2.2
+   ],
+   "color": "#FFD166",
+   "collider": "box"
+  },
+  {
+   "id": "step-high",
+   "shape": "block",
+   "zone": "trampoline",
+   "pos": [
+    -18.55,
+    0,
+    -19.3
+   ],
+   "size": [
+    0.6,
+    0.8,
+    2.2
+   ],
+   "color": "#FFB703",
+   "collider": "box"
+  },
+  {
+   "id": "trampoline-park",
+   "model": "scn/trampoline",
+   "zone": "trampoline",
+   "pos": [
+    -21,
+    0,
+    -16
+   ],
+   "rot": 0,
+   "collider": "children",
+   "children": [
+    {
+     "match": "floor-tile|ceiling-truss|toddler-play-mat",
+     "collider": "none"
+    },
+    {
+     "match": "safety-sign-set|briefing-screen|grip-sock-display",
+     "collider": "exclude"
+    },
+    {
+     "match": "trampoline-bed-module|performance-trampoline|angled-trampoline|airbag-landing-block|tumble-track|wall-trampoline",
+     "collider": "bounce"
+    },
+    {
+     "match": "basketball-dunk-hoop",
+     "collider": "none",
+     "behaviour": {
+      "type": "hoop",
+      "ringOffset": [
+       0,
+       2.35,
+       0.5
+      ],
+      "r": 0.26,
+      "shootDist": 1.2
+     }
+    },
+    {
+     "match": "foam-pit",
+     "collider": "none",
+     "behaviour": {
+      "type": "softPit"
+     }
+    },
+    {
+     "match": "ball-pit",
+     "collider": "none",
+     "behaviour": {
+      "type": "ballPit"
+     }
+    },
+    {
+     "match": "spinner-seat",
+     "collider": "none",
+     "behaviour": {
+      "type": "spinner",
+      "axis": "y",
+      "seat": true,
+      "damping": 0.8
+     }
+    },
+    {
+     "match": "roller-slide",
+     "collider": "none",
+     "behaviour": {
+      "type": "slide",
+      "width": 0.7,
+      "path": [
+       [
+        -1,
+        1.15,
+        -0.35
+       ],
+       [
+        -1,
+        0.95,
+        0.3
+       ],
+       [
+        -1,
+        0.62,
+        1.2
+       ],
+       [
+        -1,
+        0.38,
+        2
+       ],
+       [
+        -1,
+        0.22,
+        2.7
+       ],
+       [
+        -1,
+        0.12,
+        3.2
+       ]
+      ],
+      "entry": [
+       -1,
+       0,
+       -0.95
+      ],
+      "posts": []
+     }
+    },
+    {
+     "match": "soft-play-frame-tower",
+     "collider": "none",
+     "behaviour": {
+      "type": "climb",
+      "top": 2.3,
+      "inset": 0.3
+     }
+    },
+    {
+     "match": "crawl-tunnel",
+     "collider": "none",
+     "behaviour": {
+      "type": "solid",
+      "solids": []
+     }
+    },
+    {
+     "match": "waste-bin|cleaning-trolley",
+     "collider": "dynamic",
+     "behaviour": {
+      "mass": 10
+     }
+    }
+   ]
+  },
+  {
+   "id": "big-slide",
+   "model": "tt/slide_B",
+   "zone": "adventure",
+   "pos": [
+    -33,
+    0,
+    21
+   ],
+   "collider": "joint",
+   "behaviour": {
+    "type": "slide",
+    "width": 0.9,
+    "path": [
+     [
+      0,
+      2.95,
+      0.9
+     ],
+     [
+      0,
+      2.7,
+      1.8
+     ],
+     [
+      0,
+      1.9,
+      2.45
+     ],
+     [
+      0,
+      1.05,
+      2.95
+     ],
+     [
+      0,
+      0.55,
+      3.55
+     ],
+     [
+      0,
+      0.35,
+      4.1
+     ],
+     [
+      0,
+      0.2,
+      4.7
+     ]
+    ],
+    "entry": [
+     -2.6,
+     0,
+     -0.2
+    ],
+    "deck": [
+     -1.3,
+     0,
+     -1.4,
+     1.3,
+     2.95,
+     0.75
+    ],
+    "posts": [
+     [
+      -2.2,
+      0,
+      -2,
+      -1.7,
+      5.5,
+      -1.5
+     ],
+     [
+      1.5,
+      0,
+      -2,
+      2,
+      5.5,
+      -1.5
+     ],
+     [
+      -2.2,
+      0,
+      1.4,
+      -1.7,
+      5.5,
+      1.9
+     ],
+     [
+      1.5,
+      0,
+      1.4,
+      2,
+      5.5,
+      1.9
+     ]
+    ]
+   }
+  },
+  {
+   "id": "small-slide",
+   "model": "tt/slide_A",
+   "zone": "adventure",
+   "pos": [
+    -36,
+    0,
+    8
+   ],
+   "collider": "joint",
+   "behaviour": {
+    "type": "slide",
+    "width": 0.8,
+    "path": [
+     [
+      -0.18,
+      2.1,
+      1
+     ],
+     [
+      -0.18,
+      1.95,
+      1.7
+     ],
+     [
+      -0.18,
+      1.5,
+      2.3
+     ],
+     [
+      -0.18,
+      0.95,
+      2.85
+     ],
+     [
+      -0.18,
+      0.55,
+      3.5
+     ],
+     [
+      -0.18,
+      0.3,
+      4.1
+     ],
+     [
+      -0.18,
+      0.15,
+      4.6
+     ]
+    ],
+    "entry": [
+     -0.18,
+     0,
+     -2.1
+    ],
+    "deck": [
+     -1.3,
+     0,
+     -1.3,
+     0.95,
+     2.1,
+     0.95
+    ],
+    "posts": []
+   }
+  },
+  {
+   "id": "ball-pit",
+   "shape": "pit",
+   "zone": "adventure",
+   "pos": [
+    -20,
+    0,
+    10
+   ],
+   "size": [
+    6,
+    0.55,
+    6
+   ],
+   "color": "#FB8500",
+   "collider": "none",
+   "behaviour": {
+    "type": "ballPit",
+    "walls": [
+     [
+      -3,
+      0,
+      -3,
+      3,
+      0.35,
+      -2.8
+     ],
+     [
+      -3,
+      0,
+      2.8,
+      3,
+      0.35,
+      3
+     ],
+     [
+      -3,
+      0,
+      -3,
+      -2.8,
+      0.35,
+      3
+     ],
+     [
+      2.8,
+      0,
+      -3,
+      3,
+      0.35,
+      3
+     ]
+    ]
+   }
+  },
+  {
+   "id": "bars",
+   "model": "tt/monkeybar_A",
+   "zone": "adventure",
+   "pos": [
+    -24,
+    0,
+    22
+   ],
+   "collider": "joint",
+   "behaviour": {
+    "type": "hang"
+   }
+  },
+  {
+   "id": "arch-climber",
+   "model": "tt/monkeybar_B",
+   "zone": "adventure",
+   "pos": [
+    -17,
+    0,
+    22
+   ],
+   "rot": 90,
+   "collider": "joint",
+   "behaviour": {
+    "type": "climb",
+    "inset": 0.35
+   }
+  },
+  {
+   "id": "tire_blue-4",
+   "model": "tt/tire_blue",
+   "zone": "adventure",
+   "pos": [
+    -29,
+    0,
+    5
+   ],
+   "rot": 30,
+   "collider": "dynamic",
+   "mass": 6
+  },
+  {
+   "id": "tire_pink-5",
+   "model": "tt/tire_pink",
+   "zone": "adventure",
+   "pos": [
+    -27.5,
+    0,
+    4.2
+   ],
+   "rot": 30,
+   "collider": "dynamic",
+   "mass": 6
+  },
+  {
+   "id": "tire_yellow-6",
+   "model": "tt/tire_yellow",
+   "zone": "adventure",
+   "pos": [
+    -30.5,
+    0,
+    3.8
+   ],
+   "rot": 30,
+   "collider": "dynamic",
+   "mass": 6
+  },
+  {
+   "id": "stepping_stumps_B_large-7",
+   "model": "tt/stepping_stumps_B_large",
+   "zone": "adventure",
+   "pos": [
+    -30,
+    0,
+    13
+   ],
+   "collider": "box"
+  },
+  {
+   "id": "stepping_stumps_B_large-8",
+   "model": "tt/stepping_stumps_B_large",
+   "zone": "adventure",
+   "pos": [
+    -28.6,
+    0,
+    14.2
+   ],
+   "collider": "box"
+  },
+  {
+   "id": "stepping_stumps_B_large-9",
+   "model": "tt/stepping_stumps_B_large",
+   "zone": "adventure",
+   "pos": [
+    -27.2,
+    0,
+    13.2
+   ],
+   "collider": "box"
+  },
+  {
+   "id": "stepping_stumps_B_large-10",
+   "model": "tt/stepping_stumps_B_large",
+   "zone": "adventure",
+   "pos": [
+    -25.8,
+    0,
+    14.4
+   ],
+   "collider": "box"
+  },
+  {
+   "id": "ball-11",
+   "shape": "ball",
+   "zone": "adventure",
+   "pos": [
+    -22,
+    0,
+    18
+   ],
+   "size": [
+    0.55,
+    0.55,
+    0.55
+   ],
+   "color": "#FF595E",
+   "collider": "dynamic",
+   "mass": 0.7,
+   "behaviour": {
+    "tag": "rescue",
+    "restitution": 0.7
+   }
+  },
+  {
+   "id": "ball-12",
+   "shape": "ball",
+   "zone": "adventure",
+   "pos": [
+    -33,
+    0,
+    12.5
+   ],
+   "size": [
+    0.55,
+    0.55,
+    0.55
+   ],
+   "color": "#FFCA3A",
+   "collider": "dynamic",
+   "mass": 0.7,
+   "behaviour": {
+    "tag": "rescue",
+    "restitution": 0.7
+   }
+  },
+  {
+   "id": "ball-13",
+   "shape": "ball",
+   "zone": "adventure",
+   "pos": [
+    -18,
+    0,
+    26
+   ],
+   "size": [
+    0.55,
+    0.55,
+    0.55
+   ],
+   "color": "#8AC926",
+   "collider": "dynamic",
+   "mass": 0.7,
+   "behaviour": {
+    "tag": "rescue",
+    "restitution": 0.7
+   }
+  },
+  {
+   "id": "ball-14",
+   "shape": "ball",
+   "zone": "adventure",
+   "pos": [
+    -35,
+    0,
+    27
+   ],
+   "size": [
+    0.55,
+    0.55,
+    0.55
+   ],
+   "color": "#1982C4",
+   "collider": "dynamic",
+   "mass": 0.7,
+   "behaviour": {
+    "tag": "rescue",
+    "restitution": 0.7
+   }
+  },
+  {
+   "id": "ball-15",
+   "shape": "ball",
+   "zone": "adventure",
+   "pos": [
+    -15,
+    0,
+    14
+   ],
+   "size": [
+    0.55,
+    0.55,
+    0.55
+   ],
+   "color": "#6A4C93",
+   "collider": "dynamic",
+   "mass": 0.7,
+   "behaviour": {
+    "tag": "rescue",
+    "restitution": 0.7
+   }
+  },
+  {
+   "id": "ball-16",
+   "shape": "ball",
+   "zone": "adventure",
+   "pos": [
+    -24,
+    0,
+    28
+   ],
+   "size": [
+    0.55,
+    0.55,
+    0.55
+   ],
+   "color": "#FF924C",
+   "collider": "dynamic",
+   "mass": 0.7,
+   "behaviour": {
+    "tag": "rescue",
+    "restitution": 0.7
+   }
+  },
+  {
+   "id": "ball-17",
+   "shape": "ball",
+   "zone": "adventure",
+   "pos": [
+    -38.5,
+    0,
+    16
+   ],
+   "size": [
+    0.55,
+    0.55,
+    0.55
+   ],
+   "color": "#52A675",
+   "collider": "dynamic",
+   "mass": 0.7,
+   "behaviour": {
+    "tag": "rescue",
+    "restitution": 0.7
+   }
+  },
+  {
+   "id": "ball-18",
+   "shape": "ball",
+   "zone": "adventure",
+   "pos": [
+    -19,
+    0,
+    4
+   ],
+   "size": [
+    0.55,
+    0.55,
+    0.55
+   ],
+   "color": "#F15BB5",
+   "collider": "dynamic",
+   "mass": 0.7,
+   "behaviour": {
+    "tag": "rescue",
+    "restitution": 0.7
+   }
+  },
+  {
+   "id": "rescue-basket",
+   "shape": "basket",
+   "zone": "adventure",
+   "pos": [
+    -26,
+    0,
+    3
+   ],
+   "size": [
+    3.6,
+    0.3,
+    3.6
+   ],
+   "color": "#FFB703",
+   "collider": "none",
+   "behaviour": {
+    "type": "area"
+   }
+  },
+  {
+   "id": "swing-big",
+   "model": "tt/swing_A_large",
+   "zone": "swings",
+   "pos": [
+    -7.5,
+    0,
+    22
+   ],
+   "collider": "joint",
+   "behaviour": {
+    "type": "swing",
+    "seats": [
+     "seat_A",
+     "seat_B"
+    ]
+   }
+  },
+  {
+   "id": "swing-small",
+   "model": "tt/swing_B_small",
+   "zone": "swings",
+   "pos": [
+    -7.5,
+    0,
+    14
+   ],
+   "collider": "joint",
+   "behaviour": {
+    "type": "swing",
+    "seats": [
+     "seat"
+    ]
+   }
+  },
+  {
+   "id": "seesaw-big",
+   "model": "tt/seesaw_large",
+   "zone": "swings",
+   "pos": [
+    6,
+    0,
+    22
+   ],
+   "collider": "joint",
+   "behaviour": {
+    "type": "seesaw",
+    "part": "seat"
+   }
+  },
+  {
+   "id": "seesaw-small",
+   "model": "tt/seesaw_small",
+   "zone": "swings",
+   "pos": [
+    9.5,
+    0,
+    22
+   ],
+   "collider": "joint",
+   "behaviour": {
+    "type": "seesaw",
+    "part": "seat"
+   }
+  },
+  {
+   "id": "merry",
+   "model": "tt/merry_go_round",
+   "zone": "swings",
+   "pos": [
+    7.5,
+    0,
+    12
+   ],
+   "collider": "joint",
+   "behaviour": {
+    "type": "roundabout",
+    "radius": 1.9,
+    "deckY": 0.32
+   }
+  },
+  {
+   "id": "horse-a",
+   "model": "tt/spring_horse_A",
+   "zone": "swings",
+   "pos": [
+    -10,
+    0,
+    6
+   ],
+   "scale": 0.55,
+   "collider": "joint",
+   "behaviour": {
+    "type": "springRider",
+    "part": "seat",
+    "seatAt": 0.5
+   }
+  },
+  {
+   "id": "horse-b",
+   "model": "tt/spring_horse_B",
+   "zone": "swings",
+   "pos": [
+    -6,
+    0,
+    6
+   ],
+   "scale": 0.55,
+   "collider": "joint",
+   "behaviour": {
+    "type": "springRider",
+    "part": "seat",
+    "seatAt": 0.5
+   }
+  },
+  {
+   "id": "arcade-machine-19",
+   "model": "arc/arcade-machine",
+   "zone": "arcade",
+   "pos": [
+    38.8,
+    0,
+    6
+   ],
+   "rot": -90,
+   "scale": 2.4,
+   "collider": "box",
+   "behaviour": {
+    "type": "machine",
+    "kind": "arcade"
+   }
+  },
+  {
+   "id": "arcade-machine-20",
+   "model": "arc/arcade-machine",
+   "zone": "arcade",
+   "pos": [
+    38.8,
+    0,
+    8.5
+   ],
+   "rot": -90,
+   "scale": 2.4,
+   "collider": "box",
+   "behaviour": {
+    "type": "machine",
+    "kind": "arcade"
+   }
+  },
+  {
+   "id": "arcade-machine-21",
+   "model": "arc/arcade-machine",
+   "zone": "arcade",
+   "pos": [
+    38.8,
+    0,
+    11
+   ],
+   "rot": -90,
+   "scale": 2.4,
+   "collider": "box",
+   "behaviour": {
+    "type": "machine",
+    "kind": "arcade"
+   }
+  },
+  {
+   "id": "pinball-22",
+   "model": "arc/pinball",
+   "zone": "arcade",
+   "pos": [
+    38.8,
+    0,
+    15
+   ],
+   "rot": -90,
+   "scale": 2.4,
+   "collider": "box",
+   "behaviour": {
+    "type": "machine",
+    "kind": "pinball"
+   }
+  },
+  {
+   "id": "pinball-23",
+   "model": "arc/pinball",
+   "zone": "arcade",
+   "pos": [
+    38.8,
+    0,
+    17.5
+   ],
+   "rot": -90,
+   "scale": 2.4,
+   "collider": "box",
+   "behaviour": {
+    "type": "machine",
+    "kind": "pinball"
+   }
+  },
+  {
+   "id": "dance-machine-24",
+   "model": "arc/dance-machine",
+   "zone": "arcade",
+   "pos": [
+    30,
+    0,
+    28.5
+   ],
+   "rot": 180,
+   "scale": 2.4,
+   "collider": "box",
+   "behaviour": {
+    "type": "machine",
+    "kind": "dance",
+    "frontGap": 0.1
+   }
+  },
+  {
+   "id": "dance-machine-25",
+   "model": "arc/dance-machine",
+   "zone": "arcade",
+   "pos": [
+    34,
+    0,
+    28.5
+   ],
+   "rot": 180,
+   "scale": 2.4,
+   "collider": "box",
+   "behaviour": {
+    "type": "machine",
+    "kind": "dance",
+    "frontGap": 0.1
+   }
+  },
+  {
+   "id": "claw-machine-26",
+   "model": "arc/claw-machine",
+   "zone": "arcade",
+   "pos": [
+    18,
+    0,
+    28.5
+   ],
+   "rot": 180,
+   "scale": 2.4,
+   "collider": "box",
+   "behaviour": {
+    "type": "claw",
+    "part": "(%ignore)"
+   }
+  },
+  {
+   "id": "claw-machine-27",
+   "model": "arc/claw-machine",
+   "zone": "arcade",
+   "pos": [
+    21,
+    0,
+    28.5
+   ],
+   "rot": 180,
+   "scale": 2.4,
+   "collider": "box",
+   "behaviour": {
+    "type": "claw",
+    "part": "(%ignore)"
+   }
+  },
+  {
+   "id": "air-hockey-28",
+   "model": "arc/air-hockey",
+   "zone": "arcade",
+   "pos": [
+    32,
+    0,
+    20
+   ],
+   "scale": 2.4,
+   "collider": "joint",
+   "behaviour": {
+    "type": "airHockey",
+    "surfaceY": 0.25,
+    "parts": [
+     "puck",
+     "player-a",
+     "player-b"
+    ]
+   }
+  },
+  {
+   "id": "air-hockey-29",
+   "model": "arc/air-hockey",
+   "zone": "arcade",
+   "pos": [
+    32,
+    0,
+    4.5
+   ],
+   "scale": 2.4,
+   "collider": "joint",
+   "behaviour": {
+    "type": "airHockey",
+    "surfaceY": 0.25,
+    "parts": [
+     "puck",
+     "player-a",
+     "player-b"
+    ]
+   }
+  },
+  {
+   "id": "basketball-game-30",
+   "model": "arc/basketball-game",
+   "zone": "arcade",
+   "pos": [
+    15.3,
+    0,
+    22
+   ],
+   "rot": 90,
+   "scale": 2.4,
+   "collider": "joint",
+   "behaviour": {
+    "type": "hoop",
+    "ring": [
+     0,
+     0.72,
+     -0.28
+    ],
+    "r": 0.14,
+    "rScale": 1.6,
+    "parts": [
+     "ball"
+    ],
+    "solids": [
+     [
+      -0.325,
+      0,
+      -0.5,
+      0.325,
+      0.42,
+      0.513
+     ],
+     [
+      -0.325,
+      0.42,
+      -0.5,
+      0.325,
+      0.8,
+      -0.42
+     ]
+    ]
+   }
+  },
+  {
+   "id": "ball-31",
+   "shape": "ball",
+   "zone": "arcade",
+   "pos": [
+    18.6,
+    0,
+    21.5
+   ],
+   "size": [
+    0.42,
+    0.42,
+    0.42
+   ],
+   "color": "#F3722C",
+   "collider": "dynamic",
+   "mass": 0.6,
+   "behaviour": {
+    "tag": "basketball",
+    "restitution": 0.7
+   }
+  },
+  {
+   "id": "ball-32",
+   "shape": "ball",
+   "zone": "arcade",
+   "pos": [
+    18.6,
+    0,
+    22.5
+   ],
+   "size": [
+    0.42,
+    0.42,
+    0.42
+   ],
+   "color": "#F3722C",
+   "collider": "dynamic",
+   "mass": 0.6,
+   "behaviour": {
+    "tag": "basketball",
+    "restitution": 0.7
+   }
+  },
+  {
+   "id": "basketball-game-33",
+   "model": "arc/basketball-game",
+   "zone": "arcade",
+   "pos": [
+    15.3,
+    0,
+    16
+   ],
+   "rot": 90,
+   "scale": 2.4,
+   "collider": "joint",
+   "behaviour": {
+    "type": "hoop",
+    "ring": [
+     0,
+     0.72,
+     -0.28
+    ],
+    "r": 0.14,
+    "rScale": 1.6,
+    "parts": [
+     "ball"
+    ],
+    "solids": [
+     [
+      -0.325,
+      0,
+      -0.5,
+      0.325,
+      0.42,
+      0.513
+     ],
+     [
+      -0.325,
+      0.42,
+      -0.5,
+      0.325,
+      0.8,
+      -0.42
+     ]
+    ]
+   }
+  },
+  {
+   "id": "ball-34",
+   "shape": "ball",
+   "zone": "arcade",
+   "pos": [
+    18.6,
+    0,
+    15.5
+   ],
+   "size": [
+    0.42,
+    0.42,
+    0.42
+   ],
+   "color": "#F3722C",
+   "collider": "dynamic",
+   "mass": 0.6,
+   "behaviour": {
+    "tag": "basketball",
+    "restitution": 0.7
+   }
+  },
+  {
+   "id": "ball-35",
+   "shape": "ball",
+   "zone": "arcade",
+   "pos": [
+    18.6,
+    0,
+    16.5
+   ],
+   "size": [
+    0.42,
+    0.42,
+    0.42
+   ],
+   "color": "#F3722C",
+   "collider": "dynamic",
+   "mass": 0.6,
+   "behaviour": {
+    "tag": "basketball",
+    "restitution": 0.7
+   }
+  },
+  {
+   "id": "prize-wheel-36",
+   "model": "arc/prize-wheel",
+   "zone": "arcade",
+   "pos": [
+    25.5,
+    0,
+    30.8
+   ],
+   "rot": 180,
+   "scale": 2.4,
+   "collider": "box",
+   "behaviour": {
+    "type": "spinner",
+    "part": "rotate-z",
+    "axis": "z"
+   }
+  },
+  {
+   "id": "ticket-machine-37",
+   "model": "arc/ticket-machine",
+   "zone": "arcade",
+   "pos": [
+    28,
+    0,
+    31
+   ],
+   "rot": 180,
+   "scale": 2.4,
+   "collider": "box",
+   "behaviour": {
+    "type": "machine",
+    "kind": "ticket"
+   }
+  },
+  {
+   "id": "color-floor",
+   "shape": "colorFloor",
+   "zone": "arcade",
+   "pos": [
+    22,
+    0,
+    8
+   ],
+   "size": [
+    9,
+    0.06,
+    9
+   ],
+   "collider": "none",
+   "behaviour": {
+    "type": "area",
+    "cells": 6
+   }
+  },
+  {
+   "id": "pillowBlueLong-38",
+   "model": "fur/pillowBlueLong",
+   "zone": "arcade",
+   "pos": [
+    16,
+    0,
+    3
+   ],
+   "rot": 90,
+   "scale": 2.4,
+   "collider": "dynamic",
+   "mass": 2
+  },
+  {
+   "id": "pillowBlueLong-39",
+   "model": "fur/pillowBlueLong",
+   "zone": "arcade",
+   "pos": [
+    16,
+    0,
+    5.5
+   ],
+   "rot": 90,
+   "scale": 2.4,
+   "collider": "dynamic",
+   "mass": 2
+  },
+  {
+   "id": "pillowBlueLong-40",
+   "model": "fur/pillowBlueLong",
+   "zone": "arcade",
+   "pos": [
+    27.5,
+    0,
+    1.5
+   ],
+   "rot": 90,
+   "scale": 2.4,
+   "collider": "dynamic",
+   "mass": 2
+  },
+  {
+   "id": "column-41",
+   "model": "arc/column",
+   "zone": "arcade",
+   "pos": [
+    14.5,
+    0,
+    0.5
+   ],
+   "scale": 2.4,
+   "collider": "box"
+  },
+  {
+   "id": "rug-42",
+   "model": "fur/rugRound",
+   "zone": "cafe",
+   "pos": [
+    22,
+    0,
+    -11
+   ],
+   "scale": 3,
+   "collider": "none"
+  },
+  {
+   "id": "tableRound-43",
+   "model": "fur/tableRound",
+   "zone": "cafe",
+   "pos": [
+    22,
+    0,
+    -11
+   ],
+   "scale": 2.2,
+   "collider": "dynamic",
+   "mass": 18
+  },
+  {
+   "id": "chairCushion-44",
+   "model": "fur/chairCushion",
+   "zone": "cafe",
+   "pos": [
+    20.5,
+    0,
+    -11
+   ],
+   "rot": 90,
+   "scale": 2.2,
+   "collider": "dynamic",
+   "mass": 4
+  },
+  {
+   "id": "chairCushion-45",
+   "model": "fur/chairCushion",
+   "zone": "cafe",
+   "pos": [
+    23.5,
+    0,
+    -11
+   ],
+   "rot": -90,
+   "scale": 2.2,
+   "collider": "dynamic",
+   "mass": 4
+  },
+  {
+   "id": "chairCushion-46",
+   "model": "fur/chairCushion",
+   "zone": "cafe",
+   "pos": [
+    22,
+    0,
+    -9.4
+   ],
+   "rot": 180,
+   "scale": 2.2,
+   "collider": "dynamic",
+   "mass": 4
+  },
+  {
+   "id": "chairCushion-47",
+   "model": "fur/chairCushion",
+   "zone": "cafe",
+   "pos": [
+    22,
+    0,
+    -12.6
+   ],
+   "rot": 0,
+   "scale": 2.2,
+   "collider": "dynamic",
+   "mass": 4
+  },
+  {
+   "id": "rug-48",
+   "model": "fur/rugRound",
+   "zone": "cafe",
+   "pos": [
+    30,
+    0,
+    -11
+   ],
+   "scale": 3,
+   "collider": "none"
+  },
+  {
+   "id": "tableRound-49",
+   "model": "fur/tableRound",
+   "zone": "cafe",
+   "pos": [
+    30,
+    0,
+    -11
+   ],
+   "scale": 2.2,
+   "collider": "dynamic",
+   "mass": 18
+  },
+  {
+   "id": "chairCushion-50",
+   "model": "fur/chairCushion",
+   "zone": "cafe",
+   "pos": [
+    28.5,
+    0,
+    -11
+   ],
+   "rot": 90,
+   "scale": 2.2,
+   "collider": "dynamic",
+   "mass": 4
+  },
+  {
+   "id": "chairCushion-51",
+   "model": "fur/chairCushion",
+   "zone": "cafe",
+   "pos": [
+    31.5,
+    0,
+    -11
+   ],
+   "rot": -90,
+   "scale": 2.2,
+   "collider": "dynamic",
+   "mass": 4
+  },
+  {
+   "id": "chairCushion-52",
+   "model": "fur/chairCushion",
+   "zone": "cafe",
+   "pos": [
+    30,
+    0,
+    -9.4
+   ],
+   "rot": 180,
+   "scale": 2.2,
+   "collider": "dynamic",
+   "mass": 4
+  },
+  {
+   "id": "chairCushion-53",
+   "model": "fur/chairCushion",
+   "zone": "cafe",
+   "pos": [
+    30,
+    0,
+    -12.6
+   ],
+   "rot": 0,
+   "scale": 2.2,
+   "collider": "dynamic",
+   "mass": 4
+  },
+  {
+   "id": "rug-54",
+   "model": "fur/rugRound",
+   "zone": "cafe",
+   "pos": [
+    22,
+    0,
+    -21
+   ],
+   "scale": 3,
+   "collider": "none"
+  },
+  {
+   "id": "tableRound-55",
+   "model": "fur/tableRound",
+   "zone": "cafe",
+   "pos": [
+    22,
+    0,
+    -21
+   ],
+   "scale": 2.2,
+   "collider": "dynamic",
+   "mass": 18
+  },
+  {
+   "id": "chairCushion-56",
+   "model": "fur/chairCushion",
+   "zone": "cafe",
+   "pos": [
+    20.5,
+    0,
+    -21
+   ],
+   "rot": 90,
+   "scale": 2.2,
+   "collider": "dynamic",
+   "mass": 4
+  },
+  {
+   "id": "chairCushion-57",
+   "model": "fur/chairCushion",
+   "zone": "cafe",
+   "pos": [
+    23.5,
+    0,
+    -21
+   ],
+   "rot": -90,
+   "scale": 2.2,
+   "collider": "dynamic",
+   "mass": 4
+  },
+  {
+   "id": "chairCushion-58",
+   "model": "fur/chairCushion",
+   "zone": "cafe",
+   "pos": [
+    22,
+    0,
+    -19.4
+   ],
+   "rot": 180,
+   "scale": 2.2,
+   "collider": "dynamic",
+   "mass": 4
+  },
+  {
+   "id": "chairCushion-59",
+   "model": "fur/chairCushion",
+   "zone": "cafe",
+   "pos": [
+    22,
+    0,
+    -22.6
+   ],
+   "rot": 0,
+   "scale": 2.2,
+   "collider": "dynamic",
+   "mass": 4
+  },
+  {
+   "id": "rug-60",
+   "model": "fur/rugRound",
+   "zone": "cafe",
+   "pos": [
+    30,
+    0,
+    -21
+   ],
+   "scale": 3,
+   "collider": "none"
+  },
+  {
+   "id": "tableRound-61",
+   "model": "fur/tableRound",
+   "zone": "cafe",
+   "pos": [
+    30,
+    0,
+    -21
+   ],
+   "scale": 2.2,
+   "collider": "dynamic",
+   "mass": 18
+  },
+  {
+   "id": "chairCushion-62",
+   "model": "fur/chairCushion",
+   "zone": "cafe",
+   "pos": [
+    28.5,
+    0,
+    -21
+   ],
+   "rot": 90,
+   "scale": 2.2,
+   "collider": "dynamic",
+   "mass": 4
+  },
+  {
+   "id": "chairCushion-63",
+   "model": "fur/chairCushion",
+   "zone": "cafe",
+   "pos": [
+    31.5,
+    0,
+    -21
+   ],
+   "rot": -90,
+   "scale": 2.2,
+   "collider": "dynamic",
+   "mass": 4
+  },
+  {
+   "id": "chairCushion-64",
+   "model": "fur/chairCushion",
+   "zone": "cafe",
+   "pos": [
+    30,
+    0,
+    -19.4
+   ],
+   "rot": 180,
+   "scale": 2.2,
+   "collider": "dynamic",
+   "mass": 4
+  },
+  {
+   "id": "chairCushion-65",
+   "model": "fur/chairCushion",
+   "zone": "cafe",
+   "pos": [
+    30,
+    0,
+    -22.6
+   ],
+   "rot": 0,
+   "scale": 2.2,
+   "collider": "dynamic",
+   "mass": 4
+  },
+  {
+   "id": "kitchenCabinet-66",
+   "model": "fur/kitchenCabinet",
+   "zone": "cafe",
+   "pos": [
+    39.3,
+    0,
+    -28.5
+   ],
+   "rot": -90,
+   "scale": 2.2,
+   "collider": "box"
+  },
+  {
+   "id": "kitchenCabinet-67",
+   "model": "fur/kitchenCabinet",
+   "zone": "cafe",
+   "pos": [
+    39.3,
+    0,
+    -27.5
+   ],
+   "rot": -90,
+   "scale": 2.2,
+   "collider": "box"
+  },
+  {
+   "id": "kitchenCabinet-68",
+   "model": "fur/kitchenCabinet",
+   "zone": "cafe",
+   "pos": [
+    39.3,
+    0,
+    -26.5
+   ],
+   "rot": -90,
+   "scale": 2.2,
+   "collider": "box"
+  },
+  {
+   "id": "kitchenCabinet-69",
+   "model": "fur/kitchenCabinet",
+   "zone": "cafe",
+   "pos": [
+    39.3,
+    0,
+    -25.5
+   ],
+   "rot": -90,
+   "scale": 2.2,
+   "collider": "box"
+  },
+  {
+   "id": "kitchenCabinet-70",
+   "model": "fur/kitchenCabinet",
+   "zone": "cafe",
+   "pos": [
+    39.3,
+    0,
+    -24.5
+   ],
+   "rot": -90,
+   "scale": 2.2,
+   "collider": "box"
+  },
+  {
+   "id": "kitchenFridgeLarge-71",
+   "model": "fur/kitchenFridgeLarge",
+   "zone": "cafe",
+   "pos": [
+    39.3,
+    0,
+    -22.5
+   ],
+   "rot": -90,
+   "scale": 2.2,
+   "collider": "box"
+  },
+  {
+   "id": "kitchenCoffeeMachine-72",
+   "model": "fur/kitchenCoffeeMachine",
+   "zone": "cafe",
+   "pos": [
+    39.2,
+    1,
+    -27
+   ],
+   "rot": -90,
+   "scale": 2.2,
+   "collider": "dynamic",
+   "mass": 3
+  },
+  {
+   "id": "toaster-73",
+   "model": "fur/toaster",
+   "zone": "cafe",
+   "pos": [
+    39.2,
+    1,
+    -25.2
+   ],
+   "rot": -90,
+   "scale": 2.2,
+   "collider": "dynamic",
+   "mass": 2
+  },
+  {
+   "id": "cash-register-74",
+   "model": "arc/cash-register",
+   "zone": "cafe",
+   "pos": [
+    39.2,
+    1,
+    -28.5
+   ],
+   "rot": -90,
+   "scale": 1.4,
+   "collider": "box"
+  },
+  {
+   "id": "loungeSofaLong-75",
+   "model": "fur/loungeSofaLong",
+   "zone": "cafe",
+   "pos": [
+    16.5,
+    0,
+    -8
+   ],
+   "rot": 90,
+   "scale": 2.2,
+   "collider": "box"
+  },
+  {
+   "id": "loungeSofa-76",
+   "model": "fur/loungeSofa",
+   "zone": "cafe",
+   "pos": [
+    16.5,
+    0,
+    -26
+   ],
+   "rot": 90,
+   "scale": 2.2,
+   "collider": "box"
+  },
+  {
+   "id": "tableCoffee-77",
+   "model": "fur/tableCoffee",
+   "zone": "cafe",
+   "pos": [
+    19,
+    0,
+    -8
+   ],
+   "rot": 90,
+   "scale": 2.2,
+   "collider": "dynamic",
+   "mass": 8
+  },
+  {
+   "id": "pillow-78",
+   "model": "fur/pillow",
+   "zone": "cafe",
+   "pos": [
+    16.8,
+    1.1,
+    -9
+   ],
+   "rot": 90,
+   "scale": 2.2,
+   "collider": "dynamic",
+   "mass": 1
+  },
+  {
+   "id": "pillowBlue-79",
+   "model": "fur/pillowBlue",
+   "zone": "cafe",
+   "pos": [
+    16.8,
+    1.1,
+    -7
+   ],
+   "rot": 90,
+   "scale": 2.2,
+   "collider": "dynamic",
+   "mass": 1
+  },
+  {
+   "id": "pillowLong-80",
+   "model": "fur/pillowLong",
+   "zone": "cafe",
+   "pos": [
+    17,
+    1.1,
+    -25.5
+   ],
+   "rot": 90,
+   "scale": 2.2,
+   "collider": "dynamic",
+   "mass": 1
+  },
+  {
+   "id": "pillow-81",
+   "model": "fur/pillow",
+   "zone": "cafe",
+   "pos": [
+    19,
+    1.1,
+    -26
+   ],
+   "rot": 90,
+   "scale": 2.2,
+   "collider": "dynamic",
+   "mass": 1
+  },
+  {
+   "id": "bear-82",
+   "model": "fur/bear",
+   "zone": "cafe",
+   "pos": [
+    18.5,
+    0,
+    -14
+   ],
+   "scale": 2.2,
+   "collider": "dynamic",
+   "mass": 2
+  },
+  {
+   "id": "bear-83",
+   "model": "fur/bear",
+   "zone": "cafe",
+   "pos": [
+    25,
+    0,
+    -28
+   ],
+   "scale": 2.2,
+   "collider": "dynamic",
+   "mass": 2
+  },
+  {
+   "id": "pottedPlant-84",
+   "model": "fur/pottedPlant",
+   "zone": "cafe",
+   "pos": [
+    15.2,
+    0,
+    -5
+   ],
+   "scale": 2.2,
+   "collider": "box"
+  },
+  {
+   "id": "pottedPlant-85",
+   "model": "fur/pottedPlant",
+   "zone": "cafe",
+   "pos": [
+    15.2,
+    0,
+    -29.5
+   ],
+   "scale": 2.2,
+   "collider": "box"
+  },
+  {
+   "id": "pottedPlant-86",
+   "model": "fur/pottedPlant",
+   "zone": "cafe",
+   "pos": [
+    37,
+    0,
+    -6
+   ],
+   "scale": 2.2,
+   "collider": "box"
+  },
+  {
+   "id": "lampRoundFloor-87",
+   "model": "fur/lampRoundFloor",
+   "zone": "cafe",
+   "pos": [
+    15.3,
+    0,
+    -12.5
+   ],
+   "scale": 2.2,
+   "collider": "trunk"
+  },
+  {
+   "id": "lampRoundFloor-88",
+   "model": "fur/lampRoundFloor",
+   "zone": "cafe",
+   "pos": [
+    15.3,
+    0,
+    -20
+   ],
+   "scale": 2.2,
+   "collider": "trunk"
+  },
+  {
+   "id": "bookcaseOpen-89",
+   "model": "fur/bookcaseOpen",
+   "zone": "cafe",
+   "pos": [
+    26,
+    0,
+    -29.9
+   ],
+   "scale": 2.2,
+   "collider": "box"
+  },
+  {
+   "id": "vending-machine-90",
+   "model": "arc/vending-machine",
+   "zone": "cafe",
+   "pos": [
+    39,
+    0,
+    -9
+   ],
+   "rot": -90,
+   "scale": 2.4,
+   "collider": "box",
+   "behaviour": {
+    "type": "machine",
+    "kind": "vending"
+   }
+  },
+  {
+   "id": "stoolBar-91",
+   "model": "fur/stoolBar",
+   "zone": "cafe",
+   "pos": [
+    37.4,
+    0,
+    -26.5
+   ],
+   "scale": 2.2,
+   "collider": "dynamic",
+   "mass": 3
+  },
+  {
+   "id": "stoolBar-92",
+   "model": "fur/stoolBar",
+   "zone": "cafe",
+   "pos": [
+    37.4,
+    0,
+    -24.8
+   ],
+   "scale": 2.2,
+   "collider": "dynamic",
+   "mass": 3
+  },
+  {
+   "id": "cardboardBoxClosed-93",
+   "model": "fur/cardboardBoxClosed",
+   "zone": "cafe",
+   "pos": [
+    34,
+    0,
+    -29.6
+   ],
+   "scale": 2.2,
+   "collider": "dynamic",
+   "mass": 2
+  },
+  {
+   "id": "park",
+   "model": "scn/park",
+   "zone": "garden",
+   "pos": [
+    5,
+    0,
+    62
+   ],
+   "rot": 180,
+   "collider": "children",
+   "children": [
+    {
+     "match": "lawn-tile|path-tile|safety-surface-tile|shrub-clump",
+     "collider": "none"
+    },
+    {
+     "match": "duck-pond-edge",
+     "collider": "none",
+     "behaviour": {
+      "type": "water"
+     }
+    },
+    {
+     "match": "playground-sign|notice-board",
+     "collider": "exclude"
+    },
+    {
+     "match": "playground-fence-gate",
+     "collider": "none",
+     "behaviour": {
+      "type": "door",
+      "hinge": "minX"
+     }
+    },
+    {
+     "match": "park-gate-with-piers",
+     "collider": "none",
+     "behaviour": {
+      "type": "door",
+      "hinge": "minZ",
+      "posts": []
+     }
+    },
+    {
+     "match": "swing-set",
+     "collider": "none",
+     "behaviour": {
+      "type": "swing",
+      "seats": [
+       "seat-left",
+       "seat-right"
+      ]
+     }
+    },
+    {
+     "match": "play-tower-with-roof",
+     "collider": "none",
+     "behaviour": {
+      "type": "climb",
+      "solid": [
+       -9.53,
+       0.05,
+       -7.13,
+       -7.67,
+       1.96,
+       -5.27
+      ],
+      "inset": 0
+     }
+    },
+    {
+     "match": "climbing-frame|rope-net-climber",
+     "collider": "none",
+     "behaviour": {
+      "type": "climb"
+     }
+    },
+    {
+     "match": "monkey-bars",
+     "collider": "none",
+     "behaviour": {
+      "type": "hang"
+     }
+    },
+    {
+     "match": "sandpit",
+     "collider": "none",
+     "behaviour": {
+      "type": "sandbox"
+     }
+    },
+    {
+     "match": "playground-slide",
+     "collider": "none",
+     "behaviour": {
+      "type": "slide",
+      "width": 0.6,
+      "path": [
+       [
+        -11,
+        1.62,
+        -3.2
+       ],
+       [
+        -11,
+        1.4,
+        -3.9
+       ],
+       [
+        -11,
+        0.9,
+        -4.8
+       ],
+       [
+        -11,
+        0.45,
+        -5.7
+       ],
+       [
+        -11,
+        0.25,
+        -6.5
+       ],
+       [
+        -11,
+        0.15,
+        -6.9
+       ]
+      ],
+      "entry": [
+       -11,
+       0.05,
+       -1.3
+      ],
+      "deck": [
+       -11.5,
+       0.05,
+       -3.5,
+       -10.5,
+       1.55,
+       -2.5
+      ]
+     }
+    },
+    {
+     "match": "roundabout",
+     "collider": "none",
+     "behaviour": {
+      "type": "roundabout",
+      "part": "deck",
+      "deckY": 0.46,
+      "radius": 1.45
+     }
+    },
+    {
+     "match": "seesaw",
+     "collider": "none",
+     "behaviour": {
+      "type": "seesaw",
+      "part": "beam"
+     }
+    },
+    {
+     "match": "spring-rocker",
+     "collider": "none",
+     "behaviour": {
+      "type": "springRider",
+      "part": "rocker",
+      "seatAt": 0.5
+     }
+    },
+    {
+     "match": "park-tree",
+     "collider": "none",
+     "behaviour": {
+      "type": "tree",
+      "radius": 0.25
+     }
+    },
+    {
+     "match": "lamp-post|bollard",
+     "collider": "trunk"
+    },
+    {
+     "match": "park-bandstand",
+     "collider": "none",
+     "behaviour": {
+      "type": "solid",
+      "solids": [
+       [
+        -15.5,
+        0,
+        1.3,
+        -10.5,
+        0.46,
+        7.85
+       ]
+      ],
+      "posts": [
+       [
+        -15.5,
+        0,
+        1.35,
+        -15.1,
+        3.2,
+        1.75
+       ],
+       [
+        -10.9,
+        0,
+        1.35,
+        -10.5,
+        3.2,
+        1.75
+       ],
+       [
+        -15.5,
+        0,
+        6.65,
+        -15.1,
+        3.2,
+        7.05
+       ],
+       [
+        -10.9,
+        0,
+        6.65,
+        -10.5,
+        3.2,
+        7.05
+       ]
+      ]
+     }
+    },
+    {
+     "match": "pergola",
+     "collider": "none",
+     "behaviour": {
+      "type": "solid",
+      "posts": [
+       [
+        -19.1,
+        0,
+        -11.2,
+        -18.8,
+        3,
+        -10.9
+       ],
+       [
+        -15.7,
+        0,
+        -11.2,
+        -15.4,
+        3,
+        -10.9
+       ],
+       [
+        -19.1,
+        0,
+        -8.8,
+        -18.8,
+        3,
+        -8.5
+       ],
+       [
+        -15.7,
+        0,
+        -8.8,
+        -15.4,
+        3,
+        -8.5
+       ]
+      ]
+     }
+    },
+    {
+     "match": "drinking-fountain",
+     "collider": "box",
+     "behaviour": {
+      "type": "water",
+      "tap": true
+     }
+    },
+    {
+     "match": "litter-bin|dog-waste-bin",
+     "collider": "dynamic",
+     "behaviour": {
+      "mass": 8
+     }
+    }
+   ]
+  },
+  {
+   "id": "pond",
+   "shape": "pond",
+   "zone": "garden",
+   "pos": [
+    1,
+    0,
+    66
+   ],
+   "size": [
+    4,
+    0.2,
+    4
+   ],
+   "color": "#48CAE4",
+   "collider": "none",
+   "behaviour": {
+    "type": "water",
+    "circle": true
+   }
+  },
+  {
+   "id": "sandbox",
+   "model": "tt/sandbox_square_decorated",
+   "zone": "garden",
+   "pos": [
+    -22,
+    0,
+    49
+   ],
+   "collider": "none",
+   "behaviour": {
+    "type": "sandbox"
+   }
+  },
+  {
+   "id": "bucket_A-94",
+   "model": "tt/bucket_A",
+   "zone": "garden",
+   "pos": [
+    -21,
+    0,
+    48.5
+   ],
+   "scale": 0.6,
+   "collider": "dynamic",
+   "mass": 1.5
+  },
+  {
+   "id": "shovel_A-95",
+   "model": "tt/shovel_A",
+   "zone": "garden",
+   "pos": [
+    -23,
+    0.8,
+    50
+   ],
+   "scale": 0.6,
+   "collider": "dynamic",
+   "mass": 1.5
+  },
+  {
+   "id": "sandcastle_B-96",
+   "model": "tt/sandcastle_B",
+   "zone": "garden",
+   "pos": [
+    -22.5,
+    0,
+    48
+   ],
+   "scale": 0.6,
+   "collider": "dynamic",
+   "mass": 1.5
+  },
+  {
+   "id": "cart-97",
+   "model": "tt/cart",
+   "zone": "garden",
+   "pos": [
+    -6,
+    0,
+    46
+   ],
+   "rot": 40,
+   "collider": "dynamic",
+   "mass": 12
+  },
+  {
+   "id": "picnic_table-98",
+   "model": "tt/picnic_table",
+   "zone": "garden",
+   "pos": [
+    -14,
+    0,
+    78
+   ],
+   "collider": "box"
+  },
+  {
+   "id": "picnic_table-99",
+   "model": "tt/picnic_table",
+   "zone": "garden",
+   "pos": [
+    -6,
+    0,
+    82
+   ],
+   "collider": "box"
+  },
+  {
+   "id": "tree_large-100",
+   "model": "tt/tree_large",
+   "zone": "garden",
+   "pos": [
+    -38,
+    0,
+    36
+   ],
+   "rot": -326,
+   "collider": "none",
+   "behaviour": {
+    "type": "tree",
+    "radius": 0.3,
+    "trunk": [
+     -0.3,
+     0,
+     -0.3,
+     0.3,
+     1.6,
+     0.3
+    ]
+   }
+  },
+  {
+   "id": "tree_small-101",
+   "model": "tt/tree_small",
+   "zone": "garden",
+   "pos": [
+    -39,
+    0,
+    50
+   ],
+   "rot": -3,
+   "collider": "none",
+   "behaviour": {
+    "type": "tree",
+    "radius": 0.22,
+    "trunk": [
+     -0.3,
+     0,
+     -0.3,
+     0.3,
+     1.6,
+     0.3
+    ]
+   }
+  },
+  {
+   "id": "tree_large-102",
+   "model": "tt/tree_large",
+   "zone": "garden",
+   "pos": [
+    -38,
+    0,
+    72
+   ],
+   "rot": -326,
+   "collider": "none",
+   "behaviour": {
+    "type": "tree",
+    "radius": 0.3,
+    "trunk": [
+     -0.3,
+     0,
+     -0.3,
+     0.3,
+     1.6,
+     0.3
+    ]
+   }
+  },
+  {
+   "id": "tree_small-103",
+   "model": "tt/tree_small",
+   "zone": "garden",
+   "pos": [
+    -40,
+    0,
+    86
+   ],
+   "rot": -40,
+   "collider": "none",
+   "behaviour": {
+    "type": "tree",
+    "radius": 0.22,
+    "trunk": [
+     -0.3,
+     0,
+     -0.3,
+     0.3,
+     1.6,
+     0.3
+    ]
+   }
+  },
+  {
+   "id": "tree_large-104",
+   "model": "tt/tree_large",
+   "zone": "garden",
+   "pos": [
+    -26,
+    0,
+    87
+   ],
+   "rot": -242,
+   "collider": "none",
+   "behaviour": {
+    "type": "tree",
+    "radius": 0.3,
+    "trunk": [
+     -0.3,
+     0,
+     -0.3,
+     0.3,
+     1.6,
+     0.3
+    ]
+   }
+  },
+  {
+   "id": "tree_small-105",
+   "model": "tt/tree_small",
+   "zone": "garden",
+   "pos": [
+    -2,
+    0,
+    88
+   ],
+   "rot": -74,
+   "collider": "none",
+   "behaviour": {
+    "type": "tree",
+    "radius": 0.22,
+    "trunk": [
+     -0.3,
+     0,
+     -0.3,
+     0.3,
+     1.6,
+     0.3
+    ]
+   }
+  },
+  {
+   "id": "tree_large-106",
+   "model": "tt/tree_large",
+   "zone": "garden",
+   "pos": [
+    14,
+    0,
+    87
+   ],
+   "rot": 158,
+   "collider": "none",
+   "behaviour": {
+    "type": "tree",
+    "radius": 0.3,
+    "trunk": [
+     -0.3,
+     0,
+     -0.3,
+     0.3,
+     1.6,
+     0.3
+    ]
+   }
+  },
+  {
+   "id": "tree_small-107",
+   "model": "tt/tree_small",
+   "zone": "garden",
+   "pos": [
+    30,
+    0,
+    88
+   ],
+   "rot": 30,
+   "collider": "none",
+   "behaviour": {
+    "type": "tree",
+    "radius": 0.22,
+    "trunk": [
+     -0.3,
+     0,
+     -0.3,
+     0.3,
+     1.6,
+     0.3
+    ]
+   }
+  },
+  {
+   "id": "tree_large-108",
+   "model": "tt/tree_large",
+   "zone": "garden",
+   "pos": [
+    39,
+    0,
+    76
+   ],
+   "rot": 3,
+   "collider": "none",
+   "behaviour": {
+    "type": "tree",
+    "radius": 0.3,
+    "trunk": [
+     -0.3,
+     0,
+     -0.3,
+     0.3,
+     1.6,
+     0.3
+    ]
+   }
+  },
+  {
+   "id": "tree_small-109",
+   "model": "tt/tree_small",
+   "zone": "garden",
+   "pos": [
+    39,
+    0,
+    62
+   ],
+   "rot": 3,
+   "collider": "none",
+   "behaviour": {
+    "type": "tree",
+    "radius": 0.22,
+    "trunk": [
+     -0.3,
+     0,
+     -0.3,
+     0.3,
+     1.6,
+     0.3
+    ]
+   }
+  },
+  {
+   "id": "tree_large-110",
+   "model": "tt/tree_large",
+   "zone": "garden",
+   "pos": [
+    37,
+    0,
+    45
+   ],
+   "rot": 289,
+   "collider": "none",
+   "behaviour": {
+    "type": "tree",
+    "radius": 0.3,
+    "trunk": [
+     -0.3,
+     0,
+     -0.3,
+     0.3,
+     1.6,
+     0.3
+    ]
+   }
+  },
+  {
+   "id": "tree_small-111",
+   "model": "tt/tree_small",
+   "zone": "garden",
+   "pos": [
+    26,
+    0,
+    39
+   ],
+   "rot": 242,
+   "collider": "none",
+   "behaviour": {
+    "type": "tree",
+    "radius": 0.22,
+    "trunk": [
+     -0.3,
+     0,
+     -0.3,
+     0.3,
+     1.6,
+     0.3
+    ]
+   }
+  },
+  {
+   "id": "tree_small-112",
+   "model": "tt/tree_small",
+   "zone": "garden",
+   "pos": [
+    -30,
+    0,
+    56
+   ],
+   "rot": -30,
+   "collider": "none",
+   "behaviour": {
+    "type": "tree",
+    "radius": 0.22,
+    "trunk": [
+     -0.3,
+     0,
+     -0.3,
+     0.3,
+     1.6,
+     0.3
+    ]
+   }
+  },
+  {
+   "id": "tree_large-113",
+   "model": "tt/tree_large",
+   "zone": "garden",
+   "pos": [
+    -14,
+    0,
+    56
+   ],
+   "rot": -158,
+   "collider": "none",
+   "behaviour": {
+    "type": "tree",
+    "radius": 0.3,
+    "trunk": [
+     -0.3,
+     0,
+     -0.3,
+     0.3,
+     1.6,
+     0.3
+    ]
+   }
+  },
+  {
+   "id": "tree_small-114",
+   "model": "tt/tree_small",
+   "zone": "garden",
+   "pos": [
+    -33,
+    0,
+    78
+   ],
+   "rot": -141,
+   "collider": "none",
+   "behaviour": {
+    "type": "tree",
+    "radius": 0.22,
+    "trunk": [
+     -0.3,
+     0,
+     -0.3,
+     0.3,
+     1.6,
+     0.3
+    ]
+   }
+  },
+  {
+   "id": "tree_small-115",
+   "model": "tt/tree_small",
+   "zone": "garden",
+   "pos": [
+    34,
+    0,
+    70
+   ],
+   "rot": 178,
+   "collider": "none",
+   "behaviour": {
+    "type": "tree",
+    "radius": 0.22,
+    "trunk": [
+     -0.3,
+     0,
+     -0.3,
+     0.3,
+     1.6,
+     0.3
+    ]
+   }
+  },
+  {
+   "id": "tree_small-116",
+   "model": "tt/tree_small",
+   "zone": "garden",
+   "pos": [
+    -16,
+    0,
+    36
+   ],
+   "rot": -232,
+   "collider": "none",
+   "behaviour": {
+    "type": "tree",
+    "radius": 0.22,
+    "trunk": [
+     -0.3,
+     0,
+     -0.3,
+     0.3,
+     1.6,
+     0.3
+    ]
+   }
+  },
+  {
+   "id": "tree_large-117",
+   "model": "tt/tree_large",
+   "zone": "garden",
+   "pos": [
+    18,
+    0,
+    36
+   ],
+   "rot": 306,
+   "collider": "none",
+   "behaviour": {
+    "type": "tree",
+    "radius": 0.3,
+    "trunk": [
+     -0.3,
+     0,
+     -0.3,
+     0.3,
+     1.6,
+     0.3
+    ]
+   }
+  },
+  {
+   "id": "fence_straight_long-118",
+   "model": "tt/fence_straight_long",
+   "zone": "garden",
+   "pos": [
+    33,
+    0,
+    84
+   ],
+   "rot": 0,
+   "collider": "box"
+  },
+  {
+   "id": "fence_straight_long-119",
+   "model": "tt/fence_straight_long",
+   "zone": "garden",
+   "pos": [
+    37,
+    0,
+    80
+   ],
+   "rot": 90,
+   "collider": "box"
+  },
+  {
+   "id": "fence_straight_long-120",
+   "model": "tt/fence_straight_long",
+   "zone": "garden",
+   "pos": [
+    28,
+    0,
+    78
+   ],
+   "rot": 0,
+   "collider": "box"
+  },
+  {
+   "id": "stepping_stumps_B_large-121",
+   "model": "tt/stepping_stumps_B_large",
+   "zone": "garden",
+   "pos": [
+    -37,
+    0,
+    67
+   ],
+   "collider": "box"
+  },
+  {
+   "id": "stepping_stumps_B_large-122",
+   "model": "tt/stepping_stumps_B_large",
+   "zone": "garden",
+   "pos": [
+    -36,
+    0,
+    69.5
+   ],
+   "collider": "box"
+  },
+  {
+   "id": "stepping_stumps_B_large-123",
+   "model": "tt/stepping_stumps_B_large",
+   "zone": "garden",
+   "pos": [
+    -37.5,
+    0,
+    72
+   ],
+   "collider": "box"
+  },
+  {
+   "id": "spring_horse_B-124",
+   "model": "tt/spring_horse_B",
+   "zone": "garden",
+   "pos": [
+    -4,
+    0,
+    74
+   ],
+   "rot": 180,
+   "scale": 0.55,
+   "collider": "joint",
+   "behaviour": {
+    "type": "springRider",
+    "part": "seat",
+    "seatAt": 0.5
+   }
+  },
+  {
+   "id": "seesaw_small-125",
+   "model": "tt/seesaw_small",
+   "zone": "garden",
+   "pos": [
+    -30,
+    0,
+    44
+   ],
+   "rot": 90,
+   "collider": "joint",
+   "behaviour": {
+    "type": "seesaw",
+    "part": "seat"
+   }
+  },
+  {
+   "id": "paint-arena",
+   "shape": "paintFloor",
+   "zone": "garden",
+   "pos": [
+    -22,
+    0,
+    64
+   ],
+   "size": [
+    12,
+    0.05,
+    12
+   ],
+   "collider": "none",
+   "behaviour": {
+    "type": "area",
+    "cells": 10
+   }
+  },
+  {
+   "id": "race-start",
+   "shape": "ring",
+   "zone": "garden",
+   "pos": [
+    -10,
+    0,
+    40
+   ],
+   "size": [
+    4,
+    0.05,
+    4
+   ],
+   "color": "#FFFFFF",
+   "collider": "none",
+   "behaviour": {
+    "type": "area"
+   }
+  },
+  {
+   "id": "hide-spot",
+   "shape": "ring",
+   "zone": "garden",
+   "pos": [
+    31,
+    0,
+    80
+   ],
+   "size": [
+    4,
+    0.05,
+    4
+   ],
+   "color": "#6A4C93",
+   "collider": "none",
+   "behaviour": {
+    "type": "area"
+   }
+  },
+  {
+   "id": "garden-ball",
+   "shape": "ball",
+   "zone": "garden",
+   "pos": [
+    4,
+    0,
+    44
+   ],
+   "size": [
+    0.6,
+    0.6,
+    0.6
+   ],
+   "color": "#FF924C",
+   "collider": "dynamic",
+   "mass": 0.8,
+   "behaviour": {
+    "tag": "ball",
+    "restitution": 0.75
+   }
+  }
+ ],
+ "stars": [
+  [
+   -33,
+   3.5,
+   20.3
+  ],
+  [
+   -20,
+   0.7,
+   10
+  ],
+  [
+   -24.7,
+   2.9,
+   -16.2
+  ],
+  [
+   38,
+   0.9,
+   -30.5
+  ],
+  [
+   18,
+   1.3,
+   57.8
+  ],
+  [
+   10.4,
+   2.6,
+   68.4
+  ],
+  [
+   -39.5,
+   0.9,
+   88.5
+  ],
+  [
+   -7.5,
+   0.9,
+   22
+  ],
+  [
+   -29,
+   3.4,
+   -21
+  ],
+  [
+   36.5,
+   0.9,
+   30.5
+  ],
+  [
+   1,
+   0.7,
+   66
+  ],
+  [
+   13.6,
+   2.5,
+   68.2
+  ]
+ ],
+ "games": [
+  {
+   "id": "race",
+   "zone": "garden",
+   "spot": [
+    -10,
+    40
+   ],
+   "radius": 2,
+   "checkpoints": [
+    [
+     -30,
+     42
+    ],
+    [
+     -37,
+     63
+    ],
+    [
+     -30,
+     84
+    ],
+    [
+     -10,
+     86
+    ],
+    [
+     -9,
+     62
+    ]
+   ],
+   "area": "race-start"
+  },
+  {
+   "id": "rescue",
+   "zone": "adventure",
+   "spot": [
+    -26,
+    3
+   ],
+   "radius": 1.9,
+   "area": "rescue-basket"
+  },
+  {
+   "id": "colorFloor",
+   "zone": "arcade",
+   "spot": [
+    22,
+    8
+   ],
+   "radius": 4.5,
+   "area": "color-floor"
+  },
+  {
+   "id": "hideSeek",
+   "zone": "garden",
+   "spot": [
+    31,
+    80
+   ],
+   "radius": 2,
+   "area": "hide-spot"
+  },
+  {
+   "id": "giantBall",
+   "zone": "plaza",
+   "spot": [
+    0,
+    -20
+   ],
+   "radius": 2.8,
+   "ball": "giant-ball",
+   "goals": [
+    "goal-w",
+    "goal-e"
+   ]
+  },
+  {
+   "id": "paint",
+   "zone": "garden",
+   "spot": [
+    -22,
+    64
+   ],
+   "radius": 6,
+   "area": "paint-arena"
+  }
+ ],
+ "guide": [
+  [
+   -2,
+   -15
+  ],
+  [
+   -5.5,
+   -15.8
+  ],
+  [
+   -9,
+   -16.8
+  ],
+  [
+   -12.5,
+   -17.8
+  ],
+  [
+   -15.5,
+   -18.8
+  ],
+  [
+   -17.6,
+   -19.3
+  ]
+ ],
+ "alwaysLoad": [
+  "chr/character-male-b",
+  "chr/character-female-d",
+  "chr/character-male-f",
+  "chr/character-female-c",
+  "chr/character-female-b",
+  "chr/aid-glasses",
+  "chr/aid-sunglasses"
+ ]
+}

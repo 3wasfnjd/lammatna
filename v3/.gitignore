@@ -1,0 +1,7 @@
+node_modules/
+scratch/
+.wrangler/
+test-results/
+playwright-report/
+server/generated/
+client/generated/
