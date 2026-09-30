@@ -266,6 +266,86 @@
         0.82,
         0.26
       ]
+    },
+    {
+      "id": "arcade-ticket-west",
+      "adds": "decorative arcade wall row",
+      "model": "assets/imported/arcade/kenney-mini-arcade/ticket-machine.glb",
+      "position": [
+        -22.65,
+        0,
+        -5.2
+      ],
+      "rotation": [
+        0,
+        1.5707963267948966,
+        0
+      ],
+      "targetSize": [
+        0.8,
+        1.55,
+        0.7
+      ]
+    },
+    {
+      "id": "arcade-machine-west",
+      "adds": "decorative arcade wall row",
+      "model": "assets/imported/arcade/kenney-mini-arcade/arcade-machine.glb",
+      "position": [
+        -22.65,
+        0,
+        -8.2
+      ],
+      "rotation": [
+        0,
+        1.5707963267948966,
+        0
+      ],
+      "targetSize": [
+        0.9,
+        1.65,
+        0.9
+      ]
+    },
+    {
+      "id": "arcade-claw-west",
+      "adds": "decorative arcade wall row",
+      "model": "assets/imported/arcade/kenney-mini-arcade/claw-machine.glb",
+      "position": [
+        -22.65,
+        0,
+        -11.2
+      ],
+      "rotation": [
+        0,
+        1.5707963267948966,
+        0
+      ],
+      "targetSize": [
+        1.15,
+        1.7,
+        1.05
+      ]
+    },
+    {
+      "id": "arcade-vending-west",
+      "adds": "decorative arcade wall row",
+      "model": "assets/imported/arcade/kenney-mini-arcade/vending-machine.glb",
+      "position": [
+        -22.65,
+        0,
+        -14.2
+      ],
+      "rotation": [
+        0,
+        1.5707963267948966,
+        0
+      ],
+      "targetSize": [
+        0.95,
+        1.65,
+        0.75
+      ]
     }
   ]
 }
