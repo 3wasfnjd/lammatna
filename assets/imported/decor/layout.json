@@ -1,36 +1,51 @@
 {
-  "version": 1,
-  "purpose": "Visual decor replacement plan for Lammatna. No gameplay/physics changes.",
-  "sourceHead": "7a16357e18a556920d48e444bfa299c75ca324eb",
+  "version": 2,
+  "purpose": "Live visual decor replacements for Lammatna. Gameplay and collider definitions remain separate.",
   "notes": [
-    "Coordinates match the current procedural decor locations.",
-    "No collider, gameplay, minigame, movement, or physics definitions are changed by this file.",
-    "Models are already present under assets/imported/furniture/kenney-furniture-kit/."
+    "Coordinates match the existing decor locations.",
+    "targetSize is the desired local bounding-box size before final rotation.",
+    "No gameplay, minigame, movement, or physics rule is encoded here."
   ],
   "placements": [
     {
       "id": "parent-bench-left",
       "replaces": "procedural bench at BENCHES[0]",
-      "model": "assets/imported/furniture/kenney-furniture-kit/benchCushion.glb",
+      "model": "assets/imported/furniture/kenney-furniture-kit/loungeSofaLong.glb",
       "position": [
         -7.5,
         0,
         -1
       ],
-      "rotationY": 1.5707963267948966,
-      "scale": 1
+      "rotation": [
+        0,
+        1.5707963267948966,
+        0
+      ],
+      "targetSize": [
+        2.4,
+        0.95,
+        0.85
+      ]
     },
     {
       "id": "parent-bench-right",
       "replaces": "procedural bench at BENCHES[1]",
-      "model": "assets/imported/furniture/kenney-furniture-kit/benchCushion.glb",
+      "model": "assets/imported/furniture/kenney-furniture-kit/loungeSofaLong.glb",
       "position": [
         7.5,
         0,
         -1
       ],
-      "rotationY": -1.5707963267948966,
-      "scale": 1
+      "rotation": [
+        0,
+        -1.5707963267948966,
+        0
+      ],
+      "targetSize": [
+        2.4,
+        0.95,
+        0.85
+      ]
     },
     {
       "id": "plant-sw",
@@ -41,8 +56,16 @@
         0,
         -16.49
       ],
-      "rotationY": 0.35,
-      "scale": 1
+      "rotation": [
+        0,
+        0.35,
+        0
+      ],
+      "targetSize": [
+        0.9,
+        1.8,
+        0.9
+      ]
     },
     {
       "id": "plant-se",
@@ -53,8 +76,16 @@
         0,
         -16.49
       ],
-      "rotationY": -0.45,
-      "scale": 1
+      "rotation": [
+        0,
+        -0.45,
+        0
+      ],
+      "targetSize": [
+        0.9,
+        1.8,
+        0.9
+      ]
     },
     {
       "id": "plant-ne",
@@ -65,8 +96,16 @@
         0,
         16.49
       ],
-      "rotationY": 0.8,
-      "scale": 1
+      "rotation": [
+        0,
+        0.8,
+        0
+      ],
+      "targetSize": [
+        0.9,
+        1.8,
+        0.9
+      ]
     },
     {
       "id": "plant-nw",
@@ -77,8 +116,16 @@
         0,
         16.49
       ],
-      "rotationY": -0.7,
-      "scale": 1
+      "rotation": [
+        0,
+        -0.7,
+        0
+      ],
+      "targetSize": [
+        0.9,
+        1.8,
+        0.9
+      ]
     },
     {
       "id": "plant-north-east-mid",
@@ -89,8 +136,16 @@
         0,
         16.49
       ],
-      "rotationY": 0.2,
-      "scale": 1
+      "rotation": [
+        0,
+        0.2,
+        0
+      ],
+      "targetSize": [
+        0.7,
+        1.05,
+        0.7
+      ]
     },
     {
       "id": "plant-north-west-mid",
@@ -101,68 +156,116 @@
         0,
         16.49
       ],
-      "rotationY": -0.25,
-      "scale": 1
+      "rotation": [
+        0,
+        -0.25,
+        0
+      ],
+      "targetSize": [
+        0.7,
+        1.05,
+        0.7
+      ]
     },
     {
       "id": "cushion-west-south",
       "replaces": "procedural cushion",
-      "model": "assets/imported/furniture/kenney-furniture-kit/pillowBlue.glb",
+      "model": "assets/imported/furniture/kenney-furniture-kit/pillowBlueLong.glb",
       "position": [
         -22.5,
-        0.18,
+        0.04,
         -3
       ],
-      "rotationY": 0.25,
-      "scale": 1.15
+      "rotation": [
+        1.5707963267948966,
+        0.25,
+        0
+      ],
+      "targetSize": [
+        1.15,
+        0.9,
+        0.28
+      ]
     },
     {
       "id": "cushion-west-north",
       "replaces": "procedural cushion",
-      "model": "assets/imported/furniture/kenney-furniture-kit/pillow.glb",
+      "model": "assets/imported/furniture/kenney-furniture-kit/pillowLong.glb",
       "position": [
         -22.6,
-        0.18,
+        0.04,
         8
       ],
-      "rotationY": -0.35,
-      "scale": 1.15
+      "rotation": [
+        1.5707963267948966,
+        -0.35,
+        0
+      ],
+      "targetSize": [
+        1.15,
+        0.9,
+        0.28
+      ]
     },
     {
       "id": "cushion-east-mid",
       "replaces": "procedural cushion",
-      "model": "assets/imported/furniture/kenney-furniture-kit/pillowLong.glb",
+      "model": "assets/imported/furniture/kenney-furniture-kit/pillowBlueLong.glb",
       "position": [
         22.6,
-        0.18,
+        0.04,
         3.5
       ],
-      "rotationY": 0.5,
-      "scale": 1.05
+      "rotation": [
+        1.5707963267948966,
+        0.5,
+        0
+      ],
+      "targetSize": [
+        1.2,
+        0.95,
+        0.28
+      ]
     },
     {
       "id": "cushion-south-left",
       "replaces": "procedural cushion",
-      "model": "assets/imported/furniture/kenney-furniture-kit/pillowBlueLong.glb",
+      "model": "assets/imported/furniture/kenney-furniture-kit/pillowLong.glb",
       "position": [
         -1,
-        0.18,
+        0.04,
         -17.2
       ],
-      "rotationY": 0.1,
-      "scale": 1.05
+      "rotation": [
+        1.5707963267948966,
+        0.1,
+        0
+      ],
+      "targetSize": [
+        1.15,
+        0.9,
+        0.28
+      ]
     },
     {
       "id": "cushion-south-right",
       "replaces": "procedural cushion",
-      "model": "assets/imported/furniture/kenney-furniture-kit/pillow.glb",
+      "model": "assets/imported/furniture/kenney-furniture-kit/pillowBlue.glb",
       "position": [
         4,
-        0.18,
+        0.04,
         -17.2
       ],
-      "rotationY": -0.2,
-      "scale": 1.1
+      "rotation": [
+        1.5707963267948966,
+        -0.2,
+        0
+      ],
+      "targetSize": [
+        1,
+        0.82,
+        0.26
+      ]
     }
   ]
 }
