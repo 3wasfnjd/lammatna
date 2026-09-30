@@ -158,6 +158,12 @@ for (const [x, z, d] of BEACH_BALLS) box('beachball', [x - d * 0.38, 0, z - d * 
 export const POTS = [[-23, -17], [23, -17], [23, 17], [-23, 17], [9, 17], [-12, 17]].map(([x, z]) => [x * 0.97, z * 0.97]);
 for (const [x, z] of POTS) box('pot', [x - 0.45, 0, z - 0.45], [x + 0.45, 2.2, z + 0.45], { hidden: true });
 
+// ---- Aboden arcade: basketball hoops and the shooting booth -----------------------
+export const HOOPS = [{ id: 'h0', x: 0, z: -16.75, rimY: 2.75 }, { id: 'h1', x: 7, z: -16.75, rimY: 2.75 }];
+for (const h of HOOPS) box('hoop', [h.x - 0.16, 0, -17.95], [h.x + 0.16, 3.6, -17.6], { hidden: true });
+export const BOOTH = { minX: 11.6, maxX: 19.4, counterZ: 12.45, counterH: 1.0, rackZ: 17.3, lanes: 5 };
+box('counter', [BOOTH.minX, 0, BOOTH.counterZ], [BOOTH.maxX, BOOTH.counterH, BOOTH.counterZ + 0.5], { color: PALETTE.coral });
+
 // ---- Illuminated floor (Colour Floor minigame comes later) -------------------
 export const COLOR_FLOOR = { x: 3, z: 12, cols: 4, rows: 3, tile: 1.8 };
 
@@ -188,7 +194,10 @@ export const PADS = [
   { id: 'colors', name: 'الأرضية الملوّنة', icon: '🎨', color: PALETTE.pink, x: 3.2, z: 7.4 },
   { id: 'ball', name: 'الكرة العملاقة', icon: '⚽', color: PALETTE.turquoise, x: -6.6, z: -5.0 },
   { id: 'builders', name: 'البنّاؤون', icon: '🧱', color: PALETTE.coral, x: -2.2, z: 15.9 },
-  { id: 'hide', name: 'الغميضة', icon: '🙈', color: PALETTE.mint, x: -17.4, z: 1.2 }
+  { id: 'hide', name: 'الغميضة', icon: '🙈', color: PALETTE.mint, x: -17.4, z: 1.2 },
+  { id: 'hoops', name: 'رماية السلة', icon: '🏀', color: PALETTE.coral, x: 3.5, z: -12.6 },
+  { id: 'gallery', name: 'رماية عبودين', icon: '🦆', color: PALETTE.yellow, x: 10.4, z: 13.4 },
+  { id: 'paint', name: 'حرب الألوان', icon: '🎨', color: PALETTE.purple, x: 0.2, z: -6.6 }
 ];
 
 // ---- Playground Race ------------------------------------------------------------

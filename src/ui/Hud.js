@@ -176,6 +176,12 @@ export class Hud {
       el.innerHTML = `<h3>🧱 ${T.builders}</h3><div class="demo-race"><div class="step" style="--i:0"><span>🟦🟨</span><small>أعمدة</small></div><b class="arrow">←</b><div class="step" style="--i:1"><span>🤝</span><small>لوح لشخصين</small></div><b class="arrow">←</b><div class="step" style="--i:2"><span>⭐</span><small>نجمة</small></div></div><p>${T.buildersDemo}</p>`;
     } else if (type === 'hide') {
       el.innerHTML = `<h3>🙈 ${T.hide}</h3><div class="demo-race"><div class="step" style="--i:0"><span>🙈</span><small>يعدّ</small></div><b class="arrow">←</b><div class="step" style="--i:1"><span>🏃</span><small>اختبئوا</small></div><b class="arrow">←</b><div class="step" style="--i:2"><span>🔍</span><small>يبحث</small></div></div><p>${T.hideDemo}</p>`;
+    } else if (type === 'hoops') {
+      el.innerHTML = `<h3>🏀 ${T.hoops}</h3><div class="demo-race"><div class="step" style="--i:0"><span>👇</span><small>اضغط</small></div><b class="arrow">←</b><div class="step" style="--i:1"><span>🟩</span><small>المنطقة الخضراء</small></div><b class="arrow">←</b><div class="step" style="--i:2"><span>🏀</span><small>سلة!</small></div></div><p>${T.hoopsDemo}</p><p class="hint">🔥 ٣ متتالية = نقطة إضافية · بعيد = ٣ نقاط</p>`;
+    } else if (type === 'gallery') {
+      el.innerHTML = `<h3>🦆 ${T.gallery}</h3><div class="demo-race"><div class="step" style="--i:0"><span>🥫</span><small>١٠</small></div><div class="step" style="--i:1"><span>🎯</span><small>١٥ / ٣٥</small></div><div class="step" style="--i:2"><span>🦆</span><small>٢٥</small></div></div><p>${T.galleryDemo}</p>`;
+    } else if (type === 'paint') {
+      el.innerHTML = `<h3>🎨 ${T.paint}</h3><div class="demo-race"><div class="step" style="--i:0"><span>🟠</span><small>فريق</small></div><b class="arrow">←</b><div class="step" style="--i:1"><span>💦</span><small>ارمِ</small></div><b class="arrow">←</b><div class="step" style="--i:2"><span>🟢</span><small>فريق</small></div></div><p>${T.paintDemo}</p>`;
     } else if (type === 'rescue') {
       el.innerHTML = `<h3>🧺 ${T.rescue}</h3><div class="demo-rescue">${BALL_COLORS.map((c, i) => `<div class="pair" style="--c:${c.color};--i:${i}"><span class="ball">${c.symbol}</span><b class="arrow">←</b><span class="basket">${c.symbol}</span></div>`).join('')}</div>
         <p>${T.rescueDemo}</p><p class="hint">🤝 ${T.passTo}…</p>`;

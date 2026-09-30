@@ -1,6 +1,7 @@
 // Result cards for each activity; badges reflect what players actually did.
 import { CHARACTERS } from '../../shared/characters.js';
 import { T, arabicDigits } from '../ui/strings.js';
+import { TEAM_COLORS, TEAM_NAMES } from '../../shared/games/arcade.js';
 
 const medal = ['', '🥇', '🥈', '🥉', '🎖️', '🎖️'];
 
@@ -45,6 +46,16 @@ export function resultsHtml(a, players, me) {
   if (a.type === 'hide') {
     const rows = a.participants.map(id => row(id, id === r.seeker ? `🔍 ${arabicDigits((r.found || []).length)}` : (r.survivors || []).includes(id) ? '🫥 ✓' : '👀')).join('');
     return `<h3>🙈 ${T.hide}</h3><p class="cheer">${T.everyone}</p><ol class="rank plain">${rows}</ol>`;
+  }
+  if (a.type === 'hoops' || a.type === 'gallery') {
+    const title = a.type === 'hoops' ? `🏀 ${T.hoops}` : `🦆 ${T.gallery}`;
+    const rows = (r.ranking || []).map((x, i) => row(x.id, `${medal[i + 1] || ''} ⭐ ${arabicDigits(x.score)}${a.type === 'hoops' ? ` — 🏀 ${arabicDigits(x.made)}/${arabicDigits(x.shots)}` : ` — 🎯 ${arabicDigits(x.hits)}/${arabicDigits(x.shots)}`}`)).join('');
+    return `<h3>${title}</h3><p class="cheer">${T.everyone}</p><ol class="rank">${rows}</ol>`;
+  }
+  if (a.type === 'paint') {
+    const banner = r.winner ? `${T.winnerTeam} ${TEAM_NAMES[r.winner]}!` : T.draw;
+    const rows = a.participants.map(id => row(id, `<span style="color:${TEAM_COLORS[r.teams?.[id]] || '#333'}">●</span> 🎨 ${arabicDigits(r.hits?.[id] || 0)}`)).join('');
+    return `<h3>🎨 ${T.paint}</h3><p class="cheer" style="color:${TEAM_COLORS[r.winner] || 'inherit'}">${banner}</p><p>${arabicDigits(r.score?.A || 0)} — ${arabicDigits(r.score?.B || 0)}</p><ol class="rank plain">${rows}</ol>`;
   }
   if (a.type === 'ball' || a.type === 'builders') {
     const title = a.type === 'ball' ? `⚽ ${T.ball}` : `🧱 ${T.builders}`;

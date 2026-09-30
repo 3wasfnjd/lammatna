@@ -16,6 +16,8 @@ import { CHARACTERS, CHARACTER_IDS, MOVEMENT, ANIM_CODE, EMOTES, SIZES } from '.
 import { createBody, stepBody } from '../shared/physics.js';
 import { solidsFor } from '../shared/games/solids.js';
 import { MiniGames } from './games/MiniGames.js';
+import { Arcade } from './games/Arcade.js';
+import { GameHub } from './games/GameHub.js';
 import {
   SWINGS, SLIDE, slidePoint, swingAngle, SWING_FRAME, BASKETS, PADS, RACE, BALL_PIT, DECK_Y, STAGE,
   inBallPit, inFoamPit, raceStartSlot, BALL_COLORS, spawnPoint
@@ -72,6 +74,7 @@ export class Game {
     this.hud = new Hud(uiRoot);
     this.controls = new Controls(uiRoot, {
       onInteract: () => this.interact(),
+      onInteractEnd: () => this.interactEnd(),
       onEmote: e => this.doEmote(e),
       onJump: () => this.audio.unlock()
     });
@@ -94,7 +97,7 @@ export class Game {
     this.lastActivityKey = '';
     this.stepTimer = 0;
 
-    this.minigames = new MiniGames(this);
+    this.minigames = new GameHub(this, [MiniGames, Arcade]);
     this.characters = CHARACTERS; // exposed for testing model swaps from the console
     this.showPreview(true);
     window.addEventListener('resize', () => { this.engine.resize(); this.rig.resize(canvas); });
@@ -282,7 +285,7 @@ export class Game {
     const av = this.local;
     if (!av) return;
     const look = this.controls.consumeLook();
-    this.rig.applyLook(look.dx, look.dy);
+    if (!this.minigames.look(look.dx, look.dy)) this.rig.applyLook(look.dx, look.dy);
     const eq = this.myEquipment();
     const locked = this.isLocked();
     this.controls.enabled = !locked;
@@ -321,14 +324,17 @@ export class Game {
     if (this.ride && this.ride.id === SLIDE.id) this.finishSlide();
     this.ride = null;
     const celebrating = this.world?.activity?.type === 'celebrate';
-    this.rig.setFocus(celebrating ? { position: new Vector3(0, 2.2, -6.2), target: new Vector3(0, 1.1, 0) } : null);
+    if (!this.minigames.pinned(this.world?.activity)) this.rig.setFocus(celebrating ? { position: new Vector3(0, 2.2, -6.2), target: new Vector3(0, 1.1, 0) } : null);
 
     const mv = this.controls.moveVector();
     const f = this.rig.forward();
     const wx = f.z * mv.x + f.x * mv.y, wz = -f.x * mv.x + f.z * mv.y;
     if (locked) jump = false;
     const wasGrounded = this.body.grounded;
-    stepBody(this.body, { x: locked ? 0 : wx, z: locked ? 0 : wz, jump }, dt, solidsFor(this.world?.activity, this.serverNow()));
+    const pinned = this.minigames.pinned(this.world?.activity);
+    if (pinned) jump = false;
+    const still = locked || pinned;
+    stepBody(this.body, { x: still ? 0 : wx, z: still ? 0 : wz, jump }, dt, solidsFor(this.world?.activity, this.serverNow()));
     this.minigames.collide(this.body);
     if (jump && wasGrounded && !this.body.grounded) this.audio.play('jump');
     if (this.body.landed > 0.3) {
@@ -510,7 +516,16 @@ export class Game {
     if (!action) return;
     this.audio.play('tap');
     action.run();
+    if (action.hold) this.heldAction = action;
   }
+
+  // Hold-and-release actions (basketball power meter).
+  interactEnd() {
+    const held = this.heldAction;
+    this.heldAction = null;
+    held?.end?.();
+  }
+
 
   doEmote(e, silentSend = false) {
     this.audio.unlock();

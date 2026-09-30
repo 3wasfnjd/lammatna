@@ -63,10 +63,11 @@ export class CameraRig {
       look = Vector3.Lerp(look, f.target, k);
       if (this.focus) this.lastFocus = this.focus;
     }
-    const k = 1 - Math.exp(-dt * (this.snap ? 60 : 7));
+    const snapped = this.snap;
+    const k = snapped ? 1 : 1 - Math.exp(-dt * 7);
     this.snap = false;
     this.current = Vector3.Lerp(this.current, want, k);
-    this.lookAt = Vector3.Lerp(this.lookAt, look, 1 - Math.exp(-dt * 12));
+    this.lookAt = snapped ? look : Vector3.Lerp(this.lookAt, look, 1 - Math.exp(-dt * 12));
     this.camera.position.copyFrom(this.current);
     if (this.shake > 0) {
       this.shake = Math.max(0, this.shake - dt);
