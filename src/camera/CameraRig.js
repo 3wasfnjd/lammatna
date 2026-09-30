@@ -8,7 +8,7 @@ export class CameraRig {
     this.camera = new TargetCamera('cam', new Vector3(0, 6, -10), scene);
     this.camera.fov = 0.95;
     this.camera.minZ = 0.1;
-    this.camera.maxZ = 120;
+    this.camera.maxZ = 260;
     this.yaw = 0;          // orbit angle around the player (0 = camera behind, looking +z)
     this.pitch = 0.42;
     this.distance = 7.2;

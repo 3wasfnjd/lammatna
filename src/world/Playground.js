@@ -9,7 +9,7 @@ import { loadDecorModels } from './DecorModels.js';
 import { BLOCKY } from '../style.js';
 import {
   HALL, PALETTE, AREAS, SOLIDS, STAGE, TOWERS, DECK_Y, STAIRS, SLIDE, slidePoint, BALL_PIT, TUNNEL, FOAM_PIT,
-  SWING_FRAME, SWINGS, IGLOO, TENT, COLOR_FLOOR, BASKETS, BALL_COLORS, PADS, RACE, BENCHES, BEACH_BALLS, POTS, HOOPS, BOOTH
+  SWING_FRAME, SWINGS, IGLOO, TENT, COLOR_FLOOR, BASKETS, BALL_COLORS, PADS, RACE, BENCHES, BEACH_BALLS, POTS, HOOPS, BOOTH, OPENING, GARDEN
 } from '../../shared/playground.js';
 
 export class Playground {
@@ -35,6 +35,7 @@ export class Playground {
 
   build() {
     this.buildFloor();
+    this.buildGarden();
     this.buildWalls();
     this.buildSolids();
     this.buildPlaza();
@@ -77,7 +78,7 @@ export class Playground {
     }
     // Area pools of colour children can recognise from far away.
     for (const a of AREAS) {
-      if (a.id === 'pit' || a.id === 'floor') continue;
+      if (a.id === 'pit' || a.id === 'floor' || a.id === 'garden') continue;
       const g = ctx.createRadialGradient(X(a.x), Z(a.z), a.r * px * 0.2, X(a.x), Z(a.z), a.r * px * 1.15);
       g.addColorStop(0, a.color + '66'); g.addColorStop(0.75, a.color + '40'); g.addColorStop(1, a.color + '00');
       ctx.fillStyle = g; ctx.beginPath(); ctx.arc(X(a.x), Z(a.z), a.r * px * 1.15, 0, Math.PI * 2); ctx.fill();
@@ -90,7 +91,7 @@ export class Playground {
     // Friendly footprint paths between the plaza and each area.
     ctx.fillStyle = 'rgba(242,115,95,0.35)';
     for (const a of AREAS) {
-      if (a.id === 'plaza') continue;
+      if (a.id === 'plaza' || a.id === 'garden') continue;
       const len = Math.hypot(a.x, a.z) - a.r * 0.6 - 5.4, dirx = a.x / Math.hypot(a.x, a.z), dirz = a.z / Math.hypot(a.x, a.z);
       for (let s = 0; s < len; s += 1.1) {
         const d = 5.6 + s, side = (Math.round(s / 1.1) % 2 ? 0.22 : -0.22);
@@ -120,8 +121,9 @@ export class Playground {
     ctx.strokeStyle = 'rgba(255,255,255,0.85)'; ctx.lineWidth = 0.09 * px;
     for (const h of HOOPS) {
       ctx.beginPath(); ctx.arc(X(h.x), Z(h.z), 4.6 * px, Math.PI * 0.02, Math.PI * 0.98, true); ctx.stroke();
-      ctx.strokeRect(X(h.x - 1.0), Z(-13.8), 2.0 * px, (-13.8 - (-18)) * px);
-      ctx.beginPath(); ctx.arc(X(h.x), Z(-13.8), 1.0 * px, 0, Math.PI, true); ctx.stroke();
+      const key = h.z + 2.95, wall = h.z - 1.25;
+      ctx.strokeRect(X(h.x - 1.0), Z(key), 2.0 * px, (key - wall) * px);
+      ctx.beginPath(); ctx.arc(X(h.x), Z(key), 1.0 * px, 0, Math.PI, true); ctx.stroke();
     }
     ctx.fillStyle = 'rgba(242,115,95,0.18)'; ctx.fillRect(X(-5.5), Z(-10), 18 * px, 8 * px);
     // Race start line.
@@ -145,6 +147,27 @@ export class Playground {
     this.floor = ground;
   }
 
+  // Outdoor lawn beyond the north opening (the park scene sits on top of it).
+  buildGarden() {
+    const tex = new DynamicTexture('grass-tex', { width: 256, height: 256 }, this.scene, true);
+    const ctx = tex.getContext();
+    ctx.fillStyle = '#7CCB6A'; ctx.fillRect(0, 0, 256, 256);
+    for (let i = 0; i < 8; i++) { ctx.fillStyle = i % 2 ? 'rgba(255,255,255,0.05)' : 'rgba(0,60,0,0.05)'; ctx.fillRect(0, i * 32, 256, 32); }
+    for (let i = 0; i < 900; i++) {
+      ctx.fillStyle = Math.random() < 0.5 ? 'rgba(40,120,40,0.35)' : 'rgba(190,240,150,0.35)';
+      ctx.fillRect(Math.random() * 256, Math.random() * 256, 2, 5);
+    }
+    tex.update(); tex.uScale = 40; tex.vScale = 20;
+    const m = new StandardMaterial('grass', this.scene);
+    m.diffuseTexture = tex; m.specularColor = Color3.Black(); m.emissiveColor = new Color3(0.08, 0.12, 0.06);
+    const lawn = CreateGround('lawn', { width: 240, height: 120 }, this.scene);
+    lawn.position.set(0, -0.03, GARDEN.minZ + 60);
+    lawn.material = m; lawn.receiveShadows = true; lawn.isPickable = false; lawn.freezeWorldMatrix();
+    // A stone path from the opening to the park.
+    const path = this.kit.roundedBox('gardenpath', OPENING.maxX - OPENING.minX - 6, 0.04, 4, 0.02, this.kit.mat('#E8C99A', { gloss: 0.05 }));
+    path.position.set(0, 0.0, GARDEN.minZ + 1.6); this.add(path);
+  }
+
   buildWalls() {
     const tex = new DynamicTexture('wall-tex', { width: 1024, height: 256 }, this.scene, true);
     const ctx = tex.getContext();
@@ -162,27 +185,45 @@ export class Playground {
     const m = new StandardMaterial('walls', this.scene);
     m.diffuseTexture = tex; m.specularColor = Color3.Black(); m.emissiveColor = new Color3(0.28, 0.26, 0.24);
     const W = HALL.maxX - HALL.minX, D = HALL.maxZ - HALL.minZ, h = HALL.height;
+    // North wall: two sections either side of the wide garden opening, plus a lintel.
+    const nw = OPENING.minX - HALL.minX, ne = HALL.maxX - OPENING.maxX, lintel = 3.2;
     const walls = [
-      [0, HALL.maxZ, 0, W], [0, HALL.minZ, Math.PI, W], [HALL.maxX, 0, Math.PI / 2, D], [HALL.minX, 0, -Math.PI / 2, D]
+      [(HALL.minX + OPENING.minX) / 2, HALL.maxZ, 0, nw, h, h / 2], [(OPENING.maxX + HALL.maxX) / 2, HALL.maxZ, 0, ne, h, h / 2],
+      [0, HALL.maxZ, 0, OPENING.maxX - OPENING.minX, lintel, h - lintel / 2],
+      [0, HALL.minZ, Math.PI, W, h, h / 2], [HALL.maxX, 0, Math.PI / 2, D, h, h / 2], [HALL.minX, 0, -Math.PI / 2, D, h, h / 2]
     ];
-    for (const [x, z, rot, len] of walls) {
-      const p = CreatePlane('wall', { width: len, height: h }, this.scene);
-      p.position.set(x, h / 2, z); p.rotation.y = rot; p.material = m;
+    for (const [x, z, rot, len, height, y] of walls) {
+      const p = CreatePlane('wall', { width: len, height, sideOrientation: Mesh.DOUBLESIDE }, this.scene);
+      p.position.set(x, y, z); p.rotation.y = rot; p.material = m;
       p.freezeWorldMatrix();
     }
-    // Tall bright windows let the warm "sunlight" in.
+    // Garden gate: a bright frame around the opening.
+    const gateMat = this.kit.mat(PALETTE.turquoise, { gloss: 0.4 });
+    for (const x of [OPENING.minX, OPENING.maxX]) {
+      const post = this.kit.roundedBox('gatepost', 0.9, h - lintel, 0.9, 0.12, gateMat); post.position.set(x, (h - lintel) / 2, HALL.maxZ); this.add(post);
+    }
+    const beam = this.kit.roundedBox('gatebeam', OPENING.maxX - OPENING.minX + 0.9, 0.7, 0.9, 0.12, this.kit.mat(PALETTE.yellow, { gloss: 0.4 }));
+    beam.position.set(0, h - lintel, HALL.maxZ); this.add(beam);
+    // Tall bright windows let the warm "sunlight" in (south, east and west walls).
     const win = this.kit.mat('#FFF8E6', { emissive: 0.95, gloss: 0 });
     const frame = this.kit.mat(PALETTE.cream, { emissive: 0.3 });
-    for (const x of [-16, -6, 6, 16]) {
-      const f = this.kit.roundedBox('winframe', 3.6, 3.2, 0.3, 0.12, frame); f.position.set(x, 4.8, HALL.maxZ - 0.1); this.add(f);
-      const w = CreatePlane('window', { width: 3.1, height: 2.7 }, this.scene); w.position.set(x, 4.8, HALL.maxZ - 0.27); w.material = win; this.add(w);
+    const windows = [
+      ...[-30, -18, 18, 30].map(x => [x, HALL.maxZ - 0.1, 0]),
+      ...[-30, -10, 10, 30].map(x => [x, HALL.minZ + 0.1, Math.PI]),
+      ...[-20, 0, 20].map(z => [HALL.maxX - 0.1, z, Math.PI / 2]),
+      ...[-20, 12].map(z => [HALL.minX + 0.1, z, -Math.PI / 2])
+    ];
+    for (const [x, z, rot] of windows) {
+      const f = this.kit.roundedBox('winframe', 4.4, 3.8, 0.3, 0.12, frame); f.position.set(x, 5.6, z); f.rotation.y = rot; this.add(f);
+      const w = CreatePlane('window', { width: 3.8, height: 3.2, sideOrientation: Mesh.DOUBLESIDE }, this.scene);
+      w.position.set(x - Math.sin(rot) * 0.17, 5.6, z - Math.cos(rot) * 0.17); w.rotation.y = rot; w.material = win; this.add(w);
     }
     // Hanging clouds and stars under the ceiling.
     const cloud = this.kit.mat('#FFFFFF', { emissive: 0.4 });
-    for (const [x, z] of [[-10, 2], [8, -4], [0, 9], [-6, -10], [14, 12]]) {
+    for (const [x, z] of [[-10, 2], [8, -4], [0, 9], [-6, -10], [14, 12], [-26, -8], [26, -12], [-24, 20], [24, 16], [0, -20], [-32, 6], [32, 2]]) {
       for (const [dx, dy, r] of [[0, 0, 0.9], [0.9, 0.2, 1.1], [1.8, 0, 0.8]]) {
         const s = CreateSphere('cloud', { diameter: r * 2, segments: 8 }, this.scene);
-        s.position.set(x + dx, 6.6 + dy, z); s.scaling.z = 0.7; s.material = cloud; this.add(s);
+        s.position.set(x + dx, 7.8 + dy, z); s.scaling.z = 0.7; s.material = cloud; this.add(s);
       }
     }
   }
@@ -230,7 +271,7 @@ export class Playground {
     }
     // Crawl tunnel under tower A doubles as a hiding place.
     const tube = CreateCylinder('crawl', { diameter: 1.9, height: 3.4, tessellation: 20, arc: 0.5, enclose: false, sideOrientation: Mesh.DOUBLESIDE }, this.scene);
-    tube.rotation.set(Math.PI / 2, 0, 0); tube.position.set(12.25, 0, 8); tube.scaling.set(1, 1, 1.1);
+    tube.rotation.set(Math.PI / 2, 0, 0); tube.position.set((TOWERS[0].minX + TOWERS[0].maxX) / 2, 0, 8); tube.scaling.set(1, 1, 1.1);
     tube.material = this.kit.mat(PALETTE.mint); this.add(tube);
   }
 
@@ -498,7 +539,7 @@ export class Playground {
   buildSigns() {
     for (const a of AREAS) {
       if (a.id === 'plaza') continue;
-      const pos = { swings: [-14, 14.5], tower: [9.4, 11.8], pit: [9.2, -8.5], course: [-11, -5.2], blocks: [-4.5, 16.6], floor: [3, 15.6], hide: [-19, 4.8] }[a.id];
+      const pos = a.sign || [a.x, a.z + a.r];
       const pole = CreateCylinder('signpole', { diameter: 0.12, height: 2.6, tessellation: 8 }, this.scene);
       pole.position.set(pos[0], 1.3, pos[1]); pole.material = this.kit.mat('#FFFFFF'); this.add(pole);
       const sign = this.kit.sign(`sign-${a.id}`, { symbol: a.symbol, text: a.name, color: a.color, width: 2.6, height: 0.85 });
@@ -527,11 +568,11 @@ export class Playground {
     // Shooting booth: striped awning, backdrop, shelf and duck rail.
     const b = BOOTH, midX = (b.minX + b.maxX) / 2, w = b.maxX - b.minX;
     const back = k.roundedBox('boothback', w + 0.6, 4.0, 0.2, 0.05, k.mat('#2E3F6E', { emissive: 0.15 }));
-    back.position.set(midX, 2.0, 17.75); this.add(back);
+    back.position.set(midX, 2.0, b.backZ); this.add(back);
     const shelf = k.roundedBox('shelf', w - 0.2, 0.12, 0.5, 0.03, k.mat('#8A5A3B', { gloss: 0.3 }));
-    shelf.position.set(midX, 1.09, 16.95); this.add(shelf);
+    shelf.position.set(midX, 1.09, b.backZ - 0.8); this.add(shelf);
     const rail = k.roundedBox('duckrail', w, 0.08, 0.12, 0.03, k.mat('#C9CED8', { gloss: 0.6 }));
-    rail.position.set(midX, 1.86, 17.05); this.add(rail);
+    rail.position.set(midX, 1.86, b.backZ - 0.7); this.add(rail);
     for (const x of [b.minX, b.maxX]) {
       const post = k.roundedBox('boothpost', 0.24, 3.6, 0.24, 0.05, k.mat(PALETTE.yellow, { gloss: 0.4 }));
       post.position.set(x, 1.8, b.counterZ + 0.25); this.add(post);
@@ -544,7 +585,7 @@ export class Playground {
     const sign = this.kit.sign('booth-sign', { symbol: '🦆', text: 'رماية عبودين', color: PALETTE.yellow, width: 3.2, height: 0.8, textColor: '#3A2E4A' });
     sign.position.set(midX, 4.25, b.counterZ + 0.2);
     const hoopSign = this.kit.sign('hoop-sign', { symbol: '🏀', text: 'رماية السلة', color: PALETTE.coral, width: 2.6, height: 0.7 });
-    hoopSign.position.set(3.5, 4.3, -17.6);
+    hoopSign.position.set((HOOPS[0].x + HOOPS[1].x) / 2, 4.3, HOOPS[0].z - 0.85);
   }
 
   buildDecor() {

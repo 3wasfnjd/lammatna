@@ -20,21 +20,22 @@ export const TILE_COUNT = COLOR_FLOOR.cols * COLOR_FLOOR.rows;
 // ---- Giant Ball Challenge -----------------------------------------------------------
 export const GIANT = {
   radius: 1.05,
-  path: [[-4.6, -7.0], [-8.6, -4.2], [-8.9, 1.2], [-7.6, 6.2], [-3.4, 8.3], [0.9, 9.0], [2.5, 11.2]],
+  // From the plaza, round the west side, north past the building corner to the lit floor.
+  path: [[-4.6, -7.0], [-9.6, -3.2], [-11, 4], [-10, 11], [-5, 15], [0, 17.2], [4.5, 20.8]],
   halfWidth: 3.2,
   // The ball scores by crossing lineZ between the posts (on the illuminated floor).
-  goal: { minX: 1.2, maxX: 3.8, lineZ: 12.9, x: 2.5, z: 13.7 },
+  goal: { minX: 3.2, maxX: 5.8, lineZ: 22.9, x: 4.5, z: 23.7 },
   timeLimit: 120
 };
 // Soft barriers that exist only during the challenge.
 export const GIANT_BARRIERS = [
-  { min: [-7.3, 0, -6.3], max: [-6.6, 0.9, -4.9], color: '#9C6BD1' },
-  { min: [-5.9, 0, 9.4], max: [-5.2, 0.9, 10.6], color: '#F2735F' }
+  { min: [-8.2, 0, -5.8], max: [-7.5, 0.9, -4.4], color: '#9C6BD1' },
+  { min: [-8.9, 0, 14.0], max: [-8.2, 0.9, 15.2], color: '#F2735F' }
 ];
 // Slowly moving foam gates: position depends only on time since the round began.
 export const GIANT_GATES = [
-  { axis: 'x', from: -11.2, to: -6.2, fixed: 3.2, len: 2.2, thick: 0.5, period: 6.5, color: '#F7BE2F' },
-  { axis: 'z', from: 5.9, to: 10.2, fixed: -0.6, len: 2.2, thick: 0.5, period: 5.5, color: '#2BB5B0' }
+  { axis: 'x', from: -13.4, to: -8.2, fixed: 7.5, len: 2.2, thick: 0.5, period: 6.5, color: '#F7BE2F' },
+  { axis: 'z', from: 13.6, to: 18.4, fixed: -2.5, len: 2.2, thick: 0.5, period: 5.5, color: '#2BB5B0' }
 ];
 export function gateCenter(g, seconds) {
   const k = (1 - Math.cos(seconds / g.period * Math.PI * 2)) / 2;
@@ -48,9 +49,9 @@ export function gateBox(g, seconds) {
 }
 // Goal frame posts are solid during the challenge.
 export const GOAL_POSTS = [
-  { min: [0.8, 0, 12.2], max: [1.2, 2.4, 12.6] },
-  { min: [3.8, 0, 12.2], max: [4.2, 2.4, 12.6] },
-  { min: [0.8, 0, 14.5], max: [4.2, 2.4, 14.8] }
+  { min: [2.8, 0, 22.2], max: [3.2, 2.4, 22.6] },
+  { min: [5.8, 0, 22.2], max: [6.2, 2.4, 22.6] },
+  { min: [2.8, 0, 24.5], max: [6.2, 2.4, 24.8] }
 ];
 export function distToPath(x, z) {
   let best = Infinity, bestIndex = 0;
@@ -66,7 +67,7 @@ export function distToPath(x, z) {
 }
 
 // ---- Family Builders ----------------------------------------------------------------
-export const BUILD = { x: -5, z: 10.4, timeLimit: 120 };
+export const BUILD = { x: -13, z: 20.4, timeLimit: 120 };
 export const PIECE_SIZE = {
   cube: [1.0, 1.0, 1.0],
   plank: [3.4, 0.5, 1.0],
@@ -81,7 +82,9 @@ export const BLUEPRINT = [
   { id: 's4', kind: 'cube', x: 0.8, y: 1.5, color: '#FF8FB8', needs: ['s2'] },
   { id: 's5', kind: 'star', x: 0, y: 2.5, color: '#F7BE2F', needs: ['s3', 's4'] }
 ].map(s => ({ ...s, x: BUILD.x + s.x, z: BUILD.z }));
-export const PIECE_SPAWNS = { s0: [-8.4, 6.0], s1: [-2.6, 6.2], s2: [-5.4, 7.4], s3: [-9.4, 8.6], s4: [-1.4, 8.6], s5: [-8.4, 12.8] };
+// Spawns in the building corner (zone offset -8, +10 from the original design).
+export const PIECE_SPAWNS = Object.fromEntries(Object.entries({ s0: [-8.4, 6.0], s1: [-2.6, 6.2], s2: [-5.4, 7.4], s3: [-9.4, 8.6], s4: [-1.4, 8.6], s5: [-8.4, 12.8] })
+  .map(([k, [x, z]]) => [k, [x - 8, z + 10]]));
 
 export function pieceBox(kind, x, y, z) {
   const [w, h, d] = PIECE_SIZE[kind];

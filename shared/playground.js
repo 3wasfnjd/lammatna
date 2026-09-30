@@ -1,7 +1,30 @@
 // Playground layout shared by the renderer, the movement code and the room
 // server. Metres, y up. Every solid box is both a collider and a rendered part.
+//
+// Version 2: a much wider hall (80 × 60 m) with an outdoor garden beyond a wide
+// north opening. Each activity area keeps its own shape and is placed with a
+// zone offset, leaving broad walkways between areas.
 
-export const HALL = { minX: -24, maxX: 24, minZ: -18, maxZ: 18, height: 7.5 };
+export const HALL = { minX: -40, maxX: 40, minZ: -30, maxZ: 30, height: 9 };
+// Outdoor garden reached through the opening in the north wall.
+export const GARDEN = { minX: -40, maxX: 40, minZ: 30, maxZ: 58 };
+export const OPENING = { minX: -12, maxX: 12 };
+// Where every area sits (offset from its original design position).
+export const ZONES = {
+  plaza: { dx: 0, dz: 0 },
+  adventure: { dx: 16, dz: 0 },     // two-level tower, slide and ball pit
+  course: { dx: -14, dz: -8 },      // tunnel, barriers, foam pit
+  swings: { dx: -16, dz: 6 },
+  blocks: { dx: -8, dz: 10 },       // building corner / Family Builders
+  floor: { dx: 2, dz: 10 },         // illuminated floor
+  hide: { dx: -17, dz: 0 },         // igloo
+  tent: { dx: 14.4, dz: 10.6 },
+  hoops: { dx: 0, dz: -12 },
+  booth: { dx: 12, dz: 12 }
+};
+const X = (zone, x) => x + ZONES[zone].dx;
+const Zc = (zone, z) => z + ZONES[zone].dz;
+const P = (zone, [x, y, z]) => [X(zone, x), y, Zc(zone, z)];
 
 // Area palette: each activity area has a colour and a symbol children can follow.
 export const PALETTE = {
@@ -10,14 +33,18 @@ export const PALETTE = {
 };
 
 export const AREAS = [
-  { id: 'plaza', name: 'ساحة اللمّة', symbol: '★', color: PALETTE.yellow, x: 0, z: 0, r: 5.4 },
-  { id: 'swings', name: 'المراجيح', symbol: '☁', color: PALETTE.turquoise, x: -14, z: 11, r: 4.5 },
-  { id: 'tower', name: 'برج المغامرة', symbol: '▲', color: PALETTE.coral, x: 15, z: 8, r: 5 },
-  { id: 'pit', name: 'بركة الكرات', symbol: '●', color: PALETTE.sky, x: 15.5, z: -8.5, r: 5 },
-  { id: 'course', name: 'مسار العقبات', symbol: '■', color: PALETTE.purple, x: -13, z: -11, r: 6 },
-  { id: 'blocks', name: 'ركن البناء', symbol: '✚', color: PALETTE.coral, x: -6, z: 14, r: 3.5 },
-  { id: 'floor', name: 'الأرضية المضيئة', symbol: '◆', color: PALETTE.pink, x: 3, z: 12, r: 3.8 },
-  { id: 'hide', name: 'ركن الاختباء', symbol: '☾', color: PALETTE.mint, x: -20.5, z: 2, r: 3 }
+  { id: 'plaza', name: 'ساحة اللمّة', symbol: '★', color: PALETTE.yellow, x: 0, z: 0, r: 7 },
+  { id: 'swings', name: 'المراجيح', symbol: '☁', color: PALETTE.turquoise, x: X('swings', -14), z: Zc('swings', 11), r: 5.5, sign: [X('swings', -14), Zc('swings', 14.5)] },
+  { id: 'tower', name: 'برج المغامرة', symbol: '▲', color: PALETTE.coral, x: X('adventure', 15), z: 8, r: 6, sign: [X('adventure', 9.4), 11.8] },
+  { id: 'pit', name: 'بركة الكرات', symbol: '●', color: PALETTE.sky, x: X('adventure', 15.5), z: -8.5, r: 6, sign: [X('adventure', 9.2), -8.5] },
+  { id: 'course', name: 'مسار العقبات', symbol: '■', color: PALETTE.purple, x: X('course', -13), z: Zc('course', -11), r: 7, sign: [X('course', -11), Zc('course', -5.2)] },
+  { id: 'blocks', name: 'ركن البناء', symbol: '✚', color: PALETTE.coral, x: X('blocks', -6), z: Zc('blocks', 14), r: 4, sign: [X('blocks', -4.5), Zc('blocks', 16.6) - 0.6] },
+  { id: 'floor', name: 'الأرضية المضيئة', symbol: '◆', color: PALETTE.pink, x: X('floor', 3), z: Zc('floor', 12), r: 4.2, sign: [X('floor', 3), Zc('floor', 15.6)] },
+  { id: 'hide', name: 'ركن الاختباء', symbol: '☾', color: PALETTE.mint, x: X('hide', -20.5), z: 2, r: 3.5, sign: [X('hide', -19), 4.8] },
+  { id: 'trampoline', name: 'حديقة الترامبولين', symbol: '⬆', color: PALETTE.pink, x: 17.2, z: -22.4, r: 8, sign: [9, -15] },
+  { id: 'arcade', name: 'صالة الألعاب', symbol: '♦', color: PALETTE.purple, x: 16, z: 19, r: 5, sign: [11, 14] },
+  { id: 'cafe', name: 'استراحة العائلة', symbol: '☕', color: PALETTE.cream, x: 16, z: -8.5, r: 4, sign: [11.5, -4.5] },
+  { id: 'garden', name: 'الحديقة الخارجية', symbol: '✿', color: '#6CCB8F', x: 0, z: 44, r: 12, sign: [14.5, 28.5] }
 ];
 
 const solids = [];
@@ -25,11 +52,15 @@ function box(kind, min, max, extra = {}) {
   solids.push({ kind, min, max, ...extra });
 }
 
-// Hall walls (outside the play area).
-box('wall', [HALL.minX - 1, 0, HALL.minZ - 1], [HALL.minX, HALL.height, HALL.maxZ + 1]);
-box('wall', [HALL.maxX, 0, HALL.minZ - 1], [HALL.maxX + 1, HALL.height, HALL.maxZ + 1]);
+// Hall walls (outside the play area). The north wall has a wide opening to the garden.
+box('wall', [HALL.minX - 1, 0, HALL.minZ - 1], [HALL.minX, HALL.height, GARDEN.maxZ + 1]);
+box('wall', [HALL.maxX, 0, HALL.minZ - 1], [HALL.maxX + 1, HALL.height, GARDEN.maxZ + 1]);
 box('wall', [HALL.minX, 0, HALL.minZ - 1], [HALL.maxX, HALL.height, HALL.minZ]);
-box('wall', [HALL.minX, 0, HALL.maxZ], [HALL.maxX, HALL.height, HALL.maxZ + 1]);
+box('wall', [HALL.minX, 0, HALL.maxZ], [OPENING.minX, HALL.height, HALL.maxZ + 0.6]);
+box('wall', [OPENING.maxX, 0, HALL.maxZ], [HALL.maxX, HALL.height, HALL.maxZ + 0.6]);
+// Garden boundary (behind the hedges and fences).
+box('wall', [HALL.minX, 0, GARDEN.maxZ], [HALL.maxX, 3, GARDEN.maxZ + 1]);
+export function inGarden(x, z) { return z > HALL.maxZ && x > GARDEN.minX && x < GARDEN.maxX; }
 
 // Central celebration stage: low enough to step onto.
 export const STAGE = { x: 0, z: 0, r: 2.4, h: 0.3 };
@@ -39,8 +70,8 @@ export const DISCS = [{ x: STAGE.x, z: STAGE.z, r: STAGE.r, top: STAGE.h }];
 // ---- Two-level play structure -------------------------------------------------
 export const DECK_Y = 2.6;
 export const TOWERS = [
-  { id: 'A', minX: 10.5, maxX: 14, minZ: 5, maxZ: 11 },
-  { id: 'B', minX: 16, maxX: 19.5, minZ: 5, maxZ: 11 }
+  { id: 'A', minX: X('adventure', 10.5), maxX: X('adventure', 14), minZ: 5, maxZ: 11 },
+  { id: 'B', minX: X('adventure', 16), maxX: X('adventure', 19.5), minZ: 5, maxZ: 11 }
 ];
 for (const t of TOWERS) {
   box('deck', [t.minX, DECK_Y - 0.25, t.minZ], [t.maxX, DECK_Y, t.maxZ], { color: PALETTE.coral });
@@ -50,9 +81,9 @@ for (const t of TOWERS) {
   }
 }
 // Net bridge between the towers.
-box('bridge', [14, DECK_Y - 0.15, 7], [16, DECK_Y, 9], { color: PALETTE.purple });
+box('bridge', P('adventure', [14, DECK_Y - 0.15, 7]), P('adventure', [16, DECK_Y, 9]), { color: PALETTE.purple });
 const RAIL_H = 1.0, RT = 0.18;
-function rail(min, max, kind = 'rail') { box(kind, [min[0], DECK_Y, min[1]], [max[0], DECK_Y + RAIL_H, max[1]], { color: PALETTE.turquoise }); }
+function rail(min, max, kind = 'rail') { box(kind, [X('adventure', min[0]), DECK_Y, min[1]], [X('adventure', max[0]), DECK_Y + RAIL_H, max[1]], { color: PALETTE.turquoise }); }
 // Tower A rails (openings: stairs on the west, bridge on the east).
 rail([10.5, 5], [14, 5 + RT]); rail([10.5, 11 - RT], [14, 11]);
 rail([10.5, 5], [10.5 + RT, 7]); rail([10.5, 9], [10.5 + RT, 11]);
@@ -65,7 +96,7 @@ rail([16, 5], [16 + RT, 7]); rail([16, 9], [16 + RT, 11]);
 rail([14, 7 - RT], [16, 7], 'net'); rail([14, 9], [16, 9 + RT], 'net');
 
 // Stairs: seven padded steps rising east onto tower A.
-export const STAIRS = { minX: 5.5, maxX: 10.5, minZ: 7, maxZ: 9, steps: 7 };
+export const STAIRS = { minX: X('adventure', 5.5), maxX: X('adventure', 10.5), minZ: 7, maxZ: 9, steps: 7 };
 for (let i = 0; i < STAIRS.steps; i++) {
   const run = (STAIRS.maxX - STAIRS.minX) / STAIRS.steps, top = DECK_Y * (i + 1) / STAIRS.steps;
   box('step', [STAIRS.minX + i * run, 0, STAIRS.minZ], [STAIRS.minX + (i + 1) * run, top, STAIRS.maxZ],
@@ -77,10 +108,10 @@ box('siderail', [STAIRS.minX, 0, STAIRS.maxZ], [STAIRS.maxX, DECK_Y + 0.9, STAIR
 // ---- Slide into the ball pit ------------------------------------------------
 export const SLIDE = {
   id: 'slide',
-  entrance: { x: 17.8, y: DECK_Y, z: 5.6 },
+  entrance: { x: X('adventure', 17.8), y: DECK_Y, z: 5.6 },
   // Path sampled by `slidePoint`; the ride ends inside the ball pit.
-  start: { x: 17.8, y: DECK_Y + 0.15, z: 4.9 },
-  end: { x: 17.8, y: 0.35, z: -5.2 },
+  start: { x: X('adventure', 17.8), y: DECK_Y + 0.15, z: 4.9 },
+  end: { x: X('adventure', 17.8), y: 0.35, z: -5.2 },
   duration: 2.3
 };
 export function slidePoint(t) {
@@ -93,10 +124,10 @@ export function slidePoint(t) {
   };
 }
 // Keep walkers out from under the low end of the slide.
-box('foam', [17.1, 0, -2.9], [18.5, 1.1, 1.2], { color: PALETTE.purple, hidden: true });
+box('foam', P('adventure', [17.1, 0, -2.9]), P('adventure', [18.5, 1.1, 1.2]), { color: PALETTE.purple, hidden: true });
 
 // ---- Ball pit ---------------------------------------------------------------
-export const BALL_PIT = { minX: 10, maxX: 21, minZ: -14, maxZ: -3, rim: 0.4, depth: 0.45 };
+export const BALL_PIT = { minX: X('adventure', 10), maxX: X('adventure', 21), minZ: -14, maxZ: -3, rim: 0.4, depth: 0.45 };
 {
   const p = BALL_PIT, t = 0.4, c = { color: PALETTE.turquoise };
   box('rim', [p.minX - t, 0, p.minZ - t], [p.maxX + t, p.rim, p.minZ], c);
@@ -106,21 +137,21 @@ export const BALL_PIT = { minX: 10, maxX: 21, minZ: -14, maxZ: -3, rim: 0.4, dep
 }
 
 // ---- Soft obstacle course -----------------------------------------------------
-export const TUNNEL = { minX: -10, maxX: -5, z: -9, width: 2.2, height: 2.2 };
+export const TUNNEL = { minX: X('course', -10), maxX: X('course', -5), z: Zc('course', -9), width: 2.2, height: 2.2 };
 box('tunnelwall', [TUNNEL.minX, 0, TUNNEL.z - 1.4], [TUNNEL.maxX, TUNNEL.height, TUNNEL.z - 1.1], { color: PALETTE.purple, hidden: true });
 box('tunnelwall', [TUNNEL.minX, 0, TUNNEL.z + 1.1], [TUNNEL.maxX, TUNNEL.height, TUNNEL.z + 1.4], { color: PALETTE.purple, hidden: true });
-box('barrier', [-12.6, 0, -10.8], [-12.0, 0.55, -7.2], { color: PALETTE.coral, round: true });
-box('barrier', [-14.9, 0, -10.8], [-14.3, 0.55, -7.2], { color: PALETTE.yellow, round: true });
+box('barrier', P('course', [-12.6, 0, -10.8]), P('course', [-12.0, 0.55, -7.2]), { color: PALETTE.coral, round: true });
+box('barrier', P('course', [-14.9, 0, -10.8]), P('course', [-14.3, 0.55, -7.2]), { color: PALETTE.yellow, round: true });
 // Soft foam pit crossed on low platforms.
-export const FOAM_PIT = { minX: -20.7, maxX: -16.6, minZ: -15.5, maxZ: -8 };
-box('foamwall', [-16.6, 0, -15.5], [-16.2, 1.3, -8], { color: PALETTE.purple });
-box('foamwall', [-21.1, 0, -15.5], [-20.7, 1.3, -8], { color: PALETTE.purple });
-export const PLATFORMS = [[-18.6, -9.3], [-19.4, -11.1], [-17.8, -12.8], [-18.8, -14.5]];
+export const FOAM_PIT = { minX: X('course', -20.7), maxX: X('course', -16.6), minZ: Zc('course', -15.5), maxZ: Zc('course', -8) };
+box('foamwall', P('course', [-16.6, 0, -15.5]), P('course', [-16.2, 1.3, -8]), { color: PALETTE.purple });
+box('foamwall', P('course', [-21.1, 0, -15.5]), P('course', [-20.7, 1.3, -8]), { color: PALETTE.purple });
+export const PLATFORMS = [[-18.6, -9.3], [-19.4, -11.1], [-17.8, -12.8], [-18.8, -14.5]].map(([x, z]) => [X('course', x), Zc('course', z)]);
 for (const [x, z] of PLATFORMS) box('platform', [x - 0.6, 0, z - 0.6], [x + 0.6, 0.6, z + 0.6], { color: PALETTE.yellow });
 
 // ---- Swings -------------------------------------------------------------------
-export const SWING_FRAME = { x: -14, z: 11, halfWidth: 4.2, pivotY: 4.3, rope: 3.6 };
-export const SWINGS = [-16.4, -14, -11.6].map((x, i) => ({ id: `swing${i}`, x, z: SWING_FRAME.z, seatY: SWING_FRAME.pivotY - SWING_FRAME.rope }));
+export const SWING_FRAME = { x: X('swings', -14), z: Zc('swings', 11), halfWidth: 4.2, pivotY: 4.3, rope: 3.6 };
+export const SWINGS = [-16.4, -14, -11.6].map(x => X('swings', x)).map((x, i) => ({ id: `swing${i}`, x, z: SWING_FRAME.z, seatY: SWING_FRAME.pivotY - SWING_FRAME.rope }));
 for (const side of [-1, 1]) {
   const x = SWING_FRAME.x + side * SWING_FRAME.halfWidth;
   box('post', [x - 0.25, 0, SWING_FRAME.z - 1.3], [x + 0.25, 3.6, SWING_FRAME.z - 0.8], { color: PALETTE.turquoise, hidden: true });
@@ -139,63 +170,56 @@ export const BLOCKS = [
   { x: -6.65, z: 15.6, w: 1.6, h: 1.0, d: 1.6, y: 1.2, color: PALETTE.coral },
   { x: -3.8, z: 13.2, w: 1.2, h: 1.2, d: 1.2, color: PALETTE.purple },
   { x: -8.2, z: 12.6, w: 2.2, h: 0.8, d: 1.0, color: PALETTE.pink }
-];
+].map(b => ({ ...b, x: X('blocks', b.x), z: Zc('blocks', b.z) }));
 for (const b of BLOCKS) {
   const y = b.y || 0;
   box('block', [b.x - b.w / 2, y, b.z - b.d / 2], [b.x + b.w / 2, y + b.h, b.z + b.d / 2], { color: b.color });
 }
-export const IGLOO = { x: -21, z: 2, r: 2.1 };
+export const IGLOO = { x: X('hide', -21), z: 2, r: 2.1 };
 box('hidewall', [IGLOO.x - 2, 0, IGLOO.z + 1.3], [IGLOO.x + 1.2, 2, IGLOO.z + 2.0], { hidden: true });
 box('hidewall', [IGLOO.x - 2, 0, IGLOO.z - 2.0], [IGLOO.x + 1.2, 2, IGLOO.z - 1.3], { hidden: true });
-export const TENT = { x: 21.6, z: 15.4 };
-box('hidewall', [20.2, 0, 14.0], [23, 1.8, 14.3], { hidden: true });
+export const TENT = { x: X('tent', 21.6), z: Zc('tent', 15.4) };
+box('hidewall', [TENT.x - 1.4, 0, TENT.z - 1.4], [TENT.x + 1.4, 1.8, TENT.z - 1.1], { hidden: true });
 
 // ---- Decor that you bump into ------------------------------------------------
 export const BENCHES = [{ x: -7.5, z: -1, rot: Math.PI / 2 }, { x: 7.5, z: -1, rot: -Math.PI / 2 }];
 for (const b of BENCHES) box('bench', [b.x - 0.5, 0, b.z - 1.25], [b.x + 0.5, 0.95, b.z + 1.25], { hidden: true });
-export const BEACH_BALLS = [[-9.5, 4.5, 1.3], [21.5, -1, 1.6], [-21.5, 15.5, 1.2], [8.5, -15.5, 1.1]];
+export const BEACH_BALLS = [[-18, -3, 1.3], [38, -18, 1.6], [-37.5, 27.5, 1.2], [-8, -27.5, 1.1], [37.5, 17, 1.4]];
 for (const [x, z, d] of BEACH_BALLS) box('beachball', [x - d * 0.38, 0, z - d * 0.38], [x + d * 0.38, d * 0.9, z + d * 0.38], { hidden: true });
-export const POTS = [[-23, -17], [23, -17], [23, 17], [-23, 17], [9, 17], [-12, 17]].map(([x, z]) => [x * 0.97, z * 0.97]);
+export const POTS = [[-39, -29], [39, -29], [39, 29], [-39, 29], [-13.2, 29], [13.2, 29]];
 for (const [x, z] of POTS) box('pot', [x - 0.45, 0, z - 0.45], [x + 0.45, 2.2, z + 0.45], { hidden: true });
 
 // Imported decorative furniture / play props. These simple boxes intentionally
 // approximate the visible models while keeping the existing movement system lightweight.
 // They are placed away from core minigame pads and route checkpoints.
 export const IMPORTED_DECOR_SOLIDS = [
-  // Monkey bars: collide with the four vertical posts but keep the centre walkable.
-  { kind: 'decor', min: [-14.63, 0, -16.53], max: [-14.37, 2.9, -16.27] },
-  { kind: 'decor', min: [-12.63, 0, -16.53], max: [-12.37, 2.9, -16.27] },
-  { kind: 'decor', min: [-14.63, 0, -12.53], max: [-14.37, 2.9, -12.27] },
-  { kind: 'decor', min: [-12.63, 0, -12.53], max: [-12.37, 2.9, -12.27] },
+  // Monkey bars (obstacle course): collide with the four posts, keep the centre walkable.
+  ...[[-14.63, -16.53], [-12.63, -16.53], [-14.63, -12.53], [-12.63, -12.53]].map(([x, z]) =>
+    ({ kind: 'decor', min: P('course', [x, 0, z]), max: P('course', [x + 0.26, 2.9, z + 0.26]) })),
 
-  // Seesaw plank/support.
-  { kind: 'decor', min: [-22.35, 0, 6.48], max: [-17.05, 0.72, 7.12] },
+  // Seesaw plank/support (swings area).
+  { kind: 'decor', min: P('swings', [-22.35, 0, 6.48 - 6]), max: P('swings', [-17.05, 0.72, 7.12 - 6]) },
 
-  // Spring horses.
-  { kind: 'decor', min: [-21.95, 0, 9.95], max: [-21.05, 1.35, 11.05] },
-  { kind: 'decor', min: [-7.65, 0, 9.75], max: [-6.75, 1.35, 10.85] },
+  // Spring horses (swings area).
+  { kind: 'decor', min: P('swings', [-21.95, 0, 9.95 - 6]), max: P('swings', [-21.05, 1.35, 11.05 - 6]) },
+  { kind: 'decor', min: P('swings', [-7.65, 0, 9.75 - 6]), max: P('swings', [-6.75, 1.35, 10.85 - 6]) },
 
-  // Merry-go-round footprint.
-  { kind: 'decor', min: [19.32, 0, 1.32], max: [22.68, 0.62, 4.68] },
+  // Merry-go-round footprint (east hall, beside the tower).
+  { kind: 'decor', min: [34.32, 0, 15.32], max: [37.68, 0.62, 18.68] },
 
-  // West-wall arcade cabinets.
-  { kind: 'decor', min: [-23.15, 0, -16.72], max: [-22.15, 1.65, -15.78] },
-  { kind: 'decor', min: [-23.15, 0, -14.68], max: [-22.15, 1.75, -13.72] },
-  { kind: 'decor', min: [-23.25, 0, -11.78], max: [-22.05, 1.80, -10.62] },
-  { kind: 'decor', min: [-23.15, 0, -8.68], max: [-22.15, 1.75, -7.72] },
-  { kind: 'decor', min: [-23.15, 0, -5.68], max: [-22.15, 1.75, -4.72] },
-  { kind: 'decor', min: [-23.10, 0, -2.90], max: [-22.20, 1.45, -2.00] }
+  // West-wall arcade cabinets, now along the west wall of the wider hall.
+  ...[-14, -11.5, -9, -6.5, -4, -1.5].map(z => ({ kind: 'decor', min: [-39.65, 0, z - 0.5], max: [-38.6, 1.8, z + 0.5] }))
 ];
 for (const d of IMPORTED_DECOR_SOLIDS) solids.push(d);
 
 // ---- Aboden arcade: basketball hoops and the shooting booth -----------------------
-export const HOOPS = [{ id: 'h0', x: 0, z: -16.75, rimY: 2.75 }, { id: 'h1', x: 7, z: -16.75, rimY: 2.75 }];
-for (const h of HOOPS) box('hoop', [h.x - 0.16, 0, -17.95], [h.x + 0.16, 3.6, -17.6], { hidden: true });
-export const BOOTH = { minX: 11.6, maxX: 19.4, counterZ: 12.45, counterH: 1.0, rackZ: 17.3, lanes: 5 };
+export const HOOPS = [{ id: 'h0', x: X('hoops', 0), z: Zc('hoops', -16.75), rimY: 2.75 }, { id: 'h1', x: X('hoops', 7), z: Zc('hoops', -16.75), rimY: 2.75 }];
+for (const h of HOOPS) box('hoop', [h.x - 0.16, 0, h.z - 1.2], [h.x + 0.16, 3.6, h.z - 0.85], { hidden: true });
+export const BOOTH = { minX: X('booth', 11.6), maxX: X('booth', 19.4), counterZ: Zc('booth', 12.45), counterH: 1.0, rackZ: Zc('booth', 17.3), backZ: Zc('booth', 17.75), lanes: 5 };
 box('counter', [BOOTH.minX, 0, BOOTH.counterZ], [BOOTH.maxX, BOOTH.counterH, BOOTH.counterZ + 0.5], { color: PALETTE.coral });
 
 // ---- Illuminated floor (Colour Floor minigame comes later) -------------------
-export const COLOR_FLOOR = { x: 3, z: 12, cols: 4, rows: 3, tile: 1.8 };
+export const COLOR_FLOOR = { x: X('floor', 3), z: Zc('floor', 12), cols: 4, rows: 3, tile: 1.8 };
 
 // ---- Ball Rescue baskets ------------------------------------------------------
 export const BALL_COLORS = [
@@ -212,37 +236,38 @@ for (const b of BASKETS) box('basket', [b.x - 0.55, 0, b.z - 0.55], [b.x + 0.55,
 
 // Ball spawn spots: mostly in the pit, some around the hall to invite spreading out.
 export const BALL_SPOTS = [
-  [12, -5], [14, -6.5], [16.5, -5.5], [19.5, -6], [11.5, -8.5], [13.5, -10], [16, -9], [18.5, -8.8],
-  [20, -11.5], [12.2, -12.6], [15, -12.8], [17.8, -12.2], [-8, 3], [-10.5, -3], [7.5, -8], [3, -12],
-  [-3, -15], [-12, 6], [8, 14], [-1, 9], [21, 1], [-19.5, -4], [6, 2.5], [-6.5, 8]
+  ...[[12, -5], [14, -6.5], [16.5, -5.5], [19.5, -6], [11.5, -8.5], [13.5, -10], [16, -9], [18.5, -8.8],
+    [20, -11.5], [12.2, -12.6], [15, -12.8], [17.8, -12.2]].map(([x, z]) => [X('adventure', x), z]),
+  [-8, 3], [-11, -5], [7.5, -9], [3, -14], [-4, -18], [-12, 8], [9, 12], [-1, 10],
+  [21, 2], [-21, -4], [6, 3.5], [-6.5, 9], [-20, 10], [14, -1]
 ];
 
 // ---- Activity start pads in the plaza ------------------------------------------
 export const PADS = [
   { id: 'race', name: 'سباق الملعب', icon: '🏁', color: PALETTE.coral, x: -3.6, z: -4.2 },
   { id: 'rescue', name: 'إنقاذ الكرات', icon: '🧺', color: PALETTE.yellow, x: 3.6, z: -4.2 },
-  { id: 'colors', name: 'الأرضية الملوّنة', icon: '🎨', color: PALETTE.pink, x: 3.2, z: 7.4 },
+  { id: 'colors', name: 'الأرضية الملوّنة', icon: '🎨', color: PALETTE.pink, x: X('floor', 3.2), z: Zc('floor', 7.4) },
   { id: 'ball', name: 'الكرة العملاقة', icon: '⚽', color: PALETTE.turquoise, x: -6.6, z: -5.0 },
-  { id: 'builders', name: 'البنّاؤون', icon: '🧱', color: PALETTE.coral, x: -2.2, z: 15.9 },
-  { id: 'hide', name: 'الغميضة', icon: '🙈', color: PALETTE.mint, x: -17.4, z: 1.2 },
-  { id: 'hoops', name: 'رماية السلة', icon: '🏀', color: PALETTE.coral, x: 3.5, z: -12.6 },
-  { id: 'gallery', name: 'رماية عبودين', icon: '🦆', color: PALETTE.yellow, x: 10.4, z: 13.4 },
+  { id: 'builders', name: 'البنّاؤون', icon: '🧱', color: PALETTE.coral, x: X('blocks', -2.2), z: Zc('blocks', 14.4) },
+  { id: 'hide', name: 'الغميضة', icon: '🙈', color: PALETTE.mint, x: X('hide', -17.4), z: 1.2 },
+  { id: 'hoops', name: 'رماية السلة', icon: '🏀', color: PALETTE.coral, x: X('hoops', 3.5), z: Zc('hoops', -12.6) },
+  { id: 'gallery', name: 'رماية عبودين', icon: '🦆', color: PALETTE.yellow, x: X('booth', 10.4), z: Zc('booth', 13.4) },
   { id: 'paint', name: 'حرب الألوان', icon: '🎨', color: PALETTE.purple, x: 0.2, z: -6.6 }
 ];
 
 // ---- Playground Race ------------------------------------------------------------
 export const RACE = {
-  start: { x: -2.2, z: -9, yaw: -Math.PI / 2, spacing: 0.8 },
+  start: { x: X('course', -2.2), z: Zc('course', -9), yaw: -Math.PI / 2, spacing: 0.8 },
   checkpoints: [
-    { x: -10.8, z: -9, r: 2.2, name: 'النفق' },
-    { x: -18.6, z: -7.3, r: 2.4, name: 'الحواجز' },
-    { x: -18.6, z: -16.6, r: 2.4, name: 'المنصات' },
-    { x: 2, z: -15.8, r: 3.2, name: 'الممر' },
-    { x: 7.2, z: 0, r: 3.2, name: 'نحو البرج' },
-    { x: 12, z: 8, y: DECK_Y, r: 2, name: 'السلالم' },
-    { x: 17.6, z: 8, y: DECK_Y, r: 2.2, name: 'الجسر' }
+    { x: X('course', -10.8), z: Zc('course', -9), r: 2.2, name: 'النفق' },
+    { x: X('course', -18.6), z: Zc('course', -7.3), r: 2.4, name: 'الحواجز' },
+    { x: X('course', -18.6), z: Zc('course', -16.6), r: 2.4, name: 'المنصات' },
+    { x: 0, z: -21.5, r: 3.4, name: 'الممر' },
+    { x: 14, z: 1, r: 3.4, name: 'نحو البرج' },
+    { x: X('adventure', 12), z: 8, y: DECK_Y, r: 2, name: 'السلالم' },
+    { x: X('adventure', 17.6), z: 8, y: DECK_Y, r: 2.2, name: 'الجسر' }
   ],
-  timeLimit: 120
+  timeLimit: 150
 };
 export function raceStartSlot(index) {
   const s = RACE.start, offset = (index - 2) * s.spacing;
