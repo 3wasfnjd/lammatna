@@ -38,7 +38,7 @@ const glbDefaults = { scale: 1, targetHeight: null, rotationY: 0, offset: [0, 0,
 
 export const CHARACTERS = {
   papa: {
-    id: 'papa', name: 'بابا', role: 'الأب', badgeColor: '#2BB5B0',
+    id: 'papa', name: 'عبودي', role: 'الأب', badgeColor: '#2BB5B0',
     look: {
       height: 1.86, build: 1.18, headScale: 0.9,
       skin: '#E6B08A', hair: '#2B211C', shirt: '#26B3AE', pants: '#39486A', shoes: '#6A4636', accent: '#FFFFFF',
@@ -47,7 +47,7 @@ export const CHARACTERS = {
     model: { type: 'placeholder' }
   },
   mama: {
-    id: 'mama', name: 'ماما', role: 'الأم', badgeColor: '#F2735F',
+    id: 'mama', name: 'مامي', role: 'الأم', badgeColor: '#F2735F',
     look: {
       height: 1.7, build: 1.0, headScale: 0.95,
       skin: '#F0C09B', hair: '#3A2622', shirt: '#F2735F', pants: '#F2735F', shoes: '#8E5BB5', accent: '#9C6BD1',
