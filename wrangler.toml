@@ -1,0 +1,20 @@
+# Cloudflare Worker for Lammatna rooms (same setup as the Boom multiplayer worker).
+name = "lammatna"
+main = "server/worker.js"
+compatibility_date = "2026-09-01"
+
+[build]
+command = "npm run package:site"
+
+[assets]
+directory = "./site"
+binding = "ASSETS"
+run_worker_first = ["/ws", "/health"]
+
+[[durable_objects.bindings]]
+name = "LAMMATNA_ROOMS"
+class_name = "LammatnaRoom"
+
+[[migrations]]
+tag = "lammatna-v1"
+new_sqlite_classes = ["LammatnaRoom"]
