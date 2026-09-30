@@ -128,6 +128,7 @@ node tools/build-models.mjs                                   # copy + optimise 
 | 5 | Room logic: joining, the 5-player limit, reconnect, inputs, stars, emojis, start and end of every minigame | `tests/room.test.ts` |
 | 6 | At most 3 text signs; every zone has ≥ 3 interactive objects; layout sanity | `tests/layout.test.ts` |
 | 7 | Headless Chromium: zero console errors, every model loads, < 150 draw calls per zone view, a screenshot of each zone in `docs/`, menus, two players in one room over WebSocket | `e2e/game.spec.ts` |
+| + | Phone-sized landscape screen with real touch events: controls fit, joystick walks, jump, the interact button appears by a swing, sitting and pumping, drag turns the camera | `e2e/phone.spec.ts` |
 
 ## Deployment
 
@@ -152,6 +153,7 @@ The page looks for the server at `https://lammatna-v3.3wasf-njd1.workers.dev` (`
 | ![Arcade](docs/zone-arcade.png) Arcade lounge | ![Café](docs/zone-cafe.png) Family café |
 | ![Garden](docs/zone-garden.png) Outdoor garden | ![Two players](docs/two-players.png) Two players in one room |
 | ![Title](docs/title.png) Title | ![Character](docs/select.png) Character, outfit colour and accessory |
+| ![Phone: by the swing](docs/phone-swing.png) Phone: the interact button appears by a swing | ![Phone: swinging](docs/phone-swinging.png) Phone: swinging (touch) |
 
 ## Credits
 

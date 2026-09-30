@@ -39,8 +39,8 @@ export class Markers {
   constructor(scene: Scene, layout: Layout) {
     this.scene = scene; this.layout = layout;
     for (const z of layout.zones) {
-      const m = billboard(scene, 'zone-icon', emojiTexture(scene, z.icon, 128, z.color), 1.6);
-      m.position.set(z.center[0], z.id === 'garden' ? 5 : 4.2, z.center[1]);
+      const m = billboard(scene, 'zone-icon', emojiTexture(scene, z.icon, 128, z.color), 1.2);
+      m.position.set(z.center[0], 6.5, z.center[1]);
       this.zoneIcons.push({ mesh: m, x: z.center[0], z: z.center[1] });
     }
     this.starSrc = billboard(scene, 'star', emojiTexture(scene, '⭐', 128), 0.9);
@@ -100,10 +100,11 @@ export class Markers {
   update(time: number, px: number, pz: number, collected: number[], games: GameView[], myId: string) {
     for (const z of this.zoneIcons) {
       const d = Math.hypot(px - z.x, pz - z.z);
-      const vis = d < 16 ? Math.min(1, (16 - d) / 6) : 0;
+      // Fades in as you approach, and out again once you are inside the zone.
+      const vis = d < 18 ? Math.min(1, (18 - d) / 6, Math.max(0, (d - 5) / 4)) : 0;
       z.mesh.setEnabled(vis > 0.02);
       (z.mesh.material as StandardMaterial).alpha = vis;
-      z.mesh.position.y = 4.2 + Math.sin(time * 1.5) * 0.15;
+      z.mesh.position.y = 6.5 + Math.sin(time * 1.5) * 0.15;
     }
     this.stars.forEach((s, i) => { s.setEnabled(!collected.includes(i)); s.position.y = this.layout.stars[i][1] + Math.sin(time * 2 + i) * 0.12; });
     for (const a of this.arrows) {

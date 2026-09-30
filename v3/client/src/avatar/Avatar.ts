@@ -139,7 +139,10 @@ export class Avatar {
     else if (time < this.emoteUntil) a = 'emote-yes';
     this.play(a);
     // Hanging: lift the arms above the head by tilting the whole body back a touch.
-    this.body.position.y = mode === 'hang' ? 0.25 : mode === 'seat' ? 0.12 : 0;
+    // Kenney's sit clip sits on the floor: lift seated riders onto the seat (scales with height).
+    // (fitted on the smallest and the tallest family member)
+    const lift = 0.59 + 0.06 * this.body.scaling.x;
+    this.body.position.y = mode === 'hang' ? 0.25 : (mode === 'seat' || mode === 'slide') ? lift : 0;
     this.ring.setEnabled(mode === 'walk' || mode === 'air' || mode === 'follow' || mode === 'frozen');
   }
 
