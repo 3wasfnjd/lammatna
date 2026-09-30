@@ -1,0 +1,81 @@
+name: Import Lammatna Play Assets
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/import-lammatna-play-assets.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  import-assets:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download CC0 play assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p assets/imported/playground
+          mkdir -p assets/imported/trampoline
+          mkdir -p assets/imported/characters/kenney-mini-characters
+
+          curl -fL --retry 3             'https://cdn.3dassets.dev/assets/33690/v1/model.glb'             -o assets/imported/playground/city-park-playground-starter.glb
+
+          curl -fL --retry 3             'https://cdn.3dassets.dev/assets/34646/v1/model.glb'             -o assets/imported/trampoline/trampoline-park-soft-play-starter.glb
+
+          if curl -fL --retry 3             'https://kenney.nl/media/pages/assets/mini-characters/bfc7e272b4-1774770718/kenney_mini-characters.zip'             -o /tmp/kenney-mini-characters.zip; then
+            unzip -q /tmp/kenney-mini-characters.zip               -d assets/imported/characters/kenney-mini-characters
+          else
+            echo 'Kenney direct download failed; retry manually from https://kenney.nl/assets/mini-characters'               > assets/imported/characters/kenney-mini-characters/DOWNLOAD-NOTE.txt
+          fi
+
+          cat > assets/imported/README.md <<'EOF'
+          # Lammatna imported 3D assets
+
+          These files were gathered for the Lammatna indoor family play hall.
+
+          ## Playground
+          - File: playground/city-park-playground-starter.glb
+          - Source: https://3dassets.dev/packs/city-park-and-playground
+          - Contents: swings, slide, play tower, climbing frame, monkey bars, roundabout, seesaw, spring rockers, safety surfaces and related park props.
+          - Licence: CC0 1.0 Universal
+          - Starter scene: ~659 KB, ~11.7k triangles.
+
+          ## Trampoline / Soft Play
+          - File: trampoline/trampoline-park-soft-play-starter.glb
+          - Source: https://3dassets.dev/assets/trampoline-park-and-soft-play-trampoline-c2be0116-starter-scene
+          - Contents: trampoline court, wall trampolines, tumble track, foam pit, soft-play tower, slide, ball pit, tunnels, toddler mats, reception/cafe props.
+          - Licence: CC0 1.0 Universal
+          - Starter scene: ~1.5 MB, ~39.2k triangles.
+
+          ## Kenney Mini Characters
+          - Folder: characters/kenney-mini-characters/
+          - Source: https://kenney.nl/assets/mini-characters
+          - Licence: CC0 1.0 Universal
+          - 25 character files with animation assets.
+
+          ## Note
+          Tiny Treats Fun Playground is also CC0, but its free itch.io download requires an interactive download step, so it was not mirrored automatically here.
+          Source: https://tinytreats.itch.io/fun-playground
+
+          No gameplay code or existing scene was changed by this import.
+          EOF
+
+          find assets/imported -maxdepth 4 -type f -printf '%p %k KB\n' | sort
+
+      - name: Commit imported assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/imported
+          git rm -f .github/workflows/import-lammatna-play-assets.yml
+          git commit -m "assets: import CC0 family play hall models"
+          git push
