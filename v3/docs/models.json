@@ -1,0 +1,11789 @@
+[
+ {
+  "file": "assets/imported/arcade/kenney-mini-arcade/air-hockey.glb",
+  "bytes": 42052,
+  "size": [
+   1,
+   0.5,
+   0.7
+  ],
+  "min": [
+   -0.5,
+   0,
+   -0.35
+  ],
+  "meshes": 4,
+  "triangles": 438,
+  "children": [
+   "player-a",
+   "player-b",
+   "puck"
+  ],
+  "materials": [
+   "colormap"
+  ],
+  "textures": [
+   "Textures/colormap.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/arcade/kenney-mini-arcade/arcade-machine.glb",
+  "bytes": 38896,
+  "size": [
+   0.4,
+   0.725,
+   0.537
+  ],
+  "min": [
+   -0.2,
+   0,
+   -0.244
+  ],
+  "meshes": 1,
+  "triangles": 392,
+  "children": [
+   "arcade-machine"
+  ],
+  "materials": [
+   "colormap"
+  ],
+  "textures": [
+   "Textures/colormap.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/arcade/kenney-mini-arcade/basketball-game.glb",
+  "bytes": 49532,
+  "size": [
+   0.65,
+   0.8,
+   1.013
+  ],
+  "min": [
+   -0.325,
+   0,
+   -0.5
+  ],
+  "meshes": 2,
+  "triangles": 526,
+  "children": [
+   "ball"
+  ],
+  "materials": [
+   "colormap"
+  ],
+  "textures": [
+   "Textures/colormap.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/arcade/kenney-mini-arcade/cash-register.glb",
+  "bytes": 25124,
+  "size": [
+   0.9,
+   0.545,
+   0.5
+  ],
+  "min": [
+   -0.45,
+   0,
+   -0.25
+  ],
+  "meshes": 1,
+  "triangles": 262,
+  "children": [
+   "cash-register"
+  ],
+  "materials": [
+   "colormap"
+  ],
+  "textures": [
+   "Textures/colormap.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/arcade/kenney-mini-arcade/character-employee.glb",
+  "bytes": 216500,
+  "size": [
+   0.781,
+   0.723,
+   0.401
+  ],
+  "min": [
+   -0.39,
+   0,
+   -0.211
+  ],
+  "meshes": 2,
+  "triangles": 524,
+  "children": [
+   "root",
+   "body-mesh",
+   "head-mesh"
+  ],
+  "materials": [
+   "colormap"
+  ],
+  "textures": [
+   "Textures/colormap.png"
+  ],
+  "animations": [
+   "static",
+   "idle",
+   "walk",
+   "sprint",
+   "jump",
+   "fall",
+   "crouch",
+   "sit",
+   "drive",
+   "die",
+   "pick-up",
+   "emote-yes",
+   "emote-no",
+   "holding-right",
+   "holding-left",
+   "holding-both",
+   "holding-right-shoot",
+   "holding-left-shoot",
+   "holding-both-shoot",
+   "attack-melee-right",
+   "attack-melee-left",
+   "attack-kick-right",
+   "attack-kick-left",
+   "interact-right",
+   "interact-left",
+   "wheelchair-sit",
+   "wheelchair-look-left",
+   "wheelchair-look-right",
+   "wheelchair-move-forward",
+   "wheelchair-move-back",
+   "wheelchair-move-left",
+   "wheelchair-move-right"
+  ],
+  "skins": 2,
+  "joints": [
+   "root",
+   "leg-left",
+   "leg-right",
+   "torso",
+   "arm-left",
+   "arm-right",
+   "head",
+   "root",
+   "leg-left",
+   "leg-right",
+   "torso",
+   "arm-left",
+   "arm-right",
+   "head"
+  ],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/arcade/kenney-mini-arcade/character-gamer.glb",
+  "bytes": 211864,
+  "size": [
+   0.781,
+   0.773,
+   0.519
+  ],
+  "min": [
+   -0.39,
+   0,
+   -0.245
+  ],
+  "meshes": 2,
+  "triangles": 477,
+  "children": [
+   "root",
+   "body-mesh",
+   "head-mesh"
+  ],
+  "materials": [
+   "colormap"
+  ],
+  "textures": [
+   "Textures/colormap.png"
+  ],
+  "animations": [
+   "static",
+   "idle",
+   "walk",
+   "sprint",
+   "jump",
+   "fall",
+   "crouch",
+   "sit",
+   "drive",
+   "die",
+   "pick-up",
+   "emote-yes",
+   "emote-no",
+   "holding-right",
+   "holding-left",
+   "holding-both",
+   "holding-right-shoot",
+   "holding-left-shoot",
+   "holding-both-shoot",
+   "attack-melee-right",
+   "attack-melee-left",
+   "attack-kick-right",
+   "attack-kick-left",
+   "interact-right",
+   "interact-left",
+   "wheelchair-sit",
+   "wheelchair-look-left",
+   "wheelchair-look-right",
+   "wheelchair-move-forward",
+   "wheelchair-move-back",
+   "wheelchair-move-left",
+   "wheelchair-move-right"
+  ],
+  "skins": 2,
+  "joints": [
+   "root",
+   "leg-left",
+   "leg-right",
+   "torso",
+   "arm-left",
+   "arm-right",
+   "head",
+   "root",
+   "leg-left",
+   "leg-right",
+   "torso",
+   "arm-left",
+   "arm-right",
+   "head"
+  ],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/arcade/kenney-mini-arcade/claw-machine.glb",
+  "bytes": 72932,
+  "size": [
+   0.653,
+   0.95,
+   0.693
+  ],
+  "min": [
+   -0.326,
+   0,
+   -0.347
+  ],
+  "meshes": 3,
+  "triangles": 730,
+  "children": [
+   "(%ignore)",
+   "rotate-y"
+  ],
+  "materials": [
+   "colormap",
+   "glass"
+  ],
+  "textures": [
+   "Textures/colormap.png"
+  ],
+  "animations": [
+   "animation"
+  ],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/arcade/kenney-mini-arcade/column.glb",
+  "bytes": 19004,
+  "size": [
+   0.726,
+   1,
+   0.726
+  ],
+  "min": [
+   -0.363,
+   0,
+   -0.363
+  ],
+  "meshes": 1,
+  "triangles": 188,
+  "children": [
+   "column"
+  ],
+  "materials": [
+   "colormap"
+  ],
+  "textures": [
+   "Textures/colormap.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/arcade/kenney-mini-arcade/dance-machine.glb",
+  "bytes": 62536,
+  "size": [
+   0.723,
+   0.95,
+   1.025
+  ],
+  "min": [
+   -0.362,
+   0,
+   -0.513
+  ],
+  "meshes": 2,
+  "triangles": 654,
+  "children": [
+   "Group"
+  ],
+  "materials": [
+   "colormap"
+  ],
+  "textures": [
+   "Textures/colormap.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/arcade/kenney-mini-arcade/floor.glb",
+  "bytes": 3928,
+  "size": [
+   1,
+   0.025,
+   1
+  ],
+  "min": [
+   -0.5,
+   0,
+   -0.5
+  ],
+  "meshes": 1,
+  "triangles": 24,
+  "children": [
+   "floor"
+  ],
+  "materials": [
+   "colormap"
+  ],
+  "textures": [
+   "Textures/colormap.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/arcade/kenney-mini-arcade/gambling-machine.glb",
+  "bytes": 55048,
+  "size": [
+   0.524,
+   0.776,
+   0.488
+  ],
+  "min": [
+   -0.225,
+   0,
+   -0.244
+  ],
+  "meshes": 1,
+  "triangles": 626,
+  "children": [
+   "gambling-machine"
+  ],
+  "materials": [
+   "colormap"
+  ],
+  "textures": [
+   "Textures/colormap.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/arcade/kenney-mini-arcade/pinball.glb",
+  "bytes": 58828,
+  "size": [
+   0.5,
+   0.742,
+   0.75
+  ],
+  "min": [
+   -0.25,
+   0,
+   -0.325
+  ],
+  "meshes": 2,
+  "triangles": 592,
+  "children": [
+   "(%ignore)"
+  ],
+  "materials": [
+   "colormap",
+   "glass"
+  ],
+  "textures": [
+   "Textures/colormap.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/arcade/kenney-mini-arcade/prize-wheel.glb",
+  "bytes": 22556,
+  "size": [
+   0.6,
+   0.85,
+   0.302
+  ],
+  "min": [
+   -0.3,
+   0,
+   -0.15
+  ],
+  "meshes": 2,
+  "triangles": 224,
+  "children": [
+   "rotate-z"
+  ],
+  "materials": [
+   "colormap"
+  ],
+  "textures": [
+   "Textures/colormap.png"
+  ],
+  "animations": [
+   "animation"
+  ],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/arcade/kenney-mini-arcade/prizes.glb",
+  "bytes": 42184,
+  "size": [
+   0.8,
+   0.8,
+   0.4
+  ],
+  "min": [
+   -0.4,
+   0,
+   -0.2
+  ],
+  "meshes": 1,
+  "triangles": 464,
+  "children": [
+   "prizes"
+  ],
+  "materials": [
+   "colormap"
+  ],
+  "textures": [
+   "Textures/colormap.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/arcade/kenney-mini-arcade/ticket-machine.glb",
+  "bytes": 28432,
+  "size": [
+   0.4,
+   0.925,
+   0.396
+  ],
+  "min": [
+   -0.2,
+   0,
+   -0.163
+  ],
+  "meshes": 2,
+  "triangles": 277,
+  "children": [
+   "rotate-y"
+  ],
+  "materials": [
+   "colormap"
+  ],
+  "textures": [
+   "Textures/colormap.png"
+  ],
+  "animations": [
+   "animation"
+  ],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/arcade/kenney-mini-arcade/vending-machine.glb",
+  "bytes": 16228,
+  "size": [
+   0.5,
+   0.75,
+   0.475
+  ],
+  "min": [
+   -0.25,
+   0,
+   -0.225
+  ],
+  "meshes": 1,
+  "triangles": 176,
+  "children": [
+   "vending-machine"
+  ],
+  "materials": [
+   "colormap"
+  ],
+  "textures": [
+   "Textures/colormap.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/arcade/kenney-mini-arcade/wall-corner.glb",
+  "bytes": 7624,
+  "size": [
+   0.8,
+   1,
+   0.8
+  ],
+  "min": [
+   -0.5,
+   0,
+   -0.3
+  ],
+  "meshes": 1,
+  "triangles": 70,
+  "children": [
+   "wall-corner"
+  ],
+  "materials": [
+   "colormap"
+  ],
+  "textures": [
+   "Textures/colormap.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/arcade/kenney-mini-arcade/wall-door-rotate.glb",
+  "bytes": 37888,
+  "size": [
+   1,
+   1,
+   0.6
+  ],
+  "min": [
+   -0.5,
+   0,
+   -0.3
+  ],
+  "meshes": 4,
+  "triangles": 308,
+  "children": [
+   "Group",
+   "door-right",
+   "door-left"
+  ],
+  "materials": [
+   "colormap"
+  ],
+  "textures": [
+   "Textures/colormap.png"
+  ],
+  "animations": [
+   "open",
+   "close",
+   "open-and-close"
+  ],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/arcade/kenney-mini-arcade/wall-window.glb",
+  "bytes": 15092,
+  "size": [
+   1,
+   1,
+   0.6
+  ],
+  "min": [
+   -0.5,
+   0,
+   -0.3
+  ],
+  "meshes": 2,
+  "triangles": 138,
+  "children": [
+   "(%ignore)"
+  ],
+  "materials": [
+   "colormap",
+   "glass"
+  ],
+  "textures": [
+   "Textures/colormap.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/arcade/kenney-mini-arcade/wall.glb",
+  "bytes": 5068,
+  "size": [
+   1,
+   1,
+   0.6
+  ],
+  "min": [
+   -0.5,
+   0,
+   -0.3
+  ],
+  "meshes": 1,
+  "triangles": 46,
+  "children": [
+   "wall"
+  ],
+  "materials": [
+   "colormap"
+  ],
+  "textures": [
+   "Textures/colormap.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/characters/kenney-mini-characters/Models/GLB format/aid-cane-blind.glb",
+  "bytes": 6168,
+  "size": [
+   0.096,
+   0.31,
+   0.096
+  ],
+  "min": [
+   -0.048,
+   0,
+   -0.048
+  ],
+  "meshes": 1,
+  "triangles": 64,
+  "children": [
+   "aid-cane-blind"
+  ],
+  "materials": [
+   "colormap"
+  ],
+  "textures": [
+   "Textures/colormap.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/characters/kenney-mini-characters/Models/GLB format/aid-cane-low-vision.glb",
+  "bytes": 6568,
+  "size": [
+   0.096,
+   0.31,
+   0.096
+  ],
+  "min": [
+   -0.048,
+   0,
+   -0.048
+  ],
+  "meshes": 1,
+  "triangles": 64,
+  "children": [
+   "aid-cane-low-vision"
+  ],
+  "materials": [
+   "colormap"
+  ],
+  "textures": [
+   "Textures/colormap.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/characters/kenney-mini-characters/Models/GLB format/aid-cane.glb",
+  "bytes": 8524,
+  "size": [
+   0.096,
+   0.315,
+   0.23
+  ],
+  "min": [
+   -0.048,
+   0,
+   -0.182
+  ],
+  "meshes": 1,
+  "triangles": 80,
+  "children": [
+   "aid-cane"
+  ],
+  "materials": [
+   "colormap"
+  ],
+  "textures": [
+   "Textures/colormap.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/characters/kenney-mini-characters/Models/GLB format/aid-crutch.glb",
+  "bytes": 16008,
+  "size": [
+   0.196,
+   0.31,
+   0.187
+  ],
+  "min": [
+   -0.098,
+   0,
+   -0.048
+  ],
+  "meshes": 2,
+  "triangles": 144,
+  "children": [
+   "Group"
+  ],
+  "materials": [
+   "colormap"
+  ],
+  "textures": [
+   "Textures/colormap.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/characters/kenney-mini-characters/Models/GLB format/aid-defibrillator-green.glb",
+  "bytes": 10296,
+  "size": [
+   0.225,
+   0.29,
+   0.14
+  ],
+  "min": [
+   -0.113,
+   0,
+   -0.07
+  ],
+  "meshes": 2,
+  "triangles": 86,
+  "children": [
+   "Group"
+  ],
+  "materials": [
+   "colormap"
+  ],
+  "textures": [
+   "Textures/colormap.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/characters/kenney-mini-characters/Models/GLB format/aid-defibrillator-red.glb",
+  "bytes": 10288,
+  "size": [
+   0.225,
+   0.29,
+   0.14
+  ],
+  "min": [
+   -0.113,
+   0,
+   -0.07
+  ],
+  "meshes": 2,
+  "triangles": 86,
+  "children": [
+   "Group"
+  ],
+  "materials": [
+   "colormap"
+  ],
+  "textures": [
+   "Textures/colormap.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/characters/kenney-mini-characters/Models/GLB format/aid-glasses.glb",
+  "bytes": 6764,
+  "size": [
+   0.33,
+   0.096,
+   0.184
+  ],
+  "min": [
+   -0.165,
+   0,
+   -0.092
+  ],
+  "meshes": 1,
+  "triangles": 52,
+  "children": [
+   "aid-glasses"
+  ],
+  "materials": [
+   "colormap"
+  ],
+  "textures": [
+   "Textures/colormap.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/characters/kenney-mini-characters/Models/GLB format/aid-mask.glb",
+  "bytes": 15820,
+  "size": [
+   0.336,
+   0.203,
+   0.21
+  ],
+  "min": [
+   -0.166,
+   -0.05,
+   0.023
+  ],
+  "meshes": 1,
+  "triangles": 176,
+  "children": [
+   "aid-mask"
+  ],
+  "materials": [
+   "colormap"
+  ],
+  "textures": [
+   "Textures/colormap.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/characters/kenney-mini-characters/Models/GLB format/aid-sunglasses.glb",
+  "bytes": 6324,
+  "size": [
+   0.33,
+   0.096,
+   0.184
+  ],
+  "min": [
+   -0.165,
+   0,
+   -0.092
+  ],
+  "meshes": 1,
+  "triangles": 62,
+  "children": [
+   "aid-sunglasses"
+  ],
+  "materials": [
+   "colormap"
+  ],
+  "textures": [
+   "Textures/colormap.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/characters/kenney-mini-characters/Models/GLB format/aid_hearing.glb",
+  "bytes": 7212,
+  "size": [
+   0.05,
+   0.124,
+   0.157
+  ],
+  "min": [
+   -0.025,
+   0,
+   -0.078
+  ],
+  "meshes": 1,
+  "triangles": 48,
+  "children": [
+   "aid_hearing"
+  ],
+  "materials": [
+   "colormap"
+  ],
+  "textures": [
+   "Textures/colormap.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/characters/kenney-mini-characters/Models/GLB format/character-female-a.glb",
+  "bytes": 273448,
+  "size": [
+   1.099,
+   0.776,
+   0.5
+  ],
+  "min": [
+   -0.549,
+   0,
+   -0.292
+  ],
+  "meshes": 2,
+  "triangles": 876,
+  "children": [
+   "root",
+   "body-mesh",
+   "head-mesh"
+  ],
+  "materials": [
+   "colormap"
+  ],
+  "textures": [
+   "Textures/colormap.png"
+  ],
+  "animations": [
+   "static",
+   "idle",
+   "walk",
+   "sprint",
+   "jump",
+   "fall",
+   "crouch",
+   "sit",
+   "drive",
+   "die",
+   "pick-up",
+   "emote-yes",
+   "emote-no",
+   "holding-right",
+   "holding-left",
+   "holding-both",
+   "holding-right-shoot",
+   "holding-left-shoot",
+   "holding-both-shoot",
+   "attack-melee-right",
+   "attack-melee-left",
+   "attack-kick-right",
+   "attack-kick-left",
+   "interact-right",
+   "interact-left",
+   "wheelchair-sit",
+   "wheelchair-look-left",
+   "wheelchair-look-right",
+   "wheelchair-move-forward",
+   "wheelchair-move-back",
+   "wheelchair-move-left",
+   "wheelchair-move-right"
+  ],
+  "skins": 2,
+  "joints": [
+   "root",
+   "leg-left",
+   "leg-right",
+   "torso",
+   "arm-left",
+   "arm-right",
+   "head",
+   "root",
+   "leg-left",
+   "leg-right",
+   "torso",
+   "arm-left",
+   "arm-right",
+   "head"
+  ],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/characters/kenney-mini-characters/Models/GLB format/character-female-b.glb",
+  "bytes": 252140,
+  "size": [
+   0.767,
+   0.723,
+   0.419
+  ],
+  "min": [
+   -0.384,
+   0,
+   -0.211
+  ],
+  "meshes": 2,
+  "triangles": 742,
+  "children": [
+   "root",
+   "body-mesh",
+   "head-mesh"
+  ],
+  "materials": [
+   "colormap"
+  ],
+  "textures": [
+   "Textures/colormap.png"
+  ],
+  "animations": [
+   "static",
+   "idle",
+   "walk",
+   "sprint",
+   "jump",
+   "fall",
+   "crouch",
+   "sit",
+   "drive",
+   "die",
+   "pick-up",
+   "emote-yes",
+   "emote-no",
+   "holding-right",
+   "holding-left",
+   "holding-both",
+   "holding-right-shoot",
+   "holding-left-shoot",
+   "holding-both-shoot",
+   "attack-melee-right",
+   "attack-melee-left",
+   "attack-kick-right",
+   "attack-kick-left",
+   "interact-right",
+   "interact-left",
+   "wheelchair-sit",
+   "wheelchair-look-left",
+   "wheelchair-look-right",
+   "wheelchair-move-forward",
+   "wheelchair-move-back",
+   "wheelchair-move-left",
+   "wheelchair-move-right"
+  ],
+  "skins": 2,
+  "joints": [
+   "root",
+   "leg-left",
+   "leg-right",
+   "torso",
+   "arm-left",
+   "arm-right",
+   "head",
+   "root",
+   "leg-left",
+   "leg-right",
+   "torso",
+   "arm-left",
+   "arm-right",
+   "head"
+  ],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/characters/kenney-mini-characters/Models/GLB format/character-female-c.glb",
+  "bytes": 252040,
+  "size": [
+   0.767,
+   0.776,
+   0.5
+  ],
+  "min": [
+   -0.384,
+   0,
+   -0.292
+  ],
+  "meshes": 2,
+  "triangles": 732,
+  "children": [
+   "root",
+   "body-mesh",
+   "head-mesh"
+  ],
+  "materials": [
+   "colormap"
+  ],
+  "textures": [
+   "Textures/colormap.png"
+  ],
+  "animations": [
+   "static",
+   "idle",
+   "walk",
+   "sprint",
+   "jump",
+   "fall",
+   "crouch",
+   "sit",
+   "drive",
+   "die",
+   "pick-up",
+   "emote-yes",
+   "emote-no",
+   "holding-right",
+   "holding-left",
+   "holding-both",
+   "holding-right-shoot",
+   "holding-left-shoot",
+   "holding-both-shoot",
+   "attack-melee-right",
+   "attack-melee-left",
+   "attack-kick-right",
+   "attack-kick-left",
+   "interact-right",
+   "interact-left",
+   "wheelchair-sit",
+   "wheelchair-look-left",
+   "wheelchair-look-right",
+   "wheelchair-move-forward",
+   "wheelchair-move-back",
+   "wheelchair-move-left",
+   "wheelchair-move-right"
+  ],
+  "skins": 2,
+  "joints": [
+   "root",
+   "leg-left",
+   "leg-right",
+   "torso",
+   "arm-left",
+   "arm-right",
+   "head",
+   "root",
+   "leg-left",
+   "leg-right",
+   "torso",
+   "arm-left",
+   "arm-right",
+   "head"
+  ],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/characters/kenney-mini-characters/Models/GLB format/character-female-d.glb",
+  "bytes": 258760,
+  "size": [
+   0.767,
+   0.776,
+   0.5
+  ],
+  "min": [
+   -0.384,
+   0,
+   -0.292
+  ],
+  "meshes": 2,
+  "triangles": 797,
+  "children": [
+   "root",
+   "body-mesh",
+   "head-mesh"
+  ],
+  "materials": [
+   "colormap"
+  ],
+  "textures": [
+   "Textures/colormap.png"
+  ],
+  "animations": [
+   "static",
+   "idle",
+   "walk",
+   "sprint",
+   "jump",
+   "fall",
+   "crouch",
+   "sit",
+   "drive",
+   "die",
+   "pick-up",
+   "emote-yes",
+   "emote-no",
+   "holding-right",
+   "holding-left",
+   "holding-both",
+   "holding-right-shoot",
+   "holding-left-shoot",
+   "holding-both-shoot",
+   "attack-melee-right",
+   "attack-melee-left",
+   "attack-kick-right",
+   "attack-kick-left",
+   "interact-right",
+   "interact-left",
+   "wheelchair-sit",
+   "wheelchair-look-left",
+   "wheelchair-look-right",
+   "wheelchair-move-forward",
+   "wheelchair-move-back",
+   "wheelchair-move-left",
+   "wheelchair-move-right"
+  ],
+  "skins": 2,
+  "joints": [
+   "root",
+   "leg-left",
+   "leg-right",
+   "torso",
+   "arm-left",
+   "arm-right",
+   "head",
+   "root",
+   "leg-left",
+   "leg-right",
+   "torso",
+   "arm-left",
+   "arm-right",
+   "head"
+  ],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/characters/kenney-mini-characters/Models/GLB format/character-female-e.glb",
+  "bytes": 248012,
+  "size": [
+   0.767,
+   0.716,
+   0.527
+  ],
+  "min": [
+   -0.384,
+   0,
+   -0.319
+  ],
+  "meshes": 2,
+  "triangles": 756,
+  "children": [
+   "root",
+   "body-mesh",
+   "head-mesh"
+  ],
+  "materials": [
+   "colormap"
+  ],
+  "textures": [
+   "Textures/colormap.png"
+  ],
+  "animations": [
+   "static",
+   "idle",
+   "walk",
+   "sprint",
+   "jump",
+   "fall",
+   "crouch",
+   "sit",
+   "drive",
+   "die",
+   "pick-up",
+   "emote-yes",
+   "emote-no",
+   "holding-right",
+   "holding-left",
+   "holding-both",
+   "holding-right-shoot",
+   "holding-left-shoot",
+   "holding-both-shoot",
+   "attack-melee-right",
+   "attack-melee-left",
+   "attack-kick-right",
+   "attack-kick-left",
+   "interact-right",
+   "interact-left",
+   "wheelchair-sit",
+   "wheelchair-look-left",
+   "wheelchair-look-right",
+   "wheelchair-move-forward",
+   "wheelchair-move-back",
+   "wheelchair-move-left",
+   "wheelchair-move-right"
+  ],
+  "skins": 2,
+  "joints": [
+   "root",
+   "leg-left",
+   "leg-right",
+   "torso",
+   "arm-left",
+   "arm-right",
+   "head",
+   "root",
+   "leg-left",
+   "leg-right",
+   "torso",
+   "arm-left",
+   "arm-right",
+   "head"
+  ],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/characters/kenney-mini-characters/Models/GLB format/character-female-f.glb",
+  "bytes": 259488,
+  "size": [
+   0.767,
+   0.671,
+   0.441
+  ],
+  "min": [
+   -0.384,
+   0,
+   -0.233
+  ],
+  "meshes": 2,
+  "triangles": 788,
+  "children": [
+   "root",
+   "body-mesh",
+   "head-mesh"
+  ],
+  "materials": [
+   "colormap"
+  ],
+  "textures": [
+   "Textures/colormap.png"
+  ],
+  "animations": [
+   "static",
+   "idle",
+   "walk",
+   "sprint",
+   "jump",
+   "fall",
+   "crouch",
+   "sit",
+   "drive",
+   "die",
+   "pick-up",
+   "emote-yes",
+   "emote-no",
+   "holding-right",
+   "holding-left",
+   "holding-both",
+   "holding-right-shoot",
+   "holding-left-shoot",
+   "holding-both-shoot",
+   "attack-melee-right",
+   "attack-melee-left",
+   "attack-kick-right",
+   "attack-kick-left",
+   "interact-right",
+   "interact-left",
+   "wheelchair-sit",
+   "wheelchair-look-left",
+   "wheelchair-look-right",
+   "wheelchair-move-forward",
+   "wheelchair-move-back",
+   "wheelchair-move-left",
+   "wheelchair-move-right"
+  ],
+  "skins": 2,
+  "joints": [
+   "root",
+   "leg-left",
+   "leg-right",
+   "torso",
+   "arm-left",
+   "arm-right",
+   "head",
+   "root",
+   "leg-left",
+   "leg-right",
+   "torso",
+   "arm-left",
+   "arm-right",
+   "head"
+  ],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/characters/kenney-mini-characters/Models/GLB format/character-male-a.glb",
+  "bytes": 246916,
+  "size": [
+   0.767,
+   0.671,
+   0.34
+  ],
+  "min": [
+   -0.384,
+   0,
+   -0.172
+  ],
+  "meshes": 2,
+  "triangles": 723,
+  "children": [
+   "root",
+   "body-mesh",
+   "head-mesh"
+  ],
+  "materials": [
+   "colormap"
+  ],
+  "textures": [
+   "Textures/colormap.png"
+  ],
+  "animations": [
+   "static",
+   "idle",
+   "walk",
+   "sprint",
+   "jump",
+   "fall",
+   "crouch",
+   "sit",
+   "drive",
+   "die",
+   "pick-up",
+   "emote-yes",
+   "emote-no",
+   "holding-right",
+   "holding-left",
+   "holding-both",
+   "holding-right-shoot",
+   "holding-left-shoot",
+   "holding-both-shoot",
+   "attack-melee-right",
+   "attack-melee-left",
+   "attack-kick-right",
+   "attack-kick-left",
+   "interact-right",
+   "interact-left",
+   "wheelchair-sit",
+   "wheelchair-look-left",
+   "wheelchair-look-right",
+   "wheelchair-move-forward",
+   "wheelchair-move-back",
+   "wheelchair-move-left",
+   "wheelchair-move-right"
+  ],
+  "skins": 2,
+  "joints": [
+   "root",
+   "leg-left",
+   "leg-right",
+   "torso",
+   "arm-left",
+   "arm-right",
+   "head",
+   "root",
+   "leg-left",
+   "leg-right",
+   "torso",
+   "arm-left",
+   "arm-right",
+   "head"
+  ],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/characters/kenney-mini-characters/Models/GLB format/character-male-b.glb",
+  "bytes": 247332,
+  "size": [
+   0.767,
+   0.661,
+   0.389
+  ],
+  "min": [
+   -0.384,
+   0,
+   -0.163
+  ],
+  "meshes": 2,
+  "triangles": 690,
+  "children": [
+   "root",
+   "body-mesh",
+   "head-mesh"
+  ],
+  "materials": [
+   "colormap"
+  ],
+  "textures": [
+   "Textures/colormap.png"
+  ],
+  "animations": [
+   "static",
+   "idle",
+   "walk",
+   "sprint",
+   "jump",
+   "fall",
+   "crouch",
+   "sit",
+   "drive",
+   "die",
+   "pick-up",
+   "emote-yes",
+   "emote-no",
+   "holding-right",
+   "holding-left",
+   "holding-both",
+   "holding-right-shoot",
+   "holding-left-shoot",
+   "holding-both-shoot",
+   "attack-melee-right",
+   "attack-melee-left",
+   "attack-kick-right",
+   "attack-kick-left",
+   "interact-right",
+   "interact-left",
+   "wheelchair-sit",
+   "wheelchair-look-left",
+   "wheelchair-look-right",
+   "wheelchair-move-forward",
+   "wheelchair-move-back",
+   "wheelchair-move-left",
+   "wheelchair-move-right"
+  ],
+  "skins": 2,
+  "joints": [
+   "root",
+   "leg-left",
+   "leg-right",
+   "torso",
+   "arm-left",
+   "arm-right",
+   "head",
+   "root",
+   "leg-left",
+   "leg-right",
+   "torso",
+   "arm-left",
+   "arm-right",
+   "head"
+  ],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/characters/kenney-mini-characters/Models/GLB format/character-male-c.glb",
+  "bytes": 263104,
+  "size": [
+   0.767,
+   0.793,
+   0.461
+  ],
+  "min": [
+   -0.384,
+   0,
+   -0.188
+  ],
+  "meshes": 2,
+  "triangles": 793,
+  "children": [
+   "root",
+   "body-mesh",
+   "head-mesh"
+  ],
+  "materials": [
+   "colormap"
+  ],
+  "textures": [
+   "Textures/colormap.png"
+  ],
+  "animations": [
+   "static",
+   "idle",
+   "walk",
+   "sprint",
+   "jump",
+   "fall",
+   "crouch",
+   "sit",
+   "drive",
+   "die",
+   "pick-up",
+   "emote-yes",
+   "emote-no",
+   "holding-right",
+   "holding-left",
+   "holding-both",
+   "holding-right-shoot",
+   "holding-left-shoot",
+   "holding-both-shoot",
+   "attack-melee-right",
+   "attack-melee-left",
+   "attack-kick-right",
+   "attack-kick-left",
+   "interact-right",
+   "interact-left",
+   "wheelchair-sit",
+   "wheelchair-look-left",
+   "wheelchair-look-right",
+   "wheelchair-move-forward",
+   "wheelchair-move-back",
+   "wheelchair-move-left",
+   "wheelchair-move-right"
+  ],
+  "skins": 2,
+  "joints": [
+   "root",
+   "leg-left",
+   "leg-right",
+   "torso",
+   "arm-left",
+   "arm-right",
+   "head",
+   "root",
+   "leg-left",
+   "leg-right",
+   "torso",
+   "arm-left",
+   "arm-right",
+   "head"
+  ],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/characters/kenney-mini-characters/Models/GLB format/character-male-d.glb",
+  "bytes": 245184,
+  "size": [
+   0.767,
+   0.722,
+   0.34
+  ],
+  "min": [
+   -0.384,
+   0,
+   -0.172
+  ],
+  "meshes": 2,
+  "triangles": 711,
+  "children": [
+   "root",
+   "body-mesh",
+   "head-mesh"
+  ],
+  "materials": [
+   "colormap"
+  ],
+  "textures": [
+   "Textures/colormap.png"
+  ],
+  "animations": [
+   "static",
+   "idle",
+   "walk",
+   "sprint",
+   "jump",
+   "fall",
+   "crouch",
+   "sit",
+   "drive",
+   "die",
+   "pick-up",
+   "emote-yes",
+   "emote-no",
+   "holding-right",
+   "holding-left",
+   "holding-both",
+   "holding-right-shoot",
+   "holding-left-shoot",
+   "holding-both-shoot",
+   "attack-melee-right",
+   "attack-melee-left",
+   "attack-kick-right",
+   "attack-kick-left",
+   "interact-right",
+   "interact-left",
+   "wheelchair-sit",
+   "wheelchair-look-left",
+   "wheelchair-look-right",
+   "wheelchair-move-forward",
+   "wheelchair-move-back",
+   "wheelchair-move-left",
+   "wheelchair-move-right"
+  ],
+  "skins": 2,
+  "joints": [
+   "root",
+   "leg-left",
+   "leg-right",
+   "torso",
+   "arm-left",
+   "arm-right",
+   "head",
+   "root",
+   "leg-left",
+   "leg-right",
+   "torso",
+   "arm-left",
+   "arm-right",
+   "head"
+  ],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/characters/kenney-mini-characters/Models/GLB format/character-male-e.glb",
+  "bytes": 242704,
+  "size": [
+   0.767,
+   0.676,
+   0.342
+  ],
+  "min": [
+   -0.384,
+   0,
+   -0.172
+  ],
+  "meshes": 2,
+  "triangles": 710,
+  "children": [
+   "root",
+   "body-mesh",
+   "head-mesh"
+  ],
+  "materials": [
+   "colormap"
+  ],
+  "textures": [
+   "Textures/colormap.png"
+  ],
+  "animations": [
+   "static",
+   "idle",
+   "walk",
+   "sprint",
+   "jump",
+   "fall",
+   "crouch",
+   "sit",
+   "drive",
+   "die",
+   "pick-up",
+   "emote-yes",
+   "emote-no",
+   "holding-right",
+   "holding-left",
+   "holding-both",
+   "holding-right-shoot",
+   "holding-left-shoot",
+   "holding-both-shoot",
+   "attack-melee-right",
+   "attack-melee-left",
+   "attack-kick-right",
+   "attack-kick-left",
+   "interact-right",
+   "interact-left",
+   "wheelchair-sit",
+   "wheelchair-look-left",
+   "wheelchair-look-right",
+   "wheelchair-move-forward",
+   "wheelchair-move-back",
+   "wheelchair-move-left",
+   "wheelchair-move-right"
+  ],
+  "skins": 2,
+  "joints": [
+   "root",
+   "leg-left",
+   "leg-right",
+   "torso",
+   "arm-left",
+   "arm-right",
+   "head",
+   "root",
+   "leg-left",
+   "leg-right",
+   "torso",
+   "arm-left",
+   "arm-right",
+   "head"
+  ],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/characters/kenney-mini-characters/Models/GLB format/character-male-f.glb",
+  "bytes": 249388,
+  "size": [
+   0.767,
+   0.671,
+   0.34
+  ],
+  "min": [
+   -0.384,
+   0,
+   -0.172
+  ],
+  "meshes": 2,
+  "triangles": 701,
+  "children": [
+   "root",
+   "body-mesh",
+   "head-mesh"
+  ],
+  "materials": [
+   "colormap"
+  ],
+  "textures": [
+   "Textures/colormap.png"
+  ],
+  "animations": [
+   "static",
+   "idle",
+   "walk",
+   "sprint",
+   "jump",
+   "fall",
+   "crouch",
+   "sit",
+   "drive",
+   "die",
+   "pick-up",
+   "emote-yes",
+   "emote-no",
+   "holding-right",
+   "holding-left",
+   "holding-both",
+   "holding-right-shoot",
+   "holding-left-shoot",
+   "holding-both-shoot",
+   "attack-melee-right",
+   "attack-melee-left",
+   "attack-kick-right",
+   "attack-kick-left",
+   "interact-right",
+   "interact-left",
+   "wheelchair-sit",
+   "wheelchair-look-left",
+   "wheelchair-look-right",
+   "wheelchair-move-forward",
+   "wheelchair-move-back",
+   "wheelchair-move-left",
+   "wheelchair-move-right"
+  ],
+  "skins": 2,
+  "joints": [
+   "root",
+   "leg-left",
+   "leg-right",
+   "torso",
+   "arm-left",
+   "arm-right",
+   "head",
+   "root",
+   "leg-left",
+   "leg-right",
+   "torso",
+   "arm-left",
+   "arm-right",
+   "head"
+  ],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/characters/kenney-mini-characters/Models/GLB format/wheelchair-deluxe.glb",
+  "bytes": 60588,
+  "size": [
+   0.579,
+   0.495,
+   0.592
+  ],
+  "min": [
+   -0.289,
+   0,
+   -0.375
+  ],
+  "meshes": 1,
+  "triangles": 696,
+  "children": [
+   "wheelchair-deluxe"
+  ],
+  "materials": [
+   "colormap"
+  ],
+  "textures": [
+   "Textures/colormap.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/characters/kenney-mini-characters/Models/GLB format/wheelchair-power-deluxe.glb",
+  "bytes": 90512,
+  "size": [
+   0.48,
+   0.625,
+   0.511
+  ],
+  "min": [
+   -0.24,
+   0,
+   -0.252
+  ],
+  "meshes": 1,
+  "triangles": 1040,
+  "children": [
+   "wheelchair-power-deluxe"
+  ],
+  "materials": [
+   "colormap"
+  ],
+  "textures": [
+   "Textures/colormap.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/characters/kenney-mini-characters/Models/GLB format/wheelchair-power.glb",
+  "bytes": 76664,
+  "size": [
+   0.48,
+   0.572,
+   0.511
+  ],
+  "min": [
+   -0.24,
+   0,
+   -0.252
+  ],
+  "meshes": 1,
+  "triangles": 880,
+  "children": [
+   "wheelchair-power"
+  ],
+  "materials": [
+   "colormap"
+  ],
+  "textures": [
+   "Textures/colormap.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/characters/kenney-mini-characters/Models/GLB format/wheelchair.glb",
+  "bytes": 56680,
+  "size": [
+   0.5,
+   0.495,
+   0.582
+  ],
+  "min": [
+   -0.25,
+   0,
+   -0.365
+  ],
+  "meshes": 1,
+  "triangles": 656,
+  "children": [
+   "wheelchair"
+  ],
+  "materials": [
+   "colormap"
+  ],
+  "textures": [
+   "Textures/colormap.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/bathroomCabinet.glb",
+  "bytes": 7216,
+  "size": [
+   0.23,
+   0.39,
+   0.13
+  ],
+  "min": [
+   0.2,
+   0,
+   -0.21
+  ],
+  "meshes": 2,
+  "triangles": 64,
+  "children": [
+   "door"
+  ],
+  "materials": [
+   "wood",
+   "woodDark",
+   "metal"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/bathroomCabinetDrawer.glb",
+  "bytes": 34744,
+  "size": [
+   0.43,
+   0.472,
+   0.32
+  ],
+  "min": [
+   0,
+   0.058,
+   -0.45
+  ],
+  "meshes": 3,
+  "triangles": 508,
+  "children": [
+   "drawerBottom",
+   "drawerTop"
+  ],
+  "materials": [
+   "wood",
+   "carpetWhite",
+   "metalDark",
+   "metalLight"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/bathroomMirror.glb",
+  "bytes": 6792,
+  "size": [
+   0.301,
+   0.435,
+   0.144
+  ],
+  "min": [
+   0,
+   0,
+   -0.049
+  ],
+  "meshes": 1,
+  "triangles": 72,
+  "children": [
+   "bathroomMirror(Clone)"
+  ],
+  "materials": [
+   "wood",
+   "metal",
+   "glass"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/bathroomSink.glb",
+  "bytes": 22536,
+  "size": [
+   0.34,
+   0.56,
+   0.29
+  ],
+  "min": [
+   0,
+   -0.4,
+   -0.29
+  ],
+  "meshes": 1,
+  "triangles": 316,
+  "children": [
+   "bathroomSink(Clone)"
+  ],
+  "materials": [
+   "_defaultMat",
+   "metalLight",
+   "carpetWhite"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/bathroomSinkSquare.glb",
+  "bytes": 15108,
+  "size": [
+   0.43,
+   0.58,
+   0.3
+  ],
+  "min": [
+   0,
+   0.057,
+   -0.45
+  ],
+  "meshes": 1,
+  "triangles": 234,
+  "children": [
+   "bathroomSinkSquare(Clone)"
+  ],
+  "materials": [
+   "carpetWhite",
+   "metalDark",
+   "metalLight"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/bathtub.glb",
+  "bytes": 35500,
+  "size": [
+   1.19,
+   0.42,
+   0.56
+  ],
+  "min": [
+   0,
+   0,
+   -0.56
+  ],
+  "meshes": 1,
+  "triangles": 602,
+  "children": [
+   "bathtub(Clone)"
+  ],
+  "materials": [
+   "carpetWhite",
+   "metalLight",
+   "metalDark"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/bear.glb",
+  "bytes": 11884,
+  "size": [
+   0.39,
+   0.45,
+   0.248
+  ],
+  "min": [
+   0,
+   0,
+   -0.248
+  ],
+  "meshes": 1,
+  "triangles": 134,
+  "children": [
+   "bear(Clone)"
+  ],
+  "materials": [
+   "fur",
+   "wood",
+   "metalDark"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/bedBunk.glb",
+  "bytes": 40784,
+  "size": [
+   0.571,
+   0.85,
+   1.095
+  ],
+  "min": [
+   0,
+   0,
+   -1.095
+  ],
+  "meshes": 5,
+  "triangles": 580,
+  "children": [
+   "coverBottom",
+   "coverTop",
+   "pillowBottom",
+   "pillowTop"
+  ],
+  "materials": [
+   "wood",
+   "carpetWhite",
+   "carpet"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/bedDouble.glb",
+  "bytes": 23368,
+  "size": [
+   0.956,
+   0.375,
+   1.125
+  ],
+  "min": [
+   0,
+   0,
+   -1.125
+  ],
+  "meshes": 4,
+  "triangles": 264,
+  "children": [
+   "cover",
+   "pillowLeft",
+   "pillowRight"
+  ],
+  "materials": [
+   "carpetWhite",
+   "wood",
+   "metal",
+   "carpet"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/bedSingle.glb",
+  "bytes": 18636,
+  "size": [
+   0.571,
+   0.375,
+   1.125
+  ],
+  "min": [
+   0.385,
+   0,
+   -1.125
+  ],
+  "meshes": 3,
+  "triangles": 214,
+  "children": [
+   "cover",
+   "pillow"
+  ],
+  "materials": [
+   "carpetWhite",
+   "wood",
+   "metal",
+   "carpet"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/bench.glb",
+  "bytes": 10756,
+  "size": [
+   0.4,
+   0.47,
+   0.2
+  ],
+  "min": [
+   0,
+   0,
+   -0.2
+  ],
+  "meshes": 1,
+  "triangles": 170,
+  "children": [
+   "bench(Clone)"
+  ],
+  "materials": [
+   "wood"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/benchCushion.glb",
+  "bytes": 12500,
+  "size": [
+   0.4,
+   0.46,
+   0.2
+  ],
+  "min": [
+   0,
+   0,
+   -0.2
+  ],
+  "meshes": 1,
+  "triangles": 196,
+  "children": [
+   "benchCushion(Clone)"
+  ],
+  "materials": [
+   "wood",
+   "carpet"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/benchCushionLow.glb",
+  "bytes": 10268,
+  "size": [
+   0.42,
+   0.2,
+   0.22
+  ],
+  "min": [
+   -0.01,
+   0,
+   -0.21
+  ],
+  "meshes": 1,
+  "triangles": 138,
+  "children": [
+   "benchCushionLow(Clone)"
+  ],
+  "materials": [
+   "wood",
+   "carpet",
+   "_defaultMat"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/bookcaseClosed.glb",
+  "bytes": 23132,
+  "size": [
+   0.4,
+   0.85,
+   0.25
+  ],
+  "min": [
+   0,
+   0,
+   -0.25
+  ],
+  "meshes": 1,
+  "triangles": 372,
+  "children": [
+   "bookcaseClosed(Clone)"
+  ],
+  "materials": [
+   "wood"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/bookcaseClosedDoors.glb",
+  "bytes": 22644,
+  "size": [
+   0.4,
+   0.85,
+   0.25
+  ],
+  "min": [
+   0,
+   0,
+   -0.25
+  ],
+  "meshes": 3,
+  "triangles": 296,
+  "children": [
+   "doorLeft",
+   "doorRight"
+  ],
+  "materials": [
+   "wood",
+   "metal"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/bookcaseClosedWide.glb",
+  "bytes": 23140,
+  "size": [
+   0.8,
+   0.79,
+   0.25
+  ],
+  "min": [
+   0,
+   0,
+   -0.25
+  ],
+  "meshes": 1,
+  "triangles": 372,
+  "children": [
+   "bookcaseClosedWide(Clone)"
+  ],
+  "materials": [
+   "wood"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/bookcaseOpen.glb",
+  "bytes": 18020,
+  "size": [
+   0.4,
+   0.88,
+   0.25
+  ],
+  "min": [
+   0,
+   0,
+   -0.25
+  ],
+  "meshes": 1,
+  "triangles": 320,
+  "children": [
+   "bookcaseOpen(Clone)"
+  ],
+  "materials": [
+   "wood"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/bookcaseOpenLow.glb",
+  "bytes": 11520,
+  "size": [
+   0.4,
+   0.4,
+   0.25
+  ],
+  "min": [
+   0,
+   0,
+   -0.25
+  ],
+  "meshes": 1,
+  "triangles": 184,
+  "children": [
+   "bookcaseOpenLow(Clone)"
+  ],
+  "materials": [
+   "wood"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/books.glb",
+  "bytes": 6864,
+  "size": [
+   0.15,
+   0.104,
+   0.094
+  ],
+  "min": [
+   0,
+   0,
+   -0.094
+  ],
+  "meshes": 1,
+  "triangles": 62,
+  "children": [
+   "books(Clone)"
+  ],
+  "materials": [
+   "carpetDarker",
+   "carpetWhite",
+   "plant",
+   "metal"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/cabinetBed.glb",
+  "bytes": 7496,
+  "size": [
+   0.266,
+   0.233,
+   0.215
+  ],
+  "min": [
+   -0.01,
+   0,
+   -0.205
+  ],
+  "meshes": 2,
+  "triangles": 72,
+  "children": [
+   "door"
+  ],
+  "materials": [
+   "wood",
+   "metal"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/cabinetBedDrawer.glb",
+  "bytes": 16088,
+  "size": [
+   0.266,
+   0.263,
+   0.217
+  ],
+  "min": [
+   -0.01,
+   0,
+   -0.205
+  ],
+  "meshes": 3,
+  "triangles": 182,
+  "children": [
+   "door",
+   "drawer"
+  ],
+  "materials": [
+   "wood",
+   "_defaultMat",
+   "metal"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/cabinetBedDrawerTable.glb",
+  "bytes": 12200,
+  "size": [
+   0.266,
+   0.263,
+   0.217
+  ],
+  "min": [
+   -0.01,
+   0,
+   -0.205
+  ],
+  "meshes": 2,
+  "triangles": 140,
+  "children": [
+   "drawer"
+  ],
+  "materials": [
+   "wood",
+   "_defaultMat",
+   "metal"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/cabinetTelevision.glb",
+  "bytes": 10524,
+  "size": [
+   0.8,
+   0.31,
+   0.25
+  ],
+  "min": [
+   0,
+   0,
+   -0.25
+  ],
+  "meshes": 1,
+  "triangles": 154,
+  "children": [
+   "cabinetTelevision(Clone)"
+  ],
+  "materials": [
+   "wood"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/cabinetTelevisionDoors.glb",
+  "bytes": 16876,
+  "size": [
+   0.8,
+   0.31,
+   0.26
+  ],
+  "min": [
+   0,
+   0,
+   -0.25
+  ],
+  "meshes": 3,
+  "triangles": 210,
+  "children": [
+   "doorLeft",
+   "doorRight"
+  ],
+  "materials": [
+   "wood",
+   "metal"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/cardboardBoxClosed.glb",
+  "bytes": 5400,
+  "size": [
+   0.212,
+   0.281,
+   0.212
+  ],
+  "min": [
+   0,
+   0,
+   -0.212
+  ],
+  "meshes": 1,
+  "triangles": 60,
+  "children": [
+   "cardboardBoxClosed(Clone)"
+  ],
+  "materials": [
+   "wood",
+   "woodDark"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/cardboardBoxOpen.glb",
+  "bytes": 5404,
+  "size": [
+   0.372,
+   0.281,
+   0.212
+  ],
+  "min": [
+   -0.08,
+   0,
+   -0.212
+  ],
+  "meshes": 1,
+  "triangles": 60,
+  "children": [
+   "cardboardBoxOpen(Clone)"
+  ],
+  "materials": [
+   "wood",
+   "woodDark"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/ceilingFan.glb",
+  "bytes": 15284,
+  "size": [
+   0.455,
+   0.134,
+   0.525
+  ],
+  "min": [
+   -0.172,
+   -0.134,
+   -0.264
+  ],
+  "meshes": 1,
+  "triangles": 214,
+  "children": [
+   "ceilingFan(Clone)"
+  ],
+  "materials": [
+   "metalLight",
+   "lamp",
+   "wood"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/chair.glb",
+  "bytes": 10756,
+  "size": [
+   0.2,
+   0.47,
+   0.2
+  ],
+  "min": [
+   0,
+   0,
+   -0.2
+  ],
+  "meshes": 1,
+  "triangles": 170,
+  "children": [
+   "chair(Clone)"
+  ],
+  "materials": [
+   "wood"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/chairCushion.glb",
+  "bytes": 12588,
+  "size": [
+   0.2,
+   0.46,
+   0.2
+  ],
+  "min": [
+   0,
+   0,
+   -0.2
+  ],
+  "meshes": 1,
+  "triangles": 198,
+  "children": [
+   "chairCushion(Clone)"
+  ],
+  "materials": [
+   "wood",
+   "carpet"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/chairDesk.glb",
+  "bytes": 39016,
+  "size": [
+   0.335,
+   0.608,
+   0.314
+  ],
+  "min": [
+   0,
+   0,
+   -0.314
+  ],
+  "meshes": 2,
+  "triangles": 588,
+  "children": [
+   "chair"
+  ],
+  "materials": [
+   "metalMedium",
+   "carpet"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/chairModernCushion.glb",
+  "bytes": 7376,
+  "size": [
+   0.2,
+   0.46,
+   0.2
+  ],
+  "min": [
+   0,
+   0,
+   -0.2
+  ],
+  "meshes": 1,
+  "triangles": 92,
+  "children": [
+   "chairModernCushion(Clone)"
+  ],
+  "materials": [
+   "metal",
+   "carpetBlue"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/chairModernFrameCushion.glb",
+  "bytes": 18592,
+  "size": [
+   0.2,
+   0.46,
+   0.2
+  ],
+  "min": [
+   0,
+   0,
+   -0.2
+  ],
+  "meshes": 1,
+  "triangles": 284,
+  "children": [
+   "chairModernFrameCushion(Clone)"
+  ],
+  "materials": [
+   "metal",
+   "carpetBlue"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/chairRounded.glb",
+  "bytes": 17156,
+  "size": [
+   0.2,
+   0.455,
+   0.2
+  ],
+  "min": [
+   0,
+   0,
+   -0.2
+  ],
+  "meshes": 1,
+  "triangles": 280,
+  "children": [
+   "chairRounded(Clone)"
+  ],
+  "materials": [
+   "wood"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/coatRack.glb",
+  "bytes": 9948,
+  "size": [
+   0.448,
+   0.28,
+   0.134
+  ],
+  "min": [
+   0,
+   0,
+   -0.134
+  ],
+  "meshes": 1,
+  "triangles": 132,
+  "children": [
+   "coatRack(Clone)"
+  ],
+  "materials": [
+   "metalMedium",
+   "wood"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/coatRackStanding.glb",
+  "bytes": 13288,
+  "size": [
+   0.273,
+   0.77,
+   0.273
+  ],
+  "min": [
+   -0.136,
+   0,
+   -0.136
+  ],
+  "meshes": 1,
+  "triangles": 190,
+  "children": [
+   "coatRackStanding(Clone)"
+  ],
+  "materials": [
+   "wood"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/computerKeyboard.glb",
+  "bytes": 3476,
+  "size": [
+   0.282,
+   0.028,
+   0.118
+  ],
+  "min": [
+   0,
+   0,
+   -0.118
+  ],
+  "meshes": 1,
+  "triangles": 32,
+  "children": [
+   "computerKeyboard(Clone)"
+  ],
+  "materials": [
+   "metalDark",
+   "metalMedium"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/computerMouse.glb",
+  "bytes": 5868,
+  "size": [
+   0.05,
+   0.024,
+   0.085
+  ],
+  "min": [
+   -0.025,
+   0,
+   -0.085
+  ],
+  "meshes": 1,
+  "triangles": 71,
+  "children": [
+   "computerMouse(Clone)"
+  ],
+  "materials": [
+   "metalDark"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/computerScreen.glb",
+  "bytes": 6404,
+  "size": [
+   0.393,
+   0.294,
+   0.104
+  ],
+  "min": [
+   0,
+   0,
+   -0.104
+  ],
+  "meshes": 1,
+  "triangles": 72,
+  "children": [
+   "computerScreen(Clone)"
+  ],
+  "materials": [
+   "metalDark",
+   "metal"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/desk.glb",
+  "bytes": 15048,
+  "size": [
+   0.734,
+   0.384,
+   0.392
+  ],
+  "min": [
+   -0.01,
+   0,
+   -0.38
+  ],
+  "meshes": 2,
+  "triangles": 198,
+  "children": [
+   "drawer"
+  ],
+  "materials": [
+   "wood",
+   "metal"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/deskCorner.glb",
+  "bytes": 17984,
+  "size": [
+   0.974,
+   0.384,
+   0.974
+  ],
+  "min": [
+   0,
+   0,
+   -0.974
+  ],
+  "meshes": 2,
+  "triangles": 250,
+  "children": [
+   "drawer"
+  ],
+  "materials": [
+   "wood",
+   "metal"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/doorway.glb",
+  "bytes": 14532,
+  "size": [
+   0.486,
+   1.01,
+   0.113
+  ],
+  "min": [
+   0,
+   0,
+   -0.101
+  ],
+  "meshes": 2,
+  "triangles": 188,
+  "children": [
+   "door"
+  ],
+  "materials": [
+   "wood",
+   "metal"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/doorwayFront.glb",
+  "bytes": 13016,
+  "size": [
+   0.486,
+   1.01,
+   0.113
+  ],
+  "min": [
+   0,
+   0,
+   -0.101
+  ],
+  "meshes": 2,
+  "triangles": 156,
+  "children": [
+   "door"
+  ],
+  "materials": [
+   "carpetWhite",
+   "metal",
+   "metalDark",
+   "glass"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/doorwayOpen.glb",
+  "bytes": 3256,
+  "size": [
+   0.486,
+   1.01,
+   0.089
+  ],
+  "min": [
+   0,
+   0,
+   -0.089
+  ],
+  "meshes": 1,
+  "triangles": 28,
+  "children": [
+   "doorwayOpen(Clone)"
+  ],
+  "materials": [
+   "wood"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/dryer.glb",
+  "bytes": 17760,
+  "size": [
+   0.39,
+   0.47,
+   0.38
+  ],
+  "min": [
+   0,
+   0,
+   -0.35
+  ],
+  "meshes": 2,
+  "triangles": 262,
+  "children": [
+   "dryerDoor"
+  ],
+  "materials": [
+   "metalLight",
+   "metalMedium",
+   "metalDark"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/floorCorner.glb",
+  "bytes": 2524,
+  "size": [
+   0.55,
+   0.05,
+   0.55
+  ],
+  "min": [
+   0,
+   0,
+   -0.55
+  ],
+  "meshes": 1,
+  "triangles": 16,
+  "children": [
+   "floorCorner(Clone)"
+  ],
+  "materials": [
+   "wood"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/floorCornerRound.glb",
+  "bytes": 5168,
+  "size": [
+   0.55,
+   0.05,
+   0.55
+  ],
+  "min": [
+   0,
+   0,
+   -0.55
+  ],
+  "meshes": 1,
+  "triangles": 60,
+  "children": [
+   "floorCornerRound(Clone)"
+  ],
+  "materials": [
+   "wood"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/floorFull.glb",
+  "bytes": 2260,
+  "size": [
+   1,
+   0.05,
+   1
+  ],
+  "min": [
+   0,
+   0,
+   -1
+  ],
+  "meshes": 1,
+  "triangles": 12,
+  "children": [
+   "floorFull(Clone)"
+  ],
+  "materials": [
+   "wood"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/floorHalf.glb",
+  "bytes": 2264,
+  "size": [
+   0.5,
+   0.05,
+   1
+  ],
+  "min": [
+   0,
+   0,
+   -1
+  ],
+  "meshes": 1,
+  "triangles": 12,
+  "children": [
+   "floorHalf(Clone)"
+  ],
+  "materials": [
+   "wood"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/hoodLarge.glb",
+  "bytes": 4652,
+  "size": [
+   0.43,
+   0.37,
+   0.285
+  ],
+  "min": [
+   0,
+   0,
+   -0.285
+  ],
+  "meshes": 1,
+  "triangles": 36,
+  "children": [
+   "hoodLarge(Clone)"
+  ],
+  "materials": [
+   "metalDark",
+   "_defaultMat"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/hoodModern.glb",
+  "bytes": 3968,
+  "size": [
+   0.43,
+   0.4,
+   0.285
+  ],
+  "min": [
+   0,
+   -0.03,
+   -0.285
+  ],
+  "meshes": 1,
+  "triangles": 28,
+  "children": [
+   "hoodModern(Clone)"
+  ],
+  "materials": [
+   "metalMedium",
+   "_defaultMat"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/kitchenBar.glb",
+  "bytes": 6004,
+  "size": [
+   0.43,
+   0.42,
+   0.21
+  ],
+  "min": [
+   0,
+   0,
+   -0.21
+  ],
+  "meshes": 1,
+  "triangles": 76,
+  "children": [
+   "kitchenBar(Clone)"
+  ],
+  "materials": [
+   "wood",
+   "metal",
+   "woodDark"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/kitchenBarEnd.glb",
+  "bytes": 11084,
+  "size": [
+   0.102,
+   0.42,
+   0.21
+  ],
+  "min": [
+   0,
+   0,
+   -0.21
+  ],
+  "meshes": 1,
+  "triangles": 152,
+  "children": [
+   "kitchenBarEnd(Clone)"
+  ],
+  "materials": [
+   "wood",
+   "metal"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/kitchenBlender.glb",
+  "bytes": 18728,
+  "size": [
+   0.136,
+   0.228,
+   0.109
+  ],
+  "min": [
+   0,
+   0,
+   -0.109
+  ],
+  "meshes": 3,
+  "triangles": 246,
+  "children": [
+   "blenderCup",
+   "blenderTop"
+  ],
+  "materials": [
+   "metalMedium",
+   "metal",
+   "glass"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/kitchenCabinet.glb",
+  "bytes": 10444,
+  "size": [
+   0.43,
+   0.45,
+   0.45
+  ],
+  "min": [
+   0,
+   0,
+   -0.45
+  ],
+  "meshes": 2,
+  "triangles": 114,
+  "children": [
+   "door"
+  ],
+  "materials": [
+   "metal",
+   "wood",
+   "woodDark"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/kitchenCabinetCornerInner.glb",
+  "bytes": 5184,
+  "size": [
+   0.46,
+   0.45,
+   0.46
+  ],
+  "min": [
+   0,
+   0,
+   -0.46
+  ],
+  "meshes": 1,
+  "triangles": 54,
+  "children": [
+   "kitchenCabinetCornerInner(Clone)"
+  ],
+  "materials": [
+   "wood",
+   "metal"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/kitchenCabinetCornerRound.glb",
+  "bytes": 13656,
+  "size": [
+   0.45,
+   0.45,
+   0.45
+  ],
+  "min": [
+   0,
+   0,
+   -0.45
+  ],
+  "meshes": 1,
+  "triangles": 194,
+  "children": [
+   "kitchenCabinetCornerRound(Clone)"
+  ],
+  "materials": [
+   "metal",
+   "wood"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/kitchenCabinetDrawer.glb",
+  "bytes": 15384,
+  "size": [
+   0.43,
+   0.45,
+   0.45
+  ],
+  "min": [
+   0,
+   0,
+   -0.45
+  ],
+  "meshes": 3,
+  "triangles": 174,
+  "children": [
+   "door",
+   "drawer"
+  ],
+  "materials": [
+   "metal",
+   "wood",
+   "woodDark"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/kitchenCabinetUpper.glb",
+  "bytes": 8168,
+  "size": [
+   0.43,
+   0.39,
+   0.22
+  ],
+  "min": [
+   0,
+   0,
+   -0.21
+  ],
+  "meshes": 2,
+  "triangles": 80,
+  "children": [
+   "door"
+  ],
+  "materials": [
+   "wood",
+   "woodDark",
+   "metal"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/kitchenCabinetUpperCorner.glb",
+  "bytes": 13712,
+  "size": [
+   0.215,
+   0.39,
+   0.21
+  ],
+  "min": [
+   0,
+   0,
+   -0.21
+  ],
+  "meshes": 1,
+  "triangles": 204,
+  "children": [
+   "kitchenCabinetUpperCorner(Clone)"
+  ],
+  "materials": [
+   "wood"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/kitchenCabinetUpperDouble.glb",
+  "bytes": 18184,
+  "size": [
+   0.43,
+   0.39,
+   0.22
+  ],
+  "min": [
+   0,
+   0,
+   -0.21
+  ],
+  "meshes": 3,
+  "triangles": 234,
+  "children": [
+   "doorLeft",
+   "doorRight"
+  ],
+  "materials": [
+   "wood",
+   "woodDark",
+   "metal"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/kitchenCabinetUpperLow.glb",
+  "bytes": 7216,
+  "size": [
+   0.43,
+   0.195,
+   0.22
+  ],
+  "min": [
+   0,
+   0,
+   -0.21
+  ],
+  "meshes": 2,
+  "triangles": 64,
+  "children": [
+   "door"
+  ],
+  "materials": [
+   "wood",
+   "woodDark",
+   "metal"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/kitchenCoffeeMachine.glb",
+  "bytes": 13332,
+  "size": [
+   0.19,
+   0.177,
+   0.24
+  ],
+  "min": [
+   0,
+   0,
+   -0.24
+  ],
+  "meshes": 2,
+  "triangles": 166,
+  "children": [
+   "mug"
+  ],
+  "materials": [
+   "metalMedium",
+   "metal",
+   "carpetWhite"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/kitchenFridge.glb",
+  "bytes": 20116,
+  "size": [
+   0.43,
+   0.92,
+   0.292
+  ],
+  "min": [
+   0,
+   0,
+   -0.282
+  ],
+  "meshes": 3,
+  "triangles": 250,
+  "children": [
+   "doorFreezer",
+   "doorFridge"
+  ],
+  "materials": [
+   "metalLight",
+   "metalDark",
+   "metal",
+   "glass"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/kitchenFridgeBuiltIn.glb",
+  "bytes": 22616,
+  "size": [
+   0.43,
+   0.869,
+   0.45
+  ],
+  "min": [
+   0,
+   0,
+   -0.45
+  ],
+  "meshes": 3,
+  "triangles": 268,
+  "children": [
+   "doorFreezer",
+   "doorFridge"
+  ],
+  "materials": [
+   "wood",
+   "metalLight",
+   "woodDark",
+   "metal",
+   "glass"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/kitchenFridgeLarge.glb",
+  "bytes": 30632,
+  "size": [
+   0.52,
+   0.92,
+   0.406
+  ],
+  "min": [
+   0,
+   0,
+   -0.342
+  ],
+  "meshes": 3,
+  "triangles": 436,
+  "children": [
+   "doorLeft",
+   "doorRight"
+  ],
+  "materials": [
+   "metalLight",
+   "metalMedium"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/kitchenFridgeSmall.glb",
+  "bytes": 12988,
+  "size": [
+   0.43,
+   0.6,
+   0.292
+  ],
+  "min": [
+   0,
+   0,
+   -0.282
+  ],
+  "meshes": 2,
+  "triangles": 152,
+  "children": [
+   "doorFridge"
+  ],
+  "materials": [
+   "metalLight",
+   "metalDark",
+   "glass",
+   "metal"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/kitchenMicrowave.glb",
+  "bytes": 11248,
+  "size": [
+   0.29,
+   0.18,
+   0.23
+  ],
+  "min": [
+   0,
+   0,
+   -0.22
+  ],
+  "meshes": 2,
+  "triangles": 152,
+  "children": [
+   "Group"
+  ],
+  "materials": [
+   "metalMedium",
+   "carpetWhite",
+   "metalDark",
+   "glass"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/kitchenSink.glb",
+  "bytes": 23480,
+  "size": [
+   0.43,
+   0.49,
+   0.45
+  ],
+  "min": [
+   0,
+   0,
+   -0.45
+  ],
+  "meshes": 2,
+  "triangles": 318,
+  "children": [
+   "door"
+  ],
+  "materials": [
+   "wood",
+   "metal",
+   "metalDark",
+   "metalLight",
+   "_defaultMat",
+   "woodDark"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/kitchenStove.glb",
+  "bytes": 54324,
+  "size": [
+   0.43,
+   0.45,
+   0.45
+  ],
+  "min": [
+   0,
+   0,
+   -0.45
+  ],
+  "meshes": 2,
+  "triangles": 830,
+  "children": [
+   "door"
+  ],
+  "materials": [
+   "metal",
+   "wood",
+   "metalDark",
+   "carpetWhite",
+   "glass"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/kitchenStoveElectric.glb",
+  "bytes": 18604,
+  "size": [
+   0.43,
+   0.45,
+   0.45
+  ],
+  "min": [
+   0,
+   0,
+   -0.45
+  ],
+  "meshes": 1,
+  "triangles": 338,
+  "children": [
+   "kitchenStoveElectric(Clone)"
+  ],
+  "materials": [
+   "metal",
+   "wood",
+   "metalDark",
+   "carpetWhite",
+   "glass",
+   "metalMedium"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/lampRoundFloor.glb",
+  "bytes": 6600,
+  "size": [
+   0.152,
+   0.86,
+   0.176
+  ],
+  "min": [
+   -0.016,
+   0,
+   -0.148
+  ],
+  "meshes": 1,
+  "triangles": 76,
+  "children": [
+   "lampRoundFloor(Clone)"
+  ],
+  "materials": [
+   "metal",
+   "lamp"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/lampRoundTable.glb",
+  "bytes": 6604,
+  "size": [
+   0.152,
+   0.314,
+   0.176
+  ],
+  "min": [
+   -0.016,
+   0,
+   -0.148
+  ],
+  "meshes": 1,
+  "triangles": 76,
+  "children": [
+   "lampRoundTable(Clone)"
+  ],
+  "materials": [
+   "metal",
+   "lamp"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/lampSquareCeiling.glb",
+  "bytes": 5628,
+  "size": [
+   0.12,
+   0.23,
+   0.12
+  ],
+  "min": [
+   0,
+   0,
+   -0.12
+  ],
+  "meshes": 1,
+  "triangles": 60,
+  "children": [
+   "lampSquareCeiling(Clone)"
+  ],
+  "materials": [
+   "lamp",
+   "metal"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/lampSquareFloor.glb",
+  "bytes": 5624,
+  "size": [
+   0.12,
+   0.86,
+   0.12
+  ],
+  "min": [
+   0,
+   0,
+   -0.12
+  ],
+  "meshes": 1,
+  "triangles": 60,
+  "children": [
+   "lampSquareFloor(Clone)"
+  ],
+  "materials": [
+   "lamp",
+   "metal"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/lampSquareTable.glb",
+  "bytes": 5624,
+  "size": [
+   0.12,
+   0.29,
+   0.12
+  ],
+  "min": [
+   0,
+   0,
+   -0.12
+  ],
+  "meshes": 1,
+  "triangles": 60,
+  "children": [
+   "lampSquareTable(Clone)"
+  ],
+  "materials": [
+   "lamp",
+   "metal"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/lampWall.glb",
+  "bytes": 4828,
+  "size": [
+   0.227,
+   0.093,
+   0.15
+  ],
+  "min": [
+   -0.113,
+   0,
+   0
+  ],
+  "meshes": 1,
+  "triangles": 42,
+  "children": [
+   "lampWall(Clone)"
+  ],
+  "materials": [
+   "metal",
+   "lamp"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/laptop.glb",
+  "bytes": 5540,
+  "size": [
+   0.264,
+   0.162,
+   0.24
+  ],
+  "min": [
+   0,
+   0,
+   -0.24
+  ],
+  "meshes": 1,
+  "triangles": 68,
+  "children": [
+   "laptop(Clone)"
+  ],
+  "materials": [
+   "metalDark",
+   "metal",
+   "metalMedium"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/loungeChair.glb",
+  "bytes": 9648,
+  "size": [
+   0.49,
+   0.46,
+   0.41
+  ],
+  "min": [
+   0,
+   0,
+   -0.41
+  ],
+  "meshes": 1,
+  "triangles": 128,
+  "children": [
+   "loungeChair(Clone)"
+  ],
+  "materials": [
+   "carpet",
+   "wood"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/loungeChairRelax.glb",
+  "bytes": 13904,
+  "size": [
+   0.49,
+   0.63,
+   0.675
+  ],
+  "min": [
+   0,
+   0,
+   -0.675
+  ],
+  "meshes": 1,
+  "triangles": 188,
+  "children": [
+   "loungeChairRelax(Clone)"
+  ],
+  "materials": [
+   "metal",
+   "carpet",
+   "wood"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/loungeDesignChair.glb",
+  "bytes": 9136,
+  "size": [
+   0.73,
+   0.4,
+   0.41
+  ],
+  "min": [
+   0,
+   0,
+   -0.41
+  ],
+  "meshes": 1,
+  "triangles": 116,
+  "children": [
+   "loungeDesignChair(Clone)"
+  ],
+  "materials": [
+   "carpetBlue",
+   "metal"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/loungeDesignSofa.glb",
+  "bytes": 9128,
+  "size": [
+   1.12,
+   0.4,
+   0.41
+  ],
+  "min": [
+   0,
+   0,
+   -0.41
+  ],
+  "meshes": 1,
+  "triangles": 116,
+  "children": [
+   "loungeDesignSofa(Clone)"
+  ],
+  "materials": [
+   "carpetBlue",
+   "metal"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/loungeDesignSofaCorner.glb",
+  "bytes": 13744,
+  "size": [
+   1.35,
+   0.4,
+   1.35
+  ],
+  "min": [
+   0,
+   0,
+   -1.35
+  ],
+  "meshes": 2,
+  "triangles": 176,
+  "children": [
+   "Group"
+  ],
+  "materials": [
+   "carpetBlue",
+   "metal"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/loungeSofa.glb",
+  "bytes": 9644,
+  "size": [
+   0.98,
+   0.46,
+   0.41
+  ],
+  "min": [
+   0,
+   0,
+   -0.41
+  ],
+  "meshes": 1,
+  "triangles": 128,
+  "children": [
+   "loungeSofa(Clone)"
+  ],
+  "materials": [
+   "carpet",
+   "wood"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/loungeSofaCorner.glb",
+  "bytes": 13412,
+  "size": [
+   0.98,
+   0.46,
+   0.98
+  ],
+  "min": [
+   0,
+   0,
+   -0.98
+  ],
+  "meshes": 1,
+  "triangles": 190,
+  "children": [
+   "loungeSofaCorner(Clone)"
+  ],
+  "materials": [
+   "carpet",
+   "wood"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/loungeSofaLong.glb",
+  "bytes": 13112,
+  "size": [
+   0.98,
+   0.46,
+   0.82
+  ],
+  "min": [
+   0,
+   0,
+   -0.41
+  ],
+  "meshes": 1,
+  "triangles": 186,
+  "children": [
+   "loungeSofaLong(Clone)"
+  ],
+  "materials": [
+   "carpet",
+   "wood"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/loungeSofaOttoman.glb",
+  "bytes": 6960,
+  "size": [
+   0.44,
+   0.23,
+   0.45
+  ],
+  "min": [
+   0.47,
+   0,
+   -0.04
+  ],
+  "meshes": 1,
+  "triangles": 84,
+  "children": [
+   "loungeSofaOttoman(Clone)"
+  ],
+  "materials": [
+   "wood",
+   "carpet"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/paneling.glb",
+  "bytes": 3960,
+  "size": [
+   0.5,
+   0.595,
+   0.03
+  ],
+  "min": [
+   0,
+   0,
+   0
+  ],
+  "meshes": 1,
+  "triangles": 40,
+  "children": [
+   "paneling(Clone)"
+  ],
+  "materials": [
+   "wood"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/pillow.glb",
+  "bytes": 5044,
+  "size": [
+   0.23,
+   0.222,
+   0.088
+  ],
+  "min": [
+   0,
+   0,
+   -0.088
+  ],
+  "meshes": 1,
+  "triangles": 50,
+  "children": [
+   "pillow(Clone)"
+  ],
+  "materials": [
+   "carpet"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/pillowBlue.glb",
+  "bytes": 5056,
+  "size": [
+   0.23,
+   0.129,
+   0.063
+  ],
+  "min": [
+   0,
+   0,
+   -0.063
+  ],
+  "meshes": 1,
+  "triangles": 50,
+  "children": [
+   "pillowBlue(Clone)"
+  ],
+  "materials": [
+   "carpetBlue"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/pillowBlueLong.glb",
+  "bytes": 5088,
+  "size": [
+   0.517,
+   0.222,
+   0.088
+  ],
+  "min": [
+   -0.13,
+   0,
+   -0.088
+  ],
+  "meshes": 1,
+  "triangles": 50,
+  "children": [
+   "pillowBlueLong(Clone)"
+  ],
+  "materials": [
+   "carpetBlue"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/pillowLong.glb",
+  "bytes": 5072,
+  "size": [
+   0.387,
+   0.222,
+   0.088
+  ],
+  "min": [
+   0,
+   0,
+   -0.088
+  ],
+  "meshes": 1,
+  "triangles": 50,
+  "children": [
+   "pillowLong(Clone)"
+  ],
+  "materials": [
+   "carpet"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/plantSmall1.glb",
+  "bytes": 8224,
+  "size": [
+   0.095,
+   0.14,
+   0.095
+  ],
+  "min": [
+   -0.047,
+   0,
+   -0.047
+  ],
+  "meshes": 1,
+  "triangles": 102,
+  "children": [
+   "plantSmall1(Clone)"
+  ],
+  "materials": [
+   "wood",
+   "plant"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/plantSmall2.glb",
+  "bytes": 12996,
+  "size": [
+   0.095,
+   0.14,
+   0.095
+  ],
+  "min": [
+   -0.047,
+   0,
+   -0.047
+  ],
+  "meshes": 1,
+  "triangles": 158,
+  "children": [
+   "plantSmall2(Clone)"
+  ],
+  "materials": [
+   "wood",
+   "plant"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/plantSmall3.glb",
+  "bytes": 8424,
+  "size": [
+   0.098,
+   0.145,
+   0.085
+  ],
+  "min": [
+   -0.049,
+   0,
+   -0.042
+  ],
+  "meshes": 1,
+  "triangles": 98,
+  "children": [
+   "plantSmall3(Clone)"
+  ],
+  "materials": [
+   "wood",
+   "plant"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/pottedPlant.glb",
+  "bytes": 7576,
+  "size": [
+   0.212,
+   0.654,
+   0.241
+  ],
+  "min": [
+   -0.106,
+   0,
+   -0.121
+  ],
+  "meshes": 2,
+  "triangles": 60,
+  "children": [
+   "plant"
+  ],
+  "materials": [
+   "wood",
+   "woodDark",
+   "plant"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/radio.glb",
+  "bytes": 25020,
+  "size": [
+   0.315,
+   0.228,
+   0.098
+  ],
+  "min": [
+   0,
+   0,
+   -0.098
+  ],
+  "meshes": 1,
+  "triangles": 432,
+  "children": [
+   "radio(Clone)"
+  ],
+  "materials": [
+   "metalMedium",
+   "wood",
+   "metal"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/rugDoormat.glb",
+  "bytes": 13812,
+  "size": [
+   0.429,
+   0.01,
+   0.237
+  ],
+  "min": [
+   0,
+   0,
+   -0.237
+  ],
+  "meshes": 1,
+  "triangles": 204,
+  "children": [
+   "rugDoormat(Clone)"
+  ],
+  "materials": [
+   "wood"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/rugRectangle.glb",
+  "bytes": 3188,
+  "size": [
+   1.57,
+   0.01,
+   0.92
+  ],
+  "min": [
+   0,
+   0,
+   -0.92
+  ],
+  "meshes": 1,
+  "triangles": 28,
+  "children": [
+   "rugRectangle(Clone)"
+  ],
+  "materials": [
+   "carpet",
+   "carpetDarker"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/rugRound.glb",
+  "bytes": 10164,
+  "size": [
+   0.92,
+   0.01,
+   0.92
+  ],
+  "min": [
+   0,
+   0,
+   -0.92
+  ],
+  "meshes": 1,
+  "triangles": 188,
+  "children": [
+   "rugRound(Clone)"
+  ],
+  "materials": [
+   "carpet",
+   "carpetDarker"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/rugRounded.glb",
+  "bytes": 10876,
+  "size": [
+   1.57,
+   0.01,
+   0.92
+  ],
+  "min": [
+   0,
+   0,
+   -0.92
+  ],
+  "meshes": 1,
+  "triangles": 204,
+  "children": [
+   "rugRounded(Clone)"
+  ],
+  "materials": [
+   "carpetDarker",
+   "carpet"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/rugSquare.glb",
+  "bytes": 3180,
+  "size": [
+   0.904,
+   0.01,
+   0.92
+  ],
+  "min": [
+   0,
+   0,
+   -0.92
+  ],
+  "meshes": 1,
+  "triangles": 28,
+  "children": [
+   "rugSquare(Clone)"
+  ],
+  "materials": [
+   "carpet",
+   "carpetDarker"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/shower.glb",
+  "bytes": 52020,
+  "size": [
+   0.562,
+   1.094,
+   0.582
+  ],
+  "min": [
+   -0.562,
+   0,
+   -0.562
+  ],
+  "meshes": 3,
+  "triangles": 810,
+  "children": [
+   "doorLeft",
+   "doorRight"
+  ],
+  "materials": [
+   "carpetWhite",
+   "metalDark",
+   "glass",
+   "metal"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/showerRound.glb",
+  "bytes": 72048,
+  "size": [
+   0.562,
+   1.094,
+   0.562
+  ],
+  "min": [
+   0,
+   0,
+   -0.562
+  ],
+  "meshes": 4,
+  "triangles": 960,
+  "children": [
+   "doorLeft",
+   "doorRight",
+   "faucet"
+  ],
+  "materials": [
+   "_defaultMat",
+   "metalDark",
+   "glass",
+   "carpetWhite"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/sideTable.glb",
+  "bytes": 8800,
+  "size": [
+   0.534,
+   0.384,
+   0.22
+  ],
+  "min": [
+   -0.01,
+   0,
+   -0.21
+  ],
+  "meshes": 1,
+  "triangles": 118,
+  "children": [
+   "sideTable(Clone)"
+  ],
+  "materials": [
+   "wood",
+   "_defaultMat"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/sideTableDrawers.glb",
+  "bytes": 19072,
+  "size": [
+   0.534,
+   0.384,
+   0.222
+  ],
+  "min": [
+   -0.01,
+   0,
+   -0.21
+  ],
+  "meshes": 3,
+  "triangles": 238,
+  "children": [
+   "drawerLeft",
+   "drawerRight"
+  ],
+  "materials": [
+   "wood",
+   "_defaultMat",
+   "metal"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/speaker.glb",
+  "bytes": 15744,
+  "size": [
+   0.148,
+   0.636,
+   0.148
+  ],
+  "min": [
+   0,
+   0,
+   -0.148
+  ],
+  "meshes": 1,
+  "triangles": 228,
+  "children": [
+   "speaker(Clone)"
+  ],
+  "materials": [
+   "wood",
+   "metalMedium"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/speakerSmall.glb",
+  "bytes": 15244,
+  "size": [
+   0.148,
+   0.298,
+   0.133
+  ],
+  "min": [
+   0,
+   0,
+   -0.133
+  ],
+  "meshes": 1,
+  "triangles": 220,
+  "children": [
+   "speakerSmall(Clone)"
+  ],
+  "materials": [
+   "wood",
+   "metalMedium"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/stairs.glb",
+  "bytes": 21616,
+  "size": [
+   1.823,
+   1.34,
+   0.79
+  ],
+  "min": [
+   0,
+   0,
+   -0.79
+  ],
+  "meshes": 1,
+  "triangles": 308,
+  "children": [
+   "stairs(Clone)"
+  ],
+  "materials": [
+   "wood",
+   "woodDark"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/stairsCorner.glb",
+  "bytes": 21576,
+  "size": [
+   1.774,
+   1.34,
+   1.426
+  ],
+  "min": [
+   0.164,
+   0,
+   -1.426
+  ],
+  "meshes": 1,
+  "triangles": 312,
+  "children": [
+   "stairsCorner(Clone)"
+  ],
+  "materials": [
+   "woodDark",
+   "wood"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/stairsOpen.glb",
+  "bytes": 39924,
+  "size": [
+   1.823,
+   1.34,
+   0.79
+  ],
+  "min": [
+   0,
+   0,
+   -0.79
+  ],
+  "meshes": 3,
+  "triangles": 558,
+  "children": [
+   "Group",
+   "Group"
+  ],
+  "materials": [
+   "woodDark",
+   "metal",
+   "wood"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/stairsOpenSingle.glb",
+  "bytes": 24600,
+  "size": [
+   1.823,
+   1.34,
+   0.79
+  ],
+  "min": [
+   0,
+   0,
+   -0.79
+  ],
+  "meshes": 2,
+  "triangles": 326,
+  "children": [
+   "Group"
+  ],
+  "materials": [
+   "metal",
+   "wood"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/stoolBar.glb",
+  "bytes": 11816,
+  "size": [
+   0.265,
+   0.435,
+   0.23
+  ],
+  "min": [
+   0,
+   0,
+   -0.23
+  ],
+  "meshes": 1,
+  "triangles": 176,
+  "children": [
+   "stoolBar(Clone)"
+  ],
+  "materials": [
+   "wood",
+   "carpet"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/stoolBarSquare.glb",
+  "bytes": 9784,
+  "size": [
+   0.153,
+   0.405,
+   0.148
+  ],
+  "min": [
+   0.056,
+   0,
+   -0.189
+  ],
+  "meshes": 1,
+  "triangles": 142,
+  "children": [
+   "stoolBarSquare(Clone)"
+  ],
+  "materials": [
+   "wood",
+   "carpet"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/table.glb",
+  "bytes": 8196,
+  "size": [
+   0.841,
+   0.327,
+   0.447
+  ],
+  "min": [
+   0,
+   0,
+   -0.447
+  ],
+  "meshes": 1,
+  "triangles": 120,
+  "children": [
+   "table(Clone)"
+  ],
+  "materials": [
+   "wood"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/tableCloth.glb",
+  "bytes": 9920,
+  "size": [
+   0.841,
+   0.327,
+   0.447
+  ],
+  "min": [
+   0,
+   0,
+   -0.447
+  ],
+  "meshes": 1,
+  "triangles": 144,
+  "children": [
+   "tableCloth(Clone)"
+  ],
+  "materials": [
+   "wood",
+   "carpet"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/tableCoffee.glb",
+  "bytes": 8256,
+  "size": [
+   0.661,
+   0.23,
+   0.4
+  ],
+  "min": [
+   -0.461,
+   0,
+   -0.3
+  ],
+  "meshes": 1,
+  "triangles": 124,
+  "children": [
+   "tableCoffee(Clone)"
+  ],
+  "materials": [
+   "wood"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/tableCoffeeGlass.glb",
+  "bytes": 9428,
+  "size": [
+   0.661,
+   0.23,
+   0.4
+  ],
+  "min": [
+   -0.461,
+   0,
+   -0.3
+  ],
+  "meshes": 1,
+  "triangles": 140,
+  "children": [
+   "tableCoffeeGlass(Clone)"
+  ],
+  "materials": [
+   "metal",
+   "glass"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/tableCoffeeGlassSquare.glb",
+  "bytes": 9448,
+  "size": [
+   0.4,
+   0.23,
+   0.4
+  ],
+  "min": [
+   -0.461,
+   0,
+   -0.3
+  ],
+  "meshes": 1,
+  "triangles": 140,
+  "children": [
+   "tableCoffeeGlassSquare(Clone)"
+  ],
+  "materials": [
+   "metal",
+   "glass"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/tableCoffeeSquare.glb",
+  "bytes": 8276,
+  "size": [
+   0.4,
+   0.23,
+   0.4
+  ],
+  "min": [
+   -0.461,
+   0,
+   -0.3
+  ],
+  "meshes": 1,
+  "triangles": 124,
+  "children": [
+   "tableCoffeeSquare(Clone)"
+  ],
+  "materials": [
+   "wood"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/tableCross.glb",
+  "bytes": 12140,
+  "size": [
+   0.852,
+   0.347,
+   0.447
+  ],
+  "min": [
+   0,
+   0,
+   -0.447
+  ],
+  "meshes": 1,
+  "triangles": 178,
+  "children": [
+   "tableCross(Clone)"
+  ],
+  "materials": [
+   "wood"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/tableCrossCloth.glb",
+  "bytes": 13852,
+  "size": [
+   0.852,
+   0.347,
+   0.447
+  ],
+  "min": [
+   0,
+   0,
+   -0.447
+  ],
+  "meshes": 1,
+  "triangles": 202,
+  "children": [
+   "tableCrossCloth(Clone)"
+  ],
+  "materials": [
+   "wood",
+   "carpet"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/tableGlass.glb",
+  "bytes": 9848,
+  "size": [
+   0.841,
+   0.327,
+   0.447
+  ],
+  "min": [
+   0,
+   0,
+   -0.447
+  ],
+  "meshes": 1,
+  "triangles": 144,
+  "children": [
+   "tableGlass(Clone)"
+  ],
+  "materials": [
+   "metal",
+   "glass"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/tableRound.glb",
+  "bytes": 6444,
+  "size": [
+   0.693,
+   0.367,
+   0.8
+  ],
+  "min": [
+   0,
+   -0.27,
+   -0.8
+  ],
+  "meshes": 1,
+  "triangles": 80,
+  "children": [
+   "tableRound(Clone)"
+  ],
+  "materials": [
+   "wood"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/televisionAntenna.glb",
+  "bytes": 4500,
+  "size": [
+   0.265,
+   0.103,
+   0.08
+  ],
+  "min": [
+   -0.132,
+   0,
+   -0.08
+  ],
+  "meshes": 1,
+  "triangles": 44,
+  "children": [
+   "televisionAntenna(Clone)"
+  ],
+  "materials": [
+   "metalMedium"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/televisionModern.glb",
+  "bytes": 6368,
+  "size": [
+   0.685,
+   0.455,
+   0.128
+  ],
+  "min": [
+   -0.342,
+   0,
+   -0.064
+  ],
+  "meshes": 1,
+  "triangles": 72,
+  "children": [
+   "televisionModern(Clone)"
+  ],
+  "materials": [
+   "metalDark",
+   "metal"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/televisionVintage.glb",
+  "bytes": 19392,
+  "size": [
+   0.41,
+   0.27,
+   0.27
+  ],
+  "min": [
+   0,
+   0,
+   -0.27
+  ],
+  "meshes": 1,
+  "triangles": 280,
+  "children": [
+   "televisionVintage(Clone)"
+  ],
+  "materials": [
+   "metal",
+   "wood",
+   "metalMedium",
+   "metalDark"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/toaster.glb",
+  "bytes": 14924,
+  "size": [
+   0.188,
+   0.13,
+   0.1
+  ],
+  "min": [
+   -0.094,
+   0,
+   -0.05
+  ],
+  "meshes": 1,
+  "triangles": 220,
+  "children": [
+   "toaster(Clone)"
+  ],
+  "materials": [
+   "metalMedium",
+   "metal"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/toilet.glb",
+  "bytes": 18112,
+  "size": [
+   0.313,
+   0.451,
+   0.477
+  ],
+  "min": [
+   0,
+   0,
+   0
+  ],
+  "meshes": 2,
+  "triangles": 230,
+  "children": [
+   "cover"
+  ],
+  "materials": [
+   "carpetWhite",
+   "metalLight",
+   "metalDark",
+   "_defaultMat"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/toiletSquare.glb",
+  "bytes": 17548,
+  "size": [
+   0.304,
+   0.451,
+   0.387
+  ],
+  "min": [
+   0,
+   0,
+   -0.387
+  ],
+  "meshes": 2,
+  "triangles": 228,
+  "children": [
+   "Group"
+  ],
+  "materials": [
+   "carpetWhite",
+   "metalLight"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/trashcan.glb",
+  "bytes": 6452,
+  "size": [
+   0.208,
+   0.428,
+   0.234
+  ],
+  "min": [
+   -0.104,
+   0,
+   -0.112
+  ],
+  "meshes": 1,
+  "triangles": 68,
+  "children": [
+   "trashcan(Clone)"
+  ],
+  "materials": [
+   "metal",
+   "metalDark"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/wall.glb",
+  "bytes": 3340,
+  "size": [
+   1,
+   1.29,
+   0.05
+  ],
+  "min": [
+   0,
+   0,
+   -0.05
+  ],
+  "meshes": 1,
+  "triangles": 12,
+  "children": [
+   "wall(Clone)"
+  ],
+  "materials": [
+   "wood",
+   "_defaultMat",
+   "metalDark"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/wallCorner.glb",
+  "bytes": 4460,
+  "size": [
+   0.55,
+   1.29,
+   0.55
+  ],
+  "min": [
+   0,
+   0,
+   -0.55
+  ],
+  "meshes": 1,
+  "triangles": 28,
+  "children": [
+   "wallCorner(Clone)"
+  ],
+  "materials": [
+   "metalDark",
+   "_defaultMat",
+   "wood"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/wallCornerRond.glb",
+  "bytes": 10448,
+  "size": [
+   0.55,
+   1.29,
+   0.55
+  ],
+  "min": [
+   0,
+   0,
+   -0.55
+  ],
+  "meshes": 1,
+  "triangles": 116,
+  "children": [
+   "wallCornerRond(Clone)"
+  ],
+  "materials": [
+   "metalDark",
+   "_defaultMat",
+   "wood"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/wallDoorway.glb",
+  "bytes": 6444,
+  "size": [
+   1,
+   1.29,
+   0.089
+  ],
+  "min": [
+   0,
+   0,
+   -0.07
+  ],
+  "meshes": 1,
+  "triangles": 60,
+  "children": [
+   "wallDoorway(Clone)"
+  ],
+  "materials": [
+   "_defaultMat",
+   "wood",
+   "metalDark"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/wallDoorwayWide.glb",
+  "bytes": 6468,
+  "size": [
+   1,
+   1.29,
+   0.089
+  ],
+  "min": [
+   0,
+   0,
+   -0.07
+  ],
+  "meshes": 1,
+  "triangles": 60,
+  "children": [
+   "wallDoorwayWide(Clone)"
+  ],
+  "materials": [
+   "_defaultMat",
+   "wood",
+   "metalDark"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/wallHalf.glb",
+  "bytes": 3348,
+  "size": [
+   0.5,
+   1.29,
+   0.05
+  ],
+  "min": [
+   0,
+   0,
+   -0.05
+  ],
+  "meshes": 1,
+  "triangles": 12,
+  "children": [
+   "wallHalf(Clone)"
+  ],
+  "materials": [
+   "wood",
+   "_defaultMat",
+   "metalDark"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/wallWindow.glb",
+  "bytes": 10744,
+  "size": [
+   1,
+   1.29,
+   0.089
+  ],
+  "min": [
+   0,
+   0,
+   -0.07
+  ],
+  "meshes": 2,
+  "triangles": 108,
+  "children": [
+   "window"
+  ],
+  "materials": [
+   "wood",
+   "metalDark",
+   "_defaultMat",
+   "glass"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/wallWindowSlide.glb",
+  "bytes": 14564,
+  "size": [
+   1,
+   1.29,
+   0.089
+  ],
+  "min": [
+   0,
+   0,
+   -0.07
+  ],
+  "meshes": 3,
+  "triangles": 152,
+  "children": [
+   "windowBottom",
+   "windowTop"
+  ],
+  "materials": [
+   "wood",
+   "metalDark",
+   "_defaultMat",
+   "glass"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/washer.glb",
+  "bytes": 48104,
+  "size": [
+   0.39,
+   0.47,
+   0.39
+  ],
+  "min": [
+   0,
+   0,
+   -0.35
+  ],
+  "meshes": 2,
+  "triangles": 720,
+  "children": [
+   "washerDoor"
+  ],
+  "materials": [
+   "metalLight",
+   "metalMedium",
+   "metalDark",
+   "metal",
+   "glass",
+   "_defaultMat"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/furniture/kenney-furniture-kit/washerDryerStacked.glb",
+  "bytes": 64060,
+  "size": [
+   0.39,
+   0.94,
+   0.39
+  ],
+  "min": [
+   0,
+   0,
+   -0.35
+  ],
+  "meshes": 3,
+  "triangles": 992,
+  "children": [
+   "dryerDoor",
+   "washerDoor"
+  ],
+  "materials": [
+   "metalMedium",
+   "metalLight",
+   "metalDark",
+   "metal",
+   "glass",
+   "_defaultMat"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Kenney)"
+ },
+ {
+  "file": "assets/imported/playground/city-park-playground-starter.glb",
+  "bytes": 675348,
+  "size": [
+   30.421,
+   5.744,
+   22.868
+  ],
+  "min": [
+   -20.421,
+   0,
+   -12.248
+  ],
+  "meshes": 136,
+  "triangles": 11696,
+  "children": [
+   "000-park-lawn-tile",
+   "001-park-lawn-tile",
+   "002-park-lawn-tile",
+   "003-park-lawn-tile",
+   "004-park-lawn-tile",
+   "005-park-lawn-tile",
+   "006-park-lawn-tile",
+   "007-park-lawn-tile",
+   "008-park-lawn-tile",
+   "009-park-lawn-tile",
+   "010-park-lawn-tile",
+   "011-park-lawn-tile",
+   "012-park-lawn-tile",
+   "013-park-lawn-tile",
+   "014-park-lawn-tile",
+   "015-park-lawn-tile",
+   "016-park-lawn-tile",
+   "017-park-lawn-tile",
+   "018-park-lawn-tile",
+   "019-park-lawn-tile",
+   "020-park-lawn-tile",
+   "021-park-lawn-tile",
+   "022-park-lawn-tile",
+   "023-park-lawn-tile",
+   "024-park-lawn-tile",
+   "025-park-lawn-tile",
+   "026-safety-surface-tile-blue",
+   "027-safety-surface-tile",
+   "028-safety-surface-tile",
+   "029-safety-surface-tile-blue",
+   "030-safety-surface-tile",
+   "031-safety-surface-tile",
+   "032-safety-surface-tile-blue",
+   "033-safety-surface-tile",
+   "034-safety-surface-tile",
+   "035-safety-surface-tile-blue",
+   "036-safety-surface-tile",
+   "037-safety-surface-tile",
+   "038-safety-surface-tile-blue",
+   "039-safety-surface-tile",
+   "040-safety-surface-tile",
+   "041-safety-surface-tile-blue",
+   "042-safety-surface-tile",
+   "043-safety-surface-tile",
+   "044-safety-surface-tile-blue",
+   "045-safety-surface-tile",
+   "046-safety-surface-tile",
+   "047-safety-surface-tile-blue",
+   "048-safety-surface-tile",
+   "049-safety-surface-tile",
+   "050-safety-surface-tile-blue",
+   "051-safety-surface-tile",
+   "052-safety-surface-tile",
+   "053-safety-surface-tile-blue",
+   "054-safety-surface-tile",
+   "055-safety-surface-tile",
+   "056-safety-surface-tile-blue",
+   "057-safety-surface-tile",
+   "058-playground-fence-panel",
+   "059-playground-fence-panel",
+   "060-playground-fence-panel",
+   "061-playground-fence-panel",
+   "062-playground-fence-panel",
+   "063-playground-fence-panel",
+   "064-playground-fence-panel",
+   "065-playground-fence-panel",
+   "066-playground-fence-panel",
+   "067-playground-fence-panel",
+   "068-playground-fence-panel",
+   "069-playground-fence-gate",
+   "070-playground-fence-panel",
+   "071-playground-fence-panel",
+   "072-playground-fence-panel",
+   "073-playground-fence-panel",
+   "074-playground-fence-panel",
+   "075-playground-fence-panel",
+   "076-playground-fence-panel",
+   "077-playground-fence-panel",
+   "078-playground-fence-panel",
+   "079-playground-fence-panel",
+   "080-playground-fence-panel",
+   "081-playground-fence-panel",
+   "082-swing-set",
+   "083-play-tower-with-roof",
+   "084-climbing-frame",
+   "085-monkey-bars",
+   "086-sandpit-with-edging",
+   "087-playground-slide",
+   "088-rope-net-climber",
+   "089-roundabout",
+   "090-seesaw",
+   "091-swing-set-toddler-seats",
+   "092-spring-rocker",
+   "093-spring-rocker-duck",
+   "094-spring-rocker-blue",
+   "095-playground-sign",
+   "096-park-litter-bin",
+   "097-park-path-tile-straight",
+   "098-park-path-tile-straight",
+   "099-park-path-tile-straight",
+   "100-park-path-tile-straight",
+   "101-park-notice-board",
+   "102-bike-rack",
+   "103-park-path-tile-straight",
+   "104-park-path-tile-straight",
+   "105-park-path-tile-straight",
+   "106-park-path-tile-straight",
+   "107-park-path-tile-straight",
+   "108-park-path-tile-straight",
+   "109-park-path-tile-straight",
+   "110-park-path-tile-straight",
+   "111-park-path-tile-straight",
+   "112-park-path-tile-straight",
+   "113-park-path-tile-straight",
+   "114-park-path-tile-straight",
+   "115-park-path-tile-straight",
+   "116-park-path-tile-straight",
+   "117-park-path-tile-curve",
+   "118-park-path-tile-straight",
+   "119-park-path-tile-straight",
+   "120-park-gate-with-piers",
+   "121-duck-pond-edge-piece",
+   "122-duck-pond-edge-piece",
+   "123-duck-pond-edge-piece",
+   "124-duck-pond-edge-piece",
+   "125-duck-pond-edge-piece",
+   "126-duck-pond-edge-piece",
+   "127-duck-pond-edge-piece",
+   "128-duck-pond-edge-piece",
+   "129-hedge-section",
+   "130-hedge-section",
+   "131-hedge-section",
+   "132-hedge-section",
+   "133-hedge-section",
+   "134-hedge-section",
+   "135-hedge-section",
+   "136-hedge-section",
+   "137-hedge-section",
+   "138-hedge-section",
+   "139-hedge-section",
+   "140-hedge-section",
+   "141-hedge-section",
+   "142-park-bandstand",
+   "143-park-kiosk",
+   "144-pergola",
+   "145-picnic-table",
+   "146-picnic-table",
+   "147-picnic-table",
+   "148-flower-bed",
+   "149-flower-bed",
+   "150-flower-bed",
+   "151-park-tree-broadleaf",
+   "152-park-tree-broadleaf",
+   "153-park-tree-broadleaf",
+   "154-park-tree-broadleaf",
+   "155-park-tree-broadleaf",
+   "156-park-tree-conifer",
+   "157-park-tree-conifer",
+   "158-park-tree-conifer",
+   "159-park-tree-conifer",
+   "160-park-tree-conifer",
+   "161-shrub-clump",
+   "162-shrub-clump",
+   "163-shrub-clump",
+   "164-shrub-clump",
+   "165-shrub-clump",
+   "166-park-bench",
+   "167-park-bench",
+   "168-park-bench",
+   "169-park-bench",
+   "170-park-lamp-post",
+   "171-park-lamp-post",
+   "172-park-lamp-post",
+   "173-park-lamp-post",
+   "174-park-lamp-post",
+   "175-park-litter-bin",
+   "176-park-litter-bin",
+   "177-park-litter-bin",
+   "178-dog-waste-bin",
+   "179-drinking-fountain",
+   "180-park-bollard",
+   "181-park-bollard",
+   "182-park-bollard",
+   "183-park-bollard"
+  ],
+  "childBounds": [
+   {
+    "name": "000-park-lawn-tile",
+    "min": [
+     -20,
+     0,
+     -12
+    ],
+    "max": [
+     -16,
+     0.324,
+     -8
+    ]
+   },
+   {
+    "name": "001-park-lawn-tile",
+    "min": [
+     -20,
+     0,
+     -8
+    ],
+    "max": [
+     -16,
+     0.324,
+     -4
+    ]
+   },
+   {
+    "name": "002-park-lawn-tile",
+    "min": [
+     -20,
+     0,
+     -4
+    ],
+    "max": [
+     -16,
+     0.324,
+     0
+    ]
+   },
+   {
+    "name": "003-park-lawn-tile",
+    "min": [
+     -20,
+     0,
+     0
+    ],
+    "max": [
+     -16,
+     0.324,
+     4
+    ]
+   },
+   {
+    "name": "004-park-lawn-tile",
+    "min": [
+     -20,
+     0,
+     4
+    ],
+    "max": [
+     -16,
+     0.324,
+     8
+    ]
+   },
+   {
+    "name": "005-park-lawn-tile",
+    "min": [
+     -16,
+     0,
+     -12
+    ],
+    "max": [
+     -12,
+     0.324,
+     -8
+    ]
+   },
+   {
+    "name": "006-park-lawn-tile",
+    "min": [
+     -16,
+     0,
+     0
+    ],
+    "max": [
+     -12,
+     0.324,
+     4
+    ]
+   },
+   {
+    "name": "007-park-lawn-tile",
+    "min": [
+     -16,
+     0,
+     4
+    ],
+    "max": [
+     -12,
+     0.324,
+     8
+    ]
+   },
+   {
+    "name": "008-park-lawn-tile",
+    "min": [
+     -12,
+     0,
+     -12
+    ],
+    "max": [
+     -8,
+     0.324,
+     -8
+    ]
+   },
+   {
+    "name": "009-park-lawn-tile",
+    "min": [
+     -12,
+     0,
+     0
+    ],
+    "max": [
+     -8,
+     0.324,
+     4
+    ]
+   },
+   {
+    "name": "010-park-lawn-tile",
+    "min": [
+     -12,
+     0,
+     4
+    ],
+    "max": [
+     -8,
+     0.324,
+     8
+    ]
+   },
+   {
+    "name": "011-park-lawn-tile",
+    "min": [
+     -8,
+     0,
+     -12
+    ],
+    "max": [
+     -4,
+     0.324,
+     -8
+    ]
+   },
+   {
+    "name": "012-park-lawn-tile",
+    "min": [
+     -8,
+     0,
+     4
+    ],
+    "max": [
+     -4,
+     0.324,
+     8
+    ]
+   },
+   {
+    "name": "013-park-lawn-tile",
+    "min": [
+     -4,
+     0,
+     -12
+    ],
+    "max": [
+     0,
+     0.324,
+     -8
+    ]
+   },
+   {
+    "name": "014-park-lawn-tile",
+    "min": [
+     -4,
+     0,
+     0
+    ],
+    "max": [
+     0,
+     0.324,
+     4
+    ]
+   },
+   {
+    "name": "015-park-lawn-tile",
+    "min": [
+     -4,
+     0,
+     4
+    ],
+    "max": [
+     0,
+     0.324,
+     8
+    ]
+   },
+   {
+    "name": "016-park-lawn-tile",
+    "min": [
+     0,
+     0,
+     -12
+    ],
+    "max": [
+     4,
+     0.324,
+     -8
+    ]
+   },
+   {
+    "name": "017-park-lawn-tile",
+    "min": [
+     0,
+     0,
+     -8
+    ],
+    "max": [
+     4,
+     0.324,
+     -4
+    ]
+   },
+   {
+    "name": "018-park-lawn-tile",
+    "min": [
+     0,
+     0,
+     -4
+    ],
+    "max": [
+     4,
+     0.324,
+     0
+    ]
+   },
+   {
+    "name": "019-park-lawn-tile",
+    "min": [
+     0,
+     0,
+     0
+    ],
+    "max": [
+     4,
+     0.324,
+     4
+    ]
+   },
+   {
+    "name": "020-park-lawn-tile",
+    "min": [
+     0,
+     0,
+     4
+    ],
+    "max": [
+     4,
+     0.324,
+     8
+    ]
+   },
+   {
+    "name": "021-park-lawn-tile",
+    "min": [
+     4,
+     0,
+     -12
+    ],
+    "max": [
+     8,
+     0.324,
+     -8
+    ]
+   },
+   {
+    "name": "022-park-lawn-tile",
+    "min": [
+     4,
+     0,
+     -8
+    ],
+    "max": [
+     8,
+     0.324,
+     -4
+    ]
+   },
+   {
+    "name": "023-park-lawn-tile",
+    "min": [
+     4,
+     0,
+     -4
+    ],
+    "max": [
+     8,
+     0.324,
+     0
+    ]
+   },
+   {
+    "name": "024-park-lawn-tile",
+    "min": [
+     4,
+     0,
+     0
+    ],
+    "max": [
+     8,
+     0.324,
+     4
+    ]
+   },
+   {
+    "name": "025-park-lawn-tile",
+    "min": [
+     4,
+     0,
+     4
+    ],
+    "max": [
+     8,
+     0.324,
+     8
+    ]
+   },
+   {
+    "name": "026-safety-surface-tile-blue",
+    "min": [
+     -16,
+     0,
+     -8
+    ],
+    "max": [
+     -14,
+     0.057,
+     -6
+    ]
+   },
+   {
+    "name": "027-safety-surface-tile",
+    "min": [
+     -16,
+     0,
+     -6
+    ],
+    "max": [
+     -14,
+     0.057,
+     -4
+    ]
+   },
+   {
+    "name": "028-safety-surface-tile",
+    "min": [
+     -16,
+     0,
+     -4
+    ],
+    "max": [
+     -14,
+     0.057,
+     -2
+    ]
+   },
+   {
+    "name": "029-safety-surface-tile-blue",
+    "min": [
+     -16,
+     0,
+     -2
+    ],
+    "max": [
+     -14,
+     0.057,
+     0
+    ]
+   },
+   {
+    "name": "030-safety-surface-tile",
+    "min": [
+     -14,
+     0,
+     -8
+    ],
+    "max": [
+     -12,
+     0.057,
+     -6
+    ]
+   },
+   {
+    "name": "031-safety-surface-tile",
+    "min": [
+     -14,
+     0,
+     -6
+    ],
+    "max": [
+     -12,
+     0.057,
+     -4
+    ]
+   },
+   {
+    "name": "032-safety-surface-tile-blue",
+    "min": [
+     -14,
+     0,
+     -4
+    ],
+    "max": [
+     -12,
+     0.057,
+     -2
+    ]
+   },
+   {
+    "name": "033-safety-surface-tile",
+    "min": [
+     -14,
+     0,
+     -2
+    ],
+    "max": [
+     -12,
+     0.057,
+     0
+    ]
+   },
+   {
+    "name": "034-safety-surface-tile",
+    "min": [
+     -12,
+     0,
+     -8
+    ],
+    "max": [
+     -10,
+     0.057,
+     -6
+    ]
+   },
+   {
+    "name": "035-safety-surface-tile-blue",
+    "min": [
+     -12,
+     0,
+     -6
+    ],
+    "max": [
+     -10,
+     0.057,
+     -4
+    ]
+   },
+   {
+    "name": "036-safety-surface-tile",
+    "min": [
+     -12,
+     0,
+     -4
+    ],
+    "max": [
+     -10,
+     0.057,
+     -2
+    ]
+   },
+   {
+    "name": "037-safety-surface-tile",
+    "min": [
+     -12,
+     0,
+     -2
+    ],
+    "max": [
+     -10,
+     0.057,
+     0
+    ]
+   },
+   {
+    "name": "038-safety-surface-tile-blue",
+    "min": [
+     -10,
+     0,
+     -8
+    ],
+    "max": [
+     -8,
+     0.057,
+     -6
+    ]
+   },
+   {
+    "name": "039-safety-surface-tile",
+    "min": [
+     -10,
+     0,
+     -6
+    ],
+    "max": [
+     -8,
+     0.057,
+     -4
+    ]
+   },
+   {
+    "name": "040-safety-surface-tile",
+    "min": [
+     -10,
+     0,
+     -4
+    ],
+    "max": [
+     -8,
+     0.057,
+     -2
+    ]
+   },
+   {
+    "name": "041-safety-surface-tile-blue",
+    "min": [
+     -10,
+     0,
+     -2
+    ],
+    "max": [
+     -8,
+     0.057,
+     0
+    ]
+   },
+   {
+    "name": "042-safety-surface-tile",
+    "min": [
+     -8,
+     0,
+     -8
+    ],
+    "max": [
+     -6,
+     0.057,
+     -6
+    ]
+   },
+   {
+    "name": "043-safety-surface-tile",
+    "min": [
+     -8,
+     0,
+     -6
+    ],
+    "max": [
+     -6,
+     0.057,
+     -4
+    ]
+   },
+   {
+    "name": "044-safety-surface-tile-blue",
+    "min": [
+     -8,
+     0,
+     -4
+    ],
+    "max": [
+     -6,
+     0.057,
+     -2
+    ]
+   },
+   {
+    "name": "045-safety-surface-tile",
+    "min": [
+     -8,
+     0,
+     -2
+    ],
+    "max": [
+     -6,
+     0.057,
+     0
+    ]
+   },
+   {
+    "name": "046-safety-surface-tile",
+    "min": [
+     -6,
+     0,
+     -8
+    ],
+    "max": [
+     -4,
+     0.057,
+     -6
+    ]
+   },
+   {
+    "name": "047-safety-surface-tile-blue",
+    "min": [
+     -6,
+     0,
+     -6
+    ],
+    "max": [
+     -4,
+     0.057,
+     -4
+    ]
+   },
+   {
+    "name": "048-safety-surface-tile",
+    "min": [
+     -6,
+     0,
+     -4
+    ],
+    "max": [
+     -4,
+     0.057,
+     -2
+    ]
+   },
+   {
+    "name": "049-safety-surface-tile",
+    "min": [
+     -6,
+     0,
+     -2
+    ],
+    "max": [
+     -4,
+     0.057,
+     0
+    ]
+   },
+   {
+    "name": "050-safety-surface-tile-blue",
+    "min": [
+     -4,
+     0,
+     -8
+    ],
+    "max": [
+     -2,
+     0.057,
+     -6
+    ]
+   },
+   {
+    "name": "051-safety-surface-tile",
+    "min": [
+     -4,
+     0,
+     -6
+    ],
+    "max": [
+     -2,
+     0.057,
+     -4
+    ]
+   },
+   {
+    "name": "052-safety-surface-tile",
+    "min": [
+     -4,
+     0,
+     -4
+    ],
+    "max": [
+     -2,
+     0.057,
+     -2
+    ]
+   },
+   {
+    "name": "053-safety-surface-tile-blue",
+    "min": [
+     -4,
+     0,
+     -2
+    ],
+    "max": [
+     -2,
+     0.057,
+     0
+    ]
+   },
+   {
+    "name": "054-safety-surface-tile",
+    "min": [
+     -2,
+     0,
+     -8
+    ],
+    "max": [
+     0,
+     0.057,
+     -6
+    ]
+   },
+   {
+    "name": "055-safety-surface-tile",
+    "min": [
+     -2,
+     0,
+     -6
+    ],
+    "max": [
+     0,
+     0.057,
+     -4
+    ]
+   },
+   {
+    "name": "056-safety-surface-tile-blue",
+    "min": [
+     -2,
+     0,
+     -4
+    ],
+    "max": [
+     0,
+     0.057,
+     -2
+    ]
+   },
+   {
+    "name": "057-safety-surface-tile",
+    "min": [
+     -2,
+     0,
+     -2
+    ],
+    "max": [
+     0,
+     0.057,
+     0
+    ]
+   },
+   {
+    "name": "058-playground-fence-panel",
+    "min": [
+     -16.05,
+     0,
+     -8.05
+    ],
+    "max": [
+     -13.988,
+     1.14,
+     -7.95
+    ]
+   },
+   {
+    "name": "059-playground-fence-panel",
+    "min": [
+     -16.05,
+     0,
+     -0.05
+    ],
+    "max": [
+     -13.988,
+     1.14,
+     0.05
+    ]
+   },
+   {
+    "name": "060-playground-fence-panel",
+    "min": [
+     -14.05,
+     0,
+     -8.05
+    ],
+    "max": [
+     -11.988,
+     1.14,
+     -7.95
+    ]
+   },
+   {
+    "name": "061-playground-fence-panel",
+    "min": [
+     -14.05,
+     0,
+     -0.05
+    ],
+    "max": [
+     -11.988,
+     1.14,
+     0.05
+    ]
+   },
+   {
+    "name": "062-playground-fence-panel",
+    "min": [
+     -12.05,
+     0,
+     -8.05
+    ],
+    "max": [
+     -9.988,
+     1.14,
+     -7.95
+    ]
+   },
+   {
+    "name": "063-playground-fence-panel",
+    "min": [
+     -12.05,
+     0,
+     -0.05
+    ],
+    "max": [
+     -9.988,
+     1.14,
+     0.05
+    ]
+   },
+   {
+    "name": "064-playground-fence-panel",
+    "min": [
+     -10.05,
+     0,
+     -8.05
+    ],
+    "max": [
+     -7.988,
+     1.14,
+     -7.95
+    ]
+   },
+   {
+    "name": "065-playground-fence-panel",
+    "min": [
+     -10.05,
+     0,
+     -0.05
+    ],
+    "max": [
+     -7.988,
+     1.14,
+     0.05
+    ]
+   },
+   {
+    "name": "066-playground-fence-panel",
+    "min": [
+     -8.05,
+     0,
+     -8.05
+    ],
+    "max": [
+     -5.988,
+     1.14,
+     -7.95
+    ]
+   },
+   {
+    "name": "067-playground-fence-panel",
+    "min": [
+     -8.05,
+     0,
+     -0.05
+    ],
+    "max": [
+     -5.988,
+     1.14,
+     0.05
+    ]
+   },
+   {
+    "name": "068-playground-fence-panel",
+    "min": [
+     -6.05,
+     0,
+     -8.05
+    ],
+    "max": [
+     -3.988,
+     1.14,
+     -7.95
+    ]
+   },
+   {
+    "name": "069-playground-fence-gate",
+    "min": [
+     -6.05,
+     0,
+     -0.05
+    ],
+    "max": [
+     -4,
+     1.14,
+     0.07
+    ]
+   },
+   {
+    "name": "070-playground-fence-panel",
+    "min": [
+     -4.05,
+     0,
+     -8.05
+    ],
+    "max": [
+     -1.988,
+     1.14,
+     -7.95
+    ]
+   },
+   {
+    "name": "071-playground-fence-panel",
+    "min": [
+     -4.05,
+     0,
+     -0.05
+    ],
+    "max": [
+     -1.988,
+     1.14,
+     0.05
+    ]
+   },
+   {
+    "name": "072-playground-fence-panel",
+    "min": [
+     -2.05,
+     0,
+     -8.05
+    ],
+    "max": [
+     0.012,
+     1.14,
+     -7.95
+    ]
+   },
+   {
+    "name": "073-playground-fence-panel",
+    "min": [
+     -2.05,
+     0,
+     -0.05
+    ],
+    "max": [
+     0.012,
+     1.14,
+     0.05
+    ]
+   },
+   {
+    "name": "074-playground-fence-panel",
+    "min": [
+     -16.05,
+     0,
+     -8.012
+    ],
+    "max": [
+     -15.95,
+     1.14,
+     -5.95
+    ]
+   },
+   {
+    "name": "075-playground-fence-panel",
+    "min": [
+     -0.05,
+     0,
+     -8.012
+    ],
+    "max": [
+     0.05,
+     1.14,
+     -5.95
+    ]
+   },
+   {
+    "name": "076-playground-fence-panel",
+    "min": [
+     -16.05,
+     0,
+     -6.012
+    ],
+    "max": [
+     -15.95,
+     1.14,
+     -3.95
+    ]
+   },
+   {
+    "name": "077-playground-fence-panel",
+    "min": [
+     -0.05,
+     0,
+     -6.012
+    ],
+    "max": [
+     0.05,
+     1.14,
+     -3.95
+    ]
+   },
+   {
+    "name": "078-playground-fence-panel",
+    "min": [
+     -16.05,
+     0,
+     -4.012
+    ],
+    "max": [
+     -15.95,
+     1.14,
+     -1.95
+    ]
+   },
+   {
+    "name": "079-playground-fence-panel",
+    "min": [
+     -0.05,
+     0,
+     -4.012
+    ],
+    "max": [
+     0.05,
+     1.14,
+     -1.95
+    ]
+   },
+   {
+    "name": "080-playground-fence-panel",
+    "min": [
+     -16.05,
+     0,
+     -2.012
+    ],
+    "max": [
+     -15.95,
+     1.14,
+     0.05
+    ]
+   },
+   {
+    "name": "081-playground-fence-panel",
+    "min": [
+     -0.05,
+     0,
+     -2.012
+    ],
+    "max": [
+     0.05,
+     1.14,
+     0.05
+    ]
+   },
+   {
+    "name": "082-swing-set",
+    "min": [
+     -15.48,
+     0.051,
+     -7.445
+    ],
+    "max": [
+     -11.72,
+     2.526,
+     -5.755
+    ]
+   },
+   {
+    "name": "083-play-tower-with-roof",
+    "min": [
+     -9.77,
+     0.051,
+     -7.37
+    ],
+    "max": [
+     -7.43,
+     3.185,
+     -4.564
+    ]
+   },
+   {
+    "name": "084-climbing-frame",
+    "min": [
+     -6.65,
+     0.051,
+     -7.65
+    ],
+    "max": [
+     -4.15,
+     2.094,
+     -5.15
+    ]
+   },
+   {
+    "name": "085-monkey-bars",
+    "min": [
+     -3.9,
+     0.051,
+     -6.5
+    ],
+    "max": [
+     -0.1,
+     2.19,
+     -5.5
+    ]
+   },
+   {
+    "name": "086-sandpit-with-edging",
+    "min": [
+     -15.8,
+     0.051,
+     -4.95
+    ],
+    "max": [
+     -12.6,
+     0.517,
+     -1.45
+    ]
+   },
+   {
+    "name": "087-playground-slide",
+    "min": [
+     -11.55,
+     0.051,
+     -6.42
+    ],
+    "max": [
+     -10.45,
+     1.976,
+     -1.813
+    ]
+   },
+   {
+    "name": "088-rope-net-climber",
+    "min": [
+     -8.943,
+     0.051,
+     -4.98
+    ],
+    "max": [
+     -6.257,
+     2.515,
+     -1.82
+    ]
+   },
+   {
+    "name": "089-roundabout",
+    "min": [
+     -5.7,
+     0.051,
+     -4.9
+    ],
+    "max": [
+     -2.7,
+     0.937,
+     -1.9
+    ]
+   },
+   {
+    "name": "090-seesaw",
+    "min": [
+     -1.55,
+     0.051,
+     -5
+    ],
+    "max": [
+     -0.65,
+     0.995,
+     -1.8
+    ]
+   },
+   {
+    "name": "091-swing-set-toddler-seats",
+    "min": [
+     -10.48,
+     0.051,
+     -1.795
+    ],
+    "max": [
+     -6.72,
+     2.526,
+     -0.105
+    ]
+   },
+   {
+    "name": "092-spring-rocker",
+    "min": [
+     -14.9,
+     0.051,
+     -1.52
+    ],
+    "max": [
+     -14.3,
+     1.371,
+     -0.44
+    ]
+   },
+   {
+    "name": "093-spring-rocker-duck",
+    "min": [
+     -13.5,
+     0.051,
+     -1.69
+    ],
+    "max": [
+     -12.9,
+     1.171,
+     -0.42
+    ]
+   },
+   {
+    "name": "094-spring-rocker-blue",
+    "min": [
+     -12.1,
+     0.051,
+     -1.52
+    ],
+    "max": [
+     -11.5,
+     1.371,
+     -0.44
+    ]
+   },
+   {
+    "name": "095-playground-sign",
+    "min": [
+     -3.95,
+     0.051,
+     -0.74
+    ],
+    "max": [
+     -2.85,
+     1.651,
+     -0.588
+    ]
+   },
+   {
+    "name": "096-park-litter-bin",
+    "min": [
+     -1.72,
+     0.051,
+     -1.004
+    ],
+    "max": [
+     -1.08,
+     1.041,
+     -0.396
+    ]
+   },
+   {
+    "name": "097-park-path-tile-straight",
+    "min": [
+     -8,
+     0,
+     0
+    ],
+    "max": [
+     -6,
+     0.12,
+     2
+    ]
+   },
+   {
+    "name": "098-park-path-tile-straight",
+    "min": [
+     -8,
+     0,
+     2
+    ],
+    "max": [
+     -6,
+     0.12,
+     4
+    ]
+   },
+   {
+    "name": "099-park-path-tile-straight",
+    "min": [
+     -6,
+     0,
+     0
+    ],
+    "max": [
+     -4,
+     0.12,
+     2
+    ]
+   },
+   {
+    "name": "100-park-path-tile-straight",
+    "min": [
+     -6,
+     0,
+     2
+    ],
+    "max": [
+     -4,
+     0.12,
+     4
+    ]
+   },
+   {
+    "name": "101-park-notice-board",
+    "min": [
+     -7.94,
+     0.085,
+     3.17
+    ],
+    "max": [
+     -6.06,
+     2.005,
+     3.47
+    ]
+   },
+   {
+    "name": "102-bike-rack",
+    "min": [
+     -6,
+     0.085,
+     2.84
+    ],
+    "max": [
+     -3.8,
+     0.809,
+     3.56
+    ]
+   },
+   {
+    "name": "103-park-path-tile-straight",
+    "min": [
+     -20,
+     0,
+     8
+    ],
+    "max": [
+     -18,
+     0.12,
+     10
+    ]
+   },
+   {
+    "name": "104-park-path-tile-straight",
+    "min": [
+     -18,
+     0,
+     8
+    ],
+    "max": [
+     -16,
+     0.12,
+     10
+    ]
+   },
+   {
+    "name": "105-park-path-tile-straight",
+    "min": [
+     -16,
+     0,
+     8
+    ],
+    "max": [
+     -14,
+     0.12,
+     10
+    ]
+   },
+   {
+    "name": "106-park-path-tile-straight",
+    "min": [
+     -14,
+     0,
+     8
+    ],
+    "max": [
+     -12,
+     0.12,
+     10
+    ]
+   },
+   {
+    "name": "107-park-path-tile-straight",
+    "min": [
+     -12,
+     0,
+     8
+    ],
+    "max": [
+     -10,
+     0.12,
+     10
+    ]
+   },
+   {
+    "name": "108-park-path-tile-straight",
+    "min": [
+     -10,
+     0,
+     8
+    ],
+    "max": [
+     -8,
+     0.12,
+     10
+    ]
+   },
+   {
+    "name": "109-park-path-tile-straight",
+    "min": [
+     -8,
+     0,
+     8
+    ],
+    "max": [
+     -6,
+     0.12,
+     10
+    ]
+   },
+   {
+    "name": "110-park-path-tile-straight",
+    "min": [
+     -6,
+     0,
+     8
+    ],
+    "max": [
+     -4,
+     0.12,
+     10
+    ]
+   },
+   {
+    "name": "111-park-path-tile-straight",
+    "min": [
+     -4,
+     0,
+     8
+    ],
+    "max": [
+     -2,
+     0.12,
+     10
+    ]
+   },
+   {
+    "name": "112-park-path-tile-straight",
+    "min": [
+     -2,
+     0,
+     8
+    ],
+    "max": [
+     0,
+     0.12,
+     10
+    ]
+   },
+   {
+    "name": "113-park-path-tile-straight",
+    "min": [
+     0,
+     0,
+     8
+    ],
+    "max": [
+     2,
+     0.12,
+     10
+    ]
+   },
+   {
+    "name": "114-park-path-tile-straight",
+    "min": [
+     2,
+     0,
+     8
+    ],
+    "max": [
+     4,
+     0.12,
+     10
+    ]
+   },
+   {
+    "name": "115-park-path-tile-straight",
+    "min": [
+     4,
+     0,
+     8
+    ],
+    "max": [
+     6,
+     0.12,
+     10
+    ]
+   },
+   {
+    "name": "116-park-path-tile-straight",
+    "min": [
+     6,
+     0,
+     8
+    ],
+    "max": [
+     8,
+     0.12,
+     10
+    ]
+   },
+   {
+    "name": "117-park-path-tile-curve",
+    "min": [
+     6,
+     0,
+     6
+    ],
+    "max": [
+     8,
+     0.12,
+     8
+    ]
+   },
+   {
+    "name": "118-park-path-tile-straight",
+    "min": [
+     8,
+     0,
+     6
+    ],
+    "max": [
+     10,
+     0.12,
+     8
+    ]
+   },
+   {
+    "name": "119-park-path-tile-straight",
+    "min": [
+     8,
+     0,
+     4
+    ],
+    "max": [
+     10,
+     0.12,
+     6
+    ]
+   },
+   {
+    "name": "120-park-gate-with-piers",
+    "min": [
+     -20.34,
+     0,
+     7.38
+    ],
+    "max": [
+     -19.66,
+     2.2,
+     10.62
+    ]
+   },
+   {
+    "name": "121-duck-pond-edge-piece",
+    "min": [
+     2.852,
+     0.062,
+     -3.954
+    ],
+    "max": [
+     5.148,
+     0.362,
+     -1
+    ]
+   },
+   {
+    "name": "122-duck-pond-edge-piece",
+    "min": [
+     4.019,
+     0.062,
+     -3.981
+    ],
+    "max": [
+     6.772,
+     0.362,
+     -1.228
+    ]
+   },
+   {
+    "name": "123-duck-pond-edge-piece",
+    "min": [
+     4.046,
+     0.062,
+     -5.148
+    ],
+    "max": [
+     7,
+     0.362,
+     -2.852
+    ]
+   },
+   {
+    "name": "124-duck-pond-edge-piece",
+    "min": [
+     4.019,
+     0.062,
+     -6.772
+    ],
+    "max": [
+     6.772,
+     0.362,
+     -4.019
+    ]
+   },
+   {
+    "name": "125-duck-pond-edge-piece",
+    "min": [
+     2.852,
+     0.062,
+     -7
+    ],
+    "max": [
+     5.148,
+     0.362,
+     -4.046
+    ]
+   },
+   {
+    "name": "126-duck-pond-edge-piece",
+    "min": [
+     1.228,
+     0.062,
+     -6.772
+    ],
+    "max": [
+     3.981,
+     0.362,
+     -4.019
+    ]
+   },
+   {
+    "name": "127-duck-pond-edge-piece",
+    "min": [
+     1,
+     0.062,
+     -5.148
+    ],
+    "max": [
+     3.954,
+     0.362,
+     -2.852
+    ]
+   },
+   {
+    "name": "128-duck-pond-edge-piece",
+    "min": [
+     1.228,
+     0.062,
+     -3.981
+    ],
+    "max": [
+     3.981,
+     0.362,
+     -1.228
+    ]
+   },
+   {
+    "name": "129-hedge-section",
+    "min": [
+     -20,
+     0.062,
+     -11.77
+    ],
+    "max": [
+     -18,
+     1.342,
+     -11.03
+    ]
+   },
+   {
+    "name": "130-hedge-section",
+    "min": [
+     -18,
+     0.062,
+     -11.77
+    ],
+    "max": [
+     -16,
+     1.342,
+     -11.03
+    ]
+   },
+   {
+    "name": "131-hedge-section",
+    "min": [
+     -16,
+     0.062,
+     -11.77
+    ],
+    "max": [
+     -14,
+     1.342,
+     -11.03
+    ]
+   },
+   {
+    "name": "132-hedge-section",
+    "min": [
+     -14,
+     0.062,
+     -11.77
+    ],
+    "max": [
+     -12,
+     1.342,
+     -11.03
+    ]
+   },
+   {
+    "name": "133-hedge-section",
+    "min": [
+     -12,
+     0.062,
+     -11.77
+    ],
+    "max": [
+     -10,
+     1.342,
+     -11.03
+    ]
+   },
+   {
+    "name": "134-hedge-section",
+    "min": [
+     -10,
+     0.062,
+     -11.77
+    ],
+    "max": [
+     -8,
+     1.342,
+     -11.03
+    ]
+   },
+   {
+    "name": "135-hedge-section",
+    "min": [
+     -8,
+     0.062,
+     -11.77
+    ],
+    "max": [
+     -6,
+     1.342,
+     -11.03
+    ]
+   },
+   {
+    "name": "136-hedge-section",
+    "min": [
+     -6,
+     0.062,
+     -11.77
+    ],
+    "max": [
+     -4,
+     1.342,
+     -11.03
+    ]
+   },
+   {
+    "name": "137-hedge-section",
+    "min": [
+     -4,
+     0.062,
+     -11.77
+    ],
+    "max": [
+     -2,
+     1.342,
+     -11.03
+    ]
+   },
+   {
+    "name": "138-hedge-section",
+    "min": [
+     -2,
+     0.062,
+     -11.77
+    ],
+    "max": [
+     0,
+     1.342,
+     -11.03
+    ]
+   },
+   {
+    "name": "139-hedge-section",
+    "min": [
+     -19.77,
+     0.062,
+     -8
+    ],
+    "max": [
+     -19.03,
+     1.342,
+     -6
+    ]
+   },
+   {
+    "name": "140-hedge-section",
+    "min": [
+     -19.77,
+     0.062,
+     -6
+    ],
+    "max": [
+     -19.03,
+     1.342,
+     -4
+    ]
+   },
+   {
+    "name": "141-hedge-section",
+    "min": [
+     -19.77,
+     0.062,
+     -4
+    ],
+    "max": [
+     -19.03,
+     1.342,
+     -2
+    ]
+   },
+   {
+    "name": "142-park-bandstand",
+    "min": [
+     -15.9,
+     0.062,
+     1.3
+    ],
+    "max": [
+     -10.1,
+     5.744,
+     7.85
+    ]
+   },
+   {
+    "name": "143-park-kiosk",
+    "min": [
+     1.48,
+     0.062,
+     4.08
+    ],
+    "max": [
+     4.92,
+     2.982,
+     6.72
+    ]
+   },
+   {
+    "name": "144-pergola",
+    "min": [
+     -19.176,
+     0.062,
+     -11.276
+    ],
+    "max": [
+     -15.332,
+     3.232,
+     -8.45
+    ]
+   },
+   {
+    "name": "145-picnic-table",
+    "min": [
+     -9.56,
+     0.062,
+     -10.498
+    ],
+    "max": [
+     -7.24,
+     0.877,
+     -8.302
+    ]
+   },
+   {
+    "name": "146-picnic-table",
+    "min": [
+     -6.701,
+     0.062,
+     -10.627
+    ],
+    "max": [
+     -4.499,
+     0.877,
+     -8.573
+    ]
+   },
+   {
+    "name": "147-picnic-table",
+    "min": [
+     4.956,
+     0.062,
+     2.194
+    ],
+    "max": [
+     7.444,
+     0.877,
+     4.606
+    ]
+   },
+   {
+    "name": "148-flower-bed",
+    "min": [
+     -4.1,
+     0.062,
+     3.1
+    ],
+    "max": [
+     -1.1,
+     0.798,
+     6.1
+    ]
+   },
+   {
+    "name": "149-flower-bed",
+    "min": [
+     -19.7,
+     0.062,
+     1.1
+    ],
+    "max": [
+     -16.7,
+     0.798,
+     4.1
+    ]
+   },
+   {
+    "name": "150-flower-bed",
+    "min": [
+     4.9,
+     0.062,
+     -11.5
+    ],
+    "max": [
+     7.9,
+     0.798,
+     -8.5
+    ]
+   },
+   {
+    "name": "151-park-tree-broadleaf",
+    "min": [
+     -13.336,
+     0.062,
+     -11.618
+    ],
+    "max": [
+     -9.956,
+     4.13,
+     -9.01
+    ]
+   },
+   {
+    "name": "152-park-tree-broadleaf",
+    "min": [
+     -2.726,
+     0.062,
+     -11.799
+    ],
+    "max": [
+     0.215,
+     4.13,
+     -8.958
+    ]
+   },
+   {
+    "name": "153-park-tree-broadleaf",
+    "min": [
+     3.185,
+     0.062,
+     -12.248
+    ],
+    "max": [
+     5.842,
+     4.13,
+     -8.863
+    ]
+   },
+   {
+    "name": "154-park-tree-broadleaf",
+    "min": [
+     5.274,
+     0.062,
+     -7.803
+    ],
+    "max": [
+     8.658,
+     4.13,
+     -5.138
+    ]
+   },
+   {
+    "name": "155-park-tree-broadleaf",
+    "min": [
+     -20.421,
+     0.062,
+     -1.208
+    ],
+    "max": [
+     -17.719,
+     4.13,
+     1.948
+    ]
+   },
+   {
+    "name": "156-park-tree-conifer",
+    "min": [
+     -16.115,
+     0.062,
+     -11.747
+    ],
+    "max": [
+     -13.856,
+     4.362,
+     -9.494
+    ]
+   },
+   {
+    "name": "157-park-tree-conifer",
+    "min": [
+     -4.736,
+     0.062,
+     -11.688
+    ],
+    "max": [
+     -2.471,
+     4.362,
+     -9.45
+    ]
+   },
+   {
+    "name": "158-park-tree-conifer",
+    "min": [
+     0.463,
+     0.062,
+     -11.35
+    ],
+    "max": [
+     2.727,
+     4.362,
+     -9.11
+    ]
+   },
+   {
+    "name": "159-park-tree-conifer",
+    "min": [
+     -10.348,
+     0.062,
+     4.48
+    ],
+    "max": [
+     -8.1,
+     4.362,
+     6.741
+    ]
+   },
+   {
+    "name": "160-park-tree-conifer",
+    "min": [
+     6.064,
+     0.062,
+     -0.488
+    ],
+    "max": [
+     8.328,
+     4.362,
+     1.75
+    ]
+   },
+   {
+    "name": "161-shrub-clump",
+    "min": [
+     -13.465,
+     0.062,
+     -10.117
+    ],
+    "max": [
+     -11.7,
+     1.035,
+     -8.731
+    ]
+   },
+   {
+    "name": "162-shrub-clump",
+    "min": [
+     1.863,
+     0.062,
+     -10.449
+    ],
+    "max": [
+     3.248,
+     1.035,
+     -8.885
+    ]
+   },
+   {
+    "name": "163-shrub-clump",
+    "min": [
+     -19.295,
+     0.062,
+     3.496
+    ],
+    "max": [
+     -17.907,
+     1.035,
+     5.261
+    ]
+   },
+   {
+    "name": "164-shrub-clump",
+    "min": [
+     -1.208,
+     0.062,
+     5.693
+    ],
+    "max": [
+     0.463,
+     1.035,
+     7.107
+    ]
+   },
+   {
+    "name": "165-shrub-clump",
+    "min": [
+     6.157,
+     0.062,
+     3.874
+    ],
+    "max": [
+     7.915,
+     1.035,
+     5.209
+    ]
+   },
+   {
+    "name": "166-park-bench",
+    "min": [
+     -17.3,
+     0.062,
+     6.98
+    ],
+    "max": [
+     -15.5,
+     1.035,
+     7.68
+    ]
+   },
+   {
+    "name": "167-park-bench",
+    "min": [
+     -11.1,
+     0.062,
+     6.98
+    ],
+    "max": [
+     -9.3,
+     1.035,
+     7.68
+    ]
+   },
+   {
+    "name": "168-park-bench",
+    "min": [
+     -2.7,
+     0.062,
+     6.98
+    ],
+    "max": [
+     -0.9,
+     1.035,
+     7.68
+    ]
+   },
+   {
+    "name": "169-park-bench",
+    "min": [
+     4.1,
+     0.062,
+     6.98
+    ],
+    "max": [
+     5.9,
+     1.035,
+     7.68
+    ]
+   },
+   {
+    "name": "170-park-lamp-post",
+    "min": [
+     -18.64,
+     0.062,
+     7.58
+    ],
+    "max": [
+     -18.16,
+     5.032,
+     8.02
+    ]
+   },
+   {
+    "name": "171-park-lamp-post",
+    "min": [
+     -12.64,
+     0.062,
+     7.58
+    ],
+    "max": [
+     -12.16,
+     5.032,
+     8.02
+    ]
+   },
+   {
+    "name": "172-park-lamp-post",
+    "min": [
+     -4.04,
+     0.062,
+     7.58
+    ],
+    "max": [
+     -3.56,
+     5.032,
+     8.02
+    ]
+   },
+   {
+    "name": "173-park-lamp-post",
+    "min": [
+     3.96,
+     0.062,
+     7.58
+    ],
+    "max": [
+     4.44,
+     5.032,
+     8.02
+    ]
+   },
+   {
+    "name": "174-park-lamp-post",
+    "min": [
+     7.36,
+     0.062,
+     3.18
+    ],
+    "max": [
+     7.84,
+     5.032,
+     3.62
+    ]
+   },
+   {
+    "name": "175-park-litter-bin",
+    "min": [
+     -13.72,
+     0.062,
+     7.196
+    ],
+    "max": [
+     -13.08,
+     1.052,
+     7.804
+    ]
+   },
+   {
+    "name": "176-park-litter-bin",
+    "min": [
+     -0.92,
+     0.062,
+     7.196
+    ],
+    "max": [
+     -0.28,
+     1.052,
+     7.804
+    ]
+   },
+   {
+    "name": "177-park-litter-bin",
+    "min": [
+     6.28,
+     0.062,
+     7.096
+    ],
+    "max": [
+     6.92,
+     1.052,
+     7.704
+    ]
+   },
+   {
+    "name": "178-dog-waste-bin",
+    "min": [
+     -17.65,
+     0.062,
+     7.35
+    ],
+    "max": [
+     -17.15,
+     1.622,
+     7.85
+    ]
+   },
+   {
+    "name": "179-drinking-fountain",
+    "min": [
+     1.33,
+     0.062,
+     7.36
+    ],
+    "max": [
+     1.87,
+     1.143,
+     7.84
+    ]
+   },
+   {
+    "name": "180-park-bollard",
+    "min": [
+     -18.73,
+     0.085,
+     8.27
+    ],
+    "max": [
+     -18.47,
+     1.215,
+     8.53
+    ]
+   },
+   {
+    "name": "181-park-bollard",
+    "min": [
+     -18.73,
+     0.085,
+     9.47
+    ],
+    "max": [
+     -18.47,
+     1.215,
+     9.73
+    ]
+   },
+   {
+    "name": "182-park-bollard",
+    "min": [
+     9.27,
+     0.085,
+     6.27
+    ],
+    "max": [
+     9.53,
+     1.215,
+     6.53
+    ]
+   },
+   {
+    "name": "183-park-bollard",
+    "min": [
+     8.27,
+     0.085,
+     6.27
+    ],
+    "max": [
+     8.53,
+     1.215,
+     6.53
+    ]
+   }
+  ],
+  "materials": [
+   "grass",
+   "sunflower",
+   "poppy",
+   "azure",
+   "charcoal",
+   "steel",
+   "timber",
+   "paving"
+  ],
+  "textures": [
+   "wood",
+   "concrete"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (3dassets.dev)"
+ },
+ {
+  "file": "assets/imported/playground/tiny-treats-fun-playground/bucket_A.gltf",
+  "bytes": 26516,
+  "size": [
+   0.7,
+   1.135,
+   0.84
+  ],
+  "min": [
+   -0.35,
+   0.001,
+   -0.42
+  ],
+  "meshes": 2,
+  "triangles": 520,
+  "children": [
+   "bucket_A_handle"
+  ],
+  "materials": [
+   "tiny_treats_1"
+  ],
+  "textures": [
+   "tiny_treats_texture_1.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Tiny Treats / Isa Lousberg)"
+ },
+ {
+  "file": "assets/imported/playground/tiny-treats-fun-playground/bucket_B.gltf",
+  "bytes": 29494,
+  "size": [
+   0.7,
+   1.136,
+   0.84
+  ],
+  "min": [
+   -0.35,
+   0,
+   -0.42
+  ],
+  "meshes": 2,
+  "triangles": 568,
+  "children": [
+   "bucket_B_handle"
+  ],
+  "materials": [
+   "tiny_treats_1"
+  ],
+  "textures": [
+   "tiny_treats_texture_1.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Tiny Treats / Isa Lousberg)"
+ },
+ {
+  "file": "assets/imported/playground/tiny-treats-fun-playground/cart.gltf",
+  "bytes": 102321,
+  "size": [
+   1.39,
+   0.694,
+   2.662
+  ],
+  "min": [
+   -0.695,
+   0.006,
+   -0.894
+  ],
+  "meshes": 4,
+  "triangles": 2078,
+  "children": [
+   "cart_handle",
+   "cart_wheels_back",
+   "cart_wheels_front"
+  ],
+  "materials": [
+   "tiny_treats_1"
+  ],
+  "textures": [
+   "tiny_treats_texture_1.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Tiny Treats / Isa Lousberg)"
+ },
+ {
+  "file": "assets/imported/playground/tiny-treats-fun-playground/fence_corner.gltf",
+  "bytes": 25302,
+  "size": [
+   2.4,
+   2,
+   2.4
+  ],
+  "min": [
+   -0.2,
+   0,
+   -0.2
+  ],
+  "meshes": 1,
+  "triangles": 292,
+  "children": [
+   "fence_corner"
+  ],
+  "materials": [
+   "tiny_treats_1"
+  ],
+  "textures": [
+   "tiny_treats_texture_1.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Tiny Treats / Isa Lousberg)"
+ },
+ {
+  "file": "assets/imported/playground/tiny-treats-fun-playground/fence_post.gltf",
+  "bytes": 6518,
+  "size": [
+   0.4,
+   2,
+   0.4
+  ],
+  "min": [
+   -0.2,
+   0,
+   -0.2
+  ],
+  "meshes": 1,
+  "triangles": 44,
+  "children": [
+   "fence_post"
+  ],
+  "materials": [
+   "tiny_treats_1"
+  ],
+  "textures": [
+   "tiny_treats_texture_1.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Tiny Treats / Isa Lousberg)"
+ },
+ {
+  "file": "assets/imported/playground/tiny-treats-fun-playground/fence_rails.gltf",
+  "bytes": 9576,
+  "size": [
+   0.7,
+   1.5,
+   0.3
+  ],
+  "min": [
+   10.15,
+   0.2,
+   16.85
+  ],
+  "meshes": 1,
+  "triangles": 72,
+  "children": [
+   "fence_rails"
+  ],
+  "materials": [
+   "tiny_treats_1"
+  ],
+  "textures": [
+   "tiny_treats_texture_1.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Tiny Treats / Isa Lousberg)"
+ },
+ {
+  "file": "assets/imported/playground/tiny-treats-fun-playground/fence_rails_long.gltf",
+  "bytes": 12343,
+  "size": [
+   1.7,
+   1.5,
+   0.3
+  ],
+  "min": [
+   12.15,
+   0.2,
+   16.85
+  ],
+  "meshes": 1,
+  "triangles": 104,
+  "children": [
+   "fence_rails_long"
+  ],
+  "materials": [
+   "tiny_treats_1"
+  ],
+  "textures": [
+   "tiny_treats_texture_1.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Tiny Treats / Isa Lousberg)"
+ },
+ {
+  "file": "assets/imported/playground/tiny-treats-fun-playground/fence_straight.gltf",
+  "bytes": 13169,
+  "size": [
+   1.4,
+   2,
+   0.4
+  ],
+  "min": [
+   -0.2,
+   0,
+   -0.2
+  ],
+  "meshes": 1,
+  "triangles": 136,
+  "children": [
+   "fence_straight"
+  ],
+  "materials": [
+   "tiny_treats_1"
+  ],
+  "textures": [
+   "tiny_treats_texture_1.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Tiny Treats / Isa Lousberg)"
+ },
+ {
+  "file": "assets/imported/playground/tiny-treats-fun-playground/fence_straight_long.gltf",
+  "bytes": 15938,
+  "size": [
+   2.4,
+   2,
+   0.4
+  ],
+  "min": [
+   -1.2,
+   0,
+   -0.2
+  ],
+  "meshes": 1,
+  "triangles": 168,
+  "children": [
+   "fence_straight_long"
+  ],
+  "materials": [
+   "tiny_treats_1"
+  ],
+  "textures": [
+   "tiny_treats_texture_1.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Tiny Treats / Isa Lousberg)"
+ },
+ {
+  "file": "assets/imported/playground/tiny-treats-fun-playground/fence_straight_long_open.gltf",
+  "bytes": 14081,
+  "size": [
+   2.05,
+   2,
+   0.4
+  ],
+  "min": [
+   -1.85,
+   0,
+   -0.2
+  ],
+  "meshes": 1,
+  "triangles": 136,
+  "children": [
+   "fence_straight_long_open"
+  ],
+  "materials": [
+   "tiny_treats_1"
+  ],
+  "textures": [
+   "tiny_treats_texture_1.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Tiny Treats / Isa Lousberg)"
+ },
+ {
+  "file": "assets/imported/playground/tiny-treats-fun-playground/fence_straight_open.gltf",
+  "bytes": 11312,
+  "size": [
+   1.05,
+   2,
+   0.4
+  ],
+  "min": [
+   -0.85,
+   0,
+   -0.2
+  ],
+  "meshes": 1,
+  "triangles": 104,
+  "children": [
+   "fence_straight_open"
+  ],
+  "materials": [
+   "tiny_treats_1"
+  ],
+  "textures": [
+   "tiny_treats_texture_1.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Tiny Treats / Isa Lousberg)"
+ },
+ {
+  "file": "assets/imported/playground/tiny-treats-fun-playground/merry_go_round.gltf",
+  "bytes": 32634,
+  "size": [
+   4,
+   2.496,
+   4
+  ],
+  "min": [
+   -2,
+   0,
+   -2
+  ],
+  "meshes": 1,
+  "triangles": 864,
+  "children": [
+   "merry_go_round"
+  ],
+  "materials": [
+   "tiny_treats_1"
+  ],
+  "textures": [
+   "tiny_treats_texture_1.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Tiny Treats / Isa Lousberg)"
+ },
+ {
+  "file": "assets/imported/playground/tiny-treats-fun-playground/monkeybar_A.gltf",
+  "bytes": 32738,
+  "size": [
+   2,
+   3,
+   4
+  ],
+  "min": [
+   -1,
+   0,
+   -2
+  ],
+  "meshes": 1,
+  "triangles": 520,
+  "children": [
+   "monkeybar_A"
+  ],
+  "materials": [
+   "tiny_treats_1"
+  ],
+  "textures": [
+   "tiny_treats_texture_1.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Tiny Treats / Isa Lousberg)"
+ },
+ {
+  "file": "assets/imported/playground/tiny-treats-fun-playground/monkeybar_B.gltf",
+  "bytes": 31427,
+  "size": [
+   2,
+   3,
+   4
+  ],
+  "min": [
+   -1,
+   0,
+   -2
+  ],
+  "meshes": 1,
+  "triangles": 680,
+  "children": [
+   "monkeybar_B"
+  ],
+  "materials": [
+   "tiny_treats_1"
+  ],
+  "textures": [
+   "tiny_treats_texture_1.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Tiny Treats / Isa Lousberg)"
+ },
+ {
+  "file": "assets/imported/playground/tiny-treats-fun-playground/picnic_table.gltf",
+  "bytes": 18497,
+  "size": [
+   2,
+   1,
+   2
+  ],
+  "min": [
+   -1,
+   0,
+   -1
+  ],
+  "meshes": 1,
+  "triangles": 404,
+  "children": [
+   "picnic_table"
+  ],
+  "materials": [
+   "tiny_treats_1"
+  ],
+  "textures": [
+   "tiny_treats_texture_1.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Tiny Treats / Isa Lousberg)"
+ },
+ {
+  "file": "assets/imported/playground/tiny-treats-fun-playground/sandbox_round.gltf",
+  "bytes": 22599,
+  "size": [
+   4,
+   0.386,
+   4
+  ],
+  "min": [
+   -2,
+   0,
+   -2
+  ],
+  "meshes": 1,
+  "triangles": 480,
+  "children": [
+   "sandbox_round"
+  ],
+  "materials": [
+   "tiny_treats_1"
+  ],
+  "textures": [
+   "tiny_treats_texture_1.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Tiny Treats / Isa Lousberg)"
+ },
+ {
+  "file": "assets/imported/playground/tiny-treats-fun-playground/sandbox_round_decorated.gltf",
+  "bytes": 72019,
+  "size": [
+   4,
+   0.914,
+   4
+  ],
+  "min": [
+   -2,
+   -0.089,
+   -2
+  ],
+  "meshes": 1,
+  "triangles": 1630,
+  "children": [
+   "sandbox_round_decorated"
+  ],
+  "materials": [
+   "tiny_treats_1"
+  ],
+  "textures": [
+   "tiny_treats_texture_1.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Tiny Treats / Isa Lousberg)"
+ },
+ {
+  "file": "assets/imported/playground/tiny-treats-fun-playground/sandbox_square.gltf",
+  "bytes": 36701,
+  "size": [
+   4.06,
+   0.4,
+   4.06
+  ],
+  "min": [
+   -2.03,
+   0,
+   -2.03
+  ],
+  "meshes": 1,
+  "triangles": 890,
+  "children": [
+   "sandbox_square"
+  ],
+  "materials": [
+   "tiny_treats_1"
+  ],
+  "textures": [
+   "tiny_treats_texture_1.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Tiny Treats / Isa Lousberg)"
+ },
+ {
+  "file": "assets/imported/playground/tiny-treats-fun-playground/sandbox_square_decorated.gltf",
+  "bytes": 102699,
+  "size": [
+   4.06,
+   0.962,
+   4.06
+  ],
+  "min": [
+   -2.03,
+   0,
+   -2.03
+  ],
+  "meshes": 1,
+  "triangles": 2380,
+  "children": [
+   "sandbox_square_decorated"
+  ],
+  "materials": [
+   "tiny_treats_1"
+  ],
+  "textures": [
+   "tiny_treats_texture_1.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Tiny Treats / Isa Lousberg)"
+ },
+ {
+  "file": "assets/imported/playground/tiny-treats-fun-playground/sandcastle_A.gltf",
+  "bytes": 9576,
+  "size": [
+   0.495,
+   0.4,
+   0.495
+  ],
+  "min": [
+   -0.248,
+   0,
+   -0.248
+  ],
+  "meshes": 1,
+  "triangles": 120,
+  "children": [
+   "sandcastle_A"
+  ],
+  "materials": [
+   "tiny_treats_1"
+  ],
+  "textures": [
+   "tiny_treats_texture_1.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Tiny Treats / Isa Lousberg)"
+ },
+ {
+  "file": "assets/imported/playground/tiny-treats-fun-playground/sandcastle_B.gltf",
+  "bytes": 17452,
+  "size": [
+   0.498,
+   0.55,
+   0.498
+  ],
+  "min": [
+   -0.249,
+   0,
+   -0.249
+  ],
+  "meshes": 1,
+  "triangles": 288,
+  "children": [
+   "sandcastle_B"
+  ],
+  "materials": [
+   "tiny_treats_1"
+  ],
+  "textures": [
+   "tiny_treats_texture_1.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Tiny Treats / Isa Lousberg)"
+ },
+ {
+  "file": "assets/imported/playground/tiny-treats-fun-playground/sandcastle_C.gltf",
+  "bytes": 29182,
+  "size": [
+   1.398,
+   0.55,
+   0.498
+  ],
+  "min": [
+   -0.699,
+   0,
+   -0.249
+  ],
+  "meshes": 1,
+  "triangles": 536,
+  "children": [
+   "sandcastle_C"
+  ],
+  "materials": [
+   "tiny_treats_1"
+  ],
+  "textures": [
+   "tiny_treats_texture_1.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Tiny Treats / Isa Lousberg)"
+ },
+ {
+  "file": "assets/imported/playground/tiny-treats-fun-playground/seesaw_large.gltf",
+  "bytes": 29977,
+  "size": [
+   1.54,
+   0.95,
+   5.4
+  ],
+  "min": [
+   -0.77,
+   0,
+   -2.7
+  ],
+  "meshes": 2,
+  "triangles": 676,
+  "children": [
+   "seesaw_large_seat"
+  ],
+  "materials": [
+   "tiny_treats_1"
+  ],
+  "textures": [
+   "tiny_treats_texture_1.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Tiny Treats / Isa Lousberg)"
+ },
+ {
+  "file": "assets/imported/playground/tiny-treats-fun-playground/seesaw_small.gltf",
+  "bytes": 22695,
+  "size": [
+   1.54,
+   0.95,
+   4
+  ],
+  "min": [
+   -0.77,
+   0,
+   -2
+  ],
+  "meshes": 2,
+  "triangles": 452,
+  "children": [
+   "seesaw_small_seat"
+  ],
+  "materials": [
+   "tiny_treats_1"
+  ],
+  "textures": [
+   "tiny_treats_texture_1.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Tiny Treats / Isa Lousberg)"
+ },
+ {
+  "file": "assets/imported/playground/tiny-treats-fun-playground/shovel_A.gltf",
+  "bytes": 17531,
+  "size": [
+   0.35,
+   0.876,
+   0.121
+  ],
+  "min": [
+   -0.175,
+   -0.795,
+   -0.049
+  ],
+  "meshes": 1,
+  "triangles": 356,
+  "children": [
+   "shovel_A"
+  ],
+  "materials": [
+   "tiny_treats_1"
+  ],
+  "textures": [
+   "tiny_treats_texture_1.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Tiny Treats / Isa Lousberg)"
+ },
+ {
+  "file": "assets/imported/playground/tiny-treats-fun-playground/shovel_B.gltf",
+  "bytes": 22980,
+  "size": [
+   0.35,
+   0.876,
+   0.121
+  ],
+  "min": [
+   -0.175,
+   -0.795,
+   -0.049
+  ],
+  "meshes": 1,
+  "triangles": 448,
+  "children": [
+   "shovel_B"
+  ],
+  "materials": [
+   "tiny_treats_1"
+  ],
+  "textures": [
+   "tiny_treats_texture_1.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Tiny Treats / Isa Lousberg)"
+ },
+ {
+  "file": "assets/imported/playground/tiny-treats-fun-playground/slide_A.gltf",
+  "bytes": 74009,
+  "size": [
+   2.761,
+   4,
+   5.911
+  ],
+  "min": [
+   -1.561,
+   0,
+   -1.561
+  ],
+  "meshes": 1,
+  "triangles": 1574,
+  "children": [
+   "slide_A"
+  ],
+  "materials": [
+   "tiny_treats_1"
+  ],
+  "textures": [
+   "tiny_treats_texture_1.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Tiny Treats / Isa Lousberg)"
+ },
+ {
+  "file": "assets/imported/playground/tiny-treats-fun-playground/slide_B.gltf",
+  "bytes": 81896,
+  "size": [
+   4.185,
+   7.845,
+   6.349
+  ],
+  "min": [
+   -2.185,
+   -0.014,
+   -2
+  ],
+  "meshes": 1,
+  "triangles": 1288,
+  "children": [
+   "slide_B"
+  ],
+  "materials": [
+   "tiny_treats_1"
+  ],
+  "textures": [
+   "tiny_treats_texture_1.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Tiny Treats / Isa Lousberg)"
+ },
+ {
+  "file": "assets/imported/playground/tiny-treats-fun-playground/spring_horse_A.gltf",
+  "bytes": 54974,
+  "size": [
+   1,
+   2.299,
+   2.348
+  ],
+  "min": [
+   -0.5,
+   0,
+   -1.126
+  ],
+  "meshes": 2,
+  "triangles": 1590,
+  "children": [
+   "spring_horse_A_seat"
+  ],
+  "materials": [
+   "tiny_treats_1"
+  ],
+  "textures": [
+   "tiny_treats_texture_1.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Tiny Treats / Isa Lousberg)"
+ },
+ {
+  "file": "assets/imported/playground/tiny-treats-fun-playground/spring_horse_B.gltf",
+  "bytes": 54974,
+  "size": [
+   1,
+   2.299,
+   2.348
+  ],
+  "min": [
+   -0.5,
+   0,
+   -1.126
+  ],
+  "meshes": 2,
+  "triangles": 1590,
+  "children": [
+   "spring_horse_B_seat"
+  ],
+  "materials": [
+   "tiny_treats_1"
+  ],
+  "textures": [
+   "tiny_treats_texture_1.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Tiny Treats / Isa Lousberg)"
+ },
+ {
+  "file": "assets/imported/playground/tiny-treats-fun-playground/stepping_stumps_A.gltf",
+  "bytes": 15406,
+  "size": [
+   0.9,
+   0.5,
+   0.4
+  ],
+  "min": [
+   -0.55,
+   0,
+   -0.2
+  ],
+  "meshes": 1,
+  "triangles": 256,
+  "children": [
+   "stepping_stumps_A"
+  ],
+  "materials": [
+   "tiny_treats_1"
+  ],
+  "textures": [
+   "tiny_treats_texture_1.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Tiny Treats / Isa Lousberg)"
+ },
+ {
+  "file": "assets/imported/playground/tiny-treats-fun-playground/stepping_stumps_A_blue.gltf",
+  "bytes": 6853,
+  "size": [
+   0.2,
+   0.3,
+   0.2
+  ],
+  "min": [
+   -0.1,
+   0,
+   -0.1
+  ],
+  "meshes": 1,
+  "triangles": 64,
+  "children": [
+   "stepping_stumps_A_blue"
+  ],
+  "materials": [
+   "tiny_treats_1"
+  ],
+  "textures": [
+   "tiny_treats_texture_1.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Tiny Treats / Isa Lousberg)"
+ },
+ {
+  "file": "assets/imported/playground/tiny-treats-fun-playground/stepping_stumps_A_pink.gltf",
+  "bytes": 7813,
+  "size": [
+   0.4,
+   0.5,
+   0.4
+  ],
+  "min": [
+   -0.2,
+   0,
+   -0.2
+  ],
+  "meshes": 1,
+  "triangles": 96,
+  "children": [
+   "stepping_stumps_A_pink"
+  ],
+  "materials": [
+   "tiny_treats_1"
+  ],
+  "textures": [
+   "tiny_treats_texture_1.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Tiny Treats / Isa Lousberg)"
+ },
+ {
+  "file": "assets/imported/playground/tiny-treats-fun-playground/stepping_stumps_A_yellow.gltf",
+  "bytes": 7898,
+  "size": [
+   0.3,
+   0.4,
+   0.3
+  ],
+  "min": [
+   -0.15,
+   0,
+   -0.15
+  ],
+  "meshes": 1,
+  "triangles": 96,
+  "children": [
+   "stepping_stumps_A_yellow"
+  ],
+  "materials": [
+   "tiny_treats_1"
+  ],
+  "textures": [
+   "tiny_treats_texture_1.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Tiny Treats / Isa Lousberg)"
+ },
+ {
+  "file": "assets/imported/playground/tiny-treats-fun-playground/stepping_stumps_B.gltf",
+  "bytes": 15182,
+  "size": [
+   0.9,
+   0.5,
+   0.4
+  ],
+  "min": [
+   -0.55,
+   0,
+   -0.2
+  ],
+  "meshes": 1,
+  "triangles": 256,
+  "children": [
+   "stepping_stumps_B"
+  ],
+  "materials": [
+   "tiny_treats_1"
+  ],
+  "textures": [
+   "tiny_treats_texture_1.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Tiny Treats / Isa Lousberg)"
+ },
+ {
+  "file": "assets/imported/playground/tiny-treats-fun-playground/stepping_stumps_B_large.gltf",
+  "bytes": 7720,
+  "size": [
+   0.4,
+   0.5,
+   0.4
+  ],
+  "min": [
+   -0.2,
+   0,
+   -0.2
+  ],
+  "meshes": 1,
+  "triangles": 96,
+  "children": [
+   "stepping_stumps_B_large"
+  ],
+  "materials": [
+   "tiny_treats_1"
+  ],
+  "textures": [
+   "tiny_treats_texture_1.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Tiny Treats / Isa Lousberg)"
+ },
+ {
+  "file": "assets/imported/playground/tiny-treats-fun-playground/stepping_stumps_B_medium.gltf",
+  "bytes": 7834,
+  "size": [
+   0.3,
+   0.4,
+   0.3
+  ],
+  "min": [
+   -0.15,
+   0,
+   -0.15
+  ],
+  "meshes": 1,
+  "triangles": 96,
+  "children": [
+   "stepping_stumps_B_medium"
+  ],
+  "materials": [
+   "tiny_treats_1"
+  ],
+  "textures": [
+   "tiny_treats_texture_1.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Tiny Treats / Isa Lousberg)"
+ },
+ {
+  "file": "assets/imported/playground/tiny-treats-fun-playground/stepping_stumps_B_small.gltf",
+  "bytes": 6792,
+  "size": [
+   0.2,
+   0.3,
+   0.2
+  ],
+  "min": [
+   -0.1,
+   0,
+   -0.1
+  ],
+  "meshes": 1,
+  "triangles": 64,
+  "children": [
+   "stepping_stumps_B_small"
+  ],
+  "materials": [
+   "tiny_treats_1"
+  ],
+  "textures": [
+   "tiny_treats_texture_1.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Tiny Treats / Isa Lousberg)"
+ },
+ {
+  "file": "assets/imported/playground/tiny-treats-fun-playground/swing_A_large.gltf",
+  "bytes": 129417,
+  "size": [
+   6,
+   3.942,
+   3.065
+  ],
+  "min": [
+   -3,
+   -0.034,
+   -1.532
+  ],
+  "meshes": 3,
+  "triangles": 3232,
+  "children": [
+   "swing_A_large_seat_A",
+   "swing_A_large_seat_B"
+  ],
+  "materials": [
+   "tiny_treats_1"
+  ],
+  "textures": [
+   "tiny_treats_texture_1.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Tiny Treats / Isa Lousberg)"
+ },
+ {
+  "file": "assets/imported/playground/tiny-treats-fun-playground/swing_A_small.gltf",
+  "bytes": 69121,
+  "size": [
+   4,
+   3.942,
+   3.065
+  ],
+  "min": [
+   -2,
+   -0.034,
+   -1.532
+  ],
+  "meshes": 2,
+  "triangles": 1624,
+  "children": [
+   "swing_A_small_seat"
+  ],
+  "materials": [
+   "tiny_treats_1"
+  ],
+  "textures": [
+   "tiny_treats_texture_1.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Tiny Treats / Isa Lousberg)"
+ },
+ {
+  "file": "assets/imported/playground/tiny-treats-fun-playground/swing_B_large.gltf",
+  "bytes": 43553,
+  "size": [
+   6,
+   3.942,
+   3.065
+  ],
+  "min": [
+   -3,
+   -0.065,
+   -1.532
+  ],
+  "meshes": 3,
+  "triangles": 1200,
+  "children": [
+   "swing_B_large_seat_A",
+   "swing_B_large_seat_B"
+  ],
+  "materials": [
+   "tiny_treats_1"
+  ],
+  "textures": [
+   "tiny_treats_texture_1.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Tiny Treats / Isa Lousberg)"
+ },
+ {
+  "file": "assets/imported/playground/tiny-treats-fun-playground/swing_B_small.gltf",
+  "bytes": 27233,
+  "size": [
+   4,
+   3.942,
+   3.065
+  ],
+  "min": [
+   -2,
+   -0.034,
+   -1.532
+  ],
+  "meshes": 2,
+  "triangles": 692,
+  "children": [
+   "swing_B_small_seat"
+  ],
+  "materials": [
+   "tiny_treats_1"
+  ],
+  "textures": [
+   "tiny_treats_texture_1.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Tiny Treats / Isa Lousberg)"
+ },
+ {
+  "file": "assets/imported/playground/tiny-treats-fun-playground/tire_blue.gltf",
+  "bytes": 17995,
+  "size": [
+   0.8,
+   0.4,
+   0.4
+  ],
+  "min": [
+   -0.4,
+   0,
+   -0.2
+  ],
+  "meshes": 1,
+  "triangles": 316,
+  "children": [
+   "tire_blue"
+  ],
+  "materials": [
+   "tiny_treats_1"
+  ],
+  "textures": [
+   "tiny_treats_texture_1.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Tiny Treats / Isa Lousberg)"
+ },
+ {
+  "file": "assets/imported/playground/tiny-treats-fun-playground/tire_pink.gltf",
+  "bytes": 17995,
+  "size": [
+   0.8,
+   0.4,
+   0.4
+  ],
+  "min": [
+   -0.4,
+   0,
+   -0.2
+  ],
+  "meshes": 1,
+  "triangles": 316,
+  "children": [
+   "tire_pink"
+  ],
+  "materials": [
+   "tiny_treats_1"
+  ],
+  "textures": [
+   "tiny_treats_texture_1.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Tiny Treats / Isa Lousberg)"
+ },
+ {
+  "file": "assets/imported/playground/tiny-treats-fun-playground/tire_yellow.gltf",
+  "bytes": 18001,
+  "size": [
+   0.8,
+   0.4,
+   0.4
+  ],
+  "min": [
+   -0.4,
+   0,
+   -0.2
+  ],
+  "meshes": 1,
+  "triangles": 316,
+  "children": [
+   "tire_yellow"
+  ],
+  "materials": [
+   "tiny_treats_1"
+  ],
+  "textures": [
+   "tiny_treats_texture_1.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Tiny Treats / Isa Lousberg)"
+ },
+ {
+  "file": "assets/imported/playground/tiny-treats-fun-playground/tree_large.gltf",
+  "bytes": 18007,
+  "size": [
+   2.481,
+   4.225,
+   2.481
+  ],
+  "min": [
+   -1.24,
+   -0.24,
+   -1.24
+  ],
+  "meshes": 1,
+  "triangles": 468,
+  "children": [
+   "tree_large"
+  ],
+  "materials": [
+   "tiny_treats_1"
+  ],
+  "textures": [
+   "tiny_treats_texture_1.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Tiny Treats / Isa Lousberg)"
+ },
+ {
+  "file": "assets/imported/playground/tiny-treats-fun-playground/tree_small.gltf",
+  "bytes": 14643,
+  "size": [
+   1.985,
+   2.883,
+   1.985
+  ],
+  "min": [
+   -0.992,
+   -0.192,
+   -0.992
+  ],
+  "meshes": 1,
+  "triangles": 360,
+  "children": [
+   "tree_small"
+  ],
+  "materials": [
+   "tiny_treats_1"
+  ],
+  "textures": [
+   "tiny_treats_texture_1.png"
+  ],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (Tiny Treats / Isa Lousberg)"
+ },
+ {
+  "file": "assets/imported/trampoline/trampoline-park-soft-play-starter.glb",
+  "bytes": 1587112,
+  "size": [
+   14.41,
+   3.987,
+   14.449
+  ],
+  "min": [
+   -12.23,
+   -0.05,
+   -8.23
+  ],
+  "meshes": 184,
+  "triangles": 39152,
+  "children": [
+   "000-park-floor-tile-blue",
+   "001-park-floor-tile-blue",
+   "002-park-floor-tile-blue",
+   "003-park-floor-tile",
+   "004-park-floor-tile",
+   "005-park-floor-tile",
+   "006-park-floor-tile",
+   "007-park-floor-tile-blue",
+   "008-park-floor-tile-blue",
+   "009-park-floor-tile-blue",
+   "010-park-floor-tile",
+   "011-park-floor-tile",
+   "012-park-floor-tile",
+   "013-park-floor-tile",
+   "014-park-floor-tile-blue",
+   "015-park-floor-tile-blue",
+   "016-park-floor-tile-blue",
+   "017-park-floor-tile",
+   "018-park-floor-tile",
+   "019-park-floor-tile",
+   "020-park-floor-tile",
+   "021-park-floor-tile-blue",
+   "022-park-floor-tile-blue",
+   "023-park-floor-tile-blue",
+   "024-park-floor-tile",
+   "025-park-floor-tile",
+   "026-park-floor-tile",
+   "027-park-floor-tile",
+   "028-park-floor-tile",
+   "029-park-floor-tile",
+   "030-park-floor-tile",
+   "031-park-floor-tile",
+   "032-park-floor-tile",
+   "033-park-floor-tile",
+   "034-park-floor-tile",
+   "035-park-floor-tile",
+   "036-park-floor-tile",
+   "037-park-floor-tile",
+   "038-park-floor-tile",
+   "039-park-floor-tile",
+   "040-park-floor-tile",
+   "041-park-floor-tile",
+   "042-park-floor-tile",
+   "043-park-floor-tile",
+   "044-park-floor-tile",
+   "045-park-floor-tile",
+   "046-park-floor-tile",
+   "047-park-floor-tile",
+   "048-park-floor-tile",
+   "049-wall-panel-module",
+   "050-wall-panel-module",
+   "051-wall-panel-module",
+   "052-wall-panel-module",
+   "053-wall-panel-module",
+   "054-wall-panel-module",
+   "055-wall-panel-module",
+   "056-wall-trampoline-module",
+   "057-wall-trampoline-module",
+   "058-wall-panel-module",
+   "059-trampoline-bed-module",
+   "060-trampoline-bed-module",
+   "061-trampoline-bed-module",
+   "062-trampoline-bed-module",
+   "063-trampoline-bed-module",
+   "064-trampoline-bed-module",
+   "065-safety-pad-strip",
+   "066-safety-pad-strip",
+   "067-safety-pad-strip",
+   "068-safety-pad-strip",
+   "069-safety-pad-strip-magenta",
+   "070-safety-pad-strip-magenta",
+   "071-safety-pad-strip-magenta",
+   "072-dodgeball-divider-net-frame",
+   "073-dodgeball-divider-net-frame",
+   "074-dodgeball-divider-net-frame",
+   "075-basketball-dunk-hoop",
+   "076-basketball-dunk-hoop",
+   "077-court-edge-platform",
+   "078-court-edge-platform",
+   "079-foam-pit-frame-with-cubes",
+   "080-tumble-track-lane",
+   "081-balance-beam-over-pit",
+   "082-airbag-landing-block",
+   "083-performance-trampoline",
+   "084-angled-trampoline-module",
+   "085-soft-play-frame-tower-with-slide",
+   "086-ball-pit-frame-with-balls",
+   "087-spinner-seat",
+   "088-roller-slide",
+   "089-padded-step-block-set",
+   "090-crawl-tunnel",
+   "091-crawl-tunnel-lime",
+   "092-toddler-play-mat-set",
+   "093-soft-play-net-wall-module",
+   "094-soft-play-net-wall-module",
+   "095-padded-post-and-rope-divider",
+   "096-padded-post-and-rope-divider",
+   "097-padded-post-and-rope-divider",
+   "098-marshal-stand",
+   "099-reception-desk-with-screen",
+   "100-grip-sock-display",
+   "101-locker-bank",
+   "102-locker-bank",
+   "103-bench-and-cubby-run",
+   "104-briefing-screen-on-stand",
+   "105-first-aid-point",
+   "106-safety-sign-set",
+   "107-queue-rail",
+   "108-queue-rail",
+   "109-queue-rail",
+   "110-cafe-counter-with-stools",
+   "111-party-room-table-run",
+   "112-party-room-table-run",
+   "113-vending-machine",
+   "114-waste-bin",
+   "115-waste-bin",
+   "116-cleaning-trolley",
+   "117-ceiling-truss-with-light-bars",
+   "118-ceiling-truss-with-light-bars",
+   "119-ceiling-truss-with-light-bars",
+   "120-ceiling-truss-with-light-bars",
+   "121-ceiling-truss-with-light-bars",
+   "122-ceiling-truss-with-light-bars"
+  ],
+  "childBounds": [
+   {
+    "name": "000-park-floor-tile-blue",
+    "min": [
+     -11.998,
+     -0.05,
+     -7.998
+    ],
+    "max": [
+     -10.002,
+     0.006,
+     -6.002
+    ]
+   },
+   {
+    "name": "001-park-floor-tile-blue",
+    "min": [
+     -11.998,
+     -0.05,
+     -5.998
+    ],
+    "max": [
+     -10.002,
+     0.006,
+     -4.002
+    ]
+   },
+   {
+    "name": "002-park-floor-tile-blue",
+    "min": [
+     -11.998,
+     -0.05,
+     -3.998
+    ],
+    "max": [
+     -10.002,
+     0.006,
+     -2.002
+    ]
+   },
+   {
+    "name": "003-park-floor-tile",
+    "min": [
+     -11.998,
+     -0.05,
+     -1.998
+    ],
+    "max": [
+     -10.002,
+     0.006,
+     -0.002
+    ]
+   },
+   {
+    "name": "004-park-floor-tile",
+    "min": [
+     -11.998,
+     -0.05,
+     0.002
+    ],
+    "max": [
+     -10.002,
+     0.006,
+     1.998
+    ]
+   },
+   {
+    "name": "005-park-floor-tile",
+    "min": [
+     -11.998,
+     -0.05,
+     2.002
+    ],
+    "max": [
+     -10.002,
+     0.006,
+     3.998
+    ]
+   },
+   {
+    "name": "006-park-floor-tile",
+    "min": [
+     -11.998,
+     -0.05,
+     4.002
+    ],
+    "max": [
+     -10.002,
+     0.006,
+     5.998
+    ]
+   },
+   {
+    "name": "007-park-floor-tile-blue",
+    "min": [
+     -9.998,
+     -0.05,
+     -7.998
+    ],
+    "max": [
+     -8.002,
+     0.006,
+     -6.002
+    ]
+   },
+   {
+    "name": "008-park-floor-tile-blue",
+    "min": [
+     -9.998,
+     -0.05,
+     -5.998
+    ],
+    "max": [
+     -8.002,
+     0.006,
+     -4.002
+    ]
+   },
+   {
+    "name": "009-park-floor-tile-blue",
+    "min": [
+     -9.998,
+     -0.05,
+     -3.998
+    ],
+    "max": [
+     -8.002,
+     0.006,
+     -2.002
+    ]
+   },
+   {
+    "name": "010-park-floor-tile",
+    "min": [
+     -9.998,
+     -0.05,
+     -1.998
+    ],
+    "max": [
+     -8.002,
+     0.006,
+     -0.002
+    ]
+   },
+   {
+    "name": "011-park-floor-tile",
+    "min": [
+     -9.998,
+     -0.05,
+     0.002
+    ],
+    "max": [
+     -8.002,
+     0.006,
+     1.998
+    ]
+   },
+   {
+    "name": "012-park-floor-tile",
+    "min": [
+     -9.998,
+     -0.05,
+     2.002
+    ],
+    "max": [
+     -8.002,
+     0.006,
+     3.998
+    ]
+   },
+   {
+    "name": "013-park-floor-tile",
+    "min": [
+     -9.998,
+     -0.05,
+     4.002
+    ],
+    "max": [
+     -8.002,
+     0.006,
+     5.998
+    ]
+   },
+   {
+    "name": "014-park-floor-tile-blue",
+    "min": [
+     -7.998,
+     -0.05,
+     -7.998
+    ],
+    "max": [
+     -6.002,
+     0.006,
+     -6.002
+    ]
+   },
+   {
+    "name": "015-park-floor-tile-blue",
+    "min": [
+     -7.998,
+     -0.05,
+     -5.998
+    ],
+    "max": [
+     -6.002,
+     0.006,
+     -4.002
+    ]
+   },
+   {
+    "name": "016-park-floor-tile-blue",
+    "min": [
+     -7.998,
+     -0.05,
+     -3.998
+    ],
+    "max": [
+     -6.002,
+     0.006,
+     -2.002
+    ]
+   },
+   {
+    "name": "017-park-floor-tile",
+    "min": [
+     -7.998,
+     -0.05,
+     -1.998
+    ],
+    "max": [
+     -6.002,
+     0.006,
+     -0.002
+    ]
+   },
+   {
+    "name": "018-park-floor-tile",
+    "min": [
+     -7.998,
+     -0.05,
+     0.002
+    ],
+    "max": [
+     -6.002,
+     0.006,
+     1.998
+    ]
+   },
+   {
+    "name": "019-park-floor-tile",
+    "min": [
+     -7.998,
+     -0.05,
+     2.002
+    ],
+    "max": [
+     -6.002,
+     0.006,
+     3.998
+    ]
+   },
+   {
+    "name": "020-park-floor-tile",
+    "min": [
+     -7.998,
+     -0.05,
+     4.002
+    ],
+    "max": [
+     -6.002,
+     0.006,
+     5.998
+    ]
+   },
+   {
+    "name": "021-park-floor-tile-blue",
+    "min": [
+     -5.998,
+     -0.05,
+     -7.998
+    ],
+    "max": [
+     -4.002,
+     0.006,
+     -6.002
+    ]
+   },
+   {
+    "name": "022-park-floor-tile-blue",
+    "min": [
+     -5.998,
+     -0.05,
+     -5.998
+    ],
+    "max": [
+     -4.002,
+     0.006,
+     -4.002
+    ]
+   },
+   {
+    "name": "023-park-floor-tile-blue",
+    "min": [
+     -5.998,
+     -0.05,
+     -3.998
+    ],
+    "max": [
+     -4.002,
+     0.006,
+     -2.002
+    ]
+   },
+   {
+    "name": "024-park-floor-tile",
+    "min": [
+     -5.998,
+     -0.05,
+     -1.998
+    ],
+    "max": [
+     -4.002,
+     0.006,
+     -0.002
+    ]
+   },
+   {
+    "name": "025-park-floor-tile",
+    "min": [
+     -5.998,
+     -0.05,
+     0.002
+    ],
+    "max": [
+     -4.002,
+     0.006,
+     1.998
+    ]
+   },
+   {
+    "name": "026-park-floor-tile",
+    "min": [
+     -5.998,
+     -0.05,
+     2.002
+    ],
+    "max": [
+     -4.002,
+     0.006,
+     3.998
+    ]
+   },
+   {
+    "name": "027-park-floor-tile",
+    "min": [
+     -5.998,
+     -0.05,
+     4.002
+    ],
+    "max": [
+     -4.002,
+     0.006,
+     5.998
+    ]
+   },
+   {
+    "name": "028-park-floor-tile",
+    "min": [
+     -3.998,
+     -0.05,
+     -7.998
+    ],
+    "max": [
+     -2.002,
+     0.006,
+     -6.002
+    ]
+   },
+   {
+    "name": "029-park-floor-tile",
+    "min": [
+     -3.998,
+     -0.05,
+     -5.998
+    ],
+    "max": [
+     -2.002,
+     0.006,
+     -4.002
+    ]
+   },
+   {
+    "name": "030-park-floor-tile",
+    "min": [
+     -3.998,
+     -0.05,
+     -3.998
+    ],
+    "max": [
+     -2.002,
+     0.006,
+     -2.002
+    ]
+   },
+   {
+    "name": "031-park-floor-tile",
+    "min": [
+     -3.998,
+     -0.05,
+     -1.998
+    ],
+    "max": [
+     -2.002,
+     0.006,
+     -0.002
+    ]
+   },
+   {
+    "name": "032-park-floor-tile",
+    "min": [
+     -3.998,
+     -0.05,
+     0.002
+    ],
+    "max": [
+     -2.002,
+     0.006,
+     1.998
+    ]
+   },
+   {
+    "name": "033-park-floor-tile",
+    "min": [
+     -3.998,
+     -0.05,
+     2.002
+    ],
+    "max": [
+     -2.002,
+     0.006,
+     3.998
+    ]
+   },
+   {
+    "name": "034-park-floor-tile",
+    "min": [
+     -3.998,
+     -0.05,
+     4.002
+    ],
+    "max": [
+     -2.002,
+     0.006,
+     5.998
+    ]
+   },
+   {
+    "name": "035-park-floor-tile",
+    "min": [
+     -1.998,
+     -0.05,
+     -7.998
+    ],
+    "max": [
+     -0.002,
+     0.006,
+     -6.002
+    ]
+   },
+   {
+    "name": "036-park-floor-tile",
+    "min": [
+     -1.998,
+     -0.05,
+     -5.998
+    ],
+    "max": [
+     -0.002,
+     0.006,
+     -4.002
+    ]
+   },
+   {
+    "name": "037-park-floor-tile",
+    "min": [
+     -1.998,
+     -0.05,
+     -3.998
+    ],
+    "max": [
+     -0.002,
+     0.006,
+     -2.002
+    ]
+   },
+   {
+    "name": "038-park-floor-tile",
+    "min": [
+     -1.998,
+     -0.05,
+     -1.998
+    ],
+    "max": [
+     -0.002,
+     0.006,
+     -0.002
+    ]
+   },
+   {
+    "name": "039-park-floor-tile",
+    "min": [
+     -1.998,
+     -0.05,
+     0.002
+    ],
+    "max": [
+     -0.002,
+     0.006,
+     1.998
+    ]
+   },
+   {
+    "name": "040-park-floor-tile",
+    "min": [
+     -1.998,
+     -0.05,
+     2.002
+    ],
+    "max": [
+     -0.002,
+     0.006,
+     3.998
+    ]
+   },
+   {
+    "name": "041-park-floor-tile",
+    "min": [
+     -1.998,
+     -0.05,
+     4.002
+    ],
+    "max": [
+     -0.002,
+     0.006,
+     5.998
+    ]
+   },
+   {
+    "name": "042-park-floor-tile",
+    "min": [
+     0.002,
+     -0.05,
+     -7.998
+    ],
+    "max": [
+     1.998,
+     0.006,
+     -6.002
+    ]
+   },
+   {
+    "name": "043-park-floor-tile",
+    "min": [
+     0.002,
+     -0.05,
+     -5.998
+    ],
+    "max": [
+     1.998,
+     0.006,
+     -4.002
+    ]
+   },
+   {
+    "name": "044-park-floor-tile",
+    "min": [
+     0.002,
+     -0.05,
+     -3.998
+    ],
+    "max": [
+     1.998,
+     0.006,
+     -2.002
+    ]
+   },
+   {
+    "name": "045-park-floor-tile",
+    "min": [
+     0.002,
+     -0.05,
+     -1.998
+    ],
+    "max": [
+     1.998,
+     0.006,
+     -0.002
+    ]
+   },
+   {
+    "name": "046-park-floor-tile",
+    "min": [
+     0.002,
+     -0.05,
+     0.002
+    ],
+    "max": [
+     1.998,
+     0.006,
+     1.998
+    ]
+   },
+   {
+    "name": "047-park-floor-tile",
+    "min": [
+     0.002,
+     -0.05,
+     2.002
+    ],
+    "max": [
+     1.998,
+     0.006,
+     3.998
+    ]
+   },
+   {
+    "name": "048-park-floor-tile",
+    "min": [
+     0.002,
+     -0.05,
+     4.002
+    ],
+    "max": [
+     1.998,
+     0.006,
+     5.998
+    ]
+   },
+   {
+    "name": "049-wall-panel-module",
+    "min": [
+     -12,
+     0,
+     -8.23
+    ],
+    "max": [
+     -10,
+     3,
+     -7.97
+    ]
+   },
+   {
+    "name": "050-wall-panel-module",
+    "min": [
+     -10,
+     0,
+     -8.23
+    ],
+    "max": [
+     -8,
+     3,
+     -7.97
+    ]
+   },
+   {
+    "name": "051-wall-panel-module",
+    "min": [
+     -8,
+     0,
+     -8.23
+    ],
+    "max": [
+     -6,
+     3,
+     -7.97
+    ]
+   },
+   {
+    "name": "052-wall-panel-module",
+    "min": [
+     -6,
+     0,
+     -8.23
+    ],
+    "max": [
+     -4,
+     3,
+     -7.97
+    ]
+   },
+   {
+    "name": "053-wall-panel-module",
+    "min": [
+     -4,
+     0,
+     -8.23
+    ],
+    "max": [
+     -2,
+     3,
+     -7.97
+    ]
+   },
+   {
+    "name": "054-wall-panel-module",
+    "min": [
+     -2,
+     0,
+     -8.23
+    ],
+    "max": [
+     0,
+     3,
+     -7.97
+    ]
+   },
+   {
+    "name": "055-wall-panel-module",
+    "min": [
+     0,
+     0,
+     -8.23
+    ],
+    "max": [
+     2,
+     3,
+     -7.97
+    ]
+   },
+   {
+    "name": "056-wall-trampoline-module",
+    "min": [
+     -12.23,
+     0,
+     -8.01
+    ],
+    "max": [
+     -11.766,
+     2.57,
+     -5.99
+    ]
+   },
+   {
+    "name": "057-wall-trampoline-module",
+    "min": [
+     -12.23,
+     0,
+     -6.01
+    ],
+    "max": [
+     -11.766,
+     2.57,
+     -3.99
+    ]
+   },
+   {
+    "name": "058-wall-panel-module",
+    "min": [
+     -12.23,
+     0,
+     -4
+    ],
+    "max": [
+     -11.97,
+     3,
+     -2
+    ]
+   },
+   {
+    "name": "059-trampoline-bed-module",
+    "min": [
+     -11.42,
+     0,
+     -7.62
+    ],
+    "max": [
+     -9.38,
+     0.9,
+     -5.58
+    ]
+   },
+   {
+    "name": "060-trampoline-bed-module",
+    "min": [
+     -9.12,
+     0,
+     -7.62
+    ],
+    "max": [
+     -7.08,
+     0.9,
+     -5.58
+    ]
+   },
+   {
+    "name": "061-trampoline-bed-module",
+    "min": [
+     -6.82,
+     0,
+     -7.62
+    ],
+    "max": [
+     -4.78,
+     0.9,
+     -5.58
+    ]
+   },
+   {
+    "name": "062-trampoline-bed-module",
+    "min": [
+     -11.42,
+     0,
+     -5.32
+    ],
+    "max": [
+     -9.38,
+     0.9,
+     -3.28
+    ]
+   },
+   {
+    "name": "063-trampoline-bed-module",
+    "min": [
+     -9.12,
+     0,
+     -5.32
+    ],
+    "max": [
+     -7.08,
+     0.9,
+     -3.28
+    ]
+   },
+   {
+    "name": "064-trampoline-bed-module",
+    "min": [
+     -6.82,
+     0,
+     -5.32
+    ],
+    "max": [
+     -4.78,
+     0.9,
+     -3.28
+    ]
+   },
+   {
+    "name": "065-safety-pad-strip",
+    "min": [
+     -9.39,
+     0,
+     -7.6
+    ],
+    "max": [
+     -9.11,
+     0.91,
+     -5.6
+    ]
+   },
+   {
+    "name": "066-safety-pad-strip",
+    "min": [
+     -7.09,
+     0,
+     -7.6
+    ],
+    "max": [
+     -6.81,
+     0.91,
+     -5.6
+    ]
+   },
+   {
+    "name": "067-safety-pad-strip",
+    "min": [
+     -9.39,
+     0,
+     -5.3
+    ],
+    "max": [
+     -9.11,
+     0.91,
+     -3.3
+    ]
+   },
+   {
+    "name": "068-safety-pad-strip",
+    "min": [
+     -7.09,
+     0,
+     -5.3
+    ],
+    "max": [
+     -6.81,
+     0.91,
+     -3.3
+    ]
+   },
+   {
+    "name": "069-safety-pad-strip-magenta",
+    "min": [
+     -11.4,
+     0,
+     -5.59
+    ],
+    "max": [
+     -9.4,
+     0.91,
+     -5.31
+    ]
+   },
+   {
+    "name": "070-safety-pad-strip-magenta",
+    "min": [
+     -9.1,
+     0,
+     -5.59
+    ],
+    "max": [
+     -7.1,
+     0.91,
+     -5.31
+    ]
+   },
+   {
+    "name": "071-safety-pad-strip-magenta",
+    "min": [
+     -6.8,
+     0,
+     -5.59
+    ],
+    "max": [
+     -4.8,
+     0.91,
+     -5.31
+    ]
+   },
+   {
+    "name": "072-dodgeball-divider-net-frame",
+    "min": [
+     -11.46,
+     0.9,
+     -5.57
+    ],
+    "max": [
+     -9.34,
+     3.58,
+     -5.33
+    ]
+   },
+   {
+    "name": "073-dodgeball-divider-net-frame",
+    "min": [
+     -9.46,
+     0.9,
+     -5.57
+    ],
+    "max": [
+     -7.34,
+     3.58,
+     -5.33
+    ]
+   },
+   {
+    "name": "074-dodgeball-divider-net-frame",
+    "min": [
+     -7.46,
+     0.9,
+     -5.57
+    ],
+    "max": [
+     -5.34,
+     3.58,
+     -5.33
+    ]
+   },
+   {
+    "name": "075-basketball-dunk-hoop",
+    "min": [
+     -11.005,
+     0,
+     -8.12
+    ],
+    "max": [
+     -9.795,
+     3.1,
+     -6.742
+    ]
+   },
+   {
+    "name": "076-basketball-dunk-hoop",
+    "min": [
+     -8.705,
+     0,
+     -8.12
+    ],
+    "max": [
+     -7.495,
+     3.1,
+     -6.742
+    ]
+   },
+   {
+    "name": "077-court-edge-platform",
+    "min": [
+     -11.31,
+     0,
+     -3.23
+    ],
+    "max": [
+     -9.29,
+     0.9,
+     -1.42
+    ]
+   },
+   {
+    "name": "078-court-edge-platform",
+    "min": [
+     -9.31,
+     0,
+     -3.23
+    ],
+    "max": [
+     -7.29,
+     0.9,
+     -1.42
+    ]
+   },
+   {
+    "name": "079-foam-pit-frame-with-cubes",
+    "min": [
+     -3.98,
+     0,
+     -7.98
+    ],
+    "max": [
+     -0.82,
+     0.9,
+     -4.82
+    ]
+   },
+   {
+    "name": "080-tumble-track-lane",
+    "min": [
+     -3.2,
+     0,
+     -4.6
+    ],
+    "max": [
+     -1.6,
+     0.46,
+     0.73
+    ]
+   },
+   {
+    "name": "081-balance-beam-over-pit",
+    "min": [
+     -4,
+     0,
+     -4.64
+    ],
+    "max": [
+     -0.8,
+     0.677,
+     -3.56
+    ]
+   },
+   {
+    "name": "082-airbag-landing-block",
+    "min": [
+     -0.713,
+     0,
+     -6.613
+    ],
+    "max": [
+     1.913,
+     0.9,
+     -4.57
+    ]
+   },
+   {
+    "name": "083-performance-trampoline",
+    "min": [
+     -0.095,
+     0,
+     -4.495
+    ],
+    "max": [
+     2.095,
+     1.18,
+     -2.06
+    ]
+   },
+   {
+    "name": "084-angled-trampoline-module",
+    "min": [
+     0.03,
+     0,
+     -8.148
+    ],
+    "max": [
+     1.97,
+     1.458,
+     -6.195
+    ]
+   },
+   {
+    "name": "085-soft-play-frame-tower-with-slide",
+    "min": [
+     -5.16,
+     0,
+     -2.72
+    ],
+    "max": [
+     -2.18,
+     2.58,
+     2.43
+    ]
+   },
+   {
+    "name": "086-ball-pit-frame-with-balls",
+    "min": [
+     -0.38,
+     0,
+     -1.98
+    ],
+    "max": [
+     2.18,
+     0.62,
+     0.91
+    ]
+   },
+   {
+    "name": "087-spinner-seat",
+    "min": [
+     -1.76,
+     0,
+     -2.553
+    ],
+    "max": [
+     -0.84,
+     0.708,
+     -1.647
+    ]
+   },
+   {
+    "name": "088-roller-slide",
+    "min": [
+     -1.89,
+     0,
+     -0.43
+    ],
+    "max": [
+     -0.11,
+     1.136,
+     2.81
+    ]
+   },
+   {
+    "name": "089-padded-step-block-set",
+    "min": [
+     -0.273,
+     0,
+     1.497
+    ],
+    "max": [
+     2.103,
+     0.672,
+     2.103
+    ]
+   },
+   {
+    "name": "090-crawl-tunnel",
+    "min": [
+     -6.64,
+     0,
+     -0.1
+    ],
+    "max": [
+     -4.16,
+     1.035,
+     0.9
+    ]
+   },
+   {
+    "name": "091-crawl-tunnel-lime",
+    "min": [
+     -6.64,
+     0,
+     1.3
+    ],
+    "max": [
+     -4.16,
+     1.035,
+     2.3
+    ]
+   },
+   {
+    "name": "092-toddler-play-mat-set",
+    "min": [
+     -9.09,
+     0,
+     0.31
+    ],
+    "max": [
+     -6.91,
+     0.31,
+     2.49
+    ]
+   },
+   {
+    "name": "093-soft-play-net-wall-module",
+    "min": [
+     -6.72,
+     0,
+     -2.061
+    ],
+    "max": [
+     -6.48,
+     1.86,
+     0.061
+    ]
+   },
+   {
+    "name": "094-soft-play-net-wall-module",
+    "min": [
+     -6.72,
+     0,
+     -0.061
+    ],
+    "max": [
+     -6.48,
+     1.86,
+     2.06
+    ]
+   },
+   {
+    "name": "095-padded-post-and-rope-divider",
+    "min": [
+     -4.291,
+     0,
+     2.447
+    ],
+    "max": [
+     -2.509,
+     1.09,
+     2.953
+    ]
+   },
+   {
+    "name": "096-padded-post-and-rope-divider",
+    "min": [
+     -2.491,
+     0,
+     2.447
+    ],
+    "max": [
+     -0.709,
+     1.09,
+     2.953
+    ]
+   },
+   {
+    "name": "097-padded-post-and-rope-divider",
+    "min": [
+     -0.691,
+     0,
+     2.447
+    ],
+    "max": [
+     1.091,
+     1.09,
+     2.953
+    ]
+   },
+   {
+    "name": "098-marshal-stand",
+    "min": [
+     -8.1,
+     0,
+     -1.49
+    ],
+    "max": [
+     -7.1,
+     1.374,
+     -0.18
+    ]
+   },
+   {
+    "name": "099-reception-desk-with-screen",
+    "min": [
+     -11.77,
+     0,
+     3.2
+    ],
+    "max": [
+     -9.03,
+     1.38,
+     4
+    ]
+   },
+   {
+    "name": "100-grip-sock-display",
+    "min": [
+     -9.08,
+     0,
+     3.14
+    ],
+    "max": [
+     -8.12,
+     1.67,
+     3.66
+    ]
+   },
+   {
+    "name": "101-locker-bank",
+    "min": [
+     -8.13,
+     0,
+     3.245
+    ],
+    "max": [
+     -6.27,
+     1.95,
+     3.768
+    ]
+   },
+   {
+    "name": "102-locker-bank",
+    "min": [
+     -6.13,
+     0,
+     3.245
+    ],
+    "max": [
+     -4.27,
+     1.95,
+     3.768
+    ]
+   },
+   {
+    "name": "103-bench-and-cubby-run",
+    "min": [
+     -4.2,
+     0,
+     3.36
+    ],
+    "max": [
+     -1.8,
+     1.62,
+     3.84
+    ]
+   },
+   {
+    "name": "104-briefing-screen-on-stand",
+    "min": [
+     -1.632,
+     0,
+     3.276
+    ],
+    "max": [
+     -0.776,
+     1.99,
+     4.124
+    ]
+   },
+   {
+    "name": "105-first-aid-point",
+    "min": [
+     -0.06,
+     0,
+     3.4
+    ],
+    "max": [
+     0.66,
+     1.52,
+     3.8
+    ]
+   },
+   {
+    "name": "106-safety-sign-set",
+    "min": [
+     0.943,
+     0,
+     3.049
+    ],
+    "max": [
+     2.057,
+     1.566,
+     3.951
+    ]
+   },
+   {
+    "name": "107-queue-rail",
+    "min": [
+     -11.61,
+     0,
+     4.795
+    ],
+    "max": [
+     -9.59,
+     1.03,
+     5.205
+    ]
+   },
+   {
+    "name": "108-queue-rail",
+    "min": [
+     -10.01,
+     0,
+     4.795
+    ],
+    "max": [
+     -7.99,
+     1.03,
+     5.205
+    ]
+   },
+   {
+    "name": "109-queue-rail",
+    "min": [
+     -8.41,
+     0,
+     4.795
+    ],
+    "max": [
+     -6.39,
+     1.03,
+     5.205
+    ]
+   },
+   {
+    "name": "110-cafe-counter-with-stools",
+    "min": [
+     -4.88,
+     0,
+     4.585
+    ],
+    "max": [
+     -1.92,
+     1.51,
+     5.995
+    ]
+   },
+   {
+    "name": "111-party-room-table-run",
+    "min": [
+     -1.61,
+     0,
+     3.978
+    ],
+    "max": [
+     0.81,
+     0.915,
+     6.019
+    ]
+   },
+   {
+    "name": "112-party-room-table-run",
+    "min": [
+     -6.81,
+     0,
+     4.178
+    ],
+    "max": [
+     -4.39,
+     0.915,
+     6.219
+    ]
+   },
+   {
+    "name": "113-vending-machine",
+    "min": [
+     1.08,
+     0,
+     4.38
+    ],
+    "max": [
+     2.12,
+     1.9,
+     5.271
+    ]
+   },
+   {
+    "name": "114-waste-bin",
+    "min": [
+     -2.144,
+     0,
+     4.162
+    ],
+    "max": [
+     -1.656,
+     0.95,
+     4.64
+    ]
+   },
+   {
+    "name": "115-waste-bin",
+    "min": [
+     -11.844,
+     0,
+     2.162
+    ],
+    "max": [
+     -11.356,
+     0.95,
+     2.64
+    ]
+   },
+   {
+    "name": "116-cleaning-trolley",
+    "min": [
+     0.704,
+     0,
+     2.189
+    ],
+    "max": [
+     1.75,
+     1.175,
+     3.011
+    ]
+   },
+   {
+    "name": "117-ceiling-truss-with-light-bars",
+    "min": [
+     -10.006,
+     3.4,
+     -2.15
+    ],
+    "max": [
+     -7.994,
+     3.937,
+     -1.85
+    ]
+   },
+   {
+    "name": "118-ceiling-truss-with-light-bars",
+    "min": [
+     -8.006,
+     3.4,
+     -2.15
+    ],
+    "max": [
+     -5.994,
+     3.937,
+     -1.85
+    ]
+   },
+   {
+    "name": "119-ceiling-truss-with-light-bars",
+    "min": [
+     -6.006,
+     3.4,
+     -2.15
+    ],
+    "max": [
+     -3.994,
+     3.937,
+     -1.85
+    ]
+   },
+   {
+    "name": "120-ceiling-truss-with-light-bars",
+    "min": [
+     -4.006,
+     3.4,
+     4.05
+    ],
+    "max": [
+     -1.994,
+     3.937,
+     4.35
+    ]
+   },
+   {
+    "name": "121-ceiling-truss-with-light-bars",
+    "min": [
+     -2.006,
+     3.4,
+     4.05
+    ],
+    "max": [
+     0.006,
+     3.937,
+     4.35
+    ]
+   },
+   {
+    "name": "122-ceiling-truss-with-light-bars",
+    "min": [
+     -0.006,
+     3.4,
+     4.05
+    ],
+    "max": [
+     2.006,
+     3.937,
+     4.35
+    ]
+   }
+  ],
+  "materials": [
+   "grey",
+   "blue",
+   "lime",
+   "pale",
+   "steel",
+   "dark",
+   "magenta",
+   "amber"
+  ],
+  "textures": [],
+  "animations": [],
+  "skins": 0,
+  "joints": [],
+  "licence": "CC0 1.0 (3dassets.dev)"
+ }
+]
