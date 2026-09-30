@@ -178,7 +178,7 @@ for (const id of byType('hang')) test(`monkey bars ${id}: hang, travel along, dr
   assert.ok(toy.proj(p.pos).t > t0 + 0.1, 'moves along the bars');
   jump(sim, 'kid');
   steps(sim, seconds(1));
-  assert.ok(p.mode === 'walk' || p.mode === 'air');
+  assert.ok((p.mode as string) === "walk" || (p.mode as string) === "air");
 });
 
 for (const type of ['sandbox', 'ballPit', 'softPit', 'water']) for (const id of byType(type)) test(`${type} ${id}: reacts when you walk in`, async () => {

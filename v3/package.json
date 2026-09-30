@@ -5,14 +5,14 @@
   "type": "module",
   "description": "لمّتنا ٣ — صالة المرح · Lammatna 3 (Babylon.js + Rapier + Cloudflare Durable Objects)",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -p . && vite build",
+    "dev": "node tools/rapier-split.mjs && vite",
+    "build": "node tools/rapier-split.mjs && tsc -p . && vite build",
     "models": "node tools/build-models.mjs && node tools/inspect-models.mjs > /dev/null && node tools/model-table.mjs",
     "layout": "node tools/make-layout.mjs && node tools/build-models.mjs",
     "test:unit": "node --import tsx --test --test-concurrency=1 tests/*.test.ts",
     "test:e2e": "playwright test",
     "test": "npm run test:unit && npm run build && npm run test:e2e",
-    "worker:prepare": "node tools/rapier-worker.mjs",
+    "worker:prepare": "node tools/rapier-split.mjs",
     "worker:dev": "npm run worker:prepare && wrangler dev",
     "deploy:worker": "npm run worker:prepare && wrangler deploy"
   },
@@ -28,11 +28,13 @@
     "@gltf-transform/functions": "^4.5.1",
     "@playwright/test": "1.56.1",
     "@types/node": "^26.6.3",
+    "@types/ws": "^8.18.2",
     "ktx2-encoder": "^0.6.0",
     "sharp": "^0.35.5",
     "tsx": "^4.23.15",
     "typescript": "^7.0.2",
     "vite": "^8.3.1",
-    "wrangler": "^4.144.0"
+    "wrangler": "^4.144.0",
+    "ws": "^8.22.0"
   }
 }

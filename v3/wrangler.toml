@@ -1,0 +1,16 @@
+# Lammatna 3 room server — a separate Worker from the v1/v2 "lammatna" Worker.
+# Deploy: npm run deploy:worker   (prepares the Workers-friendly Rapier copy first)
+name = "lammatna-v3"
+main = "server/worker.ts"
+compatibility_date = "2026-09-01"
+
+[alias]
+"@dimforge/rapier3d-compat" = "./server/generated/rapier.mjs"
+
+[[durable_objects.bindings]]
+name = "LAMMATNA3_ROOMS"
+class_name = "Lammatna3Room"
+
+[[migrations]]
+tag = "v3-rooms-1"
+new_sqlite_classes = ["Lammatna3Room"]

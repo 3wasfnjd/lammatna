@@ -9,7 +9,7 @@ import { MOVE, G, groups, BTN, BODY_HEIGHT } from './constants';
 import type { V3, Q } from './math';
 import { Spline, clamp, quatY, quatMul, quatAxis, quatRotate } from './math';
 
-export interface Interaction { d: number; kind: string; icon: string }
+export interface Interaction { d: number; kind: string; icon: string; at?: V3 }
 
 const hd = (a: V3, b: V3) => Math.hypot(a[0] - b[0], a[2] - b[2]);
 const center = (b: Bounds6): V3 => [(b[0] + b[3]) / 2, (b[1] + b[4]) / 2, (b[2] + b[5]) / 2];
@@ -24,6 +24,7 @@ export abstract class Toy {
   wd(d: V3) { return xfDir(this.def.xf, d); }
   local(p: V3) { return xfInverse(this.def.xf, p); }
   get s() { return this.def.xf.scale; }
+  center(): V3 { return this.w(center(this.def.b)); }
   get rot() { return this.def.xf.rot; }
   part(key: string): Bounds6 { return this.def.parts[key] || this.def.b; }
   addStatic(b: Bounds6, extra: any = {}) { return this.sim.addStatic(boxCollider(this.def.xf, b, { owner: this.id, ...extra })); }

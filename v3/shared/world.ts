@@ -250,12 +250,14 @@ function propFrom(pl: Placement, xf: Xf, b: Bounds6): PropDef {
   const sx = (b[3] - b[0]) * xf.scale, sy = (b[4] - b[1]) * xf.scale, sz = (b[5] - b[2]) * xf.scale;
   const ball = pl.shape === 'ball';
   const half: V3 = ball ? [sx / 2, sx / 2, sx / 2] : [sx / 2, sy / 2, sz / 2];
-  const offset: V3 = [(b[0] + b[3]) / 2 * xf.scale, (b[1] + b[4]) / 2 * xf.scale, (b[2] + b[5]) / 2 * xf.scale];
+  // The body's origin sits at the bottom centre of the model (or scene child).
+  const base = xfPoint(xf, [(b[0] + b[3]) / 2, b[1], (b[2] + b[5]) / 2]);
+  const offset: V3 = [0, half[1], 0];
   const vol = ball ? 4.19 * half[0] ** 3 : sx * sy * sz;
   const mass = pl.mass ?? Math.min(40, Math.max(1.5, vol * 60));
   return {
     id: pl.id, zone: pl.zone, model: pl.model, shape: ball ? 'ball' : 'box', half, offset,
-    pos: pl.pos, rot: xf.rot, scale: xf.scale, mass, color: pl.color,
+    pos: base, rot: xf.rot, scale: xf.scale, mass, color: pl.color,
     restitution: pl.behaviour?.restitution ?? (ball ? 0.7 : 0.1), tag: pl.behaviour?.tag ?? (ball ? 'ball' : 'prop')
   };
 }

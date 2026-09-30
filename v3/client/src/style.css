@@ -1,0 +1,59 @@
+:root {
+  --sun: #FFB86B; --ink: #3B2F4A; --glass: rgba(255, 255, 255, 0.28); --glass-strong: rgba(255, 255, 255, 0.55);
+  --shadow: 0 6px 18px rgba(40, 20, 60, 0.18);
+  font-family: "Tajawal", "Noto Kufi Arabic", "Segoe UI", system-ui, sans-serif;
+}
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; user-select: none; -webkit-user-select: none; }
+html, body { margin: 0; height: 100%; overflow: hidden; background: #FFE3C2; color: var(--ink); touch-action: none; }
+#game { position: fixed; inset: 0; width: 100%; height: 100%; display: block; outline: none; }
+#ui { position: fixed; inset: 0; pointer-events: none; }
+#ui > * { pointer-events: auto; }
+
+/* Round translucent buttons — no frames, no cards. */
+.rb { border: 0; border-radius: 50%; background: var(--glass); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  width: 64px; height: 64px; font-size: 30px; line-height: 1; display: grid; place-items: center; color: var(--ink);
+  box-shadow: var(--shadow); cursor: pointer; transition: transform .12s ease, background .2s ease, opacity .25s ease; padding: 0; }
+.rb:active, .rb.down { transform: scale(0.9); background: var(--glass-strong); }
+.rb.big { width: 96px; height: 96px; font-size: 44px; }
+.rb.small { width: 46px; height: 46px; font-size: 22px; }
+.rb.sel { background: rgba(255,255,255,0.8); outline: 3px solid var(--sun); }
+.hidden { opacity: 0 !important; pointer-events: none !important; transform: scale(0.6) !important; }
+
+/* Screens float over the live 3D scene. */
+.screen { position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px;
+  background: radial-gradient(ellipse at center, rgba(255,240,220,0.35), rgba(255,200,150,0.55)); }
+.title { font-size: clamp(44px, 12vw, 84px); font-weight: 800; letter-spacing: 0; color: #fff; text-shadow: 0 4px 0 #F2735F, 0 8px 20px rgba(0,0,0,0.2); margin: 0; }
+.row { display: flex; gap: 18px; align-items: center; justify-content: center; flex-wrap: wrap; }
+.label { font-size: 17px; font-weight: 700; color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.35); text-align: center; }
+.code-in { width: 190px; font-size: 40px; text-align: center; letter-spacing: 12px; border: 0; border-radius: 40px; padding: 8px 12px;
+  background: var(--glass-strong); color: var(--ink); direction: ltr; outline: none; box-shadow: var(--shadow); font-family: inherit; }
+.char { width: 84px; height: 84px; border-radius: 50%; background: var(--glass); display: grid; place-items: center; cursor: pointer;
+  box-shadow: var(--shadow); transition: transform .15s; overflow: hidden; border: 0; padding: 0; }
+.char img { width: 120%; height: 120%; object-fit: cover; object-position: 50% 20%; pointer-events: none; }
+.char.sel { transform: scale(1.12); outline: 4px solid var(--sun); background: rgba(255,255,255,0.75); }
+.swatch { width: 38px; height: 38px; border-radius: 50%; border: 3px solid rgba(255,255,255,0.8); cursor: pointer; box-shadow: var(--shadow); padding: 0; }
+.swatch.sel { transform: scale(1.2); border-color: var(--ink); }
+.name { font-size: 26px; font-weight: 800; color: #fff; text-shadow: 0 2px 6px rgba(0,0,0,0.35); min-height: 32px; }
+.err { color: #fff; background: rgba(242,115,95,0.85); border-radius: 30px; padding: 6px 16px; font-weight: 700; }
+
+/* HUD */
+.joy { position: fixed; left: 18px; bottom: 18px; width: 150px; height: 150px; border-radius: 50%; background: var(--glass); backdrop-filter: blur(4px);
+  box-shadow: var(--shadow); touch-action: none; }
+.joy .knob { position: absolute; left: 50%; top: 50%; width: 62px; height: 62px; margin: -31px 0 0 -31px; border-radius: 50%; background: var(--glass-strong); box-shadow: var(--shadow); }
+.jump { position: fixed; right: 24px; bottom: 30px; }
+.act { position: fixed; right: 130px; bottom: 60px; }
+.emo { position: fixed; right: 14px; top: 14px; }
+.emo-list { position: fixed; right: 14px; top: 70px; display: flex; flex-direction: column; gap: 8px; }
+.chip { position: fixed; top: 14px; left: 14px; display: flex; gap: 8px; align-items: center; font-weight: 800; font-size: 18px; color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.4); direction: ltr; }
+.dot { width: 14px; height: 14px; border-radius: 50%; border: 2px solid #fff; }
+.stars { position: fixed; top: 14px; left: 50%; transform: translateX(-50%); font-weight: 800; font-size: 20px; color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.45); direction: ltr; display: flex; gap: 14px; }
+.gamebar { position: fixed; top: 52px; left: 50%; transform: translateX(-50%); font-weight: 800; font-size: 22px; color: #fff; text-shadow: 0 2px 5px rgba(0,0,0,0.5); direction: ltr; display: flex; gap: 12px; align-items: center; transition: opacity .3s; }
+.bigcolor { width: 34px; height: 34px; border-radius: 50%; border: 3px solid #fff; box-shadow: var(--shadow); }
+.toast { position: fixed; top: 38%; left: 50%; transform: translate(-50%, -50%); font-size: 64px; pointer-events: none; transition: opacity .4s, transform .4s; text-shadow: 0 4px 12px rgba(0,0,0,0.25); }
+.challenge { position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; pointer-events: auto; background: rgba(40,20,60,0.25); }
+.challenge .arrow { font-size: 90px; color: #fff; text-shadow: 0 4px 12px rgba(0,0,0,0.4); }
+.challenge .meter { width: 240px; height: 18px; border-radius: 9px; background: var(--glass); overflow: hidden; }
+.challenge .meter i { display: block; height: 100%; background: var(--sun); width: 0; }
+.loading { position: fixed; left: 50%; bottom: 12%; transform: translateX(-50%); width: 180px; height: 10px; border-radius: 5px; background: var(--glass); overflow: hidden; }
+.loading i { display: block; height: 100%; width: 0; background: var(--sun); transition: width .2s; }
+@media (max-height: 480px) { .joy { width: 120px; height: 120px; } .rb.big { width: 80px; height: 80px; } .act { right: 110px; bottom: 44px; } }

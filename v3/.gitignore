@@ -4,3 +4,4 @@ scratch/
 test-results/
 playwright-report/
 server/generated/
+client/generated/

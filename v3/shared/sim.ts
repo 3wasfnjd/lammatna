@@ -119,7 +119,7 @@ export class Sim {
       .setLinearDamping(p.shape === 'ball' ? 0.08 : 0.8).setAngularDamping(p.shape === 'ball' ? 0.4 : 1.5).setCcdEnabled(p.shape === 'ball');
     const body = this.world.createRigidBody(bd);
     const cd = (p.shape === 'ball' ? RAPIER.ColliderDesc.ball(p.half[0]) : RAPIER.ColliderDesc.cuboid(p.half[0], p.half[1], p.half[2]))
-      .setTranslation(p.shape === 'ball' ? 0 : p.offset[0], p.shape === 'ball' ? p.half[0] : p.offset[1], p.shape === 'ball' ? 0 : p.offset[2])
+      .setTranslation(0, p.shape === 'ball' ? p.half[0] : p.offset[1], 0)
       .setMass(p.mass).setRestitution(p.restitution ?? 0.1).setFriction(p.shape === 'ball' ? 0.6 : 0.7)
       .setCollisionGroups(groups(G.DYNAMIC, G.STATIC | G.PLAYER | G.DYNAMIC | G.TOY));
     const col = this.world.createCollider(cd, body);
@@ -361,24 +361,24 @@ export class Sim {
 
   // ---------- interaction ----------
   interactions(p: PlayerSim) {
-    const out: { d: number; kind: string; icon: string; run: () => void }[] = [];
+    const out: { d: number; kind: string; icon: string; at: V3; id: string; run: () => void }[] = [];
     for (const t of this.toys) {
       const it = t.interaction?.(p);
-      if (it) out.push({ ...it, run: () => t.interact!(p, it.kind) });
+      if (it) out.push({ ...it, at: it.at || t.center(), id: t.id, run: () => t.interact!(p, it.kind) });
     }
-    if (p.carry) out.push({ d: 0, kind: 'throw', icon: '🤾', run: () => this.throwCarry(p) });
+    if (p.carry) out.push({ d: 0, kind: 'throw', icon: '🤾', at: p.pos, id: p.carry, run: () => this.throwCarry(p) });
     else for (const pr of this.props) {
       const t = pr.body.translation();
       const d = Math.hypot(t.x - p.pos[0], t.z - p.pos[2]);
       const reach = MOVE.reach + pr.def.half[0];
       if (d > reach || Math.abs(t.y - p.pos[1] - 0.5) > 2 || pr.carriedBy) continue;
       const light = pr.def.mass <= 6 && pr.def.tag !== 'giant';
-      out.push({ d: d - 0.3, kind: light ? 'pick' : 'push', icon: light ? '🤲' : '👐', run: () => light ? this.pickUp(p, pr) : this.shove(p, pr) });
+      out.push({ d: d - 0.3, kind: light ? 'pick' : 'push', icon: light ? '🤲' : '👐', at: [t.x, t.y, t.z], id: pr.def.id, run: () => light ? this.pickUp(p, pr) : this.shove(p, pr) });
     }
     for (const o of this.players.values()) {
       if (o === p || o.mode === 'seat' || o.mode === 'slide') continue;
       const d = Math.hypot(o.pos[0] - p.pos[0], o.pos[2] - p.pos[2]);
-      if (d < 1.6 && p.mode === 'walk') out.push({ d: d + 0.6, kind: 'hand', icon: '🤝', run: () => this.holdHand(p, o) });
+      if (d < 1.6 && p.mode === 'walk') out.push({ d: d + 0.6, kind: 'hand', icon: '🤝', at: o.pos, id: o.id, run: () => this.holdHand(p, o) });
     }
     out.sort((a, b) => a.d - b.d);
     return out;

@@ -1,6 +1,6 @@
 // Rapier entry point for all shared code. The Worker build aliases
 // '@dimforge/rapier3d-compat' to a copy that imports the .wasm file as a module
-// (Workers cannot compile WASM from base64 at runtime); see tools/rapier-worker.mjs.
+// (Workers cannot compile WASM from base64 at runtime); see tools/rapier-split.mjs.
 import RAPIER from '@dimforge/rapier3d-compat';
 
 let ready: Promise<void> | null = null;
